@@ -4,6 +4,8 @@
 ## Setting up a project structure
 We start a project with **data**. The data that forms the basis of your work, will get its own, read-only `data` folder. It is important that the content of this folder does not change; your code will not edit it, nor will you. It will only be used as source material for the project during its analysis. The project will generate **output**, which 
 
+`{finish this paragraph}`
+
 
 ### `~` (root)
 This folder:
@@ -49,3 +51,20 @@ This folder:
 - is edited during the project by the user.
 
 Alternative folder name: `paper/`
+
+
+`{make folder tree to visualize the above}`
+
+
+
+
+## Automating the project structure
+
+What **could** we want to automate?
+
+- installing the required packages and dependencies
+- generating the project structure
+- analyse
+- tests to determine whether the project can be run
+- downloading data, filling up the data folder
+- rendering documentation
