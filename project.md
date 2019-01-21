@@ -57,6 +57,9 @@ Alternative folder name: `paper/`
 
 
 
+### Absolute and relative paths
+
+
 
 ## Automating the project structure
 
@@ -68,3 +71,24 @@ What **could** we want to automate?
 - tests to determine whether the project can be run
 - downloading data, filling up the data folder
 - rendering documentation
+
+
+
+## Exercises 
+
+### SLide exercise
+
+- Examples (which folder goes this imaginary file?), central discussion, ambiguous
+
+
+### Individual 
+
+- Create a folder structure like the one before for your own project (including subdirectories)
+- Place a data file in the data folder, write a script that reads the datafile, generates an output file, and places it in the appropriate folder.
+
+
+
+### Group 
+
+Create a folder structure like the one discussed before. Get consensus about the structure. 
+
