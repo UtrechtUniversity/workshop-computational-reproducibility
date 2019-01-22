@@ -28,7 +28,7 @@ An overview of the workshop material is listed here.
 
 - https://guide.esciencecenter.nl/
 - https://software-carpentry.org
-- https://nicercode.github.io/guide.html
+- https://nicercode.github.io/
 
 
 ## License
