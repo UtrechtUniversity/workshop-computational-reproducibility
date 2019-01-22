@@ -24,10 +24,11 @@ An overview of the workshop material is listed here.
 
 **Exercises**
 
-**External resources**
+**External resources and developer inspiration**
 
 - https://guide.esciencecenter.nl/
 - https://software-carpentry.org
+- https://nicercode.github.io/guide.html
 
 
 ## License
