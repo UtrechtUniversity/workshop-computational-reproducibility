@@ -1,5 +1,11 @@
 # Project structure
 
+## Links and inspiration dump
+[Noble et al 2009, Plos Comp Biol](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+[NiceR code](https://nicercode.github.io/blog/2013-04-05-projects/)
+[Carl Boettiger's workflow](https://www.carlboettiger.info/2012/05/06/research-workflow.html)
+
+
 
 ## Setting up a project structure
 We start a project with **data**. The data that forms the basis of your work, will get its own, read-only `data` folder. It is important that the content of this folder does not change; your code will not edit it, nor will you. It will only be used as source material for the project during its analysis. The project will generate **output**, which 
