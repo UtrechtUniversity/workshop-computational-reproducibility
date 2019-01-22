@@ -27,6 +27,7 @@ An overview of the workshop material is listed here.
 **External resources**
 
 - https://guide.esciencecenter.nl/
+- https://software-carpentry.org
 
 
 ## License
