@@ -1,3 +1,4 @@
+
 # Workshop: Introduction to Computational Reproducibility
 
 This repository contains the documentation, exercises and datasets of the
@@ -29,6 +30,7 @@ An overview of the workshop material is listed here.
 - https://guide.esciencecenter.nl/
 - https://software-carpentry.org
 - https://nicercode.github.io/
+- [The role of data stewardship in software sustainability and reproducibility](https://zenodo.org/record/1419085#.XEneGrpFxaQ)
 
 
 ## License
