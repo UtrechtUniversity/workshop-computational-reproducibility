@@ -74,13 +74,20 @@ That is obviously not what we want. Even setting a working directory at a single
 Instead, we recommend using **relative** paths. Here, the path is described from the perspective of the root project folder. The above example would simply become `data/patientdata_2018.csv`. The project as a whole is copied to someone else's system, who will have no trouble running code referring to relative paths, as all necessary folder structures have been included with the project.
 
 Keep in mind that this only works if code is run from the root of the project! The location from where the script is initiated, will be used as the start of the relative path. Compare for instance:
+
 `$ cd Project
+
 $ python src/analysis.py`
+
 (this should work)
+
 vs
+
 `$ python Project/src/analysis.py
+
 python: can't open file 'test.py': [Errno 2] No such file or directory`
-(this gives an error, because `analysis.py` refers to `data/patientdata_2018.csv`, which does not exist in the home folder, but in the `Project` folder.
+
+(this gives an error, because `analysis.py` refers to `data/patientdata_2018.csv`, which does not exist in the home folder, but in the `Project` folder.)
 
 
 ### File naming
