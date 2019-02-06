@@ -11,7 +11,6 @@ In this part of the workshop we will address setting up a reproducible project s
 |:-----------:|:-------------|
 | Root | The highest directory in the hierarchy of folders. This is the main drive in which all your other folders are stored. When working inside a project, the root folder is the main project folder, and will function as the working directory. |
 | Path | The directions to a folder within your system. A path can be absolute, starting from the highest possible point in the hierarchy (for example, the C: drive), or relative, starting from a working directory. E.g.: `/Users/Barbara/example_project/src/analysis.py` is the absolute path to `analysis.py`, where `scripts/analysis.py` is the relative path from the project folder. |
-| | |
 
 
 
@@ -75,17 +74,17 @@ Instead, we recommend using **relative** paths. Here, the path is described from
 
 Keep in mind that this only works if code is run from the root of the project! The location from where the script is initiated, will be used as the start of the relative path. Compare for instance:
 
-`$ cd Project
+`$ cd Project`
 
-$ python src/analysis.py`
+`$ python src/analysis.py`
 
 (this should work)
 
 vs
 
-`$ python Project/src/analysis.py
+`$ python Project/src/analysis.py`
 
-python: can't open file 'test.py': [Errno 2] No such file or directory`
+`python: can't open file 'test.py': [Errno 2] No such file or directory`
 
 (this gives an error, because `analysis.py` refers to `data/patientdata_2018.csv`, which does not exist in the home folder, but in the `Project` folder.)
 
