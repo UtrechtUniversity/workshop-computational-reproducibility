@@ -143,6 +143,7 @@ These are things we could ask the user to do manually, in an elaborate documenta
 
 
 ### Installing packages and dependencies
+Science is standing on the shoulders of giants. So is programming! Your project will build on specific packages inside your field, as well as more general material outside. These packages are called 'dependencies': your project depends on them. Having an overview of these dependencies is essential to the reproducibility of your project. Moreover, consider that these packages will likely not be static, but that new versions may be released constantly (this holds true for the programming language you use, as well!). Thus, you should know which versions of these dependencies you are using.
 
 
 
