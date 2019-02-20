@@ -144,6 +144,10 @@ These are things we could ask the user to do manually, in an elaborate documenta
 
 ### Installing packages and dependencies
 
+
+
+
+
 Your project will use a variety of packages and libraries that may not be installed in your user's system. 
 
 
@@ -155,4 +159,6 @@ Your project will use a variety of packages and libraries that may not be instal
 - [NiceR code](https://nicercode.github.io/blog/2013-04-05-projects/)
 - [Carl Boettiger's workflow](https://www.carlboettiger.info/2012/05/06/research-workflow.html)
 - [Good Enough project management](https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1005510&type=printable)
+
+- ![reproducibility spectrum](https://rviews.rstudio.com/post/2018-01-17-package-management-for-reproducible-r-code_files/spectrum-ex.png) via [rviews blog](https://rviews.rstudio.com/2018/01/18/package-management-for-reproducible-r-code/)
 
