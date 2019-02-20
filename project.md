@@ -11,7 +11,10 @@ In this part of the workshop we will address setting up a reproducible project s
 |:-----------:|:-------------|
 | Root | The highest directory in the hierarchy of folders. This is the main drive in which all your other folders are stored. When working inside a project, the root folder is the main project folder, and will function as the working directory. |
 | Path | The directions to a folder within your system. A path can be absolute, starting from the highest possible point in the hierarchy (for example, the C: drive), or relative, starting from a working directory. E.g.: `/Users/Barbara/example_project/src/analysis.py` is the absolute path to `analysis.py`, where `scripts/analysis.py` is the relative path from the project folder. |
-| Working directory | |
+| Working directory | The directory (or folder) location associated to your project. |
+| Package | A collection of code that can be downloaded and used. |
+| Dependency | A package or library that is required to be able to run something else. |
+
 
 
 
@@ -122,18 +125,26 @@ One rule that transcends program(ming language)s though, is to use the ISO 8601 
 #### Group project
 - Create a folder structure like the one discussed before. Get consensus about the structure. 
 
+
 ## Automating the project structure
+Before your project can be run on another system, many things will have to be set up. For example:
 
-What **could** we want to automate?
+- the folder structure on which your project relies;
+- packages and libraries that are used in your code;
+- dependencies for those packages;
+- external data that needs to be downloaded;
+- the documentation for your project that needs to be rendered into a human-readable format.
 
-- installing the required packages and dependencies
-- generating the project structure
-- analyse
-- tests to determine whether the project can be run
-- downloading data, filling up the data folder
-- rendering documentation
+Perhaps even:
+- installing the language interpreter(s) for the programming language you use;
+- running a test that determines whether your project can indeed be run on the system.
+
+These are things we could ask the user to do manually, in an elaborate documentation. But users are human, and humans are fallible, and most of all profoundly lazy. Instead, we can automate these processes, and make life a little easier on our users.
 
 
+### Installing packages and dependencies
+
+Your project will use a variety of packages and libraries that may not be installed in your user's system. 
 
 
 
