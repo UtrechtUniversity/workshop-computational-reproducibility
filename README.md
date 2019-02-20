@@ -23,6 +23,7 @@ In this hands-on workshop, you will learn to become a better programmer. We will
 - How to use Git for version control, and GitHub to publish your code; 
 - How to license and release your code to ensure maximum reusability. 
  
+
 The workshop is language-independent in principle. We do require participants to have at least a basic understanding of a programming language like Python or R. If you are unsure if the language you use will fit our course, please get in touch before registration. 
 
 ## Material
