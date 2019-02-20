@@ -126,12 +126,11 @@ One rule that transcends program(ming language)s though, is to use the ISO 8601 
 - Create a folder structure like the one discussed before. Get consensus about the structure. 
 
 
-## Automating the project structure
+## Setting up the project
 Before your project can be run on another system, many things will have to be set up. For example:
 
 - the folder structure on which your project relies;
-- packages and libraries that are used in your code;
-- dependencies for those packages;
+- packages and libraries that are used in your code (so-called 'dependencies');
 - external data that needs to be downloaded;
 - the documentation for your project that needs to be rendered into a human-readable format.
 
@@ -139,22 +138,36 @@ Perhaps even:
 - installing the language interpreter(s) for the programming language you use;
 - running a test that determines whether your project can indeed be run on the system.
 
-These are things we could ask the user to do manually, in an elaborate documentation. But users are human, and humans are fallible, and most of all profoundly lazy. Instead, we can automate these processes, and make life a little easier on our users.
+We have several options to guide the user through this setup. In the least technical approach, we could ask the user to do this manually, in an elaborate documentation. But you and your users are human, and humans are fallible: this approach is therefore risky, as steps can be misidentified, or forgotten altogether. With more technical know-how, we could automate these processes, and reduce the risks of problems appearing at the set-up stage.
+
+`{An image showing the risk/tech trade-off, similar to the image from rview blogs below}`
+
+Before we make the decisions on whether or what to automate, let's look at the project set-up in a bit more detail. 
 
 
-### Installing packages and dependencies
-Science is standing on the shoulders of giants. So is programming! Your project will build on specific packages inside your field, as well as more general material outside. These packages are called 'dependencies': your project depends on them. Having an overview of these dependencies is essential to the reproducibility of your project. Moreover, consider that these packages will likely not be static, but that new versions may be released constantly (this holds true for the programming language you use, as well!). Thus, you should know which versions of these dependencies you are using.
+### Installing dependencies
+Science is standing on the shoulders of giants. So is programming! Your project will use and build on specific packages inside your field, as well as more general material outside of it. These packages are called 'dependencies': your project, well, depends on them. Having an overview of these dependencies is essential to the reproducibility of your project. Moreover, consider that these packages will likely not be static, but that new versions may be released constantly. Thus, you should know which versions of these dependencies you are using.
+
+The same applies to the programming language you use. Most if not all languages are in constant development; functions may be deprecated or deleted altogether. Be aware of the release version of the language(s) you use, and ensure it is part of your documentation.
+
+Note that an update in any dependencies may not mean that your project will no longer work. In fact, package developers will often try to prevent this, or to go through a warning phase before previously existing functionalities no longer work. Yet, this may happen, and knowing the original conditions under which your project was written can therefore be crucial in trying to reproduce it.
+
+
+### Downloading external data
+
+
+### Rendering documentation
 
 
 
+### Automating the set-up
+`{FLAG: JONATHAN! :D}`
 
 
-Your project will use a variety of packages and libraries that may not be installed in your user's system. 
+## Concluding remarks
 
 
-
-
-## Links and inspiration dump
+## Links and inspiration dump (will be turned into 'further reading')
 
 - [Noble et al 2009, Plos Comp Biol](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 - [NiceR code](https://nicercode.github.io/blog/2013-04-05-projects/)
