@@ -39,10 +39,12 @@ An overview of the workshop material is listed here.
 **External resources and developer inspiration**
 
 - https://guide.esciencecenter.nl/
-- https://software-carpentry.org
+- https://software-carpentry.org (who develop all their material on [github](https://github.com/swcarpentry). Specifically check out repos on [project management](https://github.com/swcarpentry/managing-research-software-projects), [make](https://github.com/swcarpentry/make-novice), [git](https://github.com/swcarpentry/git-novice), and [this repo that collects all their lessons](https://github.com/swcarpentry/swcarpentry).
 - https://nicercode.github.io/
 - [The role of data stewardship in software sustainability and reproducibility](https://zenodo.org/record/1419085#.XEneGrpFxaQ)
 - [A book-in-progress on reproducible science by the Turing institute](https://github.com/alan-turing-institute/the-turing-way/blob/master/chapters/reproducibility.md)
+
+
 
 
 ## License
