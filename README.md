@@ -29,4 +29,5 @@ An overview of the workshop material is listed here.
 - https://nicercode.github.io/
 - [The role of data stewardship in software sustainability and reproducibility](https://zenodo.org/record/1419085#.XEneGrpFxaQ)
 - [A book-in-progress on reproducible science by the Turing institute](https://github.com/alan-turing-institute/the-turing-way/blob/master/chapters/reproducibility.md)
+- [GIT pro book](https://www.git-scm.com/book/en/v2)
 
