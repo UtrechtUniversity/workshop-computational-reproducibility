@@ -1,4 +1,4 @@
-# Version control and publication
+# Version control, testing, and license
 
 ## Version control with git 
 
