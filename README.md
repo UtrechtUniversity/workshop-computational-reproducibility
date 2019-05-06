@@ -12,6 +12,19 @@ In this hands-on workshop, you will learn to become a better programmer. We will
 
 The workshop is language-independent in principle. We do require participants to have at least a basic understanding of a programming language like Python or R. If you are unsure if the language you use will fit our course, please get in touch before registration. 
 
+## Program
+
+The course contains three main elements:
+1. **Project setup**: [choose a license, set up a repository, set up tests](project_setup.md), [define folders, start workflow automation](project_structure.md).
+2. **Code quality & documentation**: [code review and refactoring, defensive programming, code readability](code_quality.md), [comments, documentation, creating documentation with doxygen](documentation.md).
+3. **Publication & reproduction**: [obtaining a doi, ensuring accessibility](access.md), [reproducibility requirements](reproducibility.md).
+
+
+## Brainstorm
+
+The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [on these slides](https://docs.google.com/presentation/d/1MIPsWt08Kixe1TZfPeM8LvJv7p2es7lZ4Ui88FYbl5Y/edit?usp=sharing).
+
+
 ## Material
 
 An overview of the workshop material is listed here.
