@@ -32,6 +32,7 @@ An overview of the workshop material is listed here.
 **Workshop reference material**
 
 - [slide template option](https://www.overleaf.com/latex/templates/fibeamer-for-utrecht-university/zhzstbsdzfkb)
+- [slides on overleaf](https://www.overleaf.com/project/5cd02c9080045054bb2c6894) (private access?)
 
 **Exercises**
 
