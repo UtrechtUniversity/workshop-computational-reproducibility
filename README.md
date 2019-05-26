@@ -46,3 +46,4 @@ An overview of the workshop material is listed here.
 - [GIT pro book](https://www.git-scm.com/book/en/v2)
 - [Packaging data analytical work reproducibly using R (and friends)](https://peerj.com/preprints/3192.pdf)
 - [Teaching Computational Reproducibility for Neuroimaging](https://www.frontiersin.org/articles/10.3389/fnins.2018.00727/full)
+- [Defensive Programming in Python](https://github.com/UU-IMAU/Python-for-lunch-Notebooks/blob/master/PFL_10_defensive_programming/Defensive_programming.ipynb)
