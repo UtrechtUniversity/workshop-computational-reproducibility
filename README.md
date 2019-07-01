@@ -47,3 +47,17 @@ An overview of the workshop material is listed here.
 - [Packaging data analytical work reproducibly using R (and friends)](https://peerj.com/preprints/3192.pdf)
 - [Teaching Computational Reproducibility for Neuroimaging](https://www.frontiersin.org/articles/10.3389/fnins.2018.00727/full)
 - [Defensive Programming in Python](https://github.com/UU-IMAU/Python-for-lunch-Notebooks/blob/master/PFL_10_defensive_programming/Defensive_programming.ipynb)
+
+## Acknowledgements
+
+This course was developed at Utrecht University, and received contributions from:
+- [Barbara Vreede](https://github.com/bvreede)
+- [Bianca Kramer](https://github.com/bmkramer)
+- [Cedric Thieulot](https://github.com/cedrict)
+- [Erik van Sebille](https://github.com/erikvansebille)
+- [Jeroen Bosman](https://github.com/JeroenBosman)
+- [Jeroen Ooms](https://github.com/jeroen)
+- [Jonathan de Bruin](https://github.com/J535D165)
+- [Lukas van de Wiel](https://github.com/hooiberg)
+- [Menno Fraters](https://github.com/MFraters)
+- [Philippe Delandmeter](https://github.com/delandmeterp)
