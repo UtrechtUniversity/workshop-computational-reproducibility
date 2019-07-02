@@ -59,5 +59,6 @@ This course was developed at Utrecht University, and received contributions from
 - [Jeroen Ooms](https://github.com/jeroen)
 - [Jonathan de Bruin](https://github.com/J535D165)
 - [Lukas van de Wiel](https://github.com/hooiberg)
+- [Mateusz Kuzak](https://twitter.com/matkuzak)
 - [Menno Fraters](https://github.com/MFraters)
 - [Philippe Delandmeter](https://github.com/delandmeterp)
