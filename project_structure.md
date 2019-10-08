@@ -160,10 +160,6 @@ Note that an update in any dependencies may not mean that your project will no l
 
 
 
-### Automating the set-up
-`{FLAG: JONATHAN! :D}`
-
-
 ## Concluding remarks
 
 
