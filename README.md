@@ -17,7 +17,7 @@ The workshop is language-independent in principle. We do require participants to
 ## Program
 
 The course contains three main elements:
-1. **Project setup**: [choose a license, set up a repository](project-setup/README.md), [define folders, start workflow automation](project_structure.md).
+1. **Project setup**: [choose a license, set up a repository](project-setup/README.md), [define folders](project_structure.md).
 2. **Code quality & documentation**: [code readability, code review and refactoring, defensive programming, unit tests](code_quality.md), [comments, documentation, creating documentation with doxygen](documentation.md).
 3. **Publication & reproduction**: [obtaining a doi, ensuring accessibility](access.md), [reproducibility requirements](reproducibility.md).
 
