@@ -92,6 +92,11 @@ Templates and ideas for README
 - https://github.com/matiassingers/awesome-readme
 
 
+
+## Generate a project template
+Also, there are project templates available. Find a few!
+
+
 # Glossary
 | Concept | Definition |
 |:-----------:|:-------------|
