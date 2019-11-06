@@ -31,6 +31,7 @@ There are many websites designed to host code. You should choose a website compa
 
 ### More on this
 * [_Pick a license, any license._ by Jeff Atwood (Coding Horror)](https://blog.codinghorror.com/pick-a-license-any-license/)
+* [Want to choose an license? This tool helps!](https://choosealicense.com)
 
 
 
