@@ -77,6 +77,7 @@ An overview of the workshop material is listed here.
 ## Acknowledgements
 
 This course was developed at Utrecht University, and received contributions from:
+- [Armel Lefebvre](https://github.com/armell)
 - [Barbara Vreede](https://github.com/bvreede)
 - [Bianca Kramer](https://github.com/bmkramer)
 - [Cedric Thieulot](https://github.com/cedrict)
