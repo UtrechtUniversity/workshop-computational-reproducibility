@@ -34,7 +34,7 @@ The course contains three main elements:
 | 10:45 | Version control with git |
 |_12:30_ | _lunch (not provided)_ |
 | 13:30 | Code quality & documentation |
-|_15:00_| _coffee break_ |
+|_15:15_| _coffee break_ |
 | 15:30 | Reproducibility| 
 | 16:30 | Reproduction|
 | 17:00 | Concluding remarks|
