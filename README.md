@@ -19,9 +19,29 @@ The workshop is language-independent in principle. We do require participants to
 ## Program
 
 The course contains three main elements:
-1. **Project setup**: [choose a license, set up a repository](project-setup/README.md), [define folders](project_structure.md), [choosing an IDE](ide.md).
-2. **Code quality & documentation**: [code readability, code review and refactoring, defensive programming, unit tests](code_quality.md), [comments, documentation, creating documentation with doxygen](documentation.md).
-3. **Publication & reproduction**: [obtaining a doi, ensuring accessibility](access.md), [reproducibility requirements](reproducibility.md).
+1. **Project setup**: [choose a license, set up a repository](project-setup/README.md), [define folders](project-setup/project_structure.md), [choosing an IDE](project-setup/ide.md).
+2. **Code quality & documentation**: [code readability, code review and refactoring, defensive programming, unit tests](code-documentation/code_quality.md), [comments, documentation, creating documentation with doxygen](code-documentation/documentation.md).
+3. **Publication & reproduction**: [obtaining a doi, ensuring accessibility](reproducibility/access.md), [reproducibility requirements](reproducibility/reproducibility.md).
+
+
+## Schedule
+
+&nbsp;&nbsp;9:00 Welcome & introduction
+&nbsp;&nbsp;9:30 Project setup
+_10:30 coffee break_
+10:45 Version control with git
+_12:30 lunch (not provided)_
+13:30 Code quality & documentation
+_15:00 coffee break_
+15:30 Reproducibility
+16:30 Reproduction
+17:00 Concluding remarks
+
+## Preparations
+- Install docker
+- If you do not have a github/gitlab account yet: make one
+- bring data and a question.
+
 
 
 ## Brainstorm
