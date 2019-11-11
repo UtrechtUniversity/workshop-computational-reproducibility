@@ -36,6 +36,42 @@ class: inverse, center, middle
 # Get Started
 
 ---
+<!-- Barbara -->
+
+<!-- End Section Barbara -->
+
+
+<!-- Armel -->
+
+## Code documentation
+
+You can document:
+
+- How to use your code
+  - Rmd documents
+  - Jupyter notebooks
+  
+- What your code does
+  - Comment lines
+  - Structured documentation strings
+  
+## Dynamic documents
+
+DYNDOC
+
+## Documentation syntax
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Documentation generator
+
+
+
+## Hostring documentation
+
+<!-- End Section Armel -->
 
 # Hello World
 
