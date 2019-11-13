@@ -1,12 +1,15 @@
-.title-slide {
-  background-image: url(https://thumbs.werkaandemuur.nl/8b4eaeb5fc3915918efe8eff7643e991_950x600_fit.jpg);
-  background-size: cover;
-  border-top: 0;
+.remark-slide-content {
+  background-color: #FFFFFF;
+  border-top: 80px solid #FFAB00;
 }
 
+.clear{
+  border-top: 0 solid gray;
+}
+
+
 .title-slide > h1, .title-slide > h2, .title-slide > h3 {
-  color: white;
-  text-shadow: 0px 0px 10px #000000;
+  color: #303030;
 }
 
 .inverse {
@@ -25,7 +28,9 @@ a, a > code {
   color: rgb(255, 171, 0);
 }
 
-.remark-slide-content {
+.title-slide {
+  background-image: url(slides_version-control_files/figure-html/git.svg);
   background-color: #FFFFFF;
-  border-top: 80px solid #FFAB00;
+  background-size: cover;
+  border-top: 0;
 }
