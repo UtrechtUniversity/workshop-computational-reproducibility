@@ -1,9 +1,9 @@
 ---
 title: "Code documentation"
-subtitle: "⚔<br/>Reproducible code workshop"
+subtitle: "⚔<br/>Reproducible code workshop."
 author: "Armel Lefebvre, Barbara Vreede"
 institute: "Utrecht University"
-date: "2016/11/20 (updated: `r Sys.Date()`)"
+date: "20/11/2019 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -26,31 +26,56 @@ You can document:
 - What your code does with inline comments, in the source code
   - Comment lines
   - Structured documentation strings
+  
+- What to install
+  - Readme.md shown on the main page of git repositories
+  - Requirements.txt in python
+  - Packrat in R, sessionInfo writelines, checkpoints
 
 ---
 
 ## Dynamic documents
 
-DYNDOC
+Dynamic documents combine text (=human reader) with code chunks (=machine)
+
 
 ```{python}
-print("Yoooo")
-```
+# Running python in an RMarkdown document 
+# requires the package reticulate
+who_am_i = "Python"
 
+print(f"I said I am {who_am_i}")
+```
 
 ---
 
 ## Documentation syntax
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+Structured text comment
 
 ---
 ## Documentation generator
+- 
 
 ---
-## Hostring documentation
+## What to  in your code
+
+
+---
+## Hosting documentation
+
+
+---
+## Readme
+
+
+---
+## Hosting documentation
+
+---
+## End documentation
+
+Let'continue with some other stuff
 
 
 <!-- End Section Armel -->

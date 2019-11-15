@@ -1,6 +1,7 @@
 ## Code quality
 
-Your program may be functional, but that is not sufficient. If you cannot convince users that your program does what you say it does, it is as good as non-functional. Having a transparent and robust workflow will help instill that trust (more about that [here](project_setup.md)), but what may be more important is the quality and readability of the code itself. Moreover, you yourself will benefit from well-written code as you develop the project. After all, the most likely person who has to read your code is you...
+Your program may be functional, but that is not sufficient. 
+If you cannot convince users that your program does what you say it does, it is as good as non-functional. Having a transparent and robust workflow will help instill that trust (more about that [here](project_setup.md)), but what may be more important is the quality and readability of the code itself. Moreover, you yourself will benefit from well-written code as you develop the project. After all, the most likely person who has to read your code is you...
 
 
 ### Readable code
