@@ -13,6 +13,11 @@ output:
       countIncrementalSlides: false
 ---
 
+__Reproducibility__
+
+__Reusability__
+
+---
 <!-- Armel -->
 
 ## Code documentation
