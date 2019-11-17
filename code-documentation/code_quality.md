@@ -44,9 +44,25 @@ the purpose of unit testing.
 
 #### Functional comments
 
-Docstrings, explanation, reflect the why and not the how.
+Comments can be helpful to explain some decision (e.g., if...else) present in your code, what you try to do if it is not
+explicit from the code itself and the purpose/behavior of functions.
 
-#### Documentation
+What comments should not be used for is
+* disabling some part of your code from running (at least for code you publish)
+* explain in plain old language what is understandable from reading your code
+* warn users of your package for values or use of your code which are not handle by your code, there is error management
+for that.
+
+#### Documentation generation
+Comments are useful when you are reading the source code. But reading the source code is not mandatory to use a 
+package, therefore users might miss important information if you rely on comments exclusively, even if you feel
+you did a good job at documenting everything.
+
+Documentation is generation is part of the quality of the code as it relies upon parts of your code where you use
+specific syntax and keywords that can be interpreted by documentation generators. The reason to use them is that you
+produce documentation from one reliable source (your code) and can adapt the "manual" of your software right from the 
+code !
+
 
 
 #### Coding style

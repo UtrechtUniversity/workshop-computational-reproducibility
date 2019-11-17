@@ -1,1 +1,17 @@
-Code should be readable. Comments are a functional part of this, but if the comments are the only thing that is readable about your code, you're doing something wrong.
+## Documentation
+
+#### Notebooks
+
+Notebooks are a good way to demonstrate your package in action. 
+
+#### Documentation generators
+
+For R with [Roxygen](https://roxygen2.r-lib.org/)
+
+For Python with [Sphinx](http://www.sphinx-doc.org/en/master/usage/quickstart.html)
+
+#### Packaging and distributing
+
+- Building packages
+    - necessary files
+- Distributing packages
