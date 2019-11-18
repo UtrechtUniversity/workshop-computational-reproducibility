@@ -19,9 +19,7 @@ options(htmltools.dir.version = FALSE)
 
 .pull-left[
 
-- It will help you manage ~~your code~~ most of your files.
-
-- It is like track changes on steroids: it applies to all files in a folder.
+- It will help you manage ~~your code~~ most of your files (it is like track changes on steroids: it applies to all files in a folder).
 
 - It allows you to trace back your steps: if something breaks, you can figure out what happened.
 
@@ -29,6 +27,8 @@ options(htmltools.dir.version = FALSE)
 
 even better:
 - a good version control system allows you to collaborate and share!
+
+- a good version control system facilitates experimentation!
 
 ]
 
@@ -42,28 +42,89 @@ background-position: 96% 15%
 
 # What is git?
 .large-left-column[
-- Version Control system written by Linus Torvalds (of Linux fame)
+- Distributed Version Control system written by Linus Torvalds (of Linux fame)
 
 - Allows you to log updates, branch your work (so you can experiment without losing the original!), and keep all backups, while efficiently using your storage
+
+- Gives user a lot of control on what to track, and adds a narrative to changes ('commit comments')
+
+- Current standard for code
 
 - Open Source software written for the command line...
 
 - ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.]
 
 ---
-# Slide title
+# Starting with git
 
-Here is text.
+1. (You should have installed git by now! If you have not: [git-scm.com](https://git-scm.com).)
+1. Navigate to your project folder in a terminal.
+
+1. Initiate the repository:
+```
+git init
+```
+1. Add your files to the staging area:
+```
+git add *
+```
+1. Commit all the files in your repository:
+```
+git commit -m "First commit"
+```
 
 ---
-# Slide title
+# Connecting to github
 
-Here is text.
+1. Go to your github account and add a new repository (click '+', then 'New repository'):
+
+   ![new-repo](slides_version-control_files/figure-html/screenshots/github_add_repo.png)
+
+1. Fill out the information for your new repository. DO NOT initialize the repository yet!
+
+  ![initialize](slides_version-control_files/figure-html/screenshots/initialize.png)
+  
+1. Set the origin of your local repository to the URL of your repo on github:
+```
+git remote add origin git@github.com:[youraccount]/[yourrepo].git
+```
+
 
 ---
-# Slide title
+# Pushing to github
 
-Here is text.
+You can now push the content of your local repository to the one on github:
+
+```
+git push -u origin master
+```
+
+Congrats, your local repository now has an online representation!
+
+![octocat](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
+
+
+
+---
+# Your workflow
+
+1. Add the changed file(s) to the staging area
+```
+git add filename.py
+```
+1. Commit the changes, don't forget the message.
+```
+git commit -m "My commit message"
+```
+1. Push to the online repository:
+```
+git push
+```
+
+![repo](slides_version-control_files/figure-html/repo.svg)
+
+---
+# 
 
 ---
 class: center, middle

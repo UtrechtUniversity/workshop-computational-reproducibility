@@ -35,8 +35,13 @@ a, a > code {
   border-top: 0;
 }
 
+/* IMAGES */
 img[alt=final] { width: 400px; }
-
+img[alt=new-repo] { width: 250px;}
+img[alt=initialize] { width: 450px;}
+img[alt=octocat] { width: 350px;}
+img[alt=git] { width: 160px;}
+img[alt=repo] { width: 600px;}
 
 
 .large-left-column {
@@ -47,4 +52,14 @@ img[alt=final] { width: 400px; }
 }
 .large-left-column h2:last-of-type, .left-column h3:last-child {
   color: #000;
+}
+
+
+.pull-left-larger {
+  float: left;
+  width: 63%;
+}
+.pull-right-smaller {
+  float: right;
+  width: 30%;
 }
