@@ -36,12 +36,8 @@ even better:
 ![final](http://www.phdcomics.com/comics/archive/phd101212s.gif)
 ]
 ---
-background-image: url(slides_version-control_files/figure-html/git.svg)
-background-size: 500px
-background-position: 96% 15%
-
+.pull-left-larger[
 # What is git?
-.large-left-column[
 - Distributed Version Control system written by Linus Torvalds (of Linux fame)
 
 - Allows you to log updates, branch your work (so you can experiment without losing the original!), and keep all backups, while efficiently using your storage
@@ -53,22 +49,30 @@ background-position: 96% 15%
 - Open Source software written for the command line...
 
 - ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.]
+.pull-right-smaller[
+![git-logo](slides_version-control_files/figure-html/git-logo-small.svg)
+
+![git](https://imgs.xkcd.com/comics/git.png)
+]
 
 ---
 # Starting with git
 
 1. (You should have installed git by now! If you have not: [git-scm.com](https://git-scm.com).)
-1. Navigate to your project folder in a terminal.
 
-1. Initiate the repository:
+1. Navigate to your project folder in a terminal.
+```
+cd [path/to/project_folder]
+```
+1. Initiate a git repository in this location:
 ```
 git init
 ```
-1. Add your files to the staging area:
+1. Add all your files to the staging area:
 ```
 git add *
 ```
-1. Commit all the files in your repository:
+1. Commit all the files in the staging area to your repository:
 ```
 git commit -m "First commit"
 ```
@@ -112,21 +116,23 @@ git config --global user.email "your@email.com"
 ---
 # Your workflow
 
-1. Add the changed file(s) to the staging area
+1. Add the changed file(s) to the staging area, and commit the changes:
 ```
-git add filename.py
-```
-1. Commit the changes, don't forget your commit message (try what happens if you do!).
-```
+git add src/filename.py anotherfile.txt config/configfile.json
 git commit -m "My commit message"
 ```
-1. Push to the online repository:
+OR
+1. commit files directly:
 ```
-git push
+git commit src
 ```
 
+NB: don't forget your commit message (try what happens if you do!).
 ![repo](slides_version-control_files/figure-html/swcarpentry/git-staging-area.svg)
-
+.footnote[
+Image credit:<br />
+Software Carpentries
+]
 ---
 # What else can I do with git?
 
@@ -144,13 +150,37 @@ What differences are there between your last commit and your workspace? (Or betw
 git diff
 git diff HEAD~3
 ```
-How did the README file look 5 commits ago?
+SO much more!
 ```
-git show HEAD~5 README.md
+git --help
 ```
 
 ---
+# .gitignore
+
+The .gitignore file in your template contains files that **by definition** will not be tracked by git.
+
+For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
+```
+.DS_Store
+```
+Similarly, you can ensure all output in a folder will not be tracked:
+```
+results/
+```
+Or all files with a certain extension:
+```
+*.dat
+```
+
+
+---
 # Your turn!
+
+Continue moving your files to the file template.
+- Add, commit, and push all your **relevant** files.
+
+- 
 
 
 

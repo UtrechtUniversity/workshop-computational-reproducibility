@@ -37,11 +37,12 @@ a, a > code {
 
 /* IMAGES */
 img[alt=final] { width: 400px; }
-img[alt=new-repo] { width: 250px;}
+img[alt=new-repo] { width: 200px;}
 img[alt=initialize] { width: 450px;}
 img[alt=octocat] { width: 200px;}
-img[alt=git] { width: 160px;}
-img[alt=repo] { width: 600px; margin: 0 150px;}
+img[alt=git] { width: 250px;}
+img[alt=repo] { width: 600px; margin: 0 220px;}
+img[alt=git-logo] { width: 100px; margin: 10px 65px;}
 
 
 .large-left-column {
