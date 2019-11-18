@@ -212,7 +212,7 @@
          style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       transform="translate(-87.633918,169.90601)"
+       transform="translate(-158.24863,39.144222)"
        id="g1468-3">
       <rect
          y="-14.095463"
@@ -270,7 +270,7 @@
          style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       transform="translate(-292.29608,276.67241)"
+       transform="translate(-338.14772,127.55266)"
        id="g1468-39">
       <rect
          y="-14.095463"
@@ -448,5 +448,21 @@
          x="321.02298"
          y="34.124428"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:78.31666565px;font-family:courier;-inkscape-font-specification:courier;stroke-width:0.26458332">git commit</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:77.76277161px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-317.13904"
+       y="309.74216"
+       id="text2912-5"><tspan
+         sodipodi:role="line"
+         id="tspan2910-5"
+         x="-317.13901"
+         y="309.74216"
+         style="font-size:77.76277161px;text-align:end;text-anchor:end;stroke-width:0.26458332">working</tspan><tspan
+         sodipodi:role="line"
+         x="-317.13904"
+         y="406.94562"
+         style="font-size:77.76277161px;text-align:end;text-anchor:end;stroke-width:0.26458332"
+         id="tspan4813">directory</tspan></text>
   </g>
 </svg>
