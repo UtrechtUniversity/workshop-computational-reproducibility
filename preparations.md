@@ -14,3 +14,18 @@ Make sure you have an ssh key pair set up between your computer and the github (
  
 ### Accessibility
 The instructors have checked that the room and nearby bathroom facilities are wheelchair accessible. Furthermore, and we have done our best to accommodate color blindness with our slides and other material. Please let your instructors know if there is anything else in particular we can do to make sure you can take full advantage of our course.
+
+### Schedule
+
+| Time  | Activity |
+|-------:|----------|
+|9:00 | Welcome & introduction| 
+| 9:30 | Project setup |
+| _10:30_ | _coffee break_|
+| 10:45 | Version control with git |
+|_12:30_ | _lunch (not provided)_ |
+| 13:30 | Code quality & documentation |
+|_15:15_| _coffee break_ |
+| 15:30 | Reproducibility| 
+| 16:30 | Reproduction|
+| 17:00 | Concluding remarks|
