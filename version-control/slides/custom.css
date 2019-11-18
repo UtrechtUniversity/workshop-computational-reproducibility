@@ -39,9 +39,9 @@ a, a > code {
 img[alt=final] { width: 400px; }
 img[alt=new-repo] { width: 250px;}
 img[alt=initialize] { width: 450px;}
-img[alt=octocat] { width: 350px;}
+img[alt=octocat] { width: 200px;}
 img[alt=git] { width: 160px;}
-img[alt=repo] { width: 600px;}
+img[alt=repo] { width: 600px; margin: 0 150px;}
 
 
 .large-left-column {

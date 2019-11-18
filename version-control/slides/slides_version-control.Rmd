@@ -101,9 +101,13 @@ git push -u origin master
 
 Congrats, your local repository now has an online representation!
 
-![octocat](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
+![octocat](https://github.githubassets.com/images/modules/logos_page/Octocat.png) \\\_\_\_ _THANK YOU!_
 
-
+Take a look at your online repository. Who is the author of your commits? If it is not you, you can configure git to use your identity (make sure github knows this email address):
+```
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
 
 ---
 # Your workflow
@@ -112,7 +116,7 @@ Congrats, your local repository now has an online representation!
 ```
 git add filename.py
 ```
-1. Commit the changes, don't forget the message.
+1. Commit the changes, don't forget your commit message (try what happens if you do!).
 ```
 git commit -m "My commit message"
 ```
@@ -124,7 +128,17 @@ git push
 ![repo](slides_version-control_files/figure-html/repo.svg)
 
 ---
-# 
+# What else can I do with git?
+
+Check the status of your repository:
+```
+git status
+```
+Check the log of your previous commits:
+```
+git log
+```
+
 
 ---
 class: center, middle
