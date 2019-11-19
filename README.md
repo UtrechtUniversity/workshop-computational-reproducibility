@@ -14,23 +14,23 @@ The workshop is language-independent in principle. We do require participants to
 ## Program
 
 The program addresses four main themes:
-- [ ] BV - Introduction | [slides](slides/slides_introduction.html)
-- [**Project setup**](project-setup.md) | [slides](slides/slides_project-setup.html)
+- [ ] BV - [Introduction](slides/slides_introduction.html)
+- [**Project setup**](slides/slides_project-setup.html)
   - [ ] BV - Setting up a folder structure
   - [ ] BV - Choosing a license
-- [**Version control**](version-control.md) | [slides](slides/slides_version-control.html)
+- [**Version control**](slides/slides_version-control.html)
   - [x] BV - using git for version control
   - [x] BV - publishing your project on github
-- [**Code quality & documentation**](code-documentation.md) | [slides](slides/slides_code-documentation.html)
+- [**Code quality & documentation**](slides/slides_code-documentation.html)
   - [ ] BV - code readability
   - [ ] BV - code review and refactoring
   - [x] AL - defensive programming
   - [x] AL - code comments
   - [x] AL - creating documentation and using notebooks
-- [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
+- [**Publication & reproduction**](slides/slides_reproducibility.html)
   - [ ] BV - obtaining a doi and ensuring accessibility
   - [ ] BV - dealing with requirements and dependencies
-- [ ] BV - Wrap-up | [slides](slides/slides_wrapup.html)
+- [ ] BV - [Wrap-up](slides/slides_wrapup.html)
 
 ## Preparations
 
