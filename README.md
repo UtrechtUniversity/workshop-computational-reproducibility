@@ -16,8 +16,8 @@ The workshop is language-independent in principle. We do require participants to
 The program addresses four main themes:
 - [ ] BV - [Introduction](slides/slides_introduction.html)
 - [**Project setup**](slides/slides_project-setup.html)
-  - [ ] BV - Setting up a folder structure
-  - [ ] BV - Choosing a license
+  - [x] BV - Setting up a folder structure
+  - [x] BV - Choosing a license
 - [**Version control**](slides/slides_version-control.html)
   - [x] BV - using git for version control
   - [x] BV - publishing your project on github
