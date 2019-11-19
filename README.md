@@ -14,20 +14,20 @@ The workshop is language-independent in principle. We do require participants to
 ## Program
 
 The course contains four main elements:
-- [**Project setup**](project-setup/README.md)
+- [**Project setup**](project-setup.md) | [slides](slides/slides_project-setup.html)
   - Choosing a folder structure
   - Choosing an IDE
   - Choosing a license
-- [**Version control**](version-control/README.md)
+- [**Version control**](version-control.md) | [slides](slides/slides_version-control.html)
   - using git for version control
   - publishing your project on github
-- [**Code quality & documentation**](code-documentation/README.md)
+- [**Code quality & documentation**](code-documentation.md) | [slides](slides/slides_code-documentation.html)
   - code readability
   - code review and refactoring
   - defensive programming
   - code comments
   - creating documentation with doxygen
-- [**Publication & reproduction**](reproducibility/README.md):
+- [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
   - obtaining a doi and ensuring accessibility
   - dealing with requirements and dependencies
 
