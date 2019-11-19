@@ -73,3 +73,40 @@ the actual functionality, but they will affect how your code looks, and how easy
 Often, these style choices are described in a style manual. For Python, for example, 
 there is [Pep-8](https://www.python.org/dev/peps/pep-0008/). 
 For R, an example would be the [Tidyverse style guide](https://style.tidyverse.org).
+
+## Documentation
+
+#### Notebooks
+
+Notebooks are a good way to demonstrate your package in action. 
+
+#### Documentation generators
+
+For R with [Roxygen](https://roxygen2.r-lib.org/)
+
+For Python with [Sphinx](http://www.sphinx-doc.org/en/master/usage/quickstart.html)
+
+#### Packaging and distributing
+
+- Building packages
+    - necessary files
+- Distributing packages
+
+
+# Unit tests (packages)
+
+Setup unit test with the `testthat` package:
+
+```r
+usethis::use_testthat()
+```
+
+This creates a new dir `tests/testthat` in your R package. To run the tests we use:
+
+```r
+devtools::test()
+```
+
+
+# Roxygen (packages only)
+
