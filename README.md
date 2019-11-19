@@ -16,7 +16,6 @@ The workshop is language-independent in principle. We do require participants to
 The course contains four main elements:
 - [**Project setup**](project-setup.md) | [slides](slides/slides_project-setup.html)
   - Choosing a folder structure
-  - Choosing an IDE
   - Choosing a license
 - [**Version control**](version-control.md) | [slides](slides/slides_version-control.html)
   - using git for version control
@@ -26,7 +25,7 @@ The course contains four main elements:
   - code review and refactoring
   - defensive programming
   - code comments
-  - creating documentation with doxygen
+  - creating documentation and using notebooks
 - [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
   - obtaining a doi and ensuring accessibility
   - dealing with requirements and dependencies
