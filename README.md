@@ -13,7 +13,7 @@ The workshop is language-independent in principle. We do require participants to
 
 ## Program
 
-The course contains four main elements:
+- Introduction | [slides](slides/slides_introduction.html)
 - [**Project setup**](project-setup.md) | [slides](slides/slides_project-setup.html)
   - [ ] BV - Setting up a folder structure
   - [ ] BV - Choosing a license
@@ -29,6 +29,7 @@ The course contains four main elements:
 - [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
   - [ ] BV - obtaining a doi and ensuring accessibility
   - [ ] BV - dealing with requirements and dependencies
+- Wrap-up | [slides](slides/slides_wrapup.html)
 
 ## Preparations
 
