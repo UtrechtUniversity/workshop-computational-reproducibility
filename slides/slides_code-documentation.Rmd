@@ -14,9 +14,16 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-__Reproducibility__
+# Why code documentation?
 
-__Reusability__
+* ## You want yourself to understand how code written some time ago works.
+
+* ## You want others to understand how to re-use your code
+
+## For this you need to 
+* ## Explain parts of your code with comments
+* ## Explain what to install in your readme
+* ## Explain how to use your code in a Notebook
 
 ---
 
@@ -25,11 +32,11 @@ __Reusability__
 You can document:
 
 - How to use your code with dynamic documents
-  - RMarkdowns documents
+  - RMarkdown documents
   - Jupyter notebooks
   
 - What your code does with inline comments, in the source code
-  - Comment lines
+  - Inline comments
   - Structured documentation strings
   
 - What to install
