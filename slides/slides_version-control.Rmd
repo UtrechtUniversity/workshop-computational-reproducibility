@@ -171,9 +171,10 @@ Similarly, you can ensure all output in a folder will not be tracked:
 ```
 results/
 ```
+
 Or all files with a certain extension:
-```
- *.dat
+``` 
+ *.dat 
 ```
 
 NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders. Git does not track empty folders...
