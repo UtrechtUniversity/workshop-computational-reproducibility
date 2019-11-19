@@ -201,7 +201,6 @@ dmypy.json
 ^.*\.Rproj$
 ^\.Rproj\.user$
 
-# Mac/Barbara specific
+# Mac specific
 .DS_Store
-github_DO_NOT_TOUCH.Rproj
 .Rhistory
