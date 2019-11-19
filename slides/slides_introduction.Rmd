@@ -14,4 +14,14 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+## Welcome!
 
+
+---
+## Feedback
+
+- This workshop is work in progress!
+
+- 
+
+- If you do not know a certain word or term (or you think others may not know it): flag it! We will be adding these terms to the glossary.
