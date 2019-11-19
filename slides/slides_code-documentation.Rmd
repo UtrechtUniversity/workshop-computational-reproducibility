@@ -49,7 +49,7 @@ This part is about writing documentation for your project.
 
 Comments are annotations you write directly in the code source.
 
-- "Inline" comments are only for users who deal with your source code
+- Comment lines are only for users who deal with your source code
 
 - Explain parts that are not intuitive from the code itself
 
@@ -59,25 +59,25 @@ Comments are annotations you write directly in the code source.
 
 ---
 
-# Inline
+# Comment lines
 
-Inline comments are used to explain the purpose of some piece of code.
+Comment lines are used to explain the purpose of some piece of code.
 
 
 ```python
-        # Bug fix GH 20601
-        # If the data frame is too big, the number of unique index combination
-        # will cause int32 overflow on windows environments.
-        # We want to check and raise an error before this happens
-        num_rows = np.max([index_level.size for index_level in self.new_index_levels])
-        num_columns = self.removed_level.
+# Bug fix GH 20601
+# If the data frame is too big, the number of unique index combination
+# will cause int32 overflow on windows environments.
+# We want to check and raise an error before this happens
+num_rows = np.max([index_level.size for index_level in self.new_index_levels])
+num_columns = self.removed_level.
 ```
 
 From https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py
 
 ---
 
-# Tips for good comments
+# When not to use comments
 
 - Do not repeat in natural language what is written in your code
 
@@ -96,6 +96,75 @@ if(agePatient > 18)
 #    connection <- connectToHPC(currentUser, password)
 #}
 ```
+
+- To replace version control, like git
+
+```R
+
+# removed on August 5
+# if() ...
+
+#Now, it connects to the API with o-auth2, updated 05/05/2016
+...
+
+```
+---
+# Comments to generate documentation
+
+- So far, we described comments use for enlightening the readers of your source code.
+
+- Structured comments can be used to generate documentation for *users*  of your project
+
+- Need additional tools:
+
+  * http://www.doxygen.nl/ : c++ (and many more languages)
+  * http://www.sphinx-doc.org/ : Python
+  * https://roxygen2.r-lib.org/ : R
+
+---
+# A glimpse into code generation
+
+An example with Roxygen:
+
+```R
+#' A function that says hello
+#'
+#' @return Nothing
+#' @export
+#' @examples
+#' hello()
+
+hello <- function() {
+  print("Hello, world!")
+}
+```
+
+Note the special symbols which differ from standard comment lines.
+
+Namely, the #' and @ : these are special symbols that are recognized by
+---
+# A glimpse into code generation
+
+In the console, in RStudio, run the following command:
+
+```R
+roxygen2::roxygenise()
+```
+
+.pull-left-larger[
+The commande above will create documentation files that can be visualized by calling help(your package)
+]
+
+.pull-right-smaller[
+
+![output](./images/document_roxygen_r_help.PNG)
+
+]
+
+.footnote[
+__Remark__ This works for R packages, with the proper file structure see here : http://r-pkgs.had.co.nz/intro.html
+]
+
 ---
 # Readme
 
@@ -118,31 +187,76 @@ From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&old
 ---
 # Readme examples
 
-From projects with high quality documentation
+Examples from projects with high quality documentation
 
+.pull-left-larger[
 - Pandas: https://github.com/pandas-dev/pandas
 - Scikit-learn : https://github.com/scikit-learn/scikit-learn
 - Dplyr: https://github.com/tidyverse/dplyr
 
+]
+
+.pull-right-smaller[
+__A readme files from pandas__
+![pandas_readme](./images/pandas_readme_extract.PNG)
+]
+
 ---
 # Readme how?
 
-- Write readme as markdown documents.
+- Readme are files that can be written as text (or markdown for formatting)
 
 - Github will show the content of your readme file at the root of the repository
 
+- When you create a repository on Github, there in an option to include a Readme files
+
+
+![readme_github](./images/github_new_repo_readme.PNG)
 
 ---
-# Notebook
+# Notebooks
+
+Notebooks originates from the concept of literate programming, introduced by D. Knuth in 1984.
+
+- Idea : describe the logic of the code in natural language and include source code at the same time
+- In one document from the original program can be generated
+- Nowadays, literate programming evolved into Jupyter notebooks, RMarkdown documents etc.
 
 ---
+# Editing notebooks
 
-## Documentation syntax
+In notebooks, you have two parts:
 
-Structured text comment
+- Text (now often in markdown, LaTex or plain text)
+- Code (Python, R ...)
+
+This means
+
+- That there are text chuncks
+- And code chunks
+
+All chunck can be run at the same time
+- Text chunks will be shown
+- Code chunks will be executed and their ouput will be shown (if any)
 
 ---
-## What to  in your code
+# Notebook software
+
+- RStudio with R notebooks
+
+- Jupyter lab with jupyter notebooks
+
+- Come code editors/integrated development environments can run notebooks
+  - Pycharm, Rstudio, Visual studio ...
+
+>
+>This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+>
+>Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+>
+>```{r}
+>plot(cars)
+>```
 
 ---
-## End documentation
+# End of the documentation part
