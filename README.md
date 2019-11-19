@@ -15,20 +15,20 @@ The workshop is language-independent in principle. We do require participants to
 
 The course contains four main elements:
 - [**Project setup**](project-setup.md) | [slides](slides/slides_project-setup.html)
-  - Choosing a folder structure
-  - Choosing a license
+  - [ ] BV - Setting up a folder structure
+  - [ ] BV - Choosing a license
 - [**Version control**](version-control.md) | [slides](slides/slides_version-control.html)
-  - using git for version control
-  - publishing your project on github
+  - [x] BV - using git for version control
+  - [x] BV - publishing your project on github
 - [**Code quality & documentation**](code-documentation.md) | [slides](slides/slides_code-documentation.html)
-  - code readability
-  - code review and refactoring
-  - defensive programming
-  - code comments
-  - creating documentation and using notebooks
+  - [ ] BV - code readability
+  - [ ] BV - code review and refactoring
+  - [ ] AL - defensive programming
+  - [ ] AL - code comments
+  - [ ] AL - creating documentation and using notebooks
 - [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
-  - obtaining a doi and ensuring accessibility
-  - dealing with requirements and dependencies
+  - [ ] BV - obtaining a doi and ensuring accessibility
+  - [ ] BV - dealing with requirements and dependencies
 
 ## Preparations
 
