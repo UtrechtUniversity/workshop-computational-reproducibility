@@ -201,7 +201,6 @@ dmypy.json
 # R additional
 .Rproj.user
 
-
 # Mac specific
 .DS_Store
 .Rhistory
