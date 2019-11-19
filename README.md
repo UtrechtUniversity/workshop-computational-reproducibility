@@ -24,9 +24,9 @@ The program addresses four main themes:
 - [**Code quality & documentation**](code-documentation.md) | [slides](slides/slides_code-documentation.html)
   - [ ] BV - code readability
   - [ ] BV - code review and refactoring
-  - [ ] AL - defensive programming
-  - [ ] AL - code comments
-  - [ ] AL - creating documentation and using notebooks
+  - [x] AL - defensive programming
+  - [x] AL - code comments
+  - [x] AL - creating documentation and using notebooks
 - [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
   - [ ] BV - obtaining a doi and ensuring accessibility
   - [ ] BV - dealing with requirements and dependencies
