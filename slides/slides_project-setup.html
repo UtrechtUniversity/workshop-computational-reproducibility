@@ -20,7 +20,92 @@ class: center, middle, inverse, title-slide
 
 
 
+# Publishing your project
 
+Wait, why are we starting here? Isn't 'publication' the thing you do... _at the end?_
+
+**Not necessarily!** Publishing early:
+- forces you to consider readability throughout
+- minimizes the mess you have to deal with when you (finally) decide to publish
+- allows collaboration and support
+- facilitates sharing and re-use
+
+This is not a rule and may not be for you. Perhaps you have:
+- sensitive data (and references to your data* in your code)
+- scoop-able code
+
+In that case, publish privately if you can... but consider if your project may not benefit from being written openly.
+
+.footnote[
+*Although you should probably not have those in the first place...
+]
+---
+# Publishing your project
+
+Living project: to github (or other social coding platform):
+- compatible with version control software git (more on that later);
+- allows others to see not just the code, but also individual commits you made and branches you work on;
+- publish different releases;
+- provide a platform for collaboration.
+
+Archiving a project:
+
+- 
+
+
+---
+# Choose a license
+
+- Default 
+
+Regardless of publication status, we encourage you to choose a license from the start. Even if a project is private, knowing what your license is will prevent you from generating content that does not match the license. For example: you may want to deploy someone else's code that is licensed in a way that is incompatible with the license you prefer. If you have not yet chosen your license, you may inadvertedly create conflicts.
+
+Summarizing: the more you know about your project from the start, and can keep in mind as you proceed, the lower the chance that you will create something that conflicts with these standards that **should eventually all be part of your project**. Why not hit the ground running?
+
+
+
+
+
+# Cookiecutter
+
+You can set up a project template using a nifty tool called cookiecutter.
+
+First, ensure you have cookiecutter installed:
+```bash
+pip install cookiecutter
+```
+
+This is the recommended installation method. BUT if you do not have pip, there are a few alternatives:
+The pip-predecessor easy_install:
+```bash
+easy_install --user cookiecutter
+```
+MacOS X with Homebrew:
+```bash
+brew install cookiecutter
+```
+Debian/Ubuntu:
+```
+sudo apt-get install cookiecutter
+```
+---
+# Cookiecutter
+
+![cookiecutter](https://raw.githubusercontent.com/cookiecutter/cookiecutter/3ac078356adf5a1a72042dfe72ebfa4a9cd5ef38/logo/cookiecutter_medium.png)
+
+&gt; A command-line utility that creates projects from cookiecutters (project templates). e.g. creating a Python package project from a Python package project template.
+&gt;
+&gt; _[cookiecutter.readthedocs.io](https://cookiecutter.readthedocs.io/en/latest/)_
+
+There are MANY templates available for your purposes. [Take a look!](https://github.com/cookiecutter/cookiecutter)
+
+We have designed a template based on [this paper by Wilson _et al._](https://doi.org/10.1371/journal.pcbi.1005510) (2017). Go ahead and install it!
+
+```bash
+cookiecutter gh:bvreede/good-enough-project
+```
+
+Answer the questions cookiecutter asks you, and browse the resulting project to see where your answers ended up.
 
 &lt;!-- Armel --&gt;
 ---
