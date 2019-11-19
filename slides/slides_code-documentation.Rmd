@@ -14,52 +14,126 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-# Why code documentation?
-
-* ## You want yourself to understand how code written some time ago works.
-
-* ## You want others to understand how to re-use your code
-
-## For this you need to 
-* ## Explain parts of your code with comments
-* ## Explain what to install in your readme
-* ## Explain how to use your code in a Notebook
+# Code readability
+BV
 
 ---
 
-## Code documentation
+# Code quality
 
-You can document:
+---
+# Defensive programing
 
-- How to use your code with dynamic documents
-  - RMarkdown documents
-  - Jupyter notebooks
-  
-- What your code does with inline comments, in the source code
-  - Inline comments
-  - Structured documentation strings
-  
-- What to install
-  - Readme.md shown on the main page of git repositories
-  - Requirements.txt in python
-  - Packrat in R, sessionInfo writelines, checkpoints
-  - RTools in R https://cran.rstudio.com/bin/windows/Rtools/
-  - Sphinx for Python
+---
+# Unit testing
 
 ---
 
-## Dynamic documents
+# Project documentation
 
-Dynamic documents combine text (=human reader) with code chunks (=machine)
+This part is about writing documentation for your project.
+
+### Why code documentation?
+
+- You want yourself to understand how code written some time ago works.
+
+- You want others to understand how to re-use your code
+
+### For this you need to 
+- Explain parts of your code with __comments__
+- Explain what to install in your __readme__
+- Explain how to use your code in a __notebook__
+
+---
+# Comments
+
+Comments are annotations you write directly in the code source.
+
+- "Inline" comments are only for users who deal with your source code
+
+- Explain parts that are not intuitive from the code itself
+
+- Comments do not replace strucured code (classes, functions, ...)
+
+- Structured comments can be used to generate documentation for users
+
+---
+
+# Inline
+
+Inline comments are used to explain the purpose of some piece of code.
 
 
-```{python}
-# Running python in an RMarkdown document 
-# requires the package reticulate
-who_am_i = "Python"
-
-print(f"I said I am {who_am_i}")
+```python
+        # Bug fix GH 20601
+        # If the data frame is too big, the number of unique index combination
+        # will cause int32 overflow on windows environments.
+        # We want to check and raise an error before this happens
+        num_rows = np.max([index_level.size for index_level in self.new_index_levels])
+        num_columns = self.removed_level.
 ```
+
+From https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py
+
+---
+
+# Tips for good comments
+
+- Do not repeat in natural language what is written in your code
+
+```R
+# Now we check if the age of a patient is greater than 18
+if(agePatient > 18)
+
+```
+
+- Deactivate code
+
+```R
+# Do not run this!!
+# itDoesNotWork <- optimizeMulticoreDeepLearning(myProteins)
+# if(itDoesNotWork == 1444){
+#    connection <- connectToHPC(currentUser, password)
+#}
+```
+---
+# Readme
+
+The contents typically include one or more of the following:
+
+From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page
+
+> - __Configuration instructions__
+- __Installation instructions__
+- __Operating instructions__
+- A file manifest (list of files included)
+- Copyright and licensing information
+- Contact information for the distributor or programmer
+- Known bugs
+- Troubleshooting
+- Credits and acknowledgments
+- A changelog (usually for programmers)
+- A news section (usually for users)
+
+---
+# Readme examples
+
+From projects with high quality documentation
+
+- Pandas: https://github.com/pandas-dev/pandas
+- Scikit-learn : https://github.com/scikit-learn/scikit-learn
+- Dplyr: https://github.com/tidyverse/dplyr
+
+---
+# Readme how?
+
+- Write readme as markdown documents.
+
+- Github will show the content of your readme file at the root of the repository
+
+
+---
+# Notebook
 
 ---
 
@@ -68,23 +142,7 @@ print(f"I said I am {who_am_i}")
 Structured text comment
 
 ---
-## Documentation generator
-- 
-
----
 ## What to  in your code
-
-
----
-## Hosting documentation
-
-
----
-## Readme
-
-
----
-## Hosting documentation
 
 ---
 ## End documentation
