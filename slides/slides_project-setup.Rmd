@@ -15,6 +15,17 @@ options(htmltools.dir.version = FALSE)
 ```
 
 
+## Cookiecutter
+
+You can set up a project template using a nifty tool called cookiecutter.
+
+First, ensure you have cookiecutter installed:
+
+
+
+---
+
+
 
 <!-- Armel -->
 ---
