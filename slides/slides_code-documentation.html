@@ -24,14 +24,96 @@ class: center, middle, inverse, title-slide
 BV
 
 ---
-
 # Code quality
 
+- Error management
+  - Check values before processing them
+  - Make use of try/catch mechanisms to manage exceptions
+  - Make use of logging tools instead of print functions
+
+- Functions
+ - Write routines in functions, ie., code you reuse often
+ - Change hard coded values by arguments in your functions
+ - Code that is responsible for a specific task
+ - A task can be: sorting, plotting, saving a file, transform data...
+
 ---
-# Defensive programing
+# Error management
+
+- Check values with if/else
+
+```python
+if not protein_data:
+  raise ValueError("Dataset cannot be empty")
+```
+
+- With try catch (called except in Python)
+
+```python
+try:
+  do_something_that_might_go_wrong(protein_data)
+except ItWentWrongException as ex:
+  logger.log(ex)
+finally:
+  protein_data.to_csv("../data/processed/proteins.csv")
+```
+
+---
+# Functions
+Functions are smaller code units reponsible of one task.
+
+- Functions are meant to be reused
+
+- Functions accept arguments (values)
+
+- What arguments a function accept is defined by its parameters
+
+```python
+def sort_data(data, how="asc", column=0):
+  raise NotImplementedException("Ooops")
+  
+  
+try:
+  sort_data(protein_data)
+except Exception as ex:
+  logger.log("It went wrong")
+```
+
+---
+# Towards defensive programing
+
+- Do not expect users to treat your code like you expected, so expect the worst
+ - use of wrong input values using your functions
+ - data types
+ - malformed text input
+
+- Make use of systematic tests
+ - Unit testing (event if you work alone on your code)
+ - Continuous integration (if many authors work on code)
 
 ---
 # Unit testing
+Unit testing is a generic testing approach.
+
+- in R with the testthat package
+  - https://github.com/r-lib/testthat
+- in python with pytest, unittest
+  - https://docs.python.org/3/library/unittest.html 
+
+---
+# Running unit tests
+Code editors/IDEs such as visual studio code, RStudio, Pycharm...
+
+- Integrate functionalities to run and show the results of unit tests
+  - 
+
+---
+# Your turn
+
+- Do you have difficult to interpret variables in your code
+  - Rename them
+- Do you have repetive parts in your code, or code you would want to reuse often
+  - Make functions
 
 ---
 
@@ -187,8 +269,13 @@ From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&amp
 - Known bugs
 - Troubleshooting
 - Credits and acknowledgments
-- A changelog (usually for programmers)
-- A news section (usually for users)
+
+
+.footnote[
+Templates and ideas for README
+- https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+- https://github.com/matiassingers/awesome-readme
+]
 
 ---
 # Readme examples
@@ -255,20 +342,29 @@ All chunck can be run at the same time
 - Come code editors/integrated development environments can run notebooks
   - Pycharm, Rstudio, Visual studio ...
 
-&gt;
 &gt;This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 &gt;
 &gt;Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 &gt;
-&gt;
 &gt;```r
 &gt;plot(cars)
 &gt;```
-&gt;
-&gt;![](slides_code-documentation_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
 
 ---
-# End of the documentation part
+# Your turn!
+- Do you have any "bad" comments in your code : remove or edit them
+  - Unecessary
+  - Deactivated code
+  - Git like comments
+- Make a readme explaining What people should know to run your code again
+  - Install extra tools, dependencies
+  - Which environment (Python? R? and which version)
+  - The main scripts that should executed
+- Make a notebook
+  - Describe how to use the package to analyse the data you have
+  - Write in the notebook a brief introduction explaining the purpose of your script
+  - Then show how to use your package and what kind of outputs it produce
+  - For example, if your code has produced figures of table before (e.g., publication), show how to produce these tables again
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
