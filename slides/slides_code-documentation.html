@@ -95,17 +95,42 @@ except Exception as ex:
 # Unit testing
 Unit testing is a generic testing approach.
 
-- in R with the testthat package
-  - https://github.com/r-lib/testthat
+Your software is tested by focusing on smaller units, for instance a series of functions or class.
+
+Extra packages\\imports are needed
+
+- in R with the testthat/testthis packages
+  - https://github.com/r-lib/testthat, https://github.com/r-lib/testthis
 - in python with pytest, unittest
   - https://docs.python.org/3/library/unittest.html 
 
 ---
 # Running unit tests
-Code editors/IDEs such as visual studio code, RStudio, Pycharm...
+__Code editors/IDEs__ such as visual studio code, RStudio, Pycharm...
 
 - Integrate functionalities to run and show the results of unit tests
-  - 
+  - E.g., RStudio in the build menu -&gt; test package
+  
+1. Create a unittest file
+  
+  ```R
+  usethis::use_test("hello")
+  ```
+  
+2. Edit the file test-hello.R in the tests folder (created by usethis)
+  
+  ```R
+  test_that("multiplication works", {
+    expect_equal(2 * 2, 4)
+  })
+  ```
+  
+3. Run tests
+  - In RStudio using the menu __or__
+  ```R
+    devtools::test()
+  ```
+
 
 ---
 # Your turn
