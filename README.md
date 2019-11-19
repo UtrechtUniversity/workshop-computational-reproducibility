@@ -13,7 +13,8 @@ The workshop is language-independent in principle. We do require participants to
 
 ## Program
 
-- Introduction | [slides](slides/slides_introduction.html)
+The program addresses four main themes:
+- [ ] BV - Introduction | [slides](slides/slides_introduction.html)
 - [**Project setup**](project-setup.md) | [slides](slides/slides_project-setup.html)
   - [ ] BV - Setting up a folder structure
   - [ ] BV - Choosing a license
@@ -29,7 +30,7 @@ The workshop is language-independent in principle. We do require participants to
 - [**Publication & reproduction**](reproducibility.md) | [slides](slides/slides_reproducibility.html)
   - [ ] BV - obtaining a doi and ensuring accessibility
   - [ ] BV - dealing with requirements and dependencies
-- Wrap-up | [slides](slides/slides_wrapup.html)
+- [ ] BV - Wrap-up | [slides](slides/slides_wrapup.html)
 
 ## Preparations
 
