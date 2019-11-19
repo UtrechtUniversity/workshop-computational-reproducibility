@@ -50,7 +50,8 @@ even better:
 
 - ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.]
 .pull-right-smaller[
-![git-logo](slides_version-control_files/figure-html/git-logo-small.svg)
+#![git-logo](slides_version-control_files/figure-html/git-logo-small.svg)
+![distributed](slides_version-control_files/figure-html/screenshots/distributed.png)
 
 ![git](https://imgs.xkcd.com/comics/git.png)
 ]
@@ -118,13 +119,15 @@ git config --global user.email "your@email.com"
 
 1. Add the changed file(s) to the staging area, and commit the changes:
 ```
-git add src/filename.py anotherfile.txt config/configfile.json
+git add src/filename.py anotherfile.txt
+git add config/configfile.json
 git commit -m "My commit message"
 ```
 OR
-1. commit files directly:
+
+2. commit files directly, without staging:
 ```
-git commit src
+git commit src/filename.py anotherfile.txt -m "My commit message"
 ```
 
 NB: don't forget your commit message (try what happens if you do!).
@@ -170,29 +173,56 @@ results/
 ```
 Or all files with a certain extension:
 ```
-*.dat
+ *.dat
 ```
 
+NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders. Git does not track empty folders...
 
 ---
 # Your turn!
 
-Continue moving your files to the file template.
-- Add, commit, and push all your **relevant** files.
+1. Continue moving your files into the file template.
 
-- 
+1. Add, commit, and push all files you want to track.
+  - Are there files you do not wish to track? Add them to the .gitignore file.
+  - Do you want to move a tracked file within a git repository?
+```
+git mv path/to/file.svg newpath/
+```
+(don't forget to commit!)
+1. Continue editing your code, and add/commit/push your changes. Can you do it from your IDE?
+
+1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using
+```
+git pull
+```
+1. What happens if you edit the same file online and locally, and try to push/pull?
+
+---
+# Enjoy, and git responsibly!
+
+- Commits should be atomic: comprehensive 'units' of changes.
+  - **DO**: edit/add an .svg and add it to your .Rmd presentation in the same commit
+  - **DON'T**: edit for a full day and put this in a single commit (or worse: forget to...)
+
+- Commits should have informative messages so you (and others) can trace your steps
+
+  ![git_commit](https://imgs.xkcd.com/comics/git_commit.png)
+
+- Track most files; .gitignore those files you don't.
+
+- Explore new ideas with branches, keep a stable version on `master`
 
 
+---
+# Do you want to learn more?
 
+- A [Software Carpentry course on git](https://swcarpentry.github.io/git-novice/)
 
+- A [version control + git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control) on Atlassian
 
+- A [git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) from Atlassian
 
+- A book with [all the ins and outs of git](https://www.git-scm.com/book/en/v2) from the git website
 
-
-
-
-
-
-
-
-
+![atlassian](slides_version-control_files/figure-html/atlassian/bubblediag.svg)
