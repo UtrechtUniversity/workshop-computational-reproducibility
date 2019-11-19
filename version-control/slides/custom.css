@@ -40,9 +40,11 @@ img[alt=final] { width: 400px; }
 img[alt=new-repo] { width: 200px;}
 img[alt=initialize] { width: 450px;}
 img[alt=octocat] { width: 200px;}
-img[alt=git] { width: 250px;}
-img[alt=repo] { width: 600px; margin: 0 220px;}
-img[alt=git-logo] { width: 100px; margin: 10px 65px;}
+img[alt=git] { width: 250px; margin: 20px 0;}
+img[alt=repo] { width: 550px; margin: 0 220px;}
+img[alt=git-logo] { width: 70px; margin: 0 200px;}
+img[alt=distributed] { margin: -40px 0;}
+img[alt=atlassian] { width: 500px; margin: 0 150px;}
 
 
 .large-left-column {
