@@ -53,6 +53,7 @@ img[alt=atlassian] { width: 500px; margin: 0 150px;}
   height: 92%;
   float: left;
 }
+
 .large-left-column h2:last-of-type, .left-column h3:last-child {
   color: #000;
 }
