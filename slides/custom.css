@@ -25,7 +25,8 @@
 }
 
 a, a > code {
-  color: rgb(255, 171, 0);
+  color: rgb(214, 147, 10);
+  font-weight: 400;
 }
 
 .title-slide {
@@ -45,6 +46,7 @@ img[alt=repo] { width: 550px; margin: 0 220px;}
 img[alt=git-logo] { width: 70px; margin: 0 200px;}
 img[alt=distributed] { margin: -40px 0;}
 img[alt=atlassian] { width: 500px; margin: 0 150px;}
+img[alt=zenodo] {margin: 100px 0;}
 
 
 .large-left-column {
