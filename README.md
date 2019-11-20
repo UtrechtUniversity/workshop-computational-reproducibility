@@ -14,23 +14,22 @@ The workshop is language-independent in principle. We do require participants to
 ## Program
 
 The program addresses four main themes:
-- [x] BV - [Introduction](slides/slides_introduction.html)
+- [Introduction](slides/slides_introduction.html)
 - [**Project setup**](slides/slides_project-setup.html)
-  - [x] BV - Setting up a folder structure
-  - [x] BV - Choosing a license
+  - Setting up a folder structure
+  - Choosing a license
 - [**Version control**](slides/slides_version-control.html)
-  - [x] BV - using git for version control
-  - [x] BV - publishing your project on github
+  - using git for version control
+  - publishing your project on github
 - [**Code quality & documentation**](slides/slides_code-documentation.html)
-  - [ ] BV - code readability
-  - [ ] BV - code review and refactoring
-  - [x] AL - defensive programming
-  - [x] AL - code comments
-  - [x] AL - creating documentation and using notebooks
-- [**Publication & reproduction**](slides/slides_reproducibility.html)
-  - [ ] BV - obtaining a doi and ensuring accessibility
-  - [ ] BV - dealing with requirements and dependencies
-- [ ] BV - [Wrap-up](slides/slides_wrapup.html)
+  - code readability
+  - defensive programming
+  - code comments
+  - creating documentation and using notebooks
+- **Publication & reproduction** (live demo)
+  - obtaining a doi and ensuring accessibility
+  - dealing with requirements and dependencies
+- Wrap-up
 
 ## Preparations
 
