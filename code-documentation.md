@@ -63,8 +63,6 @@ specific syntax and keywords that can be interpreted by documentation generators
 produce documentation from one reliable source (your code) and can adapt the "manual" of your software right from the 
 code !
 
-
-
 #### Coding style
 
 There is right and wrong code, and there is style. The fact that your code still runs if you never enter a line break 
