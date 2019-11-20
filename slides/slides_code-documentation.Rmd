@@ -14,22 +14,197 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-# Code readability
-BV
+# Code quality defined
+
+- Readable
+
+- Robust
+
+- Reusable
+
+
+![codequality](https://imgs.xkcd.com/comics/code_quality.png)
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
 
 ---
-# Code quality
+# Code readability
 
-- Error management
-  - Check values before processing them
-  - Make use of try/catch mechanisms to manage exceptions
-  - Make use of logging tools instead of print functions
+- Code is for computer, comments are for humans.
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+--
+
+#### Compare:
+```r
+this <- function(arg1,arg2){res<-arg1*arg2;return(res)}
+hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+```
+
+```r
+this <- function(arg1,arg2){
+  res <- arg1 * arg2
+  return(res)
+}
+
+hurts <- mean(
+  c(
+    this(3,4),
+    this(3,1),
+    this(9,9)
+    )
+  )
+print(hurts)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+--
+
+#### Compare:
+
+```python
+for i in my_shopping_basket:
+  if(test(i)) > 10:
+    purch(i)
+  else:
+    disc(i)
+```
+
+```python
+for item in basket:
+  if(testNecessity(item)) > 10:
+    purchase(item)
+  else:
+    discard(item)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+- use a consistent style
+  - consistency will make your code easier to understand and maintain
+  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
+  
+--
+
+#### Compare:
+
+```r
+myVar<-original_variable+MOD(new.var)
+```
+```r
+my_var <- original_var + Modified(new_var)
+```
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+- use a consistent style
+  - consistency will make your code easier to understand and maintain
+  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
+  
+### Styleguides:
+  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
+  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
+
+---
+# Code robustness, phase one
+
+Think modular
+
 
 - Functions
  - Write routines in functions, ie., code you reuse often
  - Change hard coded values by arguments in your functions
- - Code that is responsible for a specific task
- - A task can be: sorting, plotting, saving a file, transform data...
+ - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+
+
+
+---
+# Functions
+
+Functions are smaller code units reponsible of one task.
+
+- Functions are meant to be reused
+
+- Functions accept arguments (values)
+
+- What arguments a function accept is defined by its parameters
+
+```python
+def sort_data(data, how="asc", column=0):
+  raise NotImplementedException("Ooops")
+  
+try:
+  sort_data(protein_data)
+except Exception as ex:
+  logger.log("It went wrong")
+```
+---
+# Your turn
+
+Take a look at your code.
+- Are you repeating yourself: do you have repeated code that could be a function?
+
+- Is there hard coded data that you can extract (perhaps in a config file?)
+  
+- Finally: read your code. Ignore the comments. 
+  - Is it clear what you mean? What can you rewrite?
+  - Do you have difficulty interpreting variables or function names in your code? Rename them
+  - Are you constructively using whitespace?
+  - What does your styleguide say about CamelCase, separators_like_these or-like-these, etc..?
+
+---
+# Towards defensive programing
+
+- Error management
+ - Check values before processing them
+  - Make use of try/catch mechanisms to manage exceptions
+  - Make use of logging tools instead of print functions
+
+- Do not expect users to treat your code like you expected, so expect the worst
+ - use of wrong input values using your functions
+ - data types
+ - malformed text input
+
+- Make use of systematic tests
+ - Unit testing (event if you work alone on your code)
+ - Continuous integration (if many authors work on code)
 
 ---
 # Error management
@@ -51,40 +226,6 @@ except ItWentWrongException as ex:
 finally:
   protein_data.to_csv("../data/processed/proteins.csv")
 ```
-
----
-# Functions
-Functions are smaller code units reponsible of one task.
-
-- Functions are meant to be reused
-
-- Functions accept arguments (values)
-
-- What arguments a function accept is defined by its parameters
-
-```python
-def sort_data(data, how="asc", column=0):
-  raise NotImplementedException("Ooops")
-  
-  
-try:
-  sort_data(protein_data)
-except Exception as ex:
-  logger.log("It went wrong")
-```
-
----
-# Towards defensive programing
-
-- Do not expect users to treat your code like you expected, so expect the worst
- - use of wrong input values using your functions
- - data types
- - malformed text input
-
-- Make use of systematic tests
- - Unit testing (event if you work alone on your code)
- - Continuous integration (if many authors work on code)
-
 ---
 # Unit testing
 Unit testing is a generic testing approach.
@@ -126,13 +267,6 @@ __Code editors/IDEs__ such as visual studio code, RStudio, Pycharm...
   ```
 
 
----
-# Your turn
-
-- Do you have difficult to interpret variables in your code
-  - Rename them
-- Do you have repetive parts in your code, or code you would want to reuse often
-  - Make functions
 
 ---
 

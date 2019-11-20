@@ -18,11 +18,11 @@
   text-shadow: 0 0 2px #333;
 }
 
-.remark-code.r{
-  background-color: #ffE6B2;
-  border: solid #e0e0e0 1px;
-  box-shadow: 5px 5px 10px #e0e0e0;  
-}
+/*.remark-code.r{
+/*  background-color: #ffE6B2;
+/*  border: solid #e0e0e0 1px;
+/*  box-shadow: 5px 5px 10px #e0e0e0;  
+/*} */
 
 a, a > code {
   color: rgb(214, 147, 10);
@@ -47,6 +47,7 @@ img[alt=git-logo] { width: 70px; margin: 0 200px;}
 img[alt=distributed] { margin: -40px 0;}
 img[alt=atlassian] { width: 500px; margin: 0 150px;}
 img[alt=zenodo] {margin: 100px 0;}
+img[alt=codequality] {margin: 10px 50px;}
 
 
 .large-left-column {
