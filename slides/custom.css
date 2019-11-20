@@ -47,7 +47,8 @@ img[alt=git-logo] { width: 70px; margin: 0 200px;}
 img[alt=distributed] { margin: -40px 0;}
 img[alt=atlassian] { width: 500px; margin: 0 150px;}
 img[alt=zenodo] {margin: 100px 0;}
-img[alt=codequality] {margin: 10px 50px;}
+img[alt=codequality] {margin: 100px 50px;}
+img[alt=goodcode] {width: 350px;}
 
 
 .large-left-column {
@@ -88,5 +89,3 @@ img[alt=codequality] {margin: 10px 50px;}
   font-family: 'Courier', 'Fira Code', monospace;
   font-weight: 500;
 }
-
-
