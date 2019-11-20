@@ -149,17 +149,19 @@ my_var &lt;- original_var + Modified(new_var)
   - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
 
 ---
-# Code robustness, phase one
+# Code robustness (part 1)
 
-Think modular
+- Separate code and data: don't hard code variables!
 
+  - and if you must...
+  - Do it once, e.g. weeklength = 7
+  - Consider using a config file for project-specific (meta)data!
+  
+- Don't repeat yourself: use functions
 
-- Functions
  - Write routines in functions, ie., code you reuse often
  - Change hard coded values by arguments in your functions
  - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
-
-
 
 ---
 # Functions
@@ -182,18 +184,45 @@ except Exception as ex:
   logger.log("It went wrong")
 ```
 ---
+# Code reusability
+
+- Modular code is reusable code
+
+  - One script for one purpose
+  - Document clearly what comes in and what comes out
+  - When using (adjustable) parameters in your code, use a config file that can be adjusted *outside* of your code
+
+--
+
+- Consider the modularity of your functions
+  - Separate functions into generic and specific elements
+  - Generic part can and will be reused
+  - Specific elements are unique applicable in specific situations
+
+--
+  
+- Do One Thing (and do it well)
+  - One function for one purpose
+  - One class for one purpose
+  - One script for one purpose (no fishing to recycle it!)
+
+---
 # Your turn
 
 Take a look at your code.
 - Are you repeating yourself: do you have repeated code that could be a function?
 
-- Is there hard coded data that you can extract (perhaps in a config file?)
+- Can you separate a function into generic and specific elements?
+
+- Is there hard coded data or adjustable parameters that you can extract (perhaps in a config file?)
+
+- Would your script be more reusable if you split it into subscripts?
   
 - Finally: read your code. Ignore the comments. 
   - Is it clear what you mean? What can you rewrite?
   - Do you have difficulty interpreting variables or function names in your code? Rename them
   - Are you constructively using whitespace?
-  - What does your styleguide say about CamelCase, separators_like_these or-like-these, etc..?
+  - What does your styleguide say about CamelCase, separators_like_these or-like-these, etc..? Take a look and see if you can apply some things!
 
 ---
 # Towards defensive programing
