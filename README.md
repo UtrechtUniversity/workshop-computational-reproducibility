@@ -14,7 +14,7 @@ The workshop is language-independent in principle. We do require participants to
 ## Program
 
 The program addresses four main themes:
-- [ ] BV - [Introduction](slides/slides_introduction.html)
+- [x] BV - [Introduction](slides/slides_introduction.html)
 - [**Project setup**](slides/slides_project-setup.html)
   - [x] BV - Setting up a folder structure
   - [x] BV - Choosing a license
