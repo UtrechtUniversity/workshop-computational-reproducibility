@@ -62,19 +62,19 @@ even better:
 1. (You should have installed git by now! If you have not: [git-scm.com](https://git-scm.com).)
 
 1. Navigate to your project folder in a terminal.
-```
+```bash
 cd [path/to/project_folder]
 ```
 1. Initiate a git repository in this location:
-```
+```bash
 git init
 ```
 1. Add all your files to the staging area:
-```
+```bash
 git add *
 ```
 1. Commit all the files in the staging area to your repository:
-```
+```bash
 git commit -m "First commit"
 ```
 
@@ -90,7 +90,7 @@ git commit -m "First commit"
   ![initialize](images/screenshots/initialize.png)
   
 1. Set the origin of your local repository to the URL of your repo on github:
-```
+```bash
 git remote add origin git@github.com:[youraccount]/[yourrepo].git
 ```
 
@@ -100,7 +100,7 @@ git remote add origin git@github.com:[youraccount]/[yourrepo].git
 
 You can now push the content of your local repository to the one on github:
 
-```
+```bash
 git push -u origin master
 ```
 
@@ -109,7 +109,7 @@ Congrats, your local repository now has an online representation!
 ![octocat](https://github.githubassets.com/images/modules/logos_page/Octocat.png) \\\_\_\_ _THANK YOU!_
 
 Take a look at your online repository. Who is the author of your commits? If it is not you, you can configure git to use your identity (make sure github knows this email address):
-```
+```bash
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
@@ -118,7 +118,7 @@ git config --global user.email "your@email.com"
 # Your workflow
 
 1. Add the changed file(s) to the staging area, and commit the changes:
-```
+```bash
 git add src/filename.py anotherfile.txt
 git add config/configfile.json
 git commit -m "My commit message"
@@ -126,7 +126,7 @@ git commit -m "My commit message"
 OR
 
 2. commit files directly, without staging:
-```
+```bash
 git commit src/filename.py anotherfile.txt -m "My commit message"
 ```
 
@@ -140,21 +140,21 @@ Software Carpentries
 # What else can I do with git?
 
 Check the status of your repository:
-```
+```bash
 git status
 ```
 Check the log of your previous commits:
-```
+```bash
 git log
 git log --oneline
 ```
 What differences are there between your last commit and your workspace? (Or between two previous commits...)
-```
+```bash
 git diff
 git diff HEAD~3
-```
+```bash
 SO much more!
-```
+```bash
 git --help
 ```
 
@@ -164,16 +164,16 @@ git --help
 The .gitignore file in your template contains files that **by definition** will not be tracked by git.
 
 For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
-```
+```bash
 .DS_Store
 ```
 Similarly, you can ensure all output in a folder will not be tracked:
-```
+```bash
 results/
 ```
 
 Or all files with a certain extension:
-``` 
+```bash
  *.dat 
 ```
 
@@ -187,14 +187,14 @@ NB: There is a .gitkeep file in your template -- this does not do the opposite t
 1. Add, commit, and push all files you want to track.
   - Are there files you do not wish to track? Add them to the .gitignore file.
   - Do you want to move a tracked file within a git repository?
-```
+```bash
 git mv path/to/file.svg newpath/
 ```
 (don't forget to commit!)
 1. Continue editing your code, and add/commit/push your changes. Can you do it from your IDE?
 
 1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using
-```
+```bash
 git pull
 ```
 1. What happens if you edit the same file online and locally, and try to push/pull?
