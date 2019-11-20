@@ -20,38 +20,168 @@ class: center, middle, inverse, title-slide
 
 
 
+# Getting started
 
+.pull-left[
+- Contain your project in a single recognizable folder
 
-&lt;!-- Armel --&gt;
----
-## Code documentation
-
-You can document:
-
-- How to use your code
-  - Rmd documents
-  - Jupyter notebooks
+- Distinguish folder _types_, name them accordingly:
+  - **Read-only**: data, metadata
+  - **Human-generated**: code, paper, documentation
+  - **Project-generated**: clean data, figures, models...
   
-- What your code does
-  - Comment lines
-  - Structured documentation strings
-  
+- Initialize a **README** file, document your project
+
+- Choose a **license**
+
+- Publish your project.]
+
+.pull-right[
+-![exampleproject](images/screenshots/exampleproject.png)
+[Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
+]
 ---
-## Dynamic documents
+# Cookiecutter
 
-DYNDOC
+You can set up a project template using a nifty tool called cookiecutter.
+
+First, ensure you have cookiecutter installed:
+```bash
+pip install cookiecutter
+```
+
+This is the recommended installation method. BUT if you do not have pip, there are a few alternatives:
+The pip-predecessor easy_install:
+```bash
+easy_install --user cookiecutter
+```
+MacOS X with Homebrew:
+```bash
+brew install cookiecutter
+```
+Debian/Ubuntu:
+```
+sudo apt-get install cookiecutter
+```
 ---
-## Documentation syntax
+# Cookiecutter
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+![cookiecutter](https://raw.githubusercontent.com/cookiecutter/cookiecutter/3ac078356adf5a1a72042dfe72ebfa4a9cd5ef38/logo/cookiecutter_medium.png)
 
-## Documentation generator
+&gt; A command-line utility that creates projects from cookiecutters (project templates). e.g. creating a Python package project from a Python package project template.
+&gt;
+&gt; _[cookiecutter.readthedocs.io](https://cookiecutter.readthedocs.io/en/latest/)_
 
+There are MANY templates available for your purposes. [Take a look!](https://github.com/cookiecutter/cookiecutter)
 
+We have designed a template based on [this paper by Wilson _et al._](https://doi.org/10.1371/journal.pcbi.1005510) (2017). Go ahead and install it!
 
-## Hostring documentation
+```bash
+cookiecutter gh:bvreede/good-enough-project
+```
+
+Answer the questions cookiecutter asks you, and browse the resulting project to see where your answers ended up.
+---
+# Your turn
+
+- Place your project files in the right folder.
+- Adjust paths in your code, and be sure to use **relative, not absolute** paths! 
+
+```
+.
+├── .gitignore
+├── CITATION.md
+├── LICENSE.md
+├── README.md
+├── requirements.txt
+├── bin                &lt;- Compiled and external code, ignored by git (PG)
+│   └── external       &lt;- Any external source code, ignored by git (RO)
+├── config             &lt;- Configuration files (HW)
+├── data               &lt;- All project data, ignored by git
+│   ├── processed      &lt;- The final, canonical data sets for modeling. (PG)
+│   ├── raw            &lt;- The original, immutable data dump. (RO)
+│   └── temp           &lt;- Intermediate data that has been transformed. (PG)
+├── docs               &lt;- Documentation notebook for users (HW)
+│   ├── manuscript     &lt;- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
+│   └── reports        &lt;- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
+├── results
+│   ├── figures        &lt;- Figures for the manuscript or reports (PG)
+│   └── output         &lt;- Other output for the manuscript or reports (PG)
+└── src                &lt;- Source code for this project (HW)
+```
+
+---
+# Choosing a license
+
+- Copyright is implicit; others cannot use your code without your permission.
+
+- Licensing gives that permission, and its boundaries and conditions.
+
+- Choosing a license early on means being aware of your license as the project proceeds (and not creating conflicts).
+
+- There are over [80 OSI-approved licenses](https://opensource.org/licenses/alphabetical) (and [many](http://dbad-license.org), [many](http://www.wtfpl.net) others) to choose from.
+
+This is one I like to use:
+
+![license](images/screenshots/license.png)
+
+What is important to you? What does your lab use? [Choose your own license!](http://choosealicense.com)
+
+---
+# Publishing your project
+
+Uh... Isn't 'publication' the thing you do... _at the end?_ 
+
+--
+
+No! Publishing your project at an early stage
+- forces you to consider readability throughout
+- minimizes the mess you have to deal with when you (finally) decide to publish
+- allows collaboration and support
+- facilitates sharing and re-use.
+
+--
+
+_But I have sensitive data!_
+
+Then don't include your data in your software repository (that's not what they are for anyway).
+
+--
+
+_Sure, but my code references my data!_
+
+Yeah that's not good. Don't do that.
+
+--
+
+_Also what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
+
+If you are super paranoid, you can always opt for a private repository.
+
+---
+# Where do I publish?
+.pull-left-larger[
+### Living project: github
+(or other social coding platform):
+
+- synergistic with version control software git
+
+- makes history public and accessible _(eek!)_
+
+- allows publication of different releases
+
+- provides a platform for interaction and collaboration
+
+### Archiving a release: zenodo
+(or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))
+- [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
+
+- this gives you a doi: your code is citeable!
+]
+.pull-right-smaller[
+![octocat-project](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
+![zenodo](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

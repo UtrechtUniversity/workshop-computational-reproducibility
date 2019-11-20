@@ -18,18 +18,19 @@
   text-shadow: 0 0 2px #333;
 }
 
-.remark-code.r{
-  background-color: #ffE6B2;
-  border: solid #e0e0e0 1px;
-  box-shadow: 5px 5px 10px #e0e0e0;  
-}
+/*.remark-code.r{
+/*  background-color: #ffE6B2;
+/*  border: solid #e0e0e0 1px;
+/*  box-shadow: 5px 5px 10px #e0e0e0;  
+/*} */
 
 a, a > code {
-  color: rgb(255, 171, 0);
+  color: rgb(214, 147, 10);
+  font-weight: 400;
 }
 
 .title-slide {
-  background-image: url(slides_version-control_files/figure-html/git.svg);
+  /*background-image: url(slides_version-control_files/figure-html/git.svg);*/
   background-color: #FFFFFF;
   background-size: cover;
   border-top: 0;
@@ -45,6 +46,8 @@ img[alt=repo] { width: 550px; margin: 0 220px;}
 img[alt=git-logo] { width: 70px; margin: 0 200px;}
 img[alt=distributed] { margin: -40px 0;}
 img[alt=atlassian] { width: 500px; margin: 0 150px;}
+img[alt=zenodo] {margin: 100px 0;}
+img[alt=codequality] {margin: 10px 50px;}
 
 
 .large-left-column {
@@ -66,3 +69,24 @@ img[alt=atlassian] { width: 500px; margin: 0 150px;}
   float: right;
   width: 30%;
 }
+
+.pull-left-medium {
+  float: left;
+  width: 55%;
+}
+.pull-right-medium {
+  float: right;
+  width: 40%;
+}
+
+
+.custom-code {
+  background: #F5F5F5; /* lighter */
+  /* background: #e7e8e2; /* darker */
+  border-radius: 5px;
+  padding: 5px 20px;
+  font-family: 'Courier', 'Fira Code', monospace;
+  font-weight: 500;
+}
+
+

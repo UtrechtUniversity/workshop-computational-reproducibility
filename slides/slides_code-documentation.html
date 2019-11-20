@@ -1,18 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Code Quality and Documentation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Best Practices for Writing Reproducible Code // part 3" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Code Quality and Documentation
+### Best Practices for Writing Reproducible Code // part 3
+
 ---
-title: "Code Quality and Documentation"
-author: "Best Practices for Writing Reproducible Code // part 3"
-output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts, 'custom.css']
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
+
+
 
 # Code quality defined
 
@@ -45,17 +51,17 @@ Source: [xkcd](https://xkcd.com/1513/)
 
 #### Compare:
 ```r
-this <- function(arg1,arg2){res<-arg1*arg2;return(res)}
-hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+this &lt;- function(arg1,arg2){res&lt;-arg1*arg2;return(res)}
+hurts &lt;- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
 ```
 
 ```r
-this <- function(arg1,arg2){
-  res <- arg1 * arg2
+this &lt;- function(arg1,arg2){
+  res &lt;- arg1 * arg2
   return(res)
 }
 
-hurts <- mean(
+hurts &lt;- mean(
   c(
     this(3,4),
     this(3,1),
@@ -83,7 +89,7 @@ print(hurts)
 
 ```python
 for i in my_shopping_basket:
-  if(test(i)) > 10:
+  if(test(i)) &gt; 10:
     purch(i)
   else:
     disc(i)
@@ -91,7 +97,7 @@ for i in my_shopping_basket:
 
 ```python
 for item in basket:
-  if(testNecessity(item)) > 10:
+  if(testNecessity(item)) &gt; 10:
     purchase(item)
   else:
     discard(item)
@@ -118,10 +124,10 @@ for item in basket:
 #### Compare:
 
 ```r
-myVar<-original_variable+MOD(new.var)
+myVar&lt;-original_variable+MOD(new.var)
 ```
 ```r
-my_var <- original_var + Modified(new_var)
+my_var &lt;- original_var + Modified(new_var)
 ```
 ---
 # Code readability
@@ -273,7 +279,7 @@ Extra packages\\imports are needed
 __Code editors/IDEs__ such as visual studio code, RStudio, Pycharm...
 
 - Integrate functionalities to run and show the results of unit tests
-  - E.g., RStudio in the build menu -> test package
+  - E.g., RStudio in the build menu -&gt; test package
   
 1. Create a unittest file
   
@@ -353,7 +359,7 @@ From https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshap
 
 ```R
 # Now we check if the age of a patient is greater than 18
-if(agePatient > 18)
+if(agePatient &gt; 18)
 
 ```
 
@@ -361,9 +367,9 @@ if(agePatient > 18)
 
 ```R
 # Do not run this!!
-# itDoesNotWork <- optimizeMulticoreDeepLearning(myProteins)
+# itDoesNotWork &lt;- optimizeMulticoreDeepLearning(myProteins)
 # if(itDoesNotWork == 1444){
-#    connection <- connectToHPC(currentUser, password)
+#    connection &lt;- connectToHPC(currentUser, password)
 #}
 ```
 
@@ -404,7 +410,7 @@ An example with Roxygen:
 #' @examples
 #' hello()
 
-hello <- function() {
+hello &lt;- function() {
   print("Hello, world!")
 }
 ```
@@ -440,9 +446,9 @@ __Remark__ This works for R packages, with the proper file structure see here : 
 
 The contents typically include one or more of the following:
 
-From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page
+From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&amp;oldid=923233067") page
 
-> - __Configuration instructions__
+&gt; - __Configuration instructions__
 - __Installation instructions__
 - __Operating instructions__
 - A file manifest (list of files included)
@@ -524,13 +530,13 @@ All chunck can be run at the same time
 - Come code editors/integrated development environments can run notebooks
   - Pycharm, Rstudio, Visual studio ...
 
->This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
->
->Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
->
->```r
->plot(cars)
->```
+&gt;This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+&gt;
+&gt;Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+&gt;
+&gt;```r
+&gt;plot(cars)
+&gt;```
 
 ---
 # Your turn!
@@ -547,3 +553,111 @@ All chunck can be run at the same time
   - Write in the notebook a brief introduction explaining the purpose of your script
   - Then show how to use your package and what kind of outputs it produce
   - For example, if your code has produced figures of table before (e.g., publication), show how to produce these tables again
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

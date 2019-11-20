@@ -3,8 +3,7 @@
 As the saying goes: well begun is half done. As you get started with your project, you can frame it such that you facilitate a reproducible workflow for the rest of the project. In this workshop we will focus on a few things:
 * Publication & Licensing
 * Project structure
-* Version control
-* Testing
+
 
 ## Publication & Licensing
 
@@ -26,44 +25,31 @@ There are many websites designed to host code. You should choose a website compa
 - test your software;
 - provide a platform for collaboration.
 
+### Choosing a license
 
+The default situation is that your work is under copyright, so nobody can use your code without your permission. You can fix this by adding a license to your work. 
 
-
-### More on this
 * [_Pick a license, any license._ by Jeff Atwood (Coding Horror)](https://blog.codinghorror.com/pick-a-license-any-license/)
 * [Want to choose an license? This tool helps!](https://choosealicense.com)
 
 
-
-
-
-Templates and ideas for README
-- https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
-- https://github.com/matiassingers/awesome-readme
-
-
-
-## Generate a project template
-Also, there are project templates available. Find a few!
-
-
-# Project Setup
+## Project Setup in R
 
 Use an __"RStudio Project"__ + to organize files for an analysis project (scripts, data, results, documents, etc):
 
-![](new-project.png)
+![](images/new-project.png)
 
   
 Alternatively: use an __R Package__ if your code is to be used by others outside of your own work, you should put it in a package. An R package is simply a folder with a standard layout on for R functions, documentation, data, and metadata. It makes it easy for yourself and others to install and use the code.
 
 
-![](new-package.png)
+![](images/new-package.png)
 
 
 Regardless of working on a project or package, always use `git` to save your progress. 
 
 
-![](git-commit.png)
+![](images/git-commit.png)
 
   
 The `usethis` R package helps you to automate package and project setup tasks. It makes everything that follows much easier. Make sure to check out the website: https://usethis.r-lib.org

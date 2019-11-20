@@ -14,4 +14,129 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+# Be Reproducible!
+.pull-left-medium[
+What is reproducibility?
+- a challenge for scientists!
 
+- **computationally reproducible** means: with same code + same data + same environment
+== same results
+
+
+Why do you want to make your work reproducible?
+
+- for whom?
+
+- what do they gain?
+
+- what do you gain?
+]
+
+--
+
+.pull-right-medium[
+![futureself](https://imgs.xkcd.com/comics/future_self.png)
+]
+---
+# A great example
+![example](images/screenshots/badexample.png)
+
+---
+# Is this enough?
+
+- Access to the code
+- Access to the data
+- (And let's assume we can replicate the enviroment)
+
+Do you feel confident about this project?
+--
+
+> This code is a kludgly, ugly, inefficient mess. 
+(...)
+>  It is probably riddled with problems, mistakes, bugs, inefficiencies, vestigial code stubs, etc etc.
+(...)
+> I am as confident as I am capable of being that all of the factual claims that were made in the manuscript are accurate.
+
+--
+
+We need to do more: we need to inspire trust.
+- The code is correct (and I have made it easy for you/someone to check);
+- My workflow is robust;
+- My workflow *itself* is accessible, and I will be guiding you through it.
+
+
+---
+# What does a workflow look like?
+
+![](images/dataworkflow.png)
+Source: Hadley Wickham / tidyverse documentation
+
+
+- data cleaning is an essential first step
+
+- think modular: each step requires own input, process, output
+
+
+---
+# What will we do today?
+
+We will take you through a workflow (in a broader sense!)
+
+--
+
+- Setting up a project
+
+- Establishing a robust backup / version control system
+
+- Writing robust code
+
+- Writing documentation
+
+- Making your project accessible
+
+--
+
+We will end by trying to reproduce each others' projects!
+
+--
+
+#### Do you have your own data/code?
+
+If not: find an interesting dataset [on this github repo](https://github.com/rfordatascience/tidytuesday). How about:
+- [space launches](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15)
+- [nobel prize winners](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-14)
+- [cetaceans data](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-12-18)
+
+
+--
+
+### Our objectives for you
+We want to teach you **good habits** that will make your work more accessible, trustworthy, and reproducible by others. In doing so, we have tried to identify those habits that are a **good return on investment**: meaning, they save you time in the not-so-long run.
+
+---
+# What do we expect from you?
+
+- Our group today has many different abilities and experiences. We hope you will value this as much as we do!
+
+- Feel free and safe to share your expertise and experiences, either by helping your neighbor or by showing everyone.
+
+
+#### As for feedback...
+This workshop is work in progress! This is a pilot and we *emphatically* want your feedback. That can be anything you can think of, but in particular:
+
+  - Does this tool/lesson align with the objectives of the course?
+  
+  - Do/did you have (access to) crucial basic information to understand our lessons?
+
+  - If you do not know a certain word or term (or you think others may not know it): flag it! We will be adding these terms to a glossary.
+
+---
+# Let's get practical!
+
+- You can find the slides at [tinyurl.com/repcopilot](https://utrechtuniversity.github.io/workshop-computational-reproducibility/). You may need links or code from these slides, so do open them.
+
+- There's also a (tentative) schedule: scroll down to 'preparations' and click the link.
+
+- This is a workshop, so do follow along! Use your sticky notes to signal to us: 
+  - green means: I'm ready for the next step!
+  - pink means: I need assistance, please.

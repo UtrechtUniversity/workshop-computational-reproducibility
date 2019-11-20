@@ -11,7 +11,7 @@ and see whether you should adapt your coding habits to increase readability.
 
 #### use descriptive names for functions and variables
 
-While it might be convenient to use variable names such as test, temp, a\[b,c,d\] it is difficult to understand later
+While it might be convenient to use variable names such as test, temp, \[a,b,c,d\] it is difficult to understand later
 what _temp_ contains or what exactly _a_ does at a certain point in your script.
 
 Therefore, it is better to use expressive variable names with reasonable limits regarding length and information.
