@@ -20,52 +20,27 @@ class: center, middle, inverse, title-slide
 
 
 
-# Publishing your project
+# Getting started
 
-Wait, why are we starting here? Isn't 'publication' the thing you do... _at the end?_
+.pull-left[
+- Contain your project in a single recognizable folder
 
-**Not necessarily!** Publishing early:
-- forces you to consider readability throughout
-- minimizes the mess you have to deal with when you (finally) decide to publish
-- allows collaboration and support
-- facilitates sharing and re-use
+- Distinguish folder _types_, name them accordingly:
+  - **Read-only**: data, metadata
+  - **Human-generated**: code, paper, documentation
+  - **Project-generated**: clean data, figures, models...
+  
+- Initialize a **README** file, document your project
 
-This is not a rule and may not be for you. Perhaps you have:
-- sensitive data (and references to your data* in your code)
-- scoop-able code
+- Choose a **license**
 
-In that case, publish privately if you can... but consider if your project may not benefit from being written openly.
+- Publish your project.]
 
-.footnote[
-*Although you should probably not have those in the first place...
+.pull-right[
+-![exampleproject](images/screenshots/exampleproject.png)
+[Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
 ]
 ---
-# Publishing your project
-
-Living project: to github (or other social coding platform):
-- compatible with version control software git (more on that later);
-- allows others to see not just the code, but also individual commits you made and branches you work on;
-- publish different releases;
-- provide a platform for collaboration.
-
-Archiving a project:
-
-- 
-
-
----
-# Choose a license
-
-- Default 
-
-Regardless of publication status, we encourage you to choose a license from the start. Even if a project is private, knowing what your license is will prevent you from generating content that does not match the license. For example: you may want to deploy someone else's code that is licensed in a way that is incompatible with the license you prefer. If you have not yet chosen your license, you may inadvertedly create conflicts.
-
-Summarizing: the more you know about your project from the start, and can keep in mind as you proceed, the lower the chance that you will create something that conflicts with these standards that **should eventually all be part of your project**. Why not hit the ground running?
-
-
-
-
-
 # Cookiecutter
 
 You can set up a project template using a nifty tool called cookiecutter.
@@ -106,37 +81,107 @@ cookiecutter gh:bvreede/good-enough-project
 ```
 
 Answer the questions cookiecutter asks you, and browse the resulting project to see where your answers ended up.
-
-&lt;!-- Armel --&gt;
 ---
-## Code documentation
+# Your turn
 
-You can document:
+- Place your project files in the right folder.
+- Adjust paths in your code, and be sure to use **relative, not absolute** paths! 
 
-- How to use your code
-  - Rmd documents
-  - Jupyter notebooks
-  
-- What your code does
-  - Comment lines
-  - Structured documentation strings
-  
+```
+.
+├── .gitignore
+├── CITATION.md
+├── LICENSE.md
+├── README.md
+├── requirements.txt
+├── bin                &lt;- Compiled and external code, ignored by git (PG)
+│   └── external       &lt;- Any external source code, ignored by git (RO)
+├── config             &lt;- Configuration files (HW)
+├── data               &lt;- All project data, ignored by git
+│   ├── processed      &lt;- The final, canonical data sets for modeling. (PG)
+│   ├── raw            &lt;- The original, immutable data dump. (RO)
+│   └── temp           &lt;- Intermediate data that has been transformed. (PG)
+├── docs               &lt;- Documentation notebook for users (HW)
+│   ├── manuscript     &lt;- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
+│   └── reports        &lt;- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
+├── results
+│   ├── figures        &lt;- Figures for the manuscript or reports (PG)
+│   └── output         &lt;- Other output for the manuscript or reports (PG)
+└── src                &lt;- Source code for this project (HW)
+```
+
 ---
-## Dynamic documents
+# Choosing a license
 
-DYNDOC
+- Copyright is implicit; others cannot use your code without your permission.
+
+- Licensing gives that permission, and its boundaries and conditions.
+
+- Choosing a license early on means being aware of your license as the project proceeds (and not creating conflicts).
+
+- There are over [80 OSI-approved licenses](https://opensource.org/licenses/alphabetical) (and [many](http://dbad-license.org), [many](http://www.wtfpl.net) others) to choose from.
+
+This is one I like to use:
+
+![license](images/screenshots/license.png)
+
+What is important to you? What does your lab use? [Choose your own license!](http://choosealicense.com)
+
 ---
-## Documentation syntax
+# Publishing your project
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+Uh... Isn't 'publication' the thing you do... _at the end?_ 
 
-## Documentation generator
+--
 
+No! Publishing your project at an early stage
+- forces you to consider readability throughout
+- minimizes the mess you have to deal with when you (finally) decide to publish
+- allows collaboration and support
+- facilitates sharing and re-use.
 
+--
 
-## Hostring documentation
+_But I have sensitive data!_
+
+Then don't include your data in your software repository (that's not what they are for anyway).
+
+--
+
+_Sure, but my code references my data!_
+
+Yeah that's not good. Don't do that.
+
+--
+
+_Also what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
+
+If you are super paranoid, you can always opt for a private repository.
+
+---
+# Where do I publish?
+.pull-left-larger[
+### Living project: github
+(or other social coding platform):
+
+- synergistic with version control software git
+
+- makes history public and accessible _(eek!)_
+
+- allows publication of different releases
+
+- provides a platform for interaction and collaboration
+
+### Archiving a release: zenodo
+(or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))
+- [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
+
+- this gives you a doi: your code is citeable!
+]
+.pull-right-smaller[
+![octocat-project](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
+![zenodo](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
