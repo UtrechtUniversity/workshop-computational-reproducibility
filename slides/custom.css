@@ -30,7 +30,7 @@ a, a > code {
 }
 
 .title-slide {
-  background-image: url(slides_version-control_files/figure-html/git.svg);
+  /*background-image: url(slides_version-control_files/figure-html/git.svg);*/
   background-color: #FFFFFF;
   background-size: cover;
   border-top: 0;
@@ -68,6 +68,16 @@ img[alt=zenodo] {margin: 100px 0;}
   float: right;
   width: 30%;
 }
+
+.pull-left-medium {
+  float: left;
+  width: 55%;
+}
+.pull-right-medium {
+  float: right;
+  width: 40%;
+}
+
 
 .custom-code {
   background: #F5F5F5; /* lighter */
