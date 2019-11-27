@@ -36,11 +36,17 @@ The program addresses four main themes:
 If you are attending this workshop, you can prepare a few things so we can hit the ground running! We have [more details on this page](preparations.md).
 
 
+## License
+
+All workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). View the license [here](LICENSE.md).
+
+
 ## History and acknowledgements
 
-This course was developed at Utrecht University, and received contributions from:
+This course was developed at Utrecht University, supported by the Open Science Community Utrecht (OSCU) and Research Data Management support (RDM support).
+
+Workshop development is being coordinated by [Barbara Vreede](https://github.com/bvreede), and the course received contributions from:
 - [Armel Lefebvre](https://github.com/armell)
-- [Barbara Vreede](https://github.com/bvreede)
 - [Bianca Kramer](https://github.com/bmkramer)
 - [Cedric Thieulot](https://github.com/cedrict)
 - [Erik van Sebille](https://github.com/erikvansebille)
