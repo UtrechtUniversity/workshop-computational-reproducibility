@@ -43,7 +43,7 @@ All workshop material is licensed under a [Creative Commons Attribution 4.0 Inte
 
 ## History and acknowledgements
 
-This course was developed at Utrecht University, supported by the Open Science Community Utrecht (OSCU) and Research Data Management support (RDM support).
+This course was developed at Utrecht University, supported by the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com) and [Research Data Management (RDM) support](https://www.uu.nl/en/research/research-data-management).
 
 Workshop development is being coordinated by [Barbara Vreede](https://github.com/bvreede), and the course received contributions from:
 - [Armel Lefebvre](https://github.com/armell)
