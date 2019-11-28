@@ -11,6 +11,12 @@ In this hands-on workshop, you will learn to become a better programmer. We will
 
 The workshop is language-independent in principle. We do require participants to have at least a basic understanding of a programming language like Python or R. If you are unsure if the language you use will fit our course, please get in touch before registration.
 
+
+## Registration
+
+The next edition of this workshop will be given at Utrecht University on Thursday, December 19th, 2019. [You can register here.](https://www.uu.nl/en/events/best-practices-for-writing-reproducible-code-19-december-2019)
+
+
 ## Program
 
 The program addresses four main themes:
@@ -31,6 +37,7 @@ The program addresses four main themes:
   - dealing with requirements and dependencies
 - Wrap-up
 
+
 ## Preparations
 
 If you are attending this workshop, you can prepare a few things so we can hit the ground running! We have [more details on this page](preparations.md).
@@ -38,7 +45,7 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 
 ## License
 
-All workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). View the license [here](LICENSE.md).
+All workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). [View the license here](LICENSE.md).
 
 
 ## History and acknowledgements
@@ -60,6 +67,7 @@ Workshop development is being coordinated by [Barbara Vreede](https://github.com
 - [Renato Alves](https://github.com/unode)
 
 The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [on these slides](https://docs.google.com/presentation/d/1MIPsWt08Kixe1TZfPeM8LvJv7p2es7lZ4Ui88FYbl5Y/edit?usp=sharing).
+
 
 ### External resources and developer inspiration
 - https://guide.esciencecenter.nl/
