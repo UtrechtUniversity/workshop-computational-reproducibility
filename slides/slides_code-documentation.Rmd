@@ -129,21 +129,6 @@ myVar<-original_variable+MOD(new.var)
 my_var <- original_var + Modified(new_var)
 ```
 ---
-# Code readability
-
-- ~~Code is for computer, comments are for humans.~~
-
-- Use whitespace and newlines strategically.
-
-- use descriptive names for functions and variables
-  - start functions with a verb
-  - make variable names _just_ long enough to be meaningful
-
-- use a consistent style
-  - consistency will make your code easier to understand and maintain
-  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
-  
----
 # Styleguides
 
   - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
