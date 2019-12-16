@@ -22,15 +22,16 @@ The next edition of this workshop will be given at Utrecht University on Thursda
 
 The program addresses four main themes:
 - [Introduction](slides/slides_introduction.html)
-- [**Project setup**](slides/slides_project-setup.html)
+- [**Project setup**](slides/slides_project-setup.html) & [**Version control**](slides/slides_version-control.html)
   - Setting up a folder structure
   - Choosing a license
-- [**Version control**](slides/slides_version-control.html)
   - using git for version control
   - publishing your project on github
-- [**Code quality & documentation**](slides/slides_code-documentation.html)
+- [**Code quality**](slides/slides_code-quality.html)
   - code readability
+  - reusable code
   - defensive programming
+- [**Documentation**](slides/slides_documentation.html)  
   - code comments
   - creating documentation and using notebooks
 - **Publication & reproduction** (live demo)
