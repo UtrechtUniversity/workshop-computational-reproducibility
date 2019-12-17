@@ -23,128 +23,12 @@ class: center, middle, inverse, title-slide
 # Code quality defined
 
 .pull-left[
-- Readable
+- Readable (Next part)
 
 - Reusable
 
 - Robust
 ]
-
-.footnote[
-Source: [xkcd](https://xkcd.com/1513/)
-]
-
-.pull-right[
-![goodcode](https://imgs.xkcd.com/comics/good_code.png)
-
-]
-
----
-# Code readability
-
-- Code is for computer, comments are for humans.
-
-
----
-# Code readability
-
-- ~~Code is for computer, comments are for humans.~~
-
-- Use whitespace and newlines strategically.
-
---
-
-#### Compare:
-```r
-this &lt;- function(arg1,arg2){res&lt;-arg1*arg2;return(res)}
-hurts &lt;- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
-```
-
-```r
-this &lt;- function(arg1,arg2){
-  res &lt;- arg1 * arg2
-  return(res)
-}
-
-hurts &lt;- mean(
-  c(
-    this(3,4),
-    this(3,1),
-    this(9,9)
-    )
-  )
-print(hurts)
-```
-
-
----
-# Code readability
-
-- ~~Code is for computer, comments are for humans.~~
-
-- Use whitespace and newlines strategically.
-
-- use descriptive names for functions and variables
-  - start functions with a verb
-  - make variable names _just_ long enough to be meaningful
-
---
-
-#### Compare:
-
-```python
-for i in my_shopping_basket:
-  if(test(i)) &gt; 10:
-    purch(i)
-  else:
-    disc(i)
-```
-
-```python
-for item in basket:
-  if(testNecessity(item)) &gt; 10:
-    purchase(item)
-  else:
-    discard(item)
-```
-
-
----
-# Code readability
-
-- ~~Code is for computer, comments are for humans.~~
-
-- Use whitespace and newlines strategically.
-
-- use descriptive names for functions and variables
-  - start functions with a verb
-  - make variable names _just_ long enough to be meaningful
-
-- use a consistent style
-  - consistency will make your code easier to understand and maintain
-  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
-  
---
-
-#### Compare:
-
-```r
-myVar&lt;-original_variable+MOD(new.var)
-```
-```r
-my_var &lt;- original_var + Modified(new_var)
-```
----
-# Styleguides
-
-  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
-  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
-  
-![codequality](https://imgs.xkcd.com/comics/code_quality.png)
-.footnote[
-Source: [xkcd](https://xkcd.com/1513/)
-]
-
 
 ---
 # Code robustness (part 1)
@@ -337,12 +221,38 @@ result
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'result' is not defined
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+## 10
 ```
 
+---
+# Mmmh... why not a good old if/return?
+
+
+```python
+def read_vector_value_if(index=0):
+    my_vector = [10,5,4,12,25]
+    
+    if index &gt; len(my_vector) - 1:
+        return None
+    
+    return my_vector[index]
+
+print(read_vector_value_if())
+```
+
+```
+## 10
+```
+
+- Hard to know if None is an expected value or an error ...
+
+```python
+print(read_vector_value_if(55))
+```
+
+```
+## None
+```
 ---
 # You can handle this! With some error management
 
@@ -437,20 +347,72 @@ class TestStringMethods(unittest.TestCase):
 - Normal call
 
 
-
-- Notebook call
-```
+```python
+unittest.main()
 ```
 
 ---
+# With a Jupyter notebook
 
+- Notebook call
+
+
+```python
+unittest.main(argv=['trick to make it work in a notebook'], exit=False)
+```
+
+```
+## &lt;unittest.main.TestProgram object at 0x000001E939721550&gt;
+## 
+## ..
+## ----------------------------------------------------------------------
+## Ran 2 tests in 0.000s
+## 
+## OK
+```
+
+---
+# Making a test fail
+
+```python
+import unittest
+class TestStringMethods(unittest.TestCase):
+    def test_retrieval(self):
+        self.assertEqual(read_vector_value(0), 10)
+    
+    def test_error(self):
+        with self.assertRaises(IndexError):
+            read_vector_value(5)
+            
+    def test_retrieval_wrong(self):
+        self.assertEqual(read_vector_value(0), 11)
+```
+---
+#Result of faulty test
+
+
+```
+## &lt;unittest.main.TestProgram object at 0x000001E939724D68&gt;
+## 
+## ..F
+## ======================================================================
+## FAIL: test_retrieval_wrong (__main__.TestStringMethods)
+## ----------------------------------------------------------------------
+## Traceback (most recent call last):
+##   File "&lt;string&gt;", line 10, in test_retrieval_wrong
+## AssertionError: 10 != 11
+## 
+## ----------------------------------------------------------------------
+## Ran 3 tests in 0.000s
+## 
+## FAILED (failures=1)
+```
 ---
 # Your turn
 - Write a unit test for your function
 - Does your function behave like you want?
 - Can you make your function raise unforseen errors/exceptions?
-
----
+- Inspect R and python documentation to get acquainted with different assertions (e.g., assertEqual)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
