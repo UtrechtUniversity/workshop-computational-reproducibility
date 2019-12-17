@@ -152,7 +152,7 @@ What differences are there between your last commit and your workspace? (Or betw
 ```bash
 git diff
 git diff HEAD~3
-```bash
+```
 SO much more!
 ```bash
 git --help

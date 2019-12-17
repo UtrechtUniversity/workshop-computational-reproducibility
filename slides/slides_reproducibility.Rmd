@@ -13,5 +13,36 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
+# It depends...
+
+![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
+
+---
+# It depends...
+
+![reproducibility](images/screenshots/comprep.png)
 
 
+---
+# R: Packrat
+
+Install the package from CRAN
+```r
+install.packages("packrat")
+```
+
+Initialize packrat
+```r
+packrat::init("~/path/to/your/project")
+```
+
+Later on, install some package
+It will be installed in `~/path/to/your/project/packrat/lib`
+```r
+install.packages("reshape2")
+```
+
+Take a snapshot of installed packages
+```r
+packrat::snapshot()
+```
