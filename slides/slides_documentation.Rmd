@@ -190,7 +190,7 @@ The command above will create documentation files that can be visualized by call
 
 .pull-right-smaller[
 
-![output](./images/document_roxygen_r_help.PNG)
+![output](images/screenshots/document_roxygen_r_help.PNG)
 
 ]
 
@@ -199,7 +199,7 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 ]
 
 ---
-# Your turn (choose 1 or 2 to start)
+# Your turn (choose one!)
 
 ####1. Comment lines
   
@@ -219,9 +219,9 @@ b. Are there elements without comments that need them?
 ---
 # Readme
 
-The contents typically include one or more of the following:
+The readme page is the first thing your user will see!
 
-From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page
+The contents typically include one or more of the following:
 
 > - __Configuration instructions__
 - __Installation instructions__
@@ -233,41 +233,48 @@ From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&old
 - Troubleshooting
 - Credits and acknowledgments
 
-
-.footnote[
-Templates and ideas for README
-- https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
-- https://github.com/matiassingers/awesome-readme
-]
+*From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page*
+---
+# An example
+![mcfly](images/screenshots/mcfly.png)
 
 ---
-# Readme examples
+# Readme examples and templates
 
-Examples from projects with high quality documentation
-
-.pull-left-larger[
+Examples from projects with high quality documentation:
 - Pandas: https://github.com/pandas-dev/pandas
 - Scikit-learn : https://github.com/scikit-learn/scikit-learn
-- Dplyr: https://github.com/tidyverse/dplyr
+- Tidyverse [Dplyr](https://github.com/tidyverse/dplyr)
+- e-science center ['McFly' tool](https://github.com/NLeSC/mcfly)
 
-]
 
-.pull-right-smaller[
-__A readme files from pandas__
-![pandas_readme](./images/pandas_readme_extract.PNG)
-]
+Templates and ideas:
+
+- https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+- https://github.com/matiassingers/awesome-readme
+
 
 ---
 # Readme how?
 
-- Readme are files that can be written as text (or markdown for formatting)
-
-- Github will show the content of your readme file at the root of the repository
-
 - When you create a repository on Github, there in an option to include a Readme files
+![readme_github](images/screenshots/github_new_repo_readme.png)
+- Readme are files that can be written as text, and commonly use Markdown for formatting.
 
+- Github will show the content of your Readme file at the root of the repository.
 
-![readme_github](./images/github_new_repo_readme.PNG)
+- Your cookiecutter template included a Readme, so you are all set!!
+
+---
+# Your turn!
+
+Edit your Readme file.
+
+Make sure to include the following information:
+- What does your project do?
+- How do you start running your project?
+  - How does the user download your project? (consider `git clone`!)
+  - How does the user call the main script(s) that should be executed?
 
 ---
 # Notebooks
@@ -312,16 +319,3 @@ All chunck can be run at the same time
 >```r
 >plot(cars)
 >```
-
----
-# Your turn!
-
-- Make a readme explaining What people should know to run your code again
-  - Install extra tools, dependencies
-  - Which environment (Python? R? and which version)
-  - The main scripts that should executed
-- Make a notebook
-  - Describe how to use the package to analyse the data you have
-  - Write in the notebook a brief introduction explaining the purpose of your script
-  - Then show how to use your package and what kind of outputs it produce
-  - For example, if your code has produced figures of table before (e.g., publication), show how to produce these tables again
