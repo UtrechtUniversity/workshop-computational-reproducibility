@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Project documentation</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Best Practices for Writing Reproducible Code // part 4" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Project documentation
+### Best Practices for Writing Reproducible Code // part 4
+
+---
+
+
+
+# Project documentation
+
+#### Why do you need documentation?
+
+- You want yourself to understand how code written some time ago works
+
+- You want others to understand how to (re-)use your code
+
+--
+
+#### For this you need to 
+- Explain parts of your code with __comments__
+
+- Explain what to install and how to get started in your __readme__
+- Explain in-depth use of your code in a __notebook__
+
+
+---
+# Comments
+#### Comments are annotations you write directly in the code source.
+.pull-left[
+They:
+
+- are written for users who deal with your source code
+
+- explain parts that are not intuitive from the code itself
+
+- **do not** replace readable or structured code
+
+- (in a specific structure) can be used to directly generate documentation for users.
+]
+
+.pull-right[
+![comments](https://geekandpoke.typepad.com/.a/6a00d8341d3df553ef015432bf9167970c-800wi)
+[Geek &amp; Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/code-commenting-made-easy.html)
+]
+---
+
+# When *not* to use comments
+
+- ...to repeat in natural language what is written in your code
+
+```R
+# Now we check if the age of a patient is greater than 18
+if(agePatient &gt; 18)
+
+```
+--
+- ...to turn old code into zombie code (fine for troubleshooting, but do not leave it in!)
+
+```R
+# Do not run this!!
+# itDoesNotWork &lt;- optimizeMulticoreDeepLearning(myProteins)
+# if(itDoesNotWork == 1444){
+#    connection &lt;- connectToHPC(currentUser, password)
+#}
+```
+--
+- ...to replace version control, like git
+
+```R
+
+# removed on August 5
+# if() ...
+
+#Now, it connects to the API with o-auth2, updated 05/05/2016
+...
+```
+---
+
+# Comment lines: WHY over HOW
+
+Comment lines are used to explain the **purpose** of some piece of code.
+```python
+# Bug fix GH 20601
+# If the data frame is too big, the number of unique index combination
+# will cause int32 overflow on windows environments.
+# We want to check and raise an error before this happens
+num_rows = np.max([index_level.size for index_level in self.new_index_levels])
+num_columns = self.removed_level.
+```
+*From [Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py)*
+
+
+---
+
+
+# Docstrings
+
+- Structured comments, associated to *segments* (rather than lines) of code can be used to generate documentation for users*  of your project.
+
+- These comments are called *docstrings*.
+
+- Docstrings, unlike regular comments, are parsed by the interpreter, and can be used as code metadata.
+
+- Docstrings allow you to provide documentation to a function, that is relevant to the user of that function.
+
+
+
+
+.footnote[*) Remember? That's probably you!]
+---
+# Generating docstrings
+
+
+
+---
+# A glimpse into code generation
+
+- Need additional tools:
+
+  * http://www.doxygen.nl/ : c++ (and many more languages)
+  * http://www.sphinx-doc.org/ : Python
+  * https://roxygen2.r-lib.org/ : R
+
+An example with Roxygen:
+
+```R
+#' A function that says hello
+#'
+#' @return Nothing
+#' @export
+#' @examples
+#' hello()
+
+hello &lt;- function() {
+  print("Hello, world!")
+}
+```
+
+Note the special symbols which differ from standard comment lines.
+
+Namely, the #' and @ : these are special symbols that are recognized by
+---
+# A glimpse into code generation
+
+In the console, in RStudio, run the following command:
+
+```R
+roxygen2::roxygenise()
+```
+
+.pull-left-larger[
+The commande above will create documentation files that can be visualized by calling help(your package)
+]
+
+.pull-right-smaller[
+
+![output](./images/document_roxygen_r_help.PNG)
+
+]
+
+.footnote[
+__Remark__ This works for R packages, with the proper file structure see here : http://r-pkgs.had.co.nz/intro.html
+]
+
+---
+# Readme
+
+The contents typically include one or more of the following:
+
+From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&amp;oldid=923233067") page
+
+&gt; - __Configuration instructions__
+- __Installation instructions__
+- __Operating instructions__
+- A file manifest (list of files included)
+- Copyright and licensing information
+- Contact information for the distributor or programmer
+- Known bugs
+- Troubleshooting
+- Credits and acknowledgments
+
+
+.footnote[
+Templates and ideas for README
+- https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+- https://github.com/matiassingers/awesome-readme
+]
+
+---
+# Readme examples
+
+Examples from projects with high quality documentation
+
+.pull-left-larger[
+- Pandas: https://github.com/pandas-dev/pandas
+- Scikit-learn : https://github.com/scikit-learn/scikit-learn
+- Dplyr: https://github.com/tidyverse/dplyr
+
+]
+
+.pull-right-smaller[
+__A readme files from pandas__
+![pandas_readme](./images/pandas_readme_extract.PNG)
+]
+
+---
+# Readme how?
+
+- Readme are files that can be written as text (or markdown for formatting)
+
+- Github will show the content of your readme file at the root of the repository
+
+- When you create a repository on Github, there in an option to include a Readme files
+
+
+![readme_github](./images/github_new_repo_readme.PNG)
+
+---
+# Notebooks
+
+Notebooks originates from the concept of literate programming, introduced by D. Knuth in 1984.
+
+- Idea : describe the logic of the code in natural language and include source code at the same time
+- In one document from the original program can be generated
+- Nowadays, literate programming evolved into Jupyter notebooks, RMarkdown documents etc.
+
+---
+# Editing notebooks
+
+In notebooks, you have two parts:
+
+- Text (now often in markdown, LaTex or plain text)
+- Code (Python, R ...)
+
+This means
+
+- That there are text chuncks
+- And code chunks
+
+All chunck can be run at the same time
+- Text chunks will be shown
+- Code chunks will be executed and their ouput will be shown (if any)
+
+---
+# Notebook software
+
+- RStudio with R notebooks
+
+- Jupyter lab with jupyter notebooks
+
+- Come code editors/integrated development environments can run notebooks
+  - Pycharm, Rstudio, Visual studio ...
+
+&gt;This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+&gt;
+&gt;Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+&gt;
+&gt;```r
+&gt;plot(cars)
+&gt;```
+
+---
+# Your turn!
+- Do you have any "bad" comments in your code : remove or edit them
+  - Unecessary
+  - Deactivated code
+  - Git like comments
+- Make a readme explaining What people should know to run your code again
+  - Install extra tools, dependencies
+  - Which environment (Python? R? and which version)
+  - The main scripts that should executed
+- Make a notebook
+  - Describe how to use the package to analyse the data you have
+  - Write in the notebook a brief introduction explaining the purpose of your script
+  - Then show how to use your package and what kind of outputs it produce
+  - For example, if your code has produced figures of table before (e.g., publication), show how to produce these tables again
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
