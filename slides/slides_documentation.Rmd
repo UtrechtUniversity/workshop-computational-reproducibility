@@ -203,13 +203,14 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 
 ####1. Comment lines
   
-a. Do you have superfluous comments?
+a. Do you have superfluous comments? **Remove them!**
    - Remove your zombie code and version control-like comments
    - See if you can replace a 'how' comment for a 'why' comment (_what is the purpose of this code?_ rather than _this is how this code works_)
 
-b. Are there elements without comments that need them?
-  - As you have been working with your code today, if you found yourself staring at a piece of code for too long without understanding it: perhaps it needs more information.
-  - Keep doing this as you work on refactoring your code!
+b. Are there elements without comments that need them? **Add them!**
+  - As you have been working with your code today: have you found yourself staring at a piece of code for too long without understanding it?
+  - Perhaps it needs more information!
+  - Try to comment on the thought behind the code rather than just translating its process to English. 
   
   
 ####2. Docstrings
@@ -250,7 +251,7 @@ Bigger community software projects:
 
 Research software:
 - e-science center's ['McFly' tool](https://github.com/NLeSC/mcfly)
-- Utrecht University's [Automatic Systematic Review](https://github.com/msdslab/automated-systematic-review)
+- Utrecht University's: [Automatic Systematic Review](https://github.com/msdslab/automated-systematic-review)
 - Utrecht University's [MICE](https://github.com/stefvanbuuren/mice)
 
 
@@ -281,6 +282,8 @@ Make sure to include the following information:
 - How do you start running your project?
   - How does the user download your project? (consider `git clone`!)
   - How does the user call the main script(s) that should be executed?
+  
+And perhaps any other elements you are inspired to add (check out the examples!)
 
 
 ---
