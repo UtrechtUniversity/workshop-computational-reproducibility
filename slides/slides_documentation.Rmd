@@ -1,6 +1,6 @@
 ---
-title: "Code Quality and Documentation"
-author: "Best Practices for Writing Reproducible Code // part 3"
+title: "Project documentation"
+author: "Best Practices for Writing Reproducible Code // part 4"
 output:
   xaringan::moon_reader:
     css: [default, metropolis, metropolis-fonts, 'custom.css']
@@ -16,63 +16,53 @@ options(htmltools.dir.version = FALSE)
 
 # Project documentation
 
-This part is about writing documentation for your project.
+#### Why do you need documentation?
 
-### Why code documentation?
+- You want yourself to understand how code written some time ago works
 
-- You want yourself to understand how code written some time ago works.
+- You want others to understand how to (re-)use your code
 
-- You want others to understand how to re-use your code
+--
 
-### For this you need to 
+#### For this you need to 
 - Explain parts of your code with __comments__
-- Explain what to install in your __readme__
-- Explain how to use your code in a __notebook__
+
+- Explain what to install and how to get started in your __readme__
+- Explain in-depth use of your code in a __notebook__
+
 
 ---
 # Comments
+#### Comments are annotations you write directly in the code source.
+.pull-left[
+They:
 
-Comments are annotations you write directly in the code source.
+- are written for users who deal with your source code
 
-- Comment lines are only for users who deal with your source code
+- explain parts that are not intuitive from the code itself
 
-- Explain parts that are not intuitive from the code itself
+- **do not** replace readable or structured code
 
-- Comments do not replace strucured code (classes, functions, ...)
+- (in a specific structure) can be used to directly generate documentation for users.
+]
 
-- Structured comments can be used to generate documentation for users
-
+.pull-right[
+![comments](https://geekandpoke.typepad.com/.a/6a00d8341d3df553ef015432bf9167970c-800wi)
+[Geek & Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/code-commenting-made-easy.html)
+]
 ---
 
-# Comment lines
+# When *not* to use comments
 
-Comment lines are used to explain the purpose of some piece of code.
-
-
-```python
-# Bug fix GH 20601
-# If the data frame is too big, the number of unique index combination
-# will cause int32 overflow on windows environments.
-# We want to check and raise an error before this happens
-num_rows = np.max([index_level.size for index_level in self.new_index_levels])
-num_columns = self.removed_level.
-```
-
-From https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py
-
----
-
-# When not to use comments
-
-- Do not repeat in natural language what is written in your code
+- ...to repeat in natural language what is written in your code
 
 ```R
 # Now we check if the age of a patient is greater than 18
 if(agePatient > 18)
 
 ```
-
-- Deactivate code
+--
+- ...to turn old code into zombie code (fine for troubleshooting, but do not leave it in!)
 
 ```R
 # Do not run this!!
@@ -81,8 +71,8 @@ if(agePatient > 18)
 #    connection <- connectToHPC(currentUser, password)
 #}
 ```
-
-- To replace version control, like git
+--
+- ...to replace version control, like git
 
 ```R
 
@@ -91,23 +81,53 @@ if(agePatient > 18)
 
 #Now, it connects to the API with o-auth2, updated 05/05/2016
 ...
-
 ```
 ---
-# Comments to generate documentation
 
-- So far, we described comments use for enlightening the readers of your source code.
+# Comment lines: WHY over HOW
 
-- Structured comments can be used to generate documentation for *users*  of your project
+Comment lines are used to explain the **purpose** of some piece of code.
+```python
+# Bug fix GH 20601
+# If the data frame is too big, the number of unique index combination
+# will cause int32 overflow on windows environments.
+# We want to check and raise an error before this happens
+num_rows = np.max([index_level.size for index_level in self.new_index_levels])
+num_columns = self.removed_level.
+```
+*From [Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py)*
+
+
+---
+
+
+# Docstrings
+
+- Structured comments, associated to *segments* (rather than lines) of code can be used to generate documentation for users*  of your project.
+
+- These comments are called *docstrings*.
+
+- Docstrings, unlike regular comments, are parsed by the interpreter, and can be used as code metadata.
+
+- Docstrings allow you to provide documentation to a function, that is relevant to the user of that function.
+
+
+
+
+.footnote[*) Remember? That's probably you!]
+---
+# Generating docstrings
+
+
+
+---
+# A glimpse into code generation
 
 - Need additional tools:
 
   * http://www.doxygen.nl/ : c++ (and many more languages)
   * http://www.sphinx-doc.org/ : Python
   * https://roxygen2.r-lib.org/ : R
-
----
-# A glimpse into code generation
 
 An example with Roxygen:
 
