@@ -17,15 +17,130 @@ options(htmltools.dir.version = FALSE)
 # Code quality defined
 
 .pull-left[
-- Readable (Next part)
+- Readable
 
 - Reusable
 
 - Robust
 ]
 
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
+
+.pull-right[
+![goodcode](https://imgs.xkcd.com/comics/good_code.png)
+
+]
+
 ---
-# Code robustness (part 1)
+# Code readability
+
+- Code is for computer, comments are for humans.
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+--
+
+#### Compare:
+```r
+this <- function(arg1,arg2){res<-arg1*arg2;return(res)}
+hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+```
+
+```r
+this <- function(arg1,arg2){
+  res <- arg1 * arg2
+  return(res)
+}
+
+hurts <- mean(
+  c(
+    this(3,4),
+    this(3,1),
+    this(9,9)
+    )
+  )
+print(hurts)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+--
+
+#### Compare:
+
+```python
+for i in my_shopping_basket:
+  if(test(i)) > 10:
+    purch(i)
+  else:
+    disc(i)
+```
+
+```python
+for item in basket:
+  if(testNecessity(item)) > 10:
+    purchase(item)
+  else:
+    discard(item)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+- use a consistent style
+  - consistency will make your code easier to understand and maintain
+  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
+  
+--
+
+#### Compare:
+
+```r
+myVar<-original_variable+MOD(new.var)
+```
+```r
+my_var <- original_var + Modified(new_var)
+```
+---
+# Styleguides
+
+  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
+  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
+  
+![codequality](https://imgs.xkcd.com/comics/code_quality.png)
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
+
+---
+# Code robustness
 
 - Separate code and data: don't hard code variables!
 
