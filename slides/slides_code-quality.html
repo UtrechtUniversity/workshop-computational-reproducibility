@@ -253,14 +253,27 @@ What can you learn from your colleagues today?
 
 You have visualized your code. Use your findings to improve it!
 
-**Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
+- **Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
 
-If there is no function to work on: try and address the readability of your code.
+- If there is no function to work on: try and address the readability of your code.
 
-(But it would be good if you had at least one function in your code, because we will need it later!)
+_However_: for future exercises you will need at least one function, preferably with parameters, in your code! For example:
+
+```python
+def my_function(param_a, param_b):
+  if param_b == 99:
+    return None
+  
+  if param_a == 100:
+    do_something(param_a)
+  else:
+    do_something_else(param_a)
+```
 
 ---
-# Towards defensive programing
+# Code robustness
+
+####Towards defensive programming
 
 - Error management
  - Check values before processing them
@@ -316,6 +329,16 @@ def read_vector_value(index=0):
 ```
   - Example (in R)
 
+```r
+read_vector_value &lt;- function(index=1){
+  my_vector &lt;- c(10,5,4,12,25)
+  
+  if(index&gt;length(my_vector)){
+    stop("Index cannot be higher than length of the vector")
+  }
+return(my_vector[index])
+}
+```
 ---
 # Using the read_vector_value function
 - Good call
@@ -335,7 +358,11 @@ read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 5, in read_vector_value
 ```
 
 ---
@@ -348,7 +375,11 @@ result = read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 5, in read_vector_value
 ```
 
 
@@ -358,7 +389,10 @@ result
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'result' is not defined
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
 ```
 
 ---
@@ -420,7 +454,11 @@ except ArithmeticError as e:
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 2, in &lt;module&gt;
+##   File "&lt;string&gt;", line 5, in read_vector_value
 ```
 ---
 
@@ -497,7 +535,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x115099048&gt;
+## &lt;unittest.main.TestProgram object at 0x124716550&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -527,7 +565,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x1227e75c0&gt;
+## &lt;unittest.main.TestProgram object at 0x12472c240&gt;
 ## 
 ## ..F
 ## ======================================================================

@@ -247,14 +247,27 @@ What can you learn from your colleagues today?
 
 You have visualized your code. Use your findings to improve it!
 
-**Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
+- **Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
 
-If there is no function to work on: try and address the readability of your code.
+- If there is no function to work on: try and address the readability of your code.
 
-(But it would be good if you had at least one function in your code, because we will need it later!)
+_However_: for future exercises you will need at least one function, preferably with parameters, in your code! For example:
+
+```python
+def my_function(param_a, param_b):
+  if param_b == 99:
+    return None
+  
+  if param_a == 100:
+    do_something(param_a)
+  else:
+    do_something_else(param_a)
+```
 
 ---
-# Towards defensive programing
+# Code robustness
+
+####Towards defensive programming
 
 - Error management
  - Check values before processing them
@@ -309,7 +322,14 @@ def read_vector_value(index=0):
 ```
   - Example (in R)
 ```{R}
-
+read_vector_value <- function(index=1){
+  my_vector <- c(10,5,4,12,25)
+  
+  if(index>length(my_vector)){
+    stop("Index cannot be higher than length of the vector")
+  }
+return(my_vector[index])
+}
 ```
 ---
 # Using the read_vector_value function
