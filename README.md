@@ -40,6 +40,21 @@ The program addresses four main themes:
 - Wrap-up
 
 
+## Schedule
+
+| Time  | Activity |
+|-------:|----------|
+|9:00 | Welcome & introduction| 
+| 9:30 | Project setup & Version control with git |
+| _10:45_ | _coffee break_|
+| 10:00 | Code quality |
+|_12:30_ | _lunch (not provided)_ |
+| 13:30 | Commenting & documentation |
+|_15:00_| _coffee break_ |
+| 15:15 | Accessibility & reproducibility| 
+| 16:00 | Reproduction|
+| 17:00 | Concluding remarks|
+
 ## Preparations
 
 If you are attending this workshop, you can prepare a few things so we can hit the ground running! We have [more details on this page](preparations.md).
