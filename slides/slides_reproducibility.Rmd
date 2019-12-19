@@ -121,3 +121,26 @@ packrat::snapshot()
 Add detailed requirement information to your requirements file.
 
 Add basic dependency information to your readme file: what version of your language is required, and which packages does a user need to load before running your project?
+
+
+---
+# Are you ready?
+
+Let's exchange projects!
+
+Please go to [tinyurl.com/repco-share](https://docs.google.com/spreadsheets/d/1FlQnSj8ipbUNhZgr_nS1PHnaapL8SvamWcfPjKTaBhA/edit#gid=0), and fill out:
+- your project name
+- your project (github) URL
+- your name
+- the language in which the project was written
+
+in the yellow columns.
+--
+
+Now, write your name in one of the blue columns behind a project you will reproduce.
+
+We hope that everyone's repository will get a reproduction-attempt, so only add your name to the second column if there are no repos left (for you)!
+
+#### As you reproduce, please give your colleague feedback!
+
+Fill out the form at [tinyurl.com/repco-feedback](https://docs.google.com/forms/d/e/1FAIpQLSfH4mGicAAvDipysWM9AfcH0sQdd9L202atRLlQsXRGUJ3QAA/viewform)
