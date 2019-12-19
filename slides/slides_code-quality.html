@@ -199,40 +199,65 @@ Small, cohesive units are much better than...
 
 
 ---
+# Functions as building blocks
 
+Compare
 ```r
-
-
+firstname &lt;- "Simon"
+lastname &lt;- "Tudent"
+#firstname &lt;- "Tarah"
+#lastname &lt;- "Utor"
+initial &lt;- substring(firstname, 1, 1)
+call_user &lt;- paste(initial,lastname, sep=". ")
 ```
+--
+With
+```r
+call_user &lt;- function(firstname,lastname){
+  initial &lt;- substring(firstname, 1, 1)
+  name &lt;- paste(initial,lastname, sep=". ")
+  return(name)
+}
 
-
+call_user("Simon","Tudent")
+call_user("Tarah","Utor")
+```
 ---
-# Your turn
+# Your turn: visualize your code!
 
-Take a look at your code.
-- Are you repeating yourself: do you have repeated code that could be a function?
+.pull-left-larger[
+Use sticky-notes, spaced however you see fit: the objective is for you to 'see' your code!
 
-- Can you separate a function into generic and specific elements?
+- Yellow stickies denote scripted, unstructured code
+   _these are only basic, sequential lines of instructions_
+   
+- Purple stickies denote functions or other structured code _like for-loops, conditionals, etc._
 
-- Is there hard coded data or adjustable parameters that you can extract (perhaps in a config file?)
+- Green stickies denote comments (or comment blocks)
+   _you can also combine them with yellow for heavily commented code_
 
-- Identify a part of your code that you could transform into a function
-  - Make sure you function has parameters
-  - Use those parameters inside the function
-  - Example:
+Make notes on your stickies if you see:
+- The readability here can be improved
+- **Scripted code**: this can be a function
+- **Structured code**: this should be re-structured 
+
+What can you learn from your colleagues today?
+]
   
+.pull-right-smaller[
+![stickies](images/stickies.svg)
 
-```python
-def my_function(param_a, param_b):
-  if param_b == 99:
-    return None
-  
-  if param_a == 100:
-    do_something(param_a)
-  else:
-    do_something_else(param_a)
-```
+]
+---
+# Your turn!
 
+You have visualized your code. Use your findings to improve it!
+
+**Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
+
+If there is no function to work on: try and address the readability of your code.
+
+(But it would be good if you had at least one function in your code, because we will need it later!)
 
 ---
 # Towards defensive programing
@@ -472,7 +497,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x12291e2e8&gt;
+## &lt;unittest.main.TestProgram object at 0x115099048&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -502,7 +527,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x115014128&gt;
+## &lt;unittest.main.TestProgram object at 0x1227e75c0&gt;
 ## 
 ## ..F
 ## ======================================================================
