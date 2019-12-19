@@ -1,6 +1,6 @@
 ---
 title: "Project documentation"
-author: "Best Practices for Writing Reproducible Code // part 4"
+author: "Best Practices for Writing Reproducible Code // part 3"
 output:
   xaringan::moon_reader:
     css: [default, metropolis, metropolis-fonts, 'custom.css']

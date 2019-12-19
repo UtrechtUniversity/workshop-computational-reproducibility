@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Code Quality and Documentation</title>
+    <title>Code Quality</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Best Practices for Writing Reproducible Code // part 3" />
+    <meta name="author" content="Best Practices for Writing Reproducible Code // part 2" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
@@ -13,8 +13,8 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Code Quality and Documentation
-### Best Practices for Writing Reproducible Code // part 3
+# Code Quality
+### Best Practices for Writing Reproducible Code // part 2
 
 ---
 
@@ -535,7 +535,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x124716550&gt;
+## &lt;unittest.main.TestProgram object at 0x1185ea550&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -565,7 +565,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x12472c240&gt;
+## &lt;unittest.main.TestProgram object at 0x118607240&gt;
 ## 
 ## ..F
 ## ======================================================================
@@ -576,7 +576,7 @@ class TestStringMethods(unittest.TestCase):
 ## AssertionError: 10 != 11
 ## 
 ## ----------------------------------------------------------------------
-## Ran 3 tests in 0.000s
+## Ran 3 tests in 0.001s
 ## 
 ## FAILED (failures=1)
 ```
