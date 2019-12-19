@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
   <head>
     <title>Code Quality and Documentation</title>
     <meta charset="utf-8" />
@@ -23,15 +23,130 @@ class: center, middle, inverse, title-slide
 # Code quality defined
 
 .pull-left[
-- Readable (Next part)
+- Readable
 
 - Reusable
 
 - Robust
 ]
 
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
+
+.pull-right[
+![goodcode](https://imgs.xkcd.com/comics/good_code.png)
+
+]
+
 ---
-# Code robustness (part 1)
+# Code readability
+
+- Code is for computer, comments are for humans.
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+--
+
+#### Compare:
+```r
+this &lt;- function(arg1,arg2) res&lt;-arg1*arg2;return(res)
+hurts &lt;- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+```
+
+```r
+this &lt;- function(arg1,arg2){
+  res &lt;- arg1 * arg2
+  return(res)
+}
+
+hurts &lt;- mean(
+  c(
+    this(3,4),
+    this(3,1),
+    this(9,9)
+    )
+  )
+print(hurts)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+--
+
+#### Compare:
+
+```python
+for i in my_shopping_basket:
+  if(test(i)) &gt; 10:
+    purch(i)
+  else:
+    disc(i)
+```
+
+```python
+for item in basket:
+  if(testNecessity(item)) &gt; 10:
+    purchase(item)
+  else:
+    discard(item)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+- use a consistent style
+  - consistency will make your code easier to understand and maintain
+  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
+  
+--
+
+#### Compare:
+
+```r
+myVar&lt;-original_variable+MOD(new.var)
+```
+```r
+my_var &lt;- original_var + Modified(new_var)
+```
+---
+# Styleguides
+
+  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
+  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
+  
+![codequality](https://imgs.xkcd.com/comics/code_quality.png)
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
+
+---
+# Code reusability: some guidelines
 
 - Separate code and data: don't hard code variables!
 
@@ -42,17 +157,21 @@ class: center, middle, inverse, title-slide
 - Don't repeat yourself: use functions
 
  - Write routines in functions, ie., code you reuse often
- - Change hard coded values by arguments in your functions
  - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+ 
+- Do One Thing (and do it well)
+  - One function for one purpose
+  - One class for one purpose
+  - One script for one purpose (no fishing to recycle it!)
 
 ---
-# Functions
+# Code reusability through functions
 
 Functions are smaller code units reponsible of one task.
 
 - Functions are meant to be reused
 
-- Functions accept arguments (values)
+- Functions accept arguments (though they may also be empty!)
 
 - What arguments a function accept is defined by its parameters
 
@@ -66,27 +185,16 @@ except Exception as ex:
   logger.log("It went wrong")
 ```
 ---
-# Code reusability
 
-- Modular code is reusable code
+# Code reusability through functions
 
-  - One script for one purpose
-  - Document clearly what comes in and what comes out
-  - When using (adjustable) parameters in your code, use a config file that can be adjusted *outside* of your code
+#### Modular code is reusable code!
 
---
+```r
 
-- Consider the modularity of your functions
-  - Separate functions into generic and specific elements
-  - Generic part can and will be reused
-  - Specific elements are unique applicable in specific situations
 
---
-  
-- Do One Thing (and do it well)
-  - One function for one purpose
-  - One class for one purpose
-  - One script for one purpose (no fishing to recycle it!)
+```
+
 
 ---
 # Your turn
@@ -192,26 +300,20 @@ read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 
 ---
-# So, your script gets interrupted by the error your raised
+# Error management
+
+#### So, your script gets interrupted by the error your raised
 
 ```python
 result = read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 
 
@@ -221,11 +323,13 @@ result
 ```
 
 ```
-## 10
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 
 ---
-# Mmmh... why not a good old if/return?
+# Error management
+
+#### Mmmh... why not a good old if/return?
 
 
 ```python
@@ -254,14 +358,12 @@ print(read_vector_value_if(55))
 ## None
 ```
 ---
-# You can handle this! With some error management
-
+# You can handle this!
 - Assuming you would like to do something else than interrupt your script when an error is raised
 - Use error management, you can use it to process errors/exceptions raised by functions
 
 
 ```python
-
 try:
   read_vector_value(5)
 except IndexError as e:
@@ -283,11 +385,7 @@ except ArithmeticError as e:
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 2, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 ---
 
@@ -330,7 +428,9 @@ __Code editors/IDEs__ such as visual studio code, RStudio, Pycharm...
     devtools::test()
   ```
 ---
-# Example, testing our read_vector function
+# Example
+
+#### Testing our read_vector function
 
 
 ```python
@@ -362,7 +462,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x000001E939721550&gt;
+## &lt;unittest.main.TestProgram object at 0x1229261d0&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -392,7 +492,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x000001E939724D68&gt;
+## &lt;unittest.main.TestProgram object at 0x12294ee10&gt;
 ## 
 ## ..F
 ## ======================================================================

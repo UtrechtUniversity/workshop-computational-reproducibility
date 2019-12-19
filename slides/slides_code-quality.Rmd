@@ -50,7 +50,7 @@ Source: [xkcd](https://xkcd.com/1513/)
 
 #### Compare:
 ```r
-this <- function(arg1,arg2){res<-arg1*arg2;return(res)}
+this <- function(arg1,arg2) res<-arg1*arg2;return(res)
 hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
 ```
 
@@ -140,7 +140,7 @@ Source: [xkcd](https://xkcd.com/1513/)
 ]
 
 ---
-# Code robustness
+# Code reusability: some guidelines
 
 - Separate code and data: don't hard code variables!
 
@@ -151,17 +151,21 @@ Source: [xkcd](https://xkcd.com/1513/)
 - Don't repeat yourself: use functions
 
  - Write routines in functions, ie., code you reuse often
- - Change hard coded values by arguments in your functions
  - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+ 
+- Do One Thing (and do it well)
+  - One function for one purpose
+  - One class for one purpose
+  - One script for one purpose (no fishing to recycle it!)
 
 ---
-# Functions
+# Code reusability through functions
 
 Functions are smaller code units reponsible of one task.
 
 - Functions are meant to be reused
 
-- Functions accept arguments (values)
+- Functions accept arguments (though they may also be empty!)
 
 - What arguments a function accept is defined by its parameters
 
@@ -175,27 +179,16 @@ except Exception as ex:
   logger.log("It went wrong")
 ```
 ---
-# Code reusability
 
-- Modular code is reusable code
+# Code reusability through functions
 
-  - One script for one purpose
-  - Document clearly what comes in and what comes out
-  - When using (adjustable) parameters in your code, use a config file that can be adjusted *outside* of your code
+#### Modular code is reusable code!
 
---
+```r
 
-- Consider the modularity of your functions
-  - Separate functions into generic and specific elements
-  - Generic part can and will be reused
-  - Specific elements are unique applicable in specific situations
 
---
-  
-- Do One Thing (and do it well)
-  - One function for one purpose
-  - One class for one purpose
-  - One script for one purpose (no fishing to recycle it!)
+```
+
 
 ---
 # Your turn
@@ -295,7 +288,9 @@ read_vector_value(5)
 ```
 
 ---
-# So, your script gets interrupted by the error your raised
+# Error management
+
+#### So, your script gets interrupted by the error your raised
 ```{python, error=TRUE}
 result = read_vector_value(5)
 ```
@@ -306,7 +301,9 @@ result
 ```
 
 ---
-# Mmmh... why not a good old if/return?
+# Error management
+
+#### Mmmh... why not a good old if/return?
 
 ```{python}
 def read_vector_value_if(index=0):
@@ -325,18 +322,15 @@ print(read_vector_value_if())
 print(read_vector_value_if(55))
 ```
 ---
-# You can handle this! With some error management
-
+# You can handle this!
 - Assuming you would like to do something else than interrupt your script when an error is raised
 - Use error management, you can use it to process errors/exceptions raised by functions
 
 ```{python, error=TRUE}
-
 try:
   read_vector_value(5)
 except IndexError as e:
   print(e)
-
 ```
 
 - But what if the wrong exception is handled?
@@ -388,7 +382,9 @@ __Code editors/IDEs__ such as visual studio code, RStudio, Pycharm...
     devtools::test()
   ```
 ---
-# Example, testing our read_vector function
+# Example
+
+#### Testing our read_vector function
 
 ```{python}
 import unittest
