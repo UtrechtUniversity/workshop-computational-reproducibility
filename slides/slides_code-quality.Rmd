@@ -180,9 +180,19 @@ except Exception as ex:
 ```
 ---
 
-# Code reusability through functions
+# Think in building blocks!
 
-#### Modular code is reusable code!
+.pull-left[
+Small, cohesive units are much better than...
+
+![tetris](images/tetris.svg)]
+--
+.pull-right[
+... a customized behemoth!
+![tetris](images/tetris_help.svg)]
+
+
+---
 
 ```r
 
