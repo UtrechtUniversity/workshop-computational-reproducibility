@@ -2,7 +2,7 @@
 
 Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.
 
-In this hands-on workshop, you will learn to become a better programmer. We will take you through a project  from research question to published code in a single (admittedly intense, but fun!) day. At the end of this day you will know:
+In this hands-on workshop, you will learn to become a better programmer. We will take you through a project from research question to published code in a single (admittedly intense, but fun!) day. At the end of this day you will know:
 
 - How to set up and use an efficient project structure;
 - How to use Git for version control, and GitHub to publish your code;
@@ -22,7 +22,7 @@ The next edition of this workshop will be given at Utrecht University on Thursda
 
 The program addresses four main themes:
 - [Introduction](slides/slides_introduction.html)
-- [**Project setup**](slides/slides_project-setup.html) & [**Version control**](slides/slides_version-control.html)
+- [**Project setup & version control**](slides/slides_project-setup.html)
   - Setting up a folder structure
   - Choosing a license
   - using git for version control
@@ -34,7 +34,7 @@ The program addresses four main themes:
 - [**Documentation**](slides/slides_documentation.html)  
   - code comments
   - creating documentation and using notebooks
-- **Publication & reproduction** (live demo)
+- [**Publication & reproduction**](slides/slides_reproducibility.html)
   - obtaining a doi and ensuring accessibility
   - dealing with requirements and dependencies
 - Wrap-up
