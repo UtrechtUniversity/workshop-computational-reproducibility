@@ -1,4 +1,4 @@
-1. Code quality
+## Code quality
 
 Your program may be functional, but that is not sufficient. If you cannot convince users that your program does what you say it does, it is as good as non-functional. [Having a transparent and robust workflow](project_setup.md) will help instill that trust, but what may be more important is the quality and readability of the code itself.
 
@@ -11,11 +11,11 @@ Some tenets of quality are that code should be:
 - Robust.
 
 
-1.1 Readable code
+### Readable code
 
 Writing readable code is a real skill. Here are just a few hints to help you reflect about your current coding practices and see whether you should adapt your coding habits to increase readability.
 
-1.1.1 Use line breaks and whitespace strategically
+#### Use line breaks and whitespace strategically
 
 Sure, code may be written for a computer, but humans have to read it too. The fact that your code still runs if you never enter a line break does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
 
@@ -41,7 +41,6 @@ hurts <- mean(
 print(hurts)
 ```
 
-
 #### Use descriptive names for functions and variables
 
 While it might be convenient to use variable names such as `test`, `temp`, `[a,b,c,d]` it is difficult to understand later what `temp` contains or what exactly `a` does at a certain point in your script. Therefore, it is better to use expressive variable names with reasonable limits regarding length and information.
@@ -50,7 +49,7 @@ Why not `sortedResults` instead of `res`, `proteinData` instead of `data`. (Of c
 
 The same can be said for function names: make them descriptive, but not too specific. For functions, starting the name with a verb will (1) clarify that it is a function, and (2) indicate what it _does_. For example: _exportDataAsCSV_, _createEmptyDataFrame_, ...
 
-#### Compare:
+_Compare:_
 
 ```python
 for i in my_shopping_basket:
@@ -59,7 +58,7 @@ for i in my_shopping_basket:
   else:
     disc(i)
 ```
-
+_with_
 ```python
 for item in basket:
   if(testNecessity(item)) > 10:
@@ -80,7 +79,7 @@ Often, these style choices are described in a style manual. For Python, for exam
 there is [Pep-8](https://www.python.org/dev/peps/pep-0008/). 
 For R, an example would be the [Tidyverse style guide](https://style.tidyverse.org).
 
-
+![codequality](https://imgs.xkcd.com/comics/code_quality.png)
 
 
 
