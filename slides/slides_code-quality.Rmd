@@ -10,11 +10,12 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-```{r setup, include=FALSE}
+
+```{r setup, include=F}
 options(htmltools.dir.version = FALSE)
 ```
 
-# Code quality defined
+# Aspects of good quality code
 
 .pull-left[
 - Readable
@@ -138,25 +139,34 @@ my_var <- original_var + Modified(new_var)
 .footnote[
 Source: [xkcd](https://xkcd.com/1513/)
 ]
+---
+# Code reusability
+
+``Before software can be reusable it first has to be usable''
+
+- Ralph Johnson
+
+scientist-coders can benefit from learning about modularity, abstraction, and data structures, if they want to leverage their past discoveries into further data discoveries without having to reinvent the wheel every time. (https://www.software.ac.uk/blog/2016-09-26-scientific-coding-and-software-engineering-whats-difference)
 
 ---
 # Code reusability: some guidelines
 
-- Separate code and data: don't hard code variables!
-
-  - and if you must...
-  - Do it once, e.g. weeklength = 7
-  - Consider using a config file for project-specific (meta)data!
+- Separate code and data
+  - consider using a config file for project-specific (meta)data
+  - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, once.
   
-- Don't repeat yourself: use functions
-
- - Write routines in functions, ie., code you reuse often
- - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
- 
+--
 - Do One Thing (and do it well)
   - One function for one purpose
   - One class for one purpose
-  - One script for one purpose (no fishing to recycle it!)
+  - One script for one purpose (no copy-pasting to recycle it!)
+  
+--
+- Don't repeat yourself: use functions
+ - Write routines in functions, i.e., code you reuse often
+ - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+ 
+
 
 ---
 # Code reusability through functions
@@ -169,15 +179,21 @@ Functions are smaller code units reponsible of one task.
 
 - What arguments a function accept is defined by its parameters
 
-```python
-def sort_data(data, how="asc", column=0):
-  raise NotImplementedException("Ooops")
-  
-try:
-  sort_data(protein_data)
-except Exception as ex:
-  logger.log("It went wrong")
+Compare:
+```r
+indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
+indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
 ```
+
+```r
+def indexString(inputList,z):
+	zIndex = [n for n,i in enumerate(li) if i == z]
+	return zIndex
+	
+indexATG = indexString(myList,'ATG')
+indexAAG = indexString(myList,'AAG')
+```
+
 ---
 
 # Think in building blocks!
@@ -193,30 +209,7 @@ Small, cohesive units are much better than...
 
 
 ---
-# Functions as building blocks
 
-Compare
-```r
-firstname <- "Simon"
-lastname <- "Tudent"
-#firstname <- "Tarah"
-#lastname <- "Utor"
-initial <- substring(firstname, 1, 1)
-call_user <- paste(initial,lastname, sep=". ")
-```
---
-With
-```r
-call_user <- function(firstname,lastname){
-  initial <- substring(firstname, 1, 1)
-  name <- paste(initial,lastname, sep=". ")
-  return(name)
-}
-
-call_user("Simon","Tudent")
-call_user("Tarah","Utor")
-```
----
 # Your turn: visualize your code!
 
 .pull-left-larger[
