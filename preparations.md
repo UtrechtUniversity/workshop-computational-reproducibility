@@ -16,7 +16,7 @@ In order to take full advantage of the time we have together, would you please p
   - Download the miniconda installer here: [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
   - Run the installer; there is no need to change any detault settings, but just in case:
     - You want to install it 'just for me';
-    - You want to 'add Anaconda to my PATH environment variable' and 'Register Anaconda as my default Python 3.7' (NB: you will also see a message in red text that selecting _Add Anaconda to my PATH environment variable_ is not recommended; continue with this selection to make using conda easier in your terminal. If you have questions or concerns, please contact your instructor.
+    - You want to 'add Anaconda to my PATH environment variable' and 'Register Anaconda as my default Python 3.7' (NB: you will also see a message in red text that selecting 'add Anaconda to my PATH environment variable' is not recommended; continue with this selection to make using conda easier in your terminal. If you have questions or concerns, please contact your instructor.)
   - Open a new terminal session and type: `conda install -c anaconda pip`
 - **Git**
   - Check if you have git by tying in a terminal: `git -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
