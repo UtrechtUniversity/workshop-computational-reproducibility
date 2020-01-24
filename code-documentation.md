@@ -1,4 +1,4 @@
-## Code quality
+# Code quality
 
 Your program may be functional, but that is not sufficient. If you cannot convince users that your program does what you say it does, it is as good as non-functional. [Having a transparent and robust workflow](project_setup.md) will help instill that trust, but what may be more important is the quality and readability of the code itself.
 
@@ -11,11 +11,11 @@ Some tenets of quality are that code should be:
 - Robust.
 
 
-### Readable code
+## Readable code
 
 Writing readable code is a real skill. Here are just a few hints to help you reflect about your current coding practices and see whether you should adapt your coding habits to increase readability.
 
-#### Use line breaks and whitespace strategically
+### Use line breaks and whitespace strategically
 
 Sure, code may be written for a computer, but humans have to read it too. The fact that your code still runs if you never enter a line break does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
 
@@ -41,13 +41,13 @@ hurts <- mean(
 print(hurts)
 ```
 
-#### Use descriptive names for functions and variables
+### Use descriptive names for functions and variables
 
 While it might be convenient to use variable names such as `test`, `temp`, `[a,b,c,d]` it is difficult to understand later what `temp` contains or what exactly `a` does at a certain point in your script. Therefore, it is better to use expressive variable names with reasonable limits regarding length and information.
 
 Why not `sortedResults` instead of `res`, `proteinData` instead of `data`. (Of course, the kind of protein data can be derived from the documentation of your script, data sources used etc. So, do not try to work with extremely detailed variable names, which reduce the readability instead of improving it.)
 
-The same can be said for function names: make them descriptive, but not too specific. For functions, starting the name with a verb will (1) clarify that it is a function, and (2) indicate what it _does_. For example: _exportDataAsCSV_, _createEmptyDataFrame_, ...
+The same can be said for function names: make them descriptive, but not too specific. For functions, starting the name with a verb will (1) clarify that it is a function, and (2) indicate what it _does_. For example: `exportDataAsCSV`, `createEmptyDataFrame`, ...
 
 _Compare:_
 
@@ -69,7 +69,7 @@ for item in basket:
 
 **Note**: the code style is determined by the language you are using and its conventions. Code editors and IDEs integrate style checking and might suggest more suitable names of variables and functions if your naming convention differs from language-specific standards.
 
-#### Adhere to a coding style
+### Adhere to a coding style
 
 There is right and wrong code, and there is style. 
 
@@ -84,7 +84,7 @@ For R, an example would be the [Tidyverse style guide](https://style.tidyverse.o
 
 
 
-#### Robust code
+## Robust code
 
 Writing robust code is not only a matter of testing it but also about properly managing errors, use of variables
 and so on. 
@@ -98,7 +98,7 @@ not be reused to store text later on. It is confusing and might create unforesee
 users of your package (think about someone calling a function from your R package and sending wrong values). This is 
 the purpose of unit testing.
 
-#### Functional comments
+### Functional comments
 
 Comments can be helpful to explain some decision (e.g., if...else) present in your code, what you try to do if it is not
 explicit from the code itself and the purpose/behavior of functions.
