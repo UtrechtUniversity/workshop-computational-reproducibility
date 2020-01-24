@@ -15,6 +15,33 @@ Some tenets of quality are that code should be:
 
 Writing readable code is a real skill. Here are just a few hints to help you reflect about your current coding practices and see whether you should adapt your coding habits to increase readability.
 
+#### Use line breaks and whitespace strategically
+
+Sure, code may be written for a computer, but humans have to read it too. The fact that your code still runs if you never enter a line break does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
+
+_Compare:_
+```r
+this <- function(arg1,arg2) res<-arg1*arg2;return(res)
+hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+```
+_with_
+```r
+this <- function(arg1,arg2){
+  res <- arg1 * arg2
+  return(res)
+}
+
+hurts <- mean(
+  c(
+    this(3,4),
+    this(3,1),
+    this(9,9)
+    )
+  )
+print(hurts)
+```
+
+
 #### Use descriptive names for functions and variables
 
 While it might be convenient to use variable names such as `test`, `temp`, `[a,b,c,d]` it is difficult to understand later what `temp` contains or what exactly `a` does at a certain point in your script. Therefore, it is better to use expressive variable names with reasonable limits regarding length and information.
@@ -23,11 +50,29 @@ Why not `sortedResults` instead of `res`, `proteinData` instead of `data`. (Of c
 
 The same can be said for function names: make them descriptive, but not too specific. For functions, starting the name with a verb will (1) clarify that it is a function, and (2) indicate what it _does_. For example: _exportDataAsCSV_, _createEmptyDataFrame_, ...
 
+#### Compare:
+
+```python
+for i in my_shopping_basket:
+  if(test(i)) > 10:
+    purch(i)
+  else:
+    disc(i)
+```
+
+```python
+for item in basket:
+  if(testNecessity(item)) > 10:
+    purchase(item)
+  else:
+    discard(item)
+```
+
 **Note**: the code style is determined by the language you are using and its conventions. Code editors and IDEs integrate style checking and might suggest more suitable names of variables and functions if your naming convention differs from language-specific standards.
 
 #### Adhere to a coding style
 
-There is right and wrong code, and there is style. The fact that your code still runs if you never enter a line break does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
+There is right and wrong code, and there is style. 
 
 Adhering to a coding style will drive your choices and improve your consistency. Having consistent code will make it easier to understand and maintain. Moreover, these conventions are often the result of experience on what makes good code. Sticking to them means you will not have to reinvent the wheel.
 
