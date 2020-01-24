@@ -1,4 +1,4 @@
-## Code quality
+1. Code quality
 
 Your program may be functional, but that is not sufficient. If you cannot convince users that your program does what you say it does, it is as good as non-functional. [Having a transparent and robust workflow](project_setup.md) will help instill that trust, but what may be more important is the quality and readability of the code itself.
 
@@ -11,11 +11,11 @@ Some tenets of quality are that code should be:
 - Robust.
 
 
-### Readable code
+1.1 Readable code
 
 Writing readable code is a real skill. Here are just a few hints to help you reflect about your current coding practices and see whether you should adapt your coding habits to increase readability.
 
-#### Use line breaks and whitespace strategically
+1.1.1 Use line breaks and whitespace strategically
 
 Sure, code may be written for a computer, but humans have to read it too. The fact that your code still runs if you never enter a line break does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
 
