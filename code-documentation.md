@@ -1,32 +1,44 @@
 ## Code quality
 
-Your program may be functional, but that is not sufficient. 
-If you cannot convince users that your program does what you say it does, it is as good as non-functional. Having a transparent and robust workflow will help instill that trust (more about that [here](project_setup.md)), but what may be more important is the quality and readability of the code itself. Moreover, you yourself will benefit from well-written code as you develop the project. After all, the most likely person who has to read your code is you...
+Your program may be functional, but that is not sufficient. If you cannot convince users that your program does what you say it does, it is as good as non-functional. [Having a transparent and robust workflow](project_setup.md) will help instill that trust, but what may be more important is the quality and readability of the code itself.
+
+Of course, you yourself will benefit the most from well-written code as you develop the project. After all, the most likely person who has to read your code is you...
+
+Some tenets of quality are that code should be:
+
+- Readable,
+- Reusable, and
+- Robust.
 
 
 ### Readable code
 
-Writing readable code is a real skill. Here are just a few hints to help you reflect about your current coding practices
-and see whether you should adapt your coding habits to increase readability.
+Writing readable code is a real skill. Here are just a few hints to help you reflect about your current coding practices and see whether you should adapt your coding habits to increase readability.
 
-#### use descriptive names for functions and variables
+#### Use descriptive names for functions and variables
 
-While it might be convenient to use variable names such as test, temp, \[a,b,c,d\] it is difficult to understand later
-what _temp_ contains or what exactly _a_ does at a certain point in your script.
+While it might be convenient to use variable names such as `test`, `temp`, `[a,b,c,d]` it is difficult to understand later what `temp` contains or what exactly `a` does at a certain point in your script. Therefore, it is better to use expressive variable names with reasonable limits regarding length and information.
 
-Therefore, it is better to use expressive variable names with reasonable limits regarding length and information.
+Why not `sortedResults` instead of `res`, `proteinData` instead of `data`. (Of course, the kind of protein data can be derived from the documentation of your script, data sources used etc. So, do not try to work with extremely detailed variable names, which reduce the readability instead of improving it.)
 
-Why not _sortedResults_ instead of _res_,  _proteinData_ instead of _data_. Of course, the kind of protein data can
-be derived from the documentation of your script, data sources used etc. So, do not try to work with extremely detailed
-variable names, which reduce the readability instead of improving it.
+The same can be said for function names: make them descriptive, but not too specific. For functions, starting the name with a verb will (1) clarify that it is a function, and (2) indicate what it _does_. For example: _exportDataAsCSV_, _createEmptyDataFrame_, ...
 
-The same can be said for function names, prefer to start function names with a verb.
+**Note**: the code style is determined by the language you are using and its conventions. Code editors and IDEs integrate style checking and might suggest more suitable names of variables and functions if your naming convention differs from language-specific standards.
 
-Examples : _exportDataAsCSV_, _createEmptyDataFrame_, ...
+#### Adhere to a coding style
 
-**Note**: the code style is determined by the language you are using and its conventions. Code editors and IDEs integrate
-style checking and might suggest more suitable names of variables and functions if your naming convention differs from
-language-specific standards. See [coding style](Coding style).
+There is right and wrong code, and there is style. The fact that your code still runs if you never enter a line break does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
+
+Adhering to a coding style will drive your choices and improve your consistency. Having consistent code will make it easier to understand and maintain. Moreover, these conventions are often the result of experience on what makes good code. Sticking to them means you will not have to reinvent the wheel.
+
+Often, these style choices are described in a style manual. For Python, for example, 
+there is [Pep-8](https://www.python.org/dev/peps/pep-0008/). 
+For R, an example would be the [Tidyverse style guide](https://style.tidyverse.org).
+
+
+
+
+
 
 #### Robust code
 
@@ -63,14 +75,7 @@ specific syntax and keywords that can be interpreted by documentation generators
 produce documentation from one reliable source (your code) and can adapt the "manual" of your software right from the 
 code !
 
-#### Coding style
 
-There is right and wrong code, and there is style. The fact that your code still runs if you never enter a line break 
-does not mean that you should do so. There are choices you make on how you style your code lay-out that will not affect 
-the actual functionality, but they will affect how your code looks, and how easy it is to understand and maintain. 
-Often, these style choices are described in a style manual. For Python, for example, 
-there is [Pep-8](https://www.python.org/dev/peps/pep-0008/). 
-For R, an example would be the [Tidyverse style guide](https://style.tidyverse.org).
 
 ## Documentation
 
