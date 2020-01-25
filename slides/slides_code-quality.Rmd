@@ -269,7 +269,24 @@ def my_function(param_a, param_b):
 ---
 # Code robustness
 
-####Towards defensive programming
+- Make assumptions and expectations explicit.
+  - check values before processing them
+  - identify exceptions
+
+- Produce errors when expectations are not met.
+
+- Consider error options, and perform error management:
+  - redirect the program
+  - log the error
+  - abort
+
+---
+# Code robustness
+
+![errormanagement](images/errormanagement.svg)
+
+---
+# Towards defensive programming
 
 - Error management
  - Check values before processing them

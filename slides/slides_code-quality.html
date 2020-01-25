@@ -148,11 +148,20 @@ Source: [xkcd](https://xkcd.com/1513/)
 ---
 # Code reusability
 
-``Before software can be reusable it first has to be usable''
+- Less code written, more work done
 
-- Ralph Johnson
+- Writing a tool while doing your analysis
 
-scientist-coders can benefit from learning about modularity, abstraction, and data structures, if they want to leverage their past discoveries into further data discoveries without having to reinvent the wheel every time. (https://www.software.ac.uk/blog/2016-09-26-scientific-coding-and-software-engineering-whats-difference)
+- Stop reinventing the wheel!
+
+--
+
+.quote[
+
+Before software can be reusable, it first has to be usable.]
+                                     
+.source[Ralph Johnson]
+
 
 ---
 # Code reusability: some guidelines
@@ -266,7 +275,24 @@ def my_function(param_a, param_b):
 ---
 # Code robustness
 
-####Towards defensive programming
+- Make assumptions and expectations explicit.
+  - check values before processing them
+  - identify exceptions
+
+- Produce errors when expectations are not met.
+
+- Consider error options, and perform error management:
+  - redirect the program
+  - log the error
+  - abort
+
+---
+# Code robustness
+
+![errormanagement](images/errormanagement.svg)
+
+---
+# Towards defensive programming
 
 - Error management
  - Check values before processing them
@@ -351,7 +377,11 @@ read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 5, in read_vector_value
 ```
 
 ---
@@ -364,7 +394,11 @@ result = read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 5, in read_vector_value
 ```
 
 
@@ -374,7 +408,10 @@ result
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'result' is not defined
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
 ```
 
 ---
@@ -436,7 +473,11 @@ except ArithmeticError as e:
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 2, in &lt;module&gt;
+##   File "&lt;string&gt;", line 5, in read_vector_value
 ```
 ---
 
@@ -513,7 +554,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x11d661898&gt;
+## &lt;unittest.main.TestProgram object at 0x1164ba550&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -543,7 +584,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x11d66f5c0&gt;
+## &lt;unittest.main.TestProgram object at 0x1164d7240&gt;
 ## 
 ## ..F
 ## ======================================================================
@@ -554,7 +595,7 @@ class TestStringMethods(unittest.TestCase):
 ## AssertionError: 10 != 11
 ## 
 ## ----------------------------------------------------------------------
-## Ran 3 tests in 0.011s
+## Ran 3 tests in 0.000s
 ## 
 ## FAILED (failures=1)
 ```
