@@ -82,6 +82,24 @@ img[alt=release] {width: 450px;}
   width: 40%;
 }
 
+.quote {
+  float: right;
+  width: 90%;
+  font-style: italic;
+  color: #EB811B;
+  text-align: center;
+  font-size: 220%;
+  background-image: url(images/quote.png);
+}
+
+.source {
+  float: right;
+  width: 20%;
+  font-style: italic;
+  color: #888;
+  text-align: left;
+}
+
 
 .custom-code {
   background: #F5F5F5; /* lighter */

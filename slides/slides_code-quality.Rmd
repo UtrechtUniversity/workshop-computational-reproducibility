@@ -142,11 +142,20 @@ Source: [xkcd](https://xkcd.com/1513/)
 ---
 # Code reusability
 
-``Before software can be reusable it first has to be usable''
+- Less code written, more work done
 
-- Ralph Johnson
+- Writing a tool while doing your analysis
 
-scientist-coders can benefit from learning about modularity, abstraction, and data structures, if they want to leverage their past discoveries into further data discoveries without having to reinvent the wheel every time. (https://www.software.ac.uk/blog/2016-09-26-scientific-coding-and-software-engineering-whats-difference)
+- Stop reinventing the wheel!
+
+--
+
+.quote[
+
+Before software can be reusable, it first has to be usable.]
+                                     
+.source[Ralph Johnson]
+
 
 ---
 # Code reusability: some guidelines

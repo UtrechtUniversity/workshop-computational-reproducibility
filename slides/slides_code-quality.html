@@ -20,7 +20,8 @@ class: center, middle, inverse, title-slide
 
 
 
-# Code quality defined
+
+# Aspects of good quality code
 
 .pull-left[
 - Readable
@@ -144,25 +145,34 @@ my_var &lt;- original_var + Modified(new_var)
 .footnote[
 Source: [xkcd](https://xkcd.com/1513/)
 ]
+---
+# Code reusability
+
+``Before software can be reusable it first has to be usable''
+
+- Ralph Johnson
+
+scientist-coders can benefit from learning about modularity, abstraction, and data structures, if they want to leverage their past discoveries into further data discoveries without having to reinvent the wheel every time. (https://www.software.ac.uk/blog/2016-09-26-scientific-coding-and-software-engineering-whats-difference)
 
 ---
 # Code reusability: some guidelines
 
-- Separate code and data: don't hard code variables!
-
-  - and if you must...
-  - Do it once, e.g. weeklength = 7
-  - Consider using a config file for project-specific (meta)data!
+- Separate code and data
+  - consider using a config file for project-specific (meta)data
+  - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, once.
   
-- Don't repeat yourself: use functions
-
- - Write routines in functions, ie., code you reuse often
- - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
- 
+--
 - Do One Thing (and do it well)
   - One function for one purpose
   - One class for one purpose
-  - One script for one purpose (no fishing to recycle it!)
+  - One script for one purpose (no copy-pasting to recycle it!)
+  
+--
+- Don't repeat yourself: use functions
+ - Write routines in functions, i.e., code you reuse often
+ - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+ 
+
 
 ---
 # Code reusability through functions
@@ -175,15 +185,21 @@ Functions are smaller code units reponsible of one task.
 
 - What arguments a function accept is defined by its parameters
 
-```python
-def sort_data(data, how="asc", column=0):
-  raise NotImplementedException("Ooops")
-  
-try:
-  sort_data(protein_data)
-except Exception as ex:
-  logger.log("It went wrong")
+Compare:
+```r
+indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
+indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
 ```
+
+```r
+def indexString(inputList,z):
+	zIndex = [n for n,i in enumerate(li) if i == z]
+	return zIndex
+	
+indexATG = indexString(myList,'ATG')
+indexAAG = indexString(myList,'AAG')
+```
+
 ---
 
 # Think in building blocks!
@@ -199,30 +215,7 @@ Small, cohesive units are much better than...
 
 
 ---
-# Functions as building blocks
 
-Compare
-```r
-firstname &lt;- "Simon"
-lastname &lt;- "Tudent"
-#firstname &lt;- "Tarah"
-#lastname &lt;- "Utor"
-initial &lt;- substring(firstname, 1, 1)
-call_user &lt;- paste(initial,lastname, sep=". ")
-```
---
-With
-```r
-call_user &lt;- function(firstname,lastname){
-  initial &lt;- substring(firstname, 1, 1)
-  name &lt;- paste(initial,lastname, sep=". ")
-  return(name)
-}
-
-call_user("Simon","Tudent")
-call_user("Tarah","Utor")
-```
----
 # Your turn: visualize your code!
 
 .pull-left-larger[
@@ -358,11 +351,7 @@ read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 
 ---
@@ -375,11 +364,7 @@ result = read_vector_value(5)
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 
 
@@ -389,10 +374,7 @@ result
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'result' is not defined
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 
 ---
@@ -454,11 +436,7 @@ except ArithmeticError as e:
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 2, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+## Error in py_call_impl(callable, dots$args, dots$keywords): Evaluation error: option error has NULL value.
 ```
 ---
 
@@ -535,11 +513,11 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x1185ea550&gt;
+## &lt;unittest.main.TestProgram object at 0x11d661898&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
-## Ran 2 tests in 0.000s
+## Ran 2 tests in 0.001s
 ## 
 ## OK
 ```
@@ -565,7 +543,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x118607240&gt;
+## &lt;unittest.main.TestProgram object at 0x11d66f5c0&gt;
 ## 
 ## ..F
 ## ======================================================================
@@ -576,7 +554,7 @@ class TestStringMethods(unittest.TestCase):
 ## AssertionError: 10 != 11
 ## 
 ## ----------------------------------------------------------------------
-## Ran 3 tests in 0.001s
+## Ran 3 tests in 0.011s
 ## 
 ## FAILED (failures=1)
 ```
