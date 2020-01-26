@@ -44,16 +44,16 @@ First, ensure you have cookiecutter installed:
 pip install cookiecutter
 ```
 
-This is the recommended installation method. BUT if you do not have pip, there are a few alternatives:
-The pip-predecessor easy_install:
-```bash
-easy_install --user cookiecutter
-```
-MacOS X with Homebrew:
+#### If you do not have pip:
+Install pip using instructions [here](../preparations.md).
+
+Or try the following alternatives:
+
+- MacOS X with Homebrew:
 ```bash
 brew install cookiecutter
 ```
-Debian/Ubuntu:
+- Debian/Ubuntu:
 ```
 sudo apt-get install cookiecutter
 ```
