@@ -24,10 +24,16 @@
 /*  box-shadow: 5px 5px 10px #e0e0e0;  
 /*} */
 
+.remark-code {
+  font-size: 70%;
+}
+
+
 a, a > code {
   color: rgb(214, 147, 10);
   font-weight: 400;
 }
+
 
 .title-slide {
   /*background-image: url(slides_version-control_files/figure-html/git.svg);*/
