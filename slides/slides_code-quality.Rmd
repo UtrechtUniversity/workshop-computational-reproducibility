@@ -320,6 +320,8 @@ def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
 
 print(read_vector_value(index=6))
 ```
+--
+_Because it is unclear if `None` is expected behavior or indicative of a problem._
 ---
 # Warning message without breaking
 #### An error breaks code execution
@@ -514,6 +516,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 
 ---
 # Making a test fail
+
 ```{python}
 import unittest
 class TestStringMethods(unittest.TestCase):
@@ -529,7 +532,7 @@ class TestStringMethods(unittest.TestCase):
 
 ```
 ---
-#Result of faulty test
+# Result of faulty test
 
 ```{python, echo=FALSE}
 unittest.main(argv=['trick to make it work'], exit=False)

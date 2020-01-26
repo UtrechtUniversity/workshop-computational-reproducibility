@@ -340,6 +340,8 @@ print(read_vector_value(index=6))
 ```
 ## None
 ```
+--
+_Because it is unclear if `None` is expected behavior or indicative of a problem._
 ---
 # Warning message without breaking
 #### An error breaks code execution
@@ -556,17 +558,18 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x115af7ba8&gt;
+## &lt;unittest.main.TestProgram object at 0x12169bba8&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
-## Ran 2 tests in 0.000s
+## Ran 2 tests in 0.001s
 ## 
 ## OK
 ```
 
 ---
 # Making a test fail
+
 
 ```python
 import unittest
@@ -582,11 +585,11 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(read_vector_value(0), 11)
 ```
 ---
-#Result of faulty test
+# Result of faulty test
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x115b06dd8&gt;
+## &lt;unittest.main.TestProgram object at 0x1216aadd8&gt;
 ## 
 ## ..F
 ## ======================================================================
