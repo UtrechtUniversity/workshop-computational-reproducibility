@@ -301,45 +301,99 @@ def my_function(param_a, param_b):
 
 
 ---
-# Throwing errors
-
-In Python:
-```{python}
-def read_vector_value(index=0):
-    my_vector = [10,5,4,12,25]
-    
+# Throwing an error
+```{python, error=TRUE}
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
     if index > len(my_vector) - 1:
-        raise IndexError('Index cannot be higher than length of the vector ')
-    
+        raise IndexError('Index higher than vector length.')
+    return my_vector[index]
+
+read_vector_value(index=6)
+```
+--
+#### Why not simply adjust the function output?
+```{python, error=TRUE}
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
+    if index > len(my_vector) - 1:
+        return None
+    return my_vector[index]
+
+print(read_vector_value(index=6))
+```
+---
+# Warning message without breaking
+#### An error breaks code execution
+```{R, error=TRUE}
+read_vector_value <- function(index=1,my_vector=c(10,5,4,12,25)){
+  if(index>length(my_vector)){
+    stop("Index higher than vector length.")}
+return(my_vector[index])
+}
+
+print(read_vector_value(index=6))
+```
+--
+#### Capture the error but release a warning
+```{R, error=TRUE}
+read_vector_value <- function(index=1,my_vector=c(10,5,4,12,25)){
+  if(index>length(my_vector)){
+    warning("Index higher than vector length.")
+    return(NA)}
+return(my_vector[index])
+}
+
+print(read_vector_value(index=6))
+```
+---
+# Redirecting with exceptions
+
+If you do not want to interrupt your script when an error is raised: use try/catch ('except' in Python). NB: Note that Python allows you to distinguish by error type!
+```{python, include=F}
+# ensure that the function is correctly in memory
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
+    if index > len(my_vector) - 1:
+        raise IndexError('Index higher than vector length.')
     return my_vector[index]
 ```
+.pull-left[
+```{python, error=TRUE}
+try:
+  read_vector_value(6)
+except IndexError:
+  print("This is an exception")
+```
+]
+.pull-right[
+```{python, error=TRUE}
+try:
+  read_vector_value(6)
+except ArithmeticError:
+  print("This is an exception")
+```
+]
 
-In R:
-```{R}
-read_vector_value <- function(index=1){
-  my_vector <- c(10,5,4,12,25)
-  
+--
+
+#### In R you can use [tryCatch()](http://www.mazamascience.com/WorkingWithData/?p=912):
+```{R, include=FALSE}
+read_vector_value <- function(index=1,my_vector=c(10,5,4,12,25)){
   if(index>length(my_vector)){
-    stop("Index cannot be higher than length of the vector")
-  }
+    stop("Index higher than vector length.")}
 return(my_vector[index])
 }
 ```
-
----
-# Using the read_vector_value function
-- Good call
-```{python}
-read_vector_value(4)
-```
-
-- Bad call
-```{python, error=TRUE}
-read_vector_value(5)
+```{r}
+tryCatch({
+    read_vector_value(6)
+}, error = function(e) {
+    print("This is an exception.")
+})
 ```
 
 ---
+# Validating input
 
+Functions are not required to check expectations: consider early statements to validate (data) input.
 
 With if/else:
 ```python
@@ -347,72 +401,16 @@ if not protein_data:
   raise ValueError("Dataset cannot be empty")
 ```
 
-With try catch (called `except` in Python):
-
-```python
-try:
+With try/catch:
+```r
+tryCatch({
   do_something_that_might_go_wrong(protein_data)
-except ItWentWrongException as ex:
-  logger.log(ex)
-finally:
-  protein_data.to_csv("../data/processed/proteins.csv")
+}, error = function(e){
+  log(e)
+}, finally = {
+  cleanup(protein_data)
+})
 ```
----
-
-# Error management
-
-#### So, your script gets interrupted by the error your raised
-```{python, error=TRUE}
-result = read_vector_value(5)
-```
-
-
-```{python, error=TRUE}
-result
-```
-
----
-# Error management
-
-#### Mmmh... why not a good old if/return?
-
-```{python}
-def read_vector_value_if(index=0):
-    my_vector = [10,5,4,12,25]
-    
-    if index > len(my_vector) - 1:
-        return None
-    
-    return my_vector[index]
-
-print(read_vector_value_if())
-```
-
-- Hard to know if None is an expected value or an error ...
-```{python}
-print(read_vector_value_if(55))
-```
----
-# Redirect with exceptions
-
-If you do not want to interrupt your script when a (specific) error is raised.
-
-```{python, error=TRUE}
-try:
-  read_vector_value(5)
-except IndexError as e:
-  print(e)
-```
-
-In Python this is can be specified by error type:
-
-```{python, error=TRUE}
-try:
-  read_vector_value(5)
-except ArithmeticError as e:
-  print(e)
-```
-
 ---
 # Expectations and assumptions
 
@@ -441,7 +439,6 @@ Source: [cartoontester](https://cartoontester.blogspot.com/2010/02/thats-not-bug
 - Modify the code inside your function to
   - check the value of the arguments passed to your function using if/else statements;
   - raise an error in case an argument is out of the range of acceptable values.
-
 
 ---
 

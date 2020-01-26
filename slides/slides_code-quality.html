@@ -167,8 +167,9 @@ Before software can be reusable, it first has to be usable.]
 # Code reusability: some guidelines
 
 - Separate code and data
+
   - consider using a config file for project-specific (meta)data
-  - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, once.
+  - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, **once**.
   
 --
 - Do One Thing (and do it well)
@@ -271,20 +272,14 @@ def my_function(param_a, param_b):
   else:
     do_something_else(param_a)
 ```
-
 ---
 # Code robustness
 
-- Make assumptions and expectations explicit.
-  - check values before processing them
-  - identify exceptions
+![errormanagement](images/errormanagement_implicit.svg)
+---
+# Code robustness
 
-- Produce errors when expectations are not met.
-
-- Consider error options, and perform error management:
-  - redirect the program
-  - log the error
-  - abort
+![errormanagement](images/errormanagement_explicit.svg)
 
 ---
 # Code robustness
@@ -292,193 +287,200 @@ def my_function(param_a, param_b):
 ![errormanagement](images/errormanagement.svg)
 
 ---
-# Towards defensive programming
+# Code robustness
 
-- Error management
- - Check values before processing them
-  - Make use of try/catch mechanisms to manage exceptions
-  - Make use of logging tools instead of print functions
+#### Protect the user with error management:
 
-- *About errors* : Do not expect users to treat your code like you expected, so expect the worst
- - use of wrong input values using your functions
- - data types
- - malformed text input
+- Make assumptions and expectations explicit.
+  - check values before processing them
+  - identify and manage exceptions
+- Produce errors when expectations are not met.
+- Consider error options, and perform error management:
+  - redirect the program
+  - log or report the error, to allow the user (or developer) to troubleshoot
+  - if necessary: abort the run
+--
 
-- Make use of systematic tests
- - Unit testing (event if you work alone on your code)
- - Continuous integration (if many authors work on code)
+#### Protect the developer with tests:
+- Use errors and error management to test expected behavior
+- Capture unexpected errors to identify options for error management
+
 
 ---
-# Error management
-
-- Check values with if/else
+# Throwing an error
 
 ```python
-if not protein_data:
-  raise ValueError("Dataset cannot be empty")
-```
-
-- With try catch (called except in Python)
-
-```python
-try:
-  do_something_that_might_go_wrong(protein_data)
-except ItWentWrongException as ex:
-  logger.log(ex)
-finally:
-  protein_data.to_csv("../data/processed/proteins.csv")
-```
----
-
-# Your turn
-- Modify the code inside your function to
-  - Check the value of the arguments passed to your function using if/else statements
-  - raise an error in case an argument is out of the range of acceptable values
-  - Example (in python)
-  
-
-```python
-def read_vector_value(index=0):
-    my_vector = [10,5,4,12,25]
-    
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
     if index &gt; len(my_vector) - 1:
-        raise IndexError('Index cannot be higher than length of the vector ')
-    
+        raise IndexError('Index higher than vector length.')
     return my_vector[index]
-```
-  - Example (in R)
 
-```r
-read_vector_value &lt;- function(index=1){
-  my_vector &lt;- c(10,5,4,12,25)
-  
-  if(index&gt;length(my_vector)){
-    stop("Index cannot be higher than length of the vector")
-  }
-return(my_vector[index])
-}
-```
----
-# Using the read_vector_value function
-- Good call
-
-```python
-read_vector_value(4)
+read_vector_value(index=6)
 ```
 
 ```
-## 25
-```
-
-- Bad call
-
-```python
-read_vector_value(5)
-```
-
-```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index higher than vector length.
 ## 
 ## Detailed traceback: 
 ##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+##   File "&lt;string&gt;", line 3, in read_vector_value
 ```
-
----
-# Error management
-
-#### So, your script gets interrupted by the error your raised
+--
+#### Why not simply adjust the function output?
 
 ```python
-result = read_vector_value(5)
-```
-
-```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
-```
-
-
-
-```python
-result
-```
-
-```
-## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'result' is not defined
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-```
-
----
-# Error management
-
-#### Mmmh... why not a good old if/return?
-
-
-```python
-def read_vector_value_if(index=0):
-    my_vector = [10,5,4,12,25]
-    
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
     if index &gt; len(my_vector) - 1:
         return None
-    
     return my_vector[index]
 
-print(read_vector_value_if())
-```
-
-```
-## 10
-```
-
-- Hard to know if None is an expected value or an error ...
-
-```python
-print(read_vector_value_if(55))
+print(read_vector_value(index=6))
 ```
 
 ```
 ## None
 ```
 ---
-# You can handle this!
-- Assuming you would like to do something else than interrupt your script when an error is raised
-- Use error management, you can use it to process errors/exceptions raised by functions
+# Warning message without breaking
+#### An error breaks code execution
 
+```r
+read_vector_value &lt;- function(index=1,my_vector=c(10,5,4,12,25)){
+  if(index&gt;length(my_vector)){
+    stop("Index higher than vector length.")}
+return(my_vector[index])
+}
+
+print(read_vector_value(index=6))
+```
+
+```
+## Error in read_vector_value(index = 6): Index higher than vector length.
+```
+--
+#### Capture the error but release a warning
+
+```r
+read_vector_value &lt;- function(index=1,my_vector=c(10,5,4,12,25)){
+  if(index&gt;length(my_vector)){
+    warning("Index higher than vector length.")
+    return(NA)}
+return(my_vector[index])
+}
+
+print(read_vector_value(index=6))
+```
+
+```
+## Warning in read_vector_value(index = 6): Index higher than vector length.
+```
+
+```
+## [1] NA
+```
+---
+# Redirecting with exceptions
+
+If you do not want to interrupt your script when an error is raised: use try/catch ('except' in Python). NB: Note that Python allows you to distinguish by error type!
+
+.pull-left[
 
 ```python
 try:
-  read_vector_value(5)
-except IndexError as e:
-  print(e)
+  read_vector_value(6)
+except IndexError:
+  print("This is an exception")
 ```
 
 ```
-## Index cannot be higher than length of the vector
+## This is an exception
 ```
-
-- But what if the wrong exception is handled?
-
+]
+.pull-right[
 
 ```python
 try:
-  read_vector_value(5)
-except ArithmeticError as e:
-  print(e)
+  read_vector_value(6)
+except ArithmeticError:
+  print("This is an exception")
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index cannot be higher than length of the vector 
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index higher than vector length.
 ## 
 ## Detailed traceback: 
 ##   File "&lt;string&gt;", line 2, in &lt;module&gt;
-##   File "&lt;string&gt;", line 5, in read_vector_value
+##   File "&lt;string&gt;", line 3, in read_vector_value
 ```
+]
+
+--
+
+#### In R you can use [tryCatch()](http://www.mazamascience.com/WorkingWithData/?p=912):
+
+
+```r
+tryCatch({
+    read_vector_value(6)
+}, error = function(e) {
+    print("This is an exception.")
+})
+```
+
+```
+## [1] "This is an exception."
+```
+
+---
+# Validating input
+
+Functions are not required to check expectations: consider early statements to validate (data) input.
+
+With if/else:
+```python
+if not protein_data:
+  raise ValueError("Dataset cannot be empty")
+```
+
+With try/catch:
+```r
+tryCatch({
+  do_something_that_might_go_wrong(protein_data)
+}, error = function(e){
+  log(e)
+}, finally = {
+  cleanup(protein_data)
+})
+```
+---
+# Expectations and assumptions
+
+#### Expect the worst
+- use of wrong input values for functions
+- malformed text input
+- wrong data types
+
+![nouser](https://4.bp.blogspot.com/_YzKCMr-tcMM/S9bN9dGqgBI/AAAAAAAAALo/cxqBx5AaoYk/s640/23GORILLA.jpg)
+.footnote[
+Source: [cartoontester](https://cartoontester.blogspot.com/2010/02/thats-not-bug.html)
+]
+---
+
+# Your turn: explicit expectations
+
+#### Identify assumptions in your code
+- What assumptions/expectations exist on your data or (user) input?
+- What assumptions/expectations exist on the input of (a) function(s)?
+  
+#### Make the input/data assumptions explicit
+- **Option 1**: Explicitly state assumptions on data or input in your README.md.
+- **Option 2**: Write a piece of code that tests the validity of data/input, and reports an error if the expectations are not met.
+
+#### Test the input for a function
+- Modify the code inside your function to
+  - check the value of the arguments passed to your function using if/else statements;
+  - raise an error in case an argument is out of the range of acceptable values.
+
 ---
 
 # Unit testing
@@ -554,7 +556,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x117a99550&gt;
+## &lt;unittest.main.TestProgram object at 0x115af7ba8&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -584,7 +586,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x117ab6240&gt;
+## &lt;unittest.main.TestProgram object at 0x115b06dd8&gt;
 ## 
 ## ..F
 ## ======================================================================
