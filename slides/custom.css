@@ -43,6 +43,7 @@ a, a > code {
 }
 
 /* IMAGES */
+img[alt=ds-workflow] {height: 370px; margin: 0 50px;}
 img[alt=final] { width: 400px; }
 img[alt=new-repo] { width: 200px;}
 img[alt=initialize] { width: 450px;}
