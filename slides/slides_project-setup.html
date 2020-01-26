@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
   - **Read-only**: data, metadata
   - **Human-generated**: code, paper, documentation
   - **Project-generated**: clean data, figures, models...
-  
+
 - Initialize a **README** file, document your project
 
 - Choose a **license**
@@ -41,6 +41,19 @@ class: center, middle, inverse, title-slide
 [Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
 ]
 ---
+# A note on paths
+
+- Your project should be transportable between computers.
+
+- For this reason, you should use **relative paths** only: compare
+  - `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
+  - `./data/zincfinger.json`
+
+- `./` means: in this folder
+
+- `../` means: one folder up
+---
+
 # Cookiecutter
 
 You can set up a project template using a nifty tool called cookiecutter.
@@ -51,7 +64,7 @@ pip install cookiecutter
 ```
 
 #### If you do not have pip:
-Install pip using instructions [here](../preparations.md).
+Install pip using instructions [here](../preparations).
 
 Or try the following alternatives:
 
@@ -60,7 +73,7 @@ Or try the following alternatives:
 brew install cookiecutter
 ```
 - Debian/Ubuntu:
-```
+```bash
 sudo apt-get install cookiecutter
 ```
 ---
@@ -86,6 +99,7 @@ Answer the questions cookiecutter asks you, and browse the resulting project to 
 
 - Place your project files in the right folder.
 - Adjust paths in your code, and be sure to use **relative, not absolute** paths! 
+- It is fine to have the main script (e.g. `main.py`) in the home folder!
 
 ```
 .
@@ -142,21 +156,23 @@ No! Publishing your project at an early stage
 
 --
 
-_But I have sensitive data!_
+_But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
 
-Then don't include your data in your software repository (that's not what they are for anyway).
+If you are super paranoid, you can always opt for a private repository. It is your work &amp; up to you. But consider the advantages!
 
---
+---
+# Publishing unpublished data
 
-_Sure, but my code references my data!_
+- If you have sensitive data...
 
-This is something you can fix! Use a config or metadata file, and move all references to your data here. Generate a mock metadata/config file so that your code can run regardless.
+ - Don't include your data in your software repository (that's not what they are for anyway).
+ - Consider generating simulated data so your code can run regardless.
 
---
+- And for all data:
 
-_Also what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
+  - Your data should be separate from your code!
+  - If your code references your data, consider a config or metadata file for these references.
 
-If you are super paranoid, you can always opt for a private repository.
 
 ---
 # Where do I publish?
@@ -194,7 +210,7 @@ If you are super paranoid, you can always opt for a private repository.
 
 - NO MORE thesis_final_final_SERIOUSLYFINAL.Rmd
 
-even better:
+#### even better:
 - a good version control system allows you to collaborate and share!
 
 - a good version control system facilitates experimentation!
@@ -219,7 +235,6 @@ even better:
 
 - ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.]
 .pull-right-smaller[
-#![git-logo](images/git-logo-small.svg)
 ![distributed](images/screenshots/distributed.png)
 
 ![git](https://imgs.xkcd.com/comics/git.png)
@@ -346,7 +361,7 @@ Or all files with a certain extension:
  *.dat 
 ```
 
-NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders. Git does not track empty folders...
+_NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders: git does not track empty folders..._
 
 ---
 # Your turn!
