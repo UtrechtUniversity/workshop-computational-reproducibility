@@ -10,12 +10,11 @@ In this hands-on workshop, you will learn to become a better programmer. We will
 - How to document your code well;
 - How to license and release your code to ensure maximum reusability.
 
-We require participants to have at least a basic understanding of a programming language, and preferably already have some code to work with (though this is not required). The course content accommodates most languages, but insofar as we give examples of specific tools, we will cater to R and Python users. If you are unsure if the language you use will fit our course, please get in touch before registration.
+We require participants to have at least a basic understanding of a programming language, and preferably already have some code to work with (though this is not required). The course content accommodates most languages, but insofar as we give examples of specific tools, we will cater to R and Python users. If you are unsure if the language you use will fit our course, please get in touch.
 
+## Accessibility
 
-## Registration
-
-The next edition of this workshop will be given at Utrecht University on Thursday, December 19th, 2019. [You can register here.](https://www.uu.nl/en/events/best-practices-for-writing-reproducible-code-19-december-2019)
+The instructors have checked that the room and nearby bathroom facilities are wheelchair accessible. Furthermore, and we have done our best to accommodate color blindness with our slides and other material. Please let your instructors know if there is anything else in particular we can do to make sure you can take full advantage of our course.
 
 
 ## Program
@@ -39,30 +38,32 @@ The program addresses four main themes:
   - dealing with requirements and dependencies
 - Wrap-up
 
+(If you are looking at a GitHub README, please note that the slides are best viewed [via GitHub pages](https://utrechtuniversity.github.io/workshop-computational-reproducibility/).)
+
 
 ## Schedule
 
 | Time  | Activity |
 |-------:|----------|
 |9:00 | Welcome & introduction| 
-| 9:30 | Project setup & Version control with git |
-| _10:45_ | _coffee break_|
+| 9:30 | Project setup & version control with git |
+| _10:45_ | _break_|
 | 10:00 | Code quality |
 |_12:30_ | _lunch (not provided)_ |
 | 13:30 | Commenting & documentation |
-|_15:00_| _coffee break_ |
+|_15:00_| _break_ |
 | 15:15 | Accessibility & reproducibility| 
 | 16:00 | Reproduction|
 | 17:00 | Concluding remarks|
 
 ## Preparations
 
-If you are attending this workshop, you can prepare a few things so we can hit the ground running! We have [more details on this page](preparations.md).
+If you are attending this workshop, you can prepare a few things so we can hit the ground running! We have [more details on this page](preparations).
 
 
 ## License
 
-All workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). [View the license here](LICENSE.md).
+All workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). [View the license here](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md).
 
 
 ## History and acknowledgements
@@ -86,7 +87,8 @@ Workshop development is being coordinated by [Barbara Vreede](https://github.com
 The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [on these slides](https://docs.google.com/presentation/d/1MIPsWt08Kixe1TZfPeM8LvJv7p2es7lZ4Ui88FYbl5Y/edit?usp=sharing).
 
 
-### External resources and developer inspiration
+## External resources and developer inspiration
+
 - [Software Development Guide by the Netherlands eScience Center](https://guide.esciencecenter.nl/) (Currently dead: try [its page on GitHub](https://github.com/NLeSC/guide).)
 - [The Turing Way: a guide to reproducible data science by the Turing Institute](https://the-turing-way.netlify.com/introduction/introduction)
 - [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
