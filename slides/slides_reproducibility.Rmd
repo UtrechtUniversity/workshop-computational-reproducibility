@@ -20,7 +20,7 @@ You now have a project!
 - Your project structure is accessible
 - Your code is readable and invites re-use
 - The project is under version control
-- It has a landing page on Github, with user information
+- It has a landing page on Github, with information for a user
 
 Are you done?
 
@@ -37,15 +37,20 @@ It's time to think about the future...
 # Archiving the project
 
 - Create a project release to get a feel for it:
+
 ![release](https://guides.github.com/activities/citable-code/repo-view.png)
 
-- Fill out the form but tick the 'this is a pre-release' box.
+- Fill out the form, but tick the 'this is a pre-release' box.
 
+--
+_No need to do this now, but for future reference:_
 - If you do this after connecting the repository to Zenodo, the release will trigger Zenodo to archive the project.
 
 - After completing the workflow, your project will have a permanent home on Zenodo, including a **Digital Object Identifier** (DOI)!
 
 - _Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._
+
+
 
 ---
 # All done?
@@ -76,23 +81,14 @@ Dependencies and versions can stop your users/readers from being able to run you
 - **But**: due diligence starts at simply declaring dependencies.
 
 .footnote[Image source: [Cole Arendt at Rstudio.com](https://rviews.rstudio.com/2018/01/18/package-management-for-reproducible-r-code/)]
+
 ---
+
 # R: session_info
 
 ```{r}
 sessionInfo()
 ```
-
----
-# What works for you?
-
-- Declare how your project works **for you**.
-  - What language, what version?
-  - What packages/libraries do you load
-  - What OS do you use? (Does it work on your collaborator's system?)
-
-- This information should be in the requirements file of your project.
-
 
 ---
 # R: Packrat
@@ -114,19 +110,30 @@ If you need to re-save dependencies (for example, if you have added another pack
 ```r
 packrat::snapshot()
 ```
+---
+# What works for you?
+
+- Declare how your project works **for you**.
+  - What language, what version?
+  - What packages/libraries do you load
+  - What OS do you use? (Does it work on your collaborator's system?)
+
+- This information should be in the requirements file of your project.
 
 ---
 # Your turn!
 
-Add detailed requirement information to your requirements file.
+1. Add detailed requirement information to your requirements file.
 
-Add basic dependency information to your readme file: what version of your language is required, and which packages does a user need to load before running your project?
-
+1. Add basic dependency information to your readme file:
+  - What version of your language is required?
+  - Which packages does a user need to load before running your project?
+  - Can you provide installation instructions?
 
 ---
 # Are you ready?
 
-Let's exchange projects!
+#### Let's exchange projects!
 
 Please go to [tinyurl.com/repco-share](https://docs.google.com/spreadsheets/d/1FlQnSj8ipbUNhZgr_nS1PHnaapL8SvamWcfPjKTaBhA/edit#gid=0), and fill out:
 - your project name
@@ -137,9 +144,10 @@ Please go to [tinyurl.com/repco-share](https://docs.google.com/spreadsheets/d/1F
 in the yellow columns.
 --
 
-Now, write your name in one of the blue columns behind a project you will reproduce.
+#### Now, write your name in one of the blue columns behind a project you will reproduce.
 
 We hope that everyone's repository will get a reproduction-attempt, so only add your name to the second column if there are no repos left (for you)!
+--
 
 #### As you reproduce, please give your colleague feedback!
 
