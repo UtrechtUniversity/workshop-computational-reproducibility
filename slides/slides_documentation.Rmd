@@ -170,7 +170,7 @@ Docstrings are formatted so that they can easily be turned into documentation of
 
 You will need additional tools:
 
-  * http://www.doxygen.nl/ : c++ (and many more languages)
+  * http://www.doxygen.nl/ : C++ (and many more languages)
   * http://www.sphinx-doc.org/ : Python
   * https://roxygen2.r-lib.org/ : R
 
@@ -201,26 +201,25 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 ---
 # Your turn (choose one!)
 
-####1. Comment lines
+#### 1. Comment lines
   
 a. Do you have superfluous comments? **Remove them!**
    - Remove your zombie code and version control-like comments
    - See if you can replace a 'how' comment for a 'why' comment (_what is the purpose of this code?_ rather than _this is how this code works_)
 
 b. Are there elements without comments that need them? **Add them!**
-  - As you have been working with your code today: have you found yourself staring at a piece of code for too long without understanding it?
-  - Perhaps it needs more information!
-  - Try to comment on the thought behind the code rather than just translating its process to English. 
+  - Have you found yourself staring at a piece of code for too long without understanding it? Perhaps it needs more information!
+  - Try to comment on the thought behind the code rather than phrasing it in English. 
   
   
-####2. Docstrings
+#### 2. Docstrings
 - Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
 - Keep in mind: what does my user need to know when they are working with this function?
 
 ---
-# Readme
+# README
 
-The readme page is the first thing your user will see!
+The README page is the first thing your user will see!
 
 The contents typically include one or more of the following:
 
@@ -240,7 +239,7 @@ The contents typically include one or more of the following:
 ![mcfly](images/screenshots/mcfly.png)
 
 ---
-# Readme examples and templates
+# README examples and templates
 
 Some examples from projects with high quality documentation:
 
@@ -262,20 +261,20 @@ Templates and ideas:
 
 
 ---
-# Readme how?
+# README how?
 
-- When you create a repository on Github, there in an option to include a Readme files
+- When you create a repository on Github, there is an option to include a README file
 ![readme_github](images/screenshots/github_new_repo_readme.png)
-- Readme are files that can be written as text, and commonly use Markdown for formatting.
+- READMEs are files that can be written as text, and commonly use Markdown for formatting.
 
-- Github will show the content of your Readme file at the root of the repository.
+- Github will show the content of your README file at the root of the repository.
 
-- Your cookiecutter template included a Readme, so you are all set!!
+- Your cookiecutter template included a README, so you are all set!
 
 ---
 # Your turn!
 
-Edit your Readme file.
+Edit your README file.
 
 Make sure to include the following information:
 - What does your project do?
@@ -289,43 +288,42 @@ And perhaps any other elements you are inspired to add (check out the examples!)
 ---
 # Notebooks
 
-Notebooks originates from the concept of literate programming, introduced by D. Knuth in 1984.
+- The idea of a Notebook originates from the concept of literate programming, introduced by D. Knuth in 1984.
 
-- Idea : describe the logic of the code in natural language and include source code at the same time
-- In one document from the original program can be generated
-- Nowadays, literate programming evolved into Jupyter notebooks, RMarkdown documents etc.
+- Idea: describe the logic of the code in natural language and include source code at the same time.
+
+- It can be generated in one document from the original file.
+
+- Nowadays, literate programming has evolved into Jupyter notebooks, RMarkdown documents etc.
 
 ---
 # Editing notebooks
 
 In notebooks, you have two parts:
 
-- Text (now often in markdown, LaTex or plain text)
-- Code (Python, R ...)
+- Text (now often in Markdown, LaTeX or plain text), in 'text chunks'
+- Code (Python, R ...), in 'code chunks'
 
-This means
-
-- That there are text chuncks
-- And code chunks
-
-All chunck can be run at the same time
-- Text chunks will be shown
-- Code chunks will be executed and their ouput will be shown (if any)
+All chunks can be run at the same time
+- Text chunks will be rendered and shown
+- Code chunks will be executed, and show:
+  - their code (unless hidden)
+  - their ouput (if any)
 
 ---
 # Notebook software
 
 - RStudio with R notebooks
 
-- Jupyter lab with jupyter notebooks
+- Jupyter lab with Jupyter notebooks
 
-- Come code editors/integrated development environments can run notebooks
-  - Pycharm, Rstudio, Visual studio ...
+- Some code editors/Integrated Development Environments can run notebooks:
+  - Pycharm
+  - Rstudio
+  - Visual studio
+  - ...
+  
+---
+# RStudio Demo
 
->This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
->
->Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
->
->```r
->plot(cars)
->```
+(and perhaps you have a notebook you want to show?)
