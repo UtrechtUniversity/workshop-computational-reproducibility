@@ -22,7 +22,10 @@ options(htmltools.dir.version = FALSE)
 
 - To Armel Lefebvre, Bianca Kramer, Cedric Thieulot, Erik van Sebille, Jeroen Bosman, Jeroen Ooms, Jonathan de Bruin, Lukas van de Wiel, Mateusz Kuzak, Menno Fraters, Philippe Delandmeter, and Renato Alves, for helping develop this workshop
 
-- To our teachers today: Armel, Barbara, Sergio and Bianca
+- To your teachers today: Bianca Kramer, Lena Karvovskaya, and Jacques Flores
+
+--
+### Who are you? What brings you here?
 
 ---
 # Be Reproducible!
@@ -79,14 +82,12 @@ We need to do more: we need to inspire trust.
 ---
 # What does a workflow look like?
 
-![](images/dataworkflow.png)
-Source: Hadley Wickham / tidyverse documentation
-
-
+![ds-workflow](https://github.com/allisonhorst/stats-illustrations/raw/master/openscapes/environmental-data-science-r4ds-general.png)
 - data cleaning is an essential first step
-
 - think modular: each step requires own input, process, output
 
+.footnote[
+Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)]
 
 ---
 # What will we do today?
@@ -145,7 +146,7 @@ We want to teach you **good habits** that will make your work more accessible, t
 
 - You can find the slides at [tinyurl.com/repcopilot](https://utrechtuniversity.github.io/workshop-computational-reproducibility/). You may need links or code from these slides, so do open them.
 
-- There's also a (tentative) schedule: scroll down to 'preparations' and click the link.
+- There's also a (tentative) schedule.
 
 - This is a workshop, so do follow along! Use your sticky notes to signal to us: 
   - green means: I'm ready for the next step!
