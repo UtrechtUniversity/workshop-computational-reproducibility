@@ -87,12 +87,8 @@ The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [
 
 
 ### External resources and developer inspiration
-- https://guide.esciencecenter.nl/
-- https://software-carpentry.org (who develop all their material on [github](https://github.com/swcarpentry). Specifically check out repos on [project management](https://github.com/swcarpentry/managing-research-software-projects), [make](https://github.com/swcarpentry/make-novice), [git](https://github.com/swcarpentry/git-novice), and [this repo that collects all their lessons](https://github.com/swcarpentry/swcarpentry).
-- https://nicercode.github.io/
-- [The role of data stewardship in software sustainability and reproducibility](https://zenodo.org/record/1419085#.XEneGrpFxaQ)
-- [A book-in-progress on reproducible science by the Turing institute](https://github.com/alan-turing-institute/the-turing-way/)
-- [GIT pro book](https://www.git-scm.com/book/en/v2)
-- [Packaging data analytical work reproducibly using R (and friends)](https://peerj.com/preprints/3192.pdf)
-- [Teaching Computational Reproducibility for Neuroimaging](https://www.frontiersin.org/articles/10.3389/fnins.2018.00727/full)
-- [Defensive Programming in Python](https://github.com/UU-IMAU/Python-for-lunch-Notebooks/blob/master/PFL_10_defensive_programming/Defensive_programming.ipynb)
+- [Software Development Guide by the Netherlands eScience Center](https://guide.esciencecenter.nl/) (Currently dead: try [its page on GitHub](https://github.com/NLeSC/guide).)
+- [The Turing Way: a guide to reproducible data science by the Turing Institute](https://the-turing-way.netlify.com/introduction/introduction)
+- [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
+- [Pro GIT](https://www.git-scm.com/book/en/v2)
+- [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
