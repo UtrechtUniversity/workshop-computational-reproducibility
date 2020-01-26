@@ -299,19 +299,9 @@ def my_function(param_a, param_b):
 - Use errors and error management to test expected behavior
 - Capture unexpected errors to identify options for error management
 
----
-# Expectations
-
-#### Expect the worst
-- use of wrong input values for functions
-- malformed text input
-- wrong data types
-
-####
-
 
 ---
-#Throwing errors
+# Throwing errors
 
 In Python:
 ```{python}
@@ -337,6 +327,19 @@ return(my_vector[index])
 ```
 
 ---
+# Using the read_vector_value function
+- Good call
+```{python}
+read_vector_value(4)
+```
+
+- Bad call
+```{python, error=TRUE}
+read_vector_value(5)
+```
+
+---
+
 
 With if/else:
 ```python
@@ -356,26 +359,6 @@ finally:
 ```
 ---
 
-# Your turn
-- Modify the code inside your function to
-  - Check the value of the arguments passed to your function using if/else statements
-  - raise an error in case an argument is out of the range of acceptable values
-  - Example (in python)
-  
-
----
-# Using the read_vector_value function
-- Good call
-```{python}
-read_vector_value(4)
-```
-
-- Bad call
-```{python, error=TRUE}
-read_vector_value(5)
-```
-
----
 # Error management
 
 #### So, your script gets interrupted by the error your raised
@@ -410,9 +393,9 @@ print(read_vector_value_if())
 print(read_vector_value_if(55))
 ```
 ---
-# You can handle this!
-- Assuming you would like to do something else than interrupt your script when an error is raised
-- Use error management, you can use it to process errors/exceptions raised by functions
+# Redirect with exceptions
+
+If you do not want to interrupt your script when a (specific) error is raised.
 
 ```{python, error=TRUE}
 try:
@@ -421,7 +404,7 @@ except IndexError as e:
   print(e)
 ```
 
-- But what if the wrong exception is handled?
+In Python this is can be specified by error type:
 
 ```{python, error=TRUE}
 try:
@@ -429,6 +412,37 @@ try:
 except ArithmeticError as e:
   print(e)
 ```
+
+---
+# Expectations and assumptions
+
+#### Expect the worst
+- use of wrong input values for functions
+- malformed text input
+- wrong data types
+
+![nouser](https://4.bp.blogspot.com/_YzKCMr-tcMM/S9bN9dGqgBI/AAAAAAAAALo/cxqBx5AaoYk/s640/23GORILLA.jpg)
+.footnote[
+Source: [cartoontester](https://cartoontester.blogspot.com/2010/02/thats-not-bug.html)
+]
+---
+
+# Your turn: explicit expectations
+
+#### Identify assumptions in your code
+- What assumptions/expectations exist on your data or (user) input?
+- What assumptions/expectations exist on the input of (a) function(s)?
+  
+#### Make the input/data assumptions explicit
+- **Option 1**: Explicitly state assumptions on data or input in your README.md.
+- **Option 2**: Write a piece of code that tests the validity of data/input, and reports an error if the expectations are not met.
+
+#### Test the input for a function
+- Modify the code inside your function to
+  - check the value of the arguments passed to your function using if/else statements;
+  - raise an error in case an argument is out of the range of acceptable values.
+
+
 ---
 
 # Unit testing
