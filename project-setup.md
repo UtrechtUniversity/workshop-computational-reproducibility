@@ -88,6 +88,26 @@ Both licenses require the copyright holder (you) is named in all source files.
 
 
 
+### .gitignore
+
+The .gitignore file in your template contains files that **by definition** will not be tracked by git.
+
+For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
+```bash
+.DS_Store
+```
+Similarly, you can ensure all output in a folder will not be tracked:
+```bash
+results/
+```
+
+Or all files with a certain extension:
+```bash
+ *.dat 
+```
+
+
+
 
 # Glossary
 | Concept | Definition |
