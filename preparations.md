@@ -1,13 +1,10 @@
 # To our participants: before the workshop
 
-We have prepared the workshop as much as we could in a language-independent manner. That was not always possible, and where we are going into detail on tools and tricks we have done so catering to R and Python users. If you use a different language, we hope you will be able to help us add to the teaching materials with comparable tools you have found.
-
 ## Preparation
 In order to take full advantage of the time we have together, would you please prepare the following:
  
 ### Data and/or code
-- **Bring some code!** We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: it is nice if there is an output for someone to see at the end!). 
-*NB: If you will not have code to work on, you can still take advantage of the workshop, but please contact your instructor before the course.*
+- **Bring some code!** We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: it is nice if there is an output for someone to see at the end!). *NB: If you will not have code to work on, you can still take advantage of the workshop, but please contact your instructor before the course.*
 - **Optional: if your data cannot be public: fake it!** We will be exchanging repositories at the end of the day, and try to reproduce each other's work. This can be problematic if your data cannot be shared. If the structure of the data can be put online, you could simulate the dataset (including covariates, so simple models have similar outcomes) using a package like [fakeR](https://cran.r-project.org/web/packages/fakeR/index.html), which simulates fake data within the same structure. Or check out or [this post on conjurer](https://www.r-bloggers.com/generate-synthetic-data-using-r/).
 
 ### Terminal
@@ -33,6 +30,6 @@ If you have no experience with the terminal at all, we recommend practising with
     - You want to check 'Add Anaconda to my PATH environment variable'. _(NB: you will also see a message in red text that selecting 'Add Anaconda to my PATH environment variable' is not recommended; continue with this selection to make using conda easier in your terminal. If you have questions or concerns, please contact your instructor.)_
 
 
-### Github
-- **Sign up for a github, gitlab, or bitbucket account**. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
+### Code platforms
+- **Sign up for a [github](https://github.com/join?source=header-home), [gitlab](https://gitlab.com/users/sign_up), or [bitbucket](https://bitbucket.org/account/signup/) account**. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
 - **Make sure you have an ssh key pair set up** between your computer and the github/gitlab/bitbucket account. There is a [great tutorial on how to do this on github](https://help.github.com/en/enterprise/2.17/user/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
