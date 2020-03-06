@@ -1,4 +1,6 @@
 # To our participants: before the workshop
+	
+We have prepared the workshop as much as we could in a language-independent manner. That was not always possible, and where we are going into detail on tools and tricks we have done so catering to R and Python users. If you use a different language, you are very welcome to join our workshop, and we hope you will be able to help us add to the teaching materials with comparable tools you have found.
 
 ## Preparation
 In order to take full advantage of the time we have together, would you please prepare the following:
