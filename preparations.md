@@ -6,27 +6,32 @@ We have prepared the workshop as much as we could in a language-independent mann
 In order to take full advantage of the time we have together, would you please prepare the following:
  
 ### Data and/or code
-- **Bring some code!** We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: there is something, like data, that goes in, and there is something, like results or figures, that comes out).
-- **Optional: if you do not have code, bring data!** You will have some time to write code during the course, so don’t worry if you don’t have a project ready to go. We will also bring example data to work with BUT if you have your own data that you can bring that would be even better, as you’ll be more motivated to work with it!
+- **Bring some code!** We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: it is nice if there is an output for someone to see at the end!). **If you will not have code to work on** you can still take advantage of the workshop, but please contact your instructor before the course.
 - **Optional: if your data cannot be public: fake it!** We will be exchanging repositories at the end of the day, and try to reproduce each other's work. This can be problematic if your data cannot be shared. If the structure of the data can be put online, you could simulate the dataset (including covariates, so simple models have similar outcomes) using a package like [fakeR](https://cran.r-project.org/web/packages/fakeR/index.html), which simulates fake data within the same structure. Or check out or [this post on conjurer](https://www.r-bloggers.com/generate-synthetic-data-using-r/).
 
+### Terminal
+Some of the work we will do will take place over the command line, for which you will need a terminal.
+Mac OS and Linux have easily accessible terminals (the program is usually called 'terminal', so that is easy).
+Windows' default terminal (Command Prompt) uses different commands, so we do not recommend it for this workshop. 
+Instead, as you install Git (see below), you can get the Git Bash terminal with your installation.
+
+If you have no experience with the terminal at all, we recommend practising with it for some basic folder navigation to start.
+[This 8.5 minute video](https://www.youtube.com/watch?v=j6vKLJxAKfw) is a good introduction.
+
 ### Installation
-- **Pip (using miniconda)**
-  - Check if you have pip by typing in a terminal: `pip -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
-  - Download the miniconda installer here: [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
-  - Run the installer; there is no need to change any detault settings, but just in case:
-    - You want to install it 'just for me';
-    - You want to check 'Add Anaconda to my PATH environment variable' and 'Register Anaconda as my default Python 3.7'. _(NB: you will also see a message in red text that selecting 'Add Anaconda to my PATH environment variable' is not recommended; continue with this selection to make using conda easier in your terminal. If you have questions or concerns, please contact your instructor.)_
-  - Open a new terminal session and type: `conda install -c anaconda pip`
 - **Git**
-  - Check if you have git by tying in a terminal: `git -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
+  - Check if you have git by typing in a terminal: `git -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
   - On a windows system: use [gitforwindows.org](https://gitforwindows.org). Make sure you include **git bash** in your installation!
   - On Mac or Linux: use [git-scm.com](https://git-scm.com/)
   - With Linux you can also use `apt-get install git` in your terminal, or whatever installer you prefer.
-- **Rstudio** 
-  - If you are working with R, make sure you have Rstudio!
-  - If not, you can install it from [rstudio.com](https://rstudio.com/products/rstudio/download/)
+- **Conda**
+  - Check if you have conda by typing in a terminal: `conda -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
+  - Download the miniconda installer here: [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
+  - Run the installer; there is no need to change any detault settings, but just in case:
+    - You want to install it 'just for me';
+    - You want to check 'Add Anaconda to my PATH environment variable'. _(NB: you will also see a message in red text that selecting 'Add Anaconda to my PATH environment variable' is not recommended; continue with this selection to make using conda easier in your terminal. If you have questions or concerns, please contact your instructor.)_
+
 
 ### Github
-- **Sign up for a github account**, or gitlab or bitbucket, if you prefer. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
-- **Make sure you have an ssh key pair set up** between your computer and the github (or gitlab, or bitbucket) account (there is a [great tutorial on how to do this on github](https://help.github.com/en/enterprise/2.17/user/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+- **Sign up for a github, gitlab, or bitbucket account**. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
+- **Make sure you have an ssh key pair set up** between your computer and the github/gitlab/bitbucket account. There is a [great tutorial on how to do this on github](https://help.github.com/en/enterprise/2.17/user/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
