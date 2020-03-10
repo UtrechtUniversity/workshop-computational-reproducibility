@@ -22,10 +22,23 @@ options(htmltools.dir.version = FALSE)
 
 - To Armel Lefebvre, Bianca Kramer, Cedric Thieulot, Erik van Sebille, Jeroen Bosman, Jeroen Ooms, Jonathan de Bruin, Lukas van de Wiel, Mateusz Kuzak, Menno Fraters, Philippe Delandmeter, and Renato Alves, for helping develop this workshop
 
-- To your teachers today: Bianca Kramer, Lena Karvovskaya, and Jacques Flores
+- To your teachers today!
 
---
-### Who are you? What brings you here?
+---
+# Who are you? What brings you here?
+
+Present yourself in this collaborative document: [tinyurl.com/repcocollab](https://docs.google.com/document/d/1bYmI9jaOTQLNbt3umDMl-RvGs3nzz-_NmVSTGEc-6_Q/edit)
+
+- Your name
+- Your affiliation
+- Your pronouns
+
+Maybe add something about yourself:
+- What drew you most to this workshop today?
+- What can others ask you about?
+- Something exciting you discovered recently?
+- What book you're reading / show you're watching / music you're listening to ...
+- _or anything else!_
 
 ---
 # Be Reproducible!
@@ -110,15 +123,6 @@ We will take you through a workflow (in a broader sense!)
 
 We will end by trying to reproduce each others' projects!
 
---
-
-#### Do you have your own data/code?
-
-If not: find an interesting dataset [on this github repo](https://github.com/rfordatascience/tidytuesday). How about:
-- [space launches](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-15)
-- [nobel prize winners](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-14)
-- [cetaceans data](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-12-18)
-
 
 
 ---
@@ -128,18 +132,14 @@ If not: find an interesting dataset [on this github repo](https://github.com/rfo
 
 - Feel free and safe to share your expertise and experiences, either by helping your neighbor or by showing everyone.
 
+- E.g.: if you do not know a certain word or term (or you think others may not know it): put it in the glossary, at [tinyurl.com/repcocollab](https://docs.google.com/document/d/1bYmI9jaOTQLNbt3umDMl-RvGs3nzz-_NmVSTGEc-6_Q/edit)
+
 --
 
 #### Our objectives for you
 We want to teach you **good habits** that will make your work more accessible, trustworthy, and reproducible by others. In doing so, we have tried to identify those habits that are a **good return on investment**: meaning, they save you time in the not-so-long run.
---
-#### Give us feedback!
 
-  - Does this tool/lesson align with the objectives of the course?
-  
-  - Do/did you have (access to) crucial basic information to understand our lessons?
 
-  - If you do not know a certain word or term (or you think others may not know it): put it in the glossary, at [tinyurl.com/repco-glossary](https://docs.google.com/document/d/1UHBFyfvHoHXiV1Slr_DvxYDQyakozuPw_xPTJgeNInI/edit)
 
 ---
 # Let's get practical!
@@ -151,3 +151,5 @@ We want to teach you **good habits** that will make your work more accessible, t
 - This is a workshop, so do follow along! Use your sticky notes to signal to us: 
   - green means: I'm ready for the next step!
   - pink means: I need assistance, please.
+  
+- If you are online: use the status chart in [tinyurl.com/repcocollab](https://docs.google.com/document/d/1bYmI9jaOTQLNbt3umDMl-RvGs3nzz-_NmVSTGEc-6_Q/edit) to indicate your progress!
