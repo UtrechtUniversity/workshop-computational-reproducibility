@@ -35,6 +35,13 @@ options(htmltools.dir.version = FALSE)
 [Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
 ]
 ---
+# Research compendium
+
+![compendium](images/scriberia_compendium.png)
+
+.footnote[(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction), CC-BY)]
+
+---
 # A note on paths
 
 - Your project should be transportable between computers.
@@ -54,13 +61,14 @@ You can set up a project template using a nifty tool called cookiecutter.
 
 First, ensure you have cookiecutter installed:
 ```bash
+conda install cookiecutter
+```
+or with pip:
+```bash
 pip install cookiecutter
 ```
 
-#### If you do not have pip:
-Install pip using instructions [here](../preparations).
-
-Or try the following alternatives:
+Trouble with conda or pip? Check the instructions [here](../preparations), or try the following alternatives:
 
 - MacOS X with Homebrew:
 ```bash
