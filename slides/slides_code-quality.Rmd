@@ -164,15 +164,17 @@ Before software can be reusable, it first has to be usable.]
 
   - consider using a config file for project-specific (meta)data
   - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, **once**.
-  
 --
+
 - Do One Thing (and do it well)
+
   - One function for one purpose
   - One class for one purpose
   - One script for one purpose (no copy-pasting to recycle it!)
-  
 --
+
 - Don't repeat yourself: use functions
+
  - Write routines in functions, i.e., code you reuse often
  - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
  
@@ -293,6 +295,7 @@ def my_function(param_a, param_b):
   - redirect the program
   - log or report the error, to allow the user (or developer) to troubleshoot
   - if necessary: abort the run
+  
 --
 
 #### Protect the developer with tests:
