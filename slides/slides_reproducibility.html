@@ -42,20 +42,62 @@ It's time to think about the future...
 ---
 # Archiving the project
 
-- Create a project release to get a feel for it:
+![zenodo-part3](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
+
+Zenodo has a sandbox environment!
+- Not the main data repository, but still functional.
+- You will get an *actual* DOI, and your project will (probably?) not be deleted!
+- Only do this following exercise if you are OK with your code staying online!
+- You will not be able to do this with a private repository.
+
+Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._)
+
+#### Your turn:
+- Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
+- GitHub will then ask permission to give Zenodo access; click "Authorize application".
+
+
+---
+# Select your repository
+
+
+![toggle](https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
+---
+# Release your project!
+
 
 ![release](https://guides.github.com/activities/citable-code/repo-view.png)
 
-- Fill out the form, but tick the 'this is a pre-release' box.
+... and follow the workflow!
 
---
-_No need to do this now, but for future reference:_
-- If you do this after connecting the repository to Zenodo, the release will trigger Zenodo to archive the project.
+(Unsure about version number? Wait a slide! :-))
 
-- After completing the workflow, your project will have a permanent home on Zenodo, including a **Digital Object Identifier** (DOI)!
+---
+# Semantic versioning
 
-- _Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._
+A version has three numbers: MAJOR.MINOR.PATCH
 
+- MAJOR version denotes changes that alter the compatibility (i.e. someone using your functions may need to change their use for their code to still work),
+- MINOR version adds functionality, but remains compatible
+- PATCH version makes (compatible) bug fixes.
+
+(If your bug fix changes compatibility, it is therefore a MAJOR version change!)
+
+#### You can release today with v0.1.0
+---
+# Check zenodo
+
+Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
+
+![citable-upload](https://guides.github.com/activities/citable-code/upload-tab.png)
+---
+# Getting your DOI
+
+- Add some final descriptions
+- Click 'publish'
+- Voilá!
+
+![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
 
 
 ---
@@ -114,9 +156,9 @@ sessionInfo()
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] compiler_3.6.1  magrittr_1.5    tools_3.6.1     htmltools_0.4.0
-##  [5] xaringan_0.13.2 yaml_2.2.0      Rcpp_1.0.3      stringi_1.4.3  
-##  [9] rmarkdown_2.0   knitr_1.26      stringr_1.4.0   xfun_0.11      
-## [13] digest_0.6.23   rlang_0.4.2     evaluate_0.14
+##  [5] xaringan_0.13.2 yaml_2.2.1      Rcpp_1.0.3      stringi_1.4.5  
+##  [9] rmarkdown_2.1   knitr_1.28      stringr_1.4.0   xfun_0.12      
+## [13] digest_0.6.23   rlang_0.4.4     evaluate_0.14
 ```
 
 ---

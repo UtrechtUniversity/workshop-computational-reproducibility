@@ -54,11 +54,14 @@ img[alt=git-logo] { width: 70px; margin: 0 200px;}
 img[alt=distributed] { margin: -40px 0;}
 img[alt=atlassian] { width: 500px; margin: 0 150px;}
 img[alt=zenodo] {margin: 100px 0;}
+img[alt=zenodo-part3] {width: 200px;}
+img[alt=zenodo-upload] {width: 600px;}
 img[alt=codequality] {margin: 100px 50px;}
 img[alt=goodcode] {width: 350px;}
-img[alt=release] {width: 300px; margin: 0 50px;}
+img[alt=release] {width: 400px; margin: 0 50px;}
 img[alt=errormanagement] {width: 800px; margin: 20px;}
 img[alt=nouser] {height: 300px;}
+img[alt=compendium] {height: 480px;}
 
 
 .large-left-column {
