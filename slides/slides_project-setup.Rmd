@@ -14,6 +14,15 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+# Research compendium
+
+> A research compendium is a collection of *all digital parts of a research project* including data, code, texts (...). The collection is created in such a way that reproducing all results is straightforward.
+
+*Source: [The Turing Way](https://the-turing-way.netlify.com/research_compendia/research_compendia.html)*
+![compendium](https://the-turing-way.netlify.com/figures/ResearchCompendium.jpg)
+
+.footnote[(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction), CC-BY)]
+---
 # Getting started
 
 .pull-left[
@@ -34,25 +43,7 @@ options(htmltools.dir.version = FALSE)
 -![exampleproject](images/screenshots/exampleproject.png)
 [Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
 ]
----
-# Research compendium
 
-![compendium](images/scriberia_compendium.png)
-
-.footnote[(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction), CC-BY)]
-
----
-# A note on paths
-
-- Your project should be transportable between computers.
-
-- For this reason, you should use **relative paths** only: compare
-  - `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
-  - `./data/zincfinger.json`
-
-- `./` means: in this folder
-
-- `../` means: one folder up
 ---
 
 # Cookiecutter
@@ -61,11 +52,11 @@ You can set up a project template using a nifty tool called cookiecutter.
 
 First, ensure you have cookiecutter installed:
 ```bash
-conda install cookiecutter
-```
-or with pip:
-```bash
 pip install cookiecutter
+```
+or with conda:
+```bash
+conda install cookiecutter
 ```
 
 Trouble with conda or pip? Check the instructions [here](../preparations), or try the following alternatives:
@@ -96,11 +87,30 @@ cookiecutter gh:bvreede/good-enough-project
 ```
 
 Answer the questions cookiecutter asks you, and browse the resulting project to see where your answers ended up.
+
+---
+# Backup option
+
+Did cookiecutter not work for you? We have a backup option:
+
+- Navigate to the location where you want to create your project.
+
+- Then clone this template repository:
+```bash
+git clone https://github.com/bvreede/good-enough-project-template.git
+```
+
+- We will initialize a git repository here. But for now: please remove the `.git` folder.
+  - Use your GUI explorer, not your terminal for this step!
+  - Ensure hidden files/folders are shown (on mac: press `cmd` + `shift` + `.` (dot)).
+  - Delete the entire `.git` folder in your project folder.
+
+
 ---
 # Your turn
 
 - Place your project files in the right folder.
-- Adjust paths in your code, and be sure to use **relative, not absolute** paths! 
+- Adjust paths in your code, and be sure to use relative (see next slide) paths! 
 - It is fine to have the main script (e.g. `main.py`) in the home folder!
 
 ```
@@ -125,8 +135,20 @@ Answer the questions cookiecutter asks you, and browse the resulting project to 
 │   └── output         <- Other output for the manuscript or reports (PG)
 └── src                <- Source code for this project (HW)
 ```
-
 ---
+# A note on paths
+
+- Your project should be transportable between computers.
+
+- For this reason, you should use **relative paths** only: compare
+  - `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
+  - `./data/zincfinger.json`
+
+- `./` means: in this folder
+
+- `../` means: one folder up
+---
+
 # Choosing a license
 
 - Copyright is implicit; others cannot use your code without your permission.
@@ -194,12 +216,13 @@ If you are super paranoid, you can always opt for a private repository. It is yo
 (or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))
 - [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
 
-- this gives you a doi: your code is citeable!
+- this gives you a **doi** (digital object identifier): your code is citeable!
 ]
 .pull-right-smaller[
 ![octocat-project](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
 ![zenodo](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
 ]
+
 ---
 
 # Why do you need version control?
@@ -370,19 +393,16 @@ _NB: There is a .gitkeep file in your template -- this does not do the opposite 
 
 1. Continue moving your files into the file template.
 
-1. Add, commit, and push all files you want to track.
-  - Are there files you do not wish to track? Add them to the .gitignore file.
-  - Do you want to move a tracked file within a git repository?
-```bash
-git mv path/to/file.svg newpath/
-```
-(don't forget to commit!)
+1. Add, commit, and push all files you want to track! (Do you want to move a tracked file within a git repository?
+`git mv path/to/file.svg newpath/file.svg`
+and don't forget to commit!)
+
+1. Are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: [examples on this github repo](https://github.com/github/gitignore).
+
 1. Continue editing your code, and add/commit/push your changes. Can you do it from your IDE?
 
-1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using
-```bash
-git pull
-```
+1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using `git pull`.
+
 1. What happens if you edit the same file online and locally, and try to push/pull?
 
 ---
