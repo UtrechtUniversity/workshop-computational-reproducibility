@@ -140,6 +140,20 @@ my_var <- original_var + Modified(new_var)
 Source: [xkcd](https://xkcd.com/1513/)
 ]
 ---
+# Your turn (briefly!)
+
+#### Where can you improve the readability of your code?
+
+- If you have time:
+  - add strategic whitespace
+  - remove zombie code
+  
+- If you find code that is hard to read, make a note to work on it.
+
+_Tip! Use_ `#TODO` _or_ `//TODO` _(depending on your comment marker) to easily find these spots later on.
+Many IDEs extract these into a task list!_
+
+---
 # Code reusability
 
 - Less code written, more work done
@@ -160,7 +174,7 @@ Before software can be reusable, it first has to be usable.]
 ---
 # Code reusability: some guidelines
 
-- Separate code and data
+- Separate code and data: data is specific, code need not be
 
   - consider using a config file for project-specific (meta)data
   - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, **once**.
@@ -173,10 +187,10 @@ Before software can be reusable, it first has to be usable.]
   - One script for one purpose (no copy-pasting to recycle it!)
 --
 
-- Don't repeat yourself: use functions
+- Don't Repeat Yourself: use functions
 
  - Write routines in functions, i.e., code you reuse often
- - Identify potential functions by their action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+ - Identify potential functions by action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
  
 
 
@@ -191,7 +205,7 @@ Functions are smaller code units reponsible of one task.
 
 - What arguments a function accept is defined by its parameters
 
-Compare:
+Functions do not necessarily make code shorter (at first)! Compare:
 ```r
 indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
 indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
@@ -224,31 +238,26 @@ Small, cohesive units are much better than...
 
 # Your turn: visualize your code!
 
-.pull-left-larger[
-Use sticky-notes, spaced however you see fit: the objective is for you to 'see' your code!
+Choose:
+- Make a screenshot, process it in paint, powerpoint, or your favorite editor;
+- Copy paste your code to a text editor, and use markers.
 
-- Yellow stickies denote scripted, unstructured code
-   _these are only basic, sequential lines of instructions_
+The objective is for you to 'see' your code!
+
+- Yellow denotes scripted, unstructured code _(basic, sequential lines of instructions)_
    
-- Purple stickies denote functions or other structured code _like for-loops, conditionals, etc._
+- Purple denotes functions or other structured code _(e.g. for-loops, conditionals, etc.)_
 
-- Green stickies denote comments (or comment blocks)
-   _you can also combine them with yellow for heavily commented code_
+- Green denotes comments (or comment blocks)
+   _(consider combining this with yellow for heavily commented code)_
 
-Make notes on your stickies if you see:
-- The readability here can be improved
+Again, make notes in your code (`#TODO`!) if you see:
 - **Scripted code**: this can be a function
 - **Structured code**: this should be re-structured 
 
 What can you learn from your colleagues today?
-]
-  
-.pull-right-smaller[
-![stickies](images/stickies.svg)
-
-]
 ---
-# Your turn!
+# Your turn: make a function
 
 You have visualized your code. Use your findings to improve it!
 
@@ -398,7 +407,7 @@ tryCatch({
 ---
 # Validating input
 
-Functions are not required to check expectations: consider early statements to validate (data) input.
+Consider early statements in the script to validate (data) input.
 
 With if/else:
 ```python
