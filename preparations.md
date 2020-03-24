@@ -24,14 +24,18 @@ If you have no experience with the terminal at all, we recommend practising with
   - On a windows system: use [gitforwindows.org](https://gitforwindows.org). Make sure you include **git bash** in your installation!
   - On Mac or Linux: use [git-scm.com](https://git-scm.com/)
   - With Linux you can also use `apt-get install git` in your terminal, or whatever installer you prefer.
-- **Conda**
-  - Check if you have conda by typing in a terminal: `conda -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
+  
+- **Pip (using miniconda)**
+  - Check if you have pip by typing in a terminal: `pip -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
   - Download the miniconda installer here: [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
   - Run the installer; there is no need to change any detault settings, but just in case:
     - You want to install it 'just for me';
     - You want to check 'Add Anaconda to my PATH environment variable'. _(NB: you will also see a message in red text that selecting 'Add Anaconda to my PATH environment variable' is not recommended; continue with this selection to make using conda easier in your terminal. If you have questions or concerns, please contact your instructor.)_
-
+  - Open a new terminal session and type: `conda install -c anaconda pip`.
 
 ### Code platforms
 - **Sign up for a [github](https://github.com/join?source=header-home), [gitlab](https://gitlab.com/users/sign_up), or [bitbucket](https://bitbucket.org/account/signup/) account**. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
-- **Make sure you have an ssh key pair set up** between your computer and the github/gitlab/bitbucket account. There is a [great tutorial on how to do this on github](https://help.github.com/en/enterprise/2.17/user/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+- **Make sure you have an ssh key pair set up** between your computer and the github/gitlab/bitbucket account. 
+There is a [great tutorial on how to do this on github](https://help.github.com/en/enterprise/2.17/user/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+There is often no need to use a passphrase for your key, but you can opt to use this for an extra layer of security.
+Here is a [guide by github on how to work with passphrases](https://help.github.com/en/enterprise/2.19/user/github/authenticating-to-github/working-with-ssh-key-passphrases).
