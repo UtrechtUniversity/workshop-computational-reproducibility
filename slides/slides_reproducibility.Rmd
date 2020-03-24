@@ -33,51 +33,50 @@ Are you done?
 
 Dependencies and versions can stop your users/readers from being able to run your code.
 
+For example: this code written in Python 2.7:
+```{python, eval=F, error=TRUE}
+print "Hello world!"
+```
+```{python,echo=F}
+print("Hello world!")
+```
+
+
+No longer works in Python 3!
+```{python, eval=F, error=TRUE}
+print "Hello world!"
+```
+```
+  File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
+    print "Hello world!"
+                       ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
+```
+
+Instead, we write:
+```{python}
+print("Hello world!")
+```
 
 ---
 # The reproducibility trade-off
 
-- Making your project 100% reproducible can be tricky.
+How far do you go towards reproducibility?
 
-![](https://rviews.rstudio.com/post/2018-01-17-package-management-for-reproducible-r-code_files/spectrum-ex.png)
-- That said, tools like Docker and Singularity probably sound more daunting than they actually are.
+![](images/dependencytradeoff.svg)
 
-- Even more user-friendly (though possibly expensive...) options exist: like [CodeOcean](https://codeocean.com).
 
-- **But**: due diligence starts at simply declaring dependencies.
+- **due diligence** starts at declaring dependencies.
 
-.footnote[Image source: [Cole Arendt at Rstudio.com](https://rviews.rstudio.com/2018/01/18/package-management-for-reproducible-r-code/)]
+- packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
 
----
+- containers are awesome, and container tools like Docker and Singularity probably sound more daunting than they actually are.
 
-# R: session_info
-
-```{r}
-sessionInfo()
-```
+- But! Even more user-friendly options exist: like [CodeOcean](https://codeocean.com) (`$$$`) and [binder](https://mybinder.org/) (free!)
 
 ---
-# R: Packrat
 
-Install the package from CRAN
-```r
-install.packages("packrat")
-```
-
-Initialize packrat
-```r
-packrat::init("~/path/to/your/project")
-```
-
-Your packages are now stored in `~/path/to/your/project/packrat/lib`
-
-If you need to re-save dependencies (for example, if you have added another package), you can use packrat:
-
-```r
-packrat::snapshot()
-```
----
-# What works for you?
+# Declaring dependencies
 
 - Declare how your project works **for you**.
   - What language, what version?
@@ -85,6 +84,19 @@ packrat::snapshot()
   - What OS do you use? (Does it work on your collaborator's system?)
 
 - This information should be in the requirements file of your project.
+
+#### Getting accurate version information:
+
+In R:
+```r
+sessionInfo()
+```
+
+For Python (in shell):
+```bash
+pip freeze
+```
+
 
 ---
 # Your turn!
@@ -95,6 +107,8 @@ packrat::snapshot()
   - What version of your language is required?
   - Which packages does a user need to load before running your project?
   - Can you provide installation instructions?
+  
+1. **OR**: give a package manager a try!
 
 ---
 # All done?

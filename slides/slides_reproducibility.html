@@ -30,15 +30,113 @@ You now have a project!
 
 Are you done?
 
---
+#### It depends...
+
+![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
+
+---
+# Dependencies
+
+Dependencies and versions can stop your users/readers from being able to run your code.
+
+For example: this code written in Python 2.7:
+
+```python
+print "Hello world!"
+```
+
+```
+## Hello world!
+```
+
+
+No longer works in Python 3!
+
+```python
+print "Hello world!"
+```
+```
+  File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
+    print "Hello world!"
+                       ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
+```
+
+Instead, we write:
+
+```python
+print("Hello world!")
+```
+
+```
+## Hello world!
+```
+
+---
+# The reproducibility trade-off
+
+How far do you go towards reproducibility?
+
+![](images/dependencytradeoff.svg)
+
+
+- **due diligence** starts at declaring dependencies.
+
+- packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
+
+- containers are awesome, and container tools like Docker and Singularity probably sound more daunting than they actually are.
+
+- But! Even more user-friendly options exist: like [CodeOcean](https://codeocean.com) (`$$$`) and [binder](https://mybinder.org/) (free!)
+
+---
+
+# Declaring dependencies
+
+- Declare how your project works **for you**.
+  - What language, what version?
+  - What packages/libraries do you load
+  - What OS do you use? (Does it work on your collaborator's system?)
+
+- This information should be in the requirements file of your project.
+
+#### Getting accurate version information:
+
+In R:
+```r
+sessionInfo()
+```
+
+For Python (in shell):
+```bash
+pip freeze
+```
+
+
+---
+# Your turn!
+
+1. Add detailed requirement information to your requirements file.
+
+1. Add basic dependency information to your readme file:
+  - What version of your language is required?
+  - Which packages does a user need to load before running your project?
+  - Can you provide installation instructions?
+  
+1. **OR**: give a package manager a try!
+
+---
+# All done?
 
 _Not quite yet!_
 It's time to think about the future...
 
 --
 
-#### Will GitHub still be here in five years? Will my account? Will this repository?
+#### Will this repository still be here in five years? 
 
+### Will my account? 
+
+## Will GitHub?
 ---
 # Archiving the project
 
@@ -98,110 +196,18 @@ Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 - Voilá!
 
 ![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
-
-
 ---
-# All done?
+# Final touch
 
-
-#### It depends...
-
-![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
-
----
-# Dependencies
-
-Dependencies and versions can stop your users/readers from being able to run your code.
-
-![reproducibility](images/screenshots/comprep.png)
-.footnote[Source: [Timo B. Roettger on OSF](https://osf.io/e9bu7/).]
-
----
-# The reproducibility trade-off
-
-- Making your project 100% reproducible can be tricky.
-
-![](https://rviews.rstudio.com/post/2018-01-17-package-management-for-reproducible-r-code_files/spectrum-ex.png)
-- That said, tools like Docker and Singularity probably sound more daunting than they actually are.
-
-- Even more user-friendly (though possibly expensive...) options exist: like [CodeOcean](https://codeocean.com).
-
-- **But**: due diligence starts at simply declaring dependencies.
-
-.footnote[Image source: [Cole Arendt at Rstudio.com](https://rviews.rstudio.com/2018/01/18/package-management-for-reproducible-r-code/)]
-
----
-
-# R: session_info
-
-
-```r
-sessionInfo()
-```
+Take your DOI and place it as a badge at the top of your README:
 
 ```
-## R version 3.6.1 (2019-07-05)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Sierra 10.12.6
-## 
-## Matrix products: default
-## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
-## 
-## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] compiler_3.6.1  magrittr_1.5    tools_3.6.1     htmltools_0.4.0
-##  [5] xaringan_0.13.2 yaml_2.2.1      Rcpp_1.0.3      stringi_1.4.5  
-##  [9] rmarkdown_2.1   knitr_1.28      stringr_1.4.0   xfun_0.12      
-## [13] digest_0.6.23   rlang_0.4.4     evaluate_0.14
+[![DOI](https://zenodo.org/badge/doi/YOUR.DOI.svg)](http://dx.doi.org/YOUR.DOI)
 ```
 
----
-# R: Packrat
-
-Install the package from CRAN
-```r
-install.packages("packrat")
-```
-
-Initialize packrat
-```r
-packrat::init("~/path/to/your/project")
-```
-
-Your packages are now stored in `~/path/to/your/project/packrat/lib`
-
-If you need to re-save dependencies (for example, if you have added another package), you can use packrat:
-
-```r
-packrat::snapshot()
-```
----
-# What works for you?
-
-- Declare how your project works **for you**.
-  - What language, what version?
-  - What packages/libraries do you load
-  - What OS do you use? (Does it work on your collaborator's system?)
-
-- This information should be in the requirements file of your project.
 
 ---
-# Your turn!
 
-1. Add detailed requirement information to your requirements file.
-
-1. Add basic dependency information to your readme file:
-  - What version of your language is required?
-  - Which packages does a user need to load before running your project?
-  - Can you provide installation instructions?
-
----
 # Are you ready?
 
 #### Let's exchange projects!
