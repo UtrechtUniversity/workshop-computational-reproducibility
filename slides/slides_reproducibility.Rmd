@@ -24,80 +24,6 @@ You now have a project!
 
 Are you done?
 
---
-
-_Not quite yet!_
-It's time to think about the future...
-
---
-
-#### Will GitHub still be here in five years? Will my account? Will this repository?
-
----
-# Archiving the project
-
-![zenodo-part3](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
-
-Zenodo has a sandbox environment!
-- Not the main data repository, but still functional.
-- You will get an *actual* DOI, and your project will (probably?) not be deleted!
-- Only do this following exercise if you are OK with your code staying online!
-- You will not be able to do this with a private repository.
-
-Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._)
-
-#### Your turn:
-- Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
-- GitHub will then ask permission to give Zenodo access; click "Authorize application".
-
-
----
-# Select your repository
-
-
-![toggle](https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
----
-# Release your project!
-
-
-![release](https://guides.github.com/activities/citable-code/repo-view.png)
-
-... and follow the workflow!
-
-(Unsure about version number? Wait a slide! :-))
-
----
-# Semantic versioning
-
-A version has three numbers: MAJOR.MINOR.PATCH
-
-- MAJOR version denotes changes that alter the compatibility (i.e. someone using your functions may need to change their use for their code to still work),
-- MINOR version adds functionality, but remains compatible
-- PATCH version makes (compatible) bug fixes.
-
-(If your bug fix changes compatibility, it is therefore a MAJOR version change!)
-
-#### You can release today with v0.1.0
----
-# Check zenodo
-
-Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
-
-![citable-upload](https://guides.github.com/activities/citable-code/upload-tab.png)
----
-# Getting your DOI
-
-- Add some final descriptions
-- Click 'publish'
-- Voilá!
-
-![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
-
-
----
-# All done?
-
-
 #### It depends...
 
 ![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
@@ -107,8 +33,6 @@ Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 
 Dependencies and versions can stop your users/readers from being able to run your code.
 
-![reproducibility](images/screenshots/comprep.png)
-.footnote[Source: [Timo B. Roettger on OSF](https://osf.io/e9bu7/).]
 
 ---
 # The reproducibility trade-off
@@ -173,6 +97,89 @@ packrat::snapshot()
   - Can you provide installation instructions?
 
 ---
+# All done?
+
+_Not quite yet!_
+It's time to think about the future...
+
+--
+
+#### Will this repository still be here in five years? 
+
+### Will my account? 
+
+## Will GitHub?
+---
+# Archiving the project
+
+![zenodo-part3](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
+
+Zenodo has a sandbox environment!
+- Not the main data repository, but still functional.
+- You will get an *actual* DOI, and your project will (probably?) not be deleted!
+- Only do this following exercise if you are OK with your code staying online!
+- You will not be able to do this with a private repository.
+
+Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._)
+
+#### Your turn:
+- Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
+- GitHub will then ask permission to give Zenodo access; click "Authorize application".
+
+
+---
+# Select your repository
+
+
+![toggle](https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
+---
+# Release your project!
+
+
+![release](https://guides.github.com/activities/citable-code/repo-view.png)
+
+... and follow the workflow!
+
+(Unsure about version number? Wait a slide! :-))
+
+---
+# Semantic versioning
+
+A version has three numbers: MAJOR.MINOR.PATCH
+
+- MAJOR version denotes changes that alter the compatibility (i.e. someone using your functions may need to change their use for their code to still work),
+- MINOR version adds functionality, but remains compatible
+- PATCH version makes (compatible) bug fixes.
+
+(If your bug fix changes compatibility, it is therefore a MAJOR version change!)
+
+#### You can release today with v0.1.0
+---
+# Check zenodo
+
+Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
+
+![citable-upload](https://guides.github.com/activities/citable-code/upload-tab.png)
+---
+# Getting your DOI
+
+- Add some final descriptions
+- Click 'publish'
+- Voilá!
+
+![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
+---
+# Final touch
+
+Take your DOI and place it as a badge at the top of your README:
+
+```
+[![DOI](https://zenodo.org/badge/doi/YOUR.DOI.svg)](http://dx.doi.org/YOUR.DOI)
+```
+
+
+---
+
 # Are you ready?
 
 #### Let's exchange projects!
