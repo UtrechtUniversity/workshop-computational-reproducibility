@@ -23,7 +23,7 @@ If you have no experience with the terminal at all, we recommend practising with
   - Check if you have git by typing in a terminal: `git -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
   - On a windows system: use [gitforwindows.org](https://gitforwindows.org). Make sure you include **git bash** in your installation!
   - On Mac or Linux: use [git-scm.com](https://git-scm.com/)
-  - With Linux you can also use `apt-get install git` in your terminal, or whatever installer you prefer.
+  - With Linux you can also use `apt install git` in your terminal, or whatever installer you prefer.
   
 - **Pip (using miniconda)**
   - Check if you have pip by typing in a terminal: `pip -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
