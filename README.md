@@ -89,8 +89,8 @@ The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [
 
 ## External resources and developer inspiration
 
-- [Software Development Guide by the Netherlands eScience Center](https://guide.esciencecenter.nl/) (Currently dead: try [its page on GitHub](https://github.com/NLeSC/guide).)
-- [The Turing Way: a guide to reproducible data science by the Turing Institute](https://the-turing-way.netlify.com/introduction/introduction)
+- [Software Development Guide by the Netherlands eScience Center](https://guide.esciencecenter.nl/)
+- [The Turing Way: a guide to reproducible data science by the Turing Institute](https://the-turing-way.netlify.app/welcome)
 - [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
 - [Pro GIT](https://www.git-scm.com/book/en/v2)
 - [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
