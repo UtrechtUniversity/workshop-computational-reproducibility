@@ -1,33 +1,46 @@
 # Exercises: Reproducibility
 
-## Slides
+## Content
 
-Here's a link to the slides for reference: [slides](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/slides/slides_reproducibility.html) 
+[Slides on Documentation (for reference)](slides/slides_reproducibility.html) 
 
 The following topics are covered:
-*
-*
-*
+* obtaining a doi and ensuring accessibility
+* dealing with requirements and dependencies
 
 ## Exercises
 
-Time for some hands-on practice! We have 3 short videos and accompanying exercises for you to go through one by one.
+Last but not least, let's make our code accessible for others! 
+Here are your last videos and accompanying exercises. 
+Watch the video, then apply the exercises to your own project. 
+Use the slides linked above for reference, and be sure to ask for help when you need it!
 
-### Readability
+### 1. 
 
-Here's the video with the first exercise: [Video 4.1]
+#### 1.1 Video
 
-Now it's your turn:
+[Video: ]
+
+#### 1.2 Exercise
+
+.....
+
+### 2. 
+
+#### 2.1 Video
+
+[Video: ]
+
+#### 2.2 Exercise
+
 ......
 
-### Robustness
+### 3. 
 
-Here's the video for the next exercise: [Video 4.2]
+#### 3.1 Video
 
-......
+[Video: ]
 
-### Reusability
-
-And the last exercise for this chapter: [Video 4.3]
+#### 3.2 Exercise
 
 ......
