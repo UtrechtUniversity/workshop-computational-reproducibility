@@ -1,33 +1,48 @@
 # Exercises: Code Quality
 
-## Slides
+## Content
 
-Here's a link to the slides for reference: [slides](slides/slides_code-quality.html) 
+[Slides on Code Quality (for reference](slides/slides_code-quality.html) 
 
-The following topics are covered:
+This section covers the following topics:
 * code readability
 * reusable code
 * defensive programming
 
 ## Exercises
 
-Time for some hands-on practice! We have 3 short videos and accompanying exercises for you to go through one by one.
+Let's start making our code readable and reusable! 
+Like the previous chapter, we have 3 short videos and accompanying exercises. 
+Watch the video, then apply the exercises to your own project. 
+Use the slides linked above for reference, and be sure to ask for help when you need it!
 
-### Readability
+### 1. Readability
 
-Here's the video with the first exercise on readability: [Video 2.1]
+#### 1.1 Video
 
-Now it's your turn:
+[Video: Readability]
+
+#### 1.2 Exercise
+
+.....
+
+### 2. Robustness
+
+#### 2.1 Video
+
+[Video: Robustness]
+
+#### 2.2 Exercise
+
 ......
 
-### Robustness
+### 3. Reusability
 
-Here's the video for this exercise on robustness: [Video 2.2]
+#### 3.1 Video
 
-......
+[Video: Reusability]
 
-### Reusability
-
-And the last exercise for this chapter, which covers reusability: [Video 2.3]
+#### 3.2 Exercise
 
 ......
+
