@@ -17,18 +17,18 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 | 9:00 | Welcome & introduction| 
 | 9:30 | Project setup & version control with git |
 | 10:45 | Questions & discussion |
-| _11:00 | Break_ |
+| _11:00_ | _Break_ |
 | 11:15 | Code quality |
 | 12:45 | Questions & discussion |
-| _13:00 | End of day 1_ |
+| _13:00_ | _End of day 1_ |
 | **Day 2** | |
 | 9:00 | Code quality discussion | 
 | 9:15 | Documentation |
 | 10:45 | Questions & discussion |
-| _11:00 | Break_ |
+| _11:00_ | _Break_ |
 | 11:15 | Accessibility & reproducibility |
 | 12:15 | Reproduction of projects |
-| _13:00 | End |
+| _13:00_ | _End_ |
 
 
 ## License
