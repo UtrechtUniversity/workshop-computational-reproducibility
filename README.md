@@ -20,7 +20,7 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 | 9:30 | [Project setup & version control with git](exercises/project-setup.md) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
-| 11:15 | [Code quality](exercises/code_quality.md)  |
+| 11:15 | [Code quality](exercises/code-quality.md)  |
 | 12:45 | Questions & discussion |
 | _13:00_ | _End_ |
 
