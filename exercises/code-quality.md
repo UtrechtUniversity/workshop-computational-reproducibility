@@ -15,7 +15,7 @@ Time for some hands-on practice! We have 3 short videos and accompanying exercis
 
 ### Readability
 
-Here's the video with the first exercise on readability: [Video 2.1](https://vimeo.com/462773031)
+Here's the video with the first exercise on readability: [Video 2.1]
 
 Now it's your turn:
 ......
