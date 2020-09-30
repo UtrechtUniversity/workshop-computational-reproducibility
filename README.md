@@ -94,5 +94,3 @@ The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [
 - [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
 - [Pro GIT](https://www.git-scm.com/book/en/v2)
 - [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
-
-[test this link](test.html)
