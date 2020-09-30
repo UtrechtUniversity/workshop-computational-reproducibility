@@ -17,7 +17,7 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 | Time  | Activity |
 |-------:|----------|
 | 9:00 | Welcome & introduction| 
-| 9:30 | [Project setup & version control with git](exercises/project_setup.md) |
+| 9:30 | [Project setup & version control with git](exercises/project-setup.md) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
 | 11:15 | [Code quality](exercises/code_quality.md)  |
