@@ -1,15 +1,11 @@
 # Exercises: Documentation
 
-# Exercises: Code Quality
-
 ## Slides
 
 Here's a link to the slides for reference: [slides](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/slides/slides_documentation.html) 
 
 The following topics are covered:
-* code readability
-* reusable code
-* defensive programming
+
 
 ## Exercises
 
@@ -17,19 +13,19 @@ Time for some hands-on practice! We have 3 short videos and accompanying exercis
 
 ### Readability
 
-Here's the video with the first exercise on readability: [Video 2.1]
+Here's the video with the first exercise: [Video 3.1]
 
 Now it's your turn:
 ......
 
 ### Robustness
 
-Here's the video for this exercise on robustness: [Video 2.2]
+Here's the video for the next exercise: [Video 3.2]
 
 ......
 
 ### Reusability
 
-And the last exercise for this chapter, which covers reusability: [Video 2.3]
+And the last exercise for this chapter: [Video 3.3]
 
 ......
