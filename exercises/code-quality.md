@@ -2,7 +2,7 @@
 
 ## Slides
 
-Here's a link to the slides for reference: [slides](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/slides/slides_code-quality.html) 
+Here's a link to the slides for reference: [slides](slides/slides_code-quality.html) 
 
 The following topics are covered:
 * code readability
