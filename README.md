@@ -11,22 +11,29 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 
 ## Schedule
 
+
+### Day 1
+
 | Time  | Activity |
 |-------:|----------|
-| **Day 1** | |
 | 9:00 | Welcome & introduction| 
-| 9:30 | Project setup & version control with git |
+| 9:30 | [Project setup & version control with git](exercises/project_setup.md) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
-| 11:15 | Code quality |
+| 11:15 | [Code quality](exercises/code_quality.md)  |
 | 12:45 | Questions & discussion |
-| _13:00_ | _End of day 1_ |
-| **Day 2** | |
+| _13:00_ | _End_ |
+
+
+### Day 2
+
+| Time  | Activity |
+|-------:|----------|
 | 9:00 | Code quality discussion | 
-| 9:15 | Documentation |
+| 9:15 | [Documentation](exercises/documentation.md)  |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
-| 11:15 | Accessibility & reproducibility |
+| 11:15 | [Accessibility & reproducibility](exercises/reproducibility.md)  |
 | 12:15 | Reproduction of projects |
 | _13:00_ | _End_ |
 
