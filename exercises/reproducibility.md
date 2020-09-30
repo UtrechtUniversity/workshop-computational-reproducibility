@@ -2,7 +2,7 @@
 
 ## Content
 
-[Slides on Documentation (for reference)](slides/slides_reproducibility.html) 
+[Slides on Reproducibility (for reference)](slides/slides_reproducibility.html) 
 
 The following topics are covered:
 * obtaining a doi and ensuring accessibility
