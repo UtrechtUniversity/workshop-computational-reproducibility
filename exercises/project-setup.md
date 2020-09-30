@@ -1,6 +1,6 @@
 # Exercises: Project Setup
 
-## Slides
+## Content
 
 [Project setup slides (for reference)](slides/slides_project-setup.html) 
 
