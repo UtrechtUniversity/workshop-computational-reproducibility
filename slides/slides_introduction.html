@@ -26,58 +26,31 @@ class: center, middle, inverse, title-slide
 
 - To the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com) and [Research Data Management Support (RDM Support)](https://www.uu.nl/en/research/research-data-management) for supporting the development of this workshop
 
-- To Armel Lefebvre, Bianca Kramer, Cedric Thieulot, Erik van Sebille, Jeroen Bosman, Jeroen Ooms, Jonathan de Bruin, Lukas van de Wiel, Mateusz Kuzak, Menno Fraters, Philippe Delandmeter, and Renato Alves, for helping develop this workshop
+- To Armel Lefebvre, Bianca Kramer, Cedric Thieulot, Erik van Sebille, Jeroen Bosman, Jeroen Ooms, Jonathan de Bruin, Lukas van de Wiel, Mateusz Kuzak, Menno Fraters, Neha Moopen, Philippe Delandmeter, and Renato Alves, for helping develop this workshop
 
 - To your teachers and helpers today!
 
---
+#### Who are you? What brings you here?
 
-### Please open the slides!
-You can find the slides at [tinyurl.com/repcopilot](https://utrechtuniversity.github.io/workshop-computational-reproducibility/). You may need links or code from these slides, so do open them.
+- E.g. your name, pronouns, background, and motivation for this workshop.
 
-
----
-# Who are you? What brings you here?
-
-Present yourself in this collaborative document: [tinyurl.com/repcodoc-2020-03-24](https://docs.google.com/document/d/1u0FmLR3kQfGW0Qpqbo4FZQJLhlEryKEPm7Fuinr3ZVk/edit?usp=sharing)
-
-- Your name
-- Your affiliation
-- Your pronouns
-
-Maybe add something about yourself:
-- What drew you most to this workshop today?
-- What can others ask you about?
-- Something exciting you discovered recently?
-- What book you're reading / show you're watching / music you're listening to ...
-- _or anything else!_
 
 ---
-# How to ask for help?
 
-#### What you can do:
-- Use the Zoom chat to ask questions (*preferred!*)
-- Put an X in the purple column of the status chart (page 2 of [tinyurl.com/repcodoc-2020-03-24](https://docs.google.com/document/d/1u0FmLR3kQfGW0Qpqbo4FZQJLhlEryKEPm7Fuinr3ZVk/edit?usp=sharing)) (*if you are stuck but don't know why*)
-
-#### What we will do:
-- Helpers will answer you in a public or private chat on Zoom
-- OR: helper posts a link to an individual google hangout, where they can assist you.
-
----
 # General guidelines (and advice!)
-- Ask for help when you need it, and alert us when we need to slow down!
+- Ask for help when you need it! 
+  - You can ask a question in the Teams chat.
+     - We will try to answer it directly.
+  - Indicate you are stuck in the Status Chart ([tinyurl.com/repcochart](https://tinyurl.com/repcochart))
+     - We will invite you to a 1:1 call in a Helper channel.
 
 --
 
-- Please mute yourself when you are not speaking (bottom right side of your Zoom window).
+- Please mute yourself when you are not speaking (we are strict and will mute you without warning)
 
 --
 
 - We appreciate your video, but only share if you are comfortable.
-
---
-
-- Use the green column of the status chart when you finished an exercise.
 
 --
 
@@ -87,32 +60,14 @@ Maybe add something about yourself:
 
 - Take a computer break when we take a break: a timer will show when we return!
 
----
-# Be Reproducible!
-.pull-left-medium[
-What is reproducibility?
-
-- **computationally reproducible** means: with same code + same data + same environment
-== same results
-
-- Not the same as **replication**, where _different_ methods and _different_ data lead to the same research findings
-
-Why make your work reproducible?
-
-- for other scientists building on your work.
-
-- for colleagues using your tools.
-
-- for yourself, in six months!
-]
-
 --
 
-.pull-right-medium[
-![futureself](https://imgs.xkcd.com/comics/future_self.png)
-]
+### Please open the workshop site
+You can find all workshop information at [tinyurl.com/repcopilot](https://utrechtuniversity.github.io/workshop-computational-reproducibility/).
+
+
 ---
-# Making a start
+# Being reproducible
 ![example](images/screenshots/badexample.png)
 
 ---
@@ -140,7 +95,27 @@ We need to do more: we need to inspire trust.
 
 
 ---
-# What will we do today?
+# The Four Facets of Reproducibility
+
+.pull-left-medium[
+#### Documentation
+What do you need to execute this project? Where do you start?
+
+#### Organization
+Demonstrate a trustworthy workflow.
+
+#### Automation
+Automated analyses trace your steps, and prevent human error (or at the very least: document it).
+
+#### Dissemination
+Share your data, release your code, publish your findings.]
+
+--
+.pull-right-medium[
+![futureself](https://imgs.xkcd.com/comics/future_self.png)
+]
+---
+# What will we do in this workshop?
 
 We will take you through a workflow (in a broad sense!)
 
@@ -165,11 +140,13 @@ We will end by trying to reproduce each others' projects!
 ---
 # What do we expect from you?
 
-- Our group today has many different abilities and experiences. We hope you will value this as much as we do!
+- Our group has many different abilities and experiences. We hope you will value this as much as we do!
+
+- We have done our best to make the workshop asynchronous so you can work at your own pace.
+
+- However, we have incorporated several moments for shared discussion and questions. Use them!
 
 - Feel free and safe to share your expertise and experiences.
-
-- E.g.: if you do not know a certain word or term (or you think others may not know it): put it in the glossary; if you do: fill in the blanks!
 
 --
 
@@ -178,7 +155,7 @@ We want to teach you **good habits** that will make your work more accessible, t
 
 --
 
-### And finally: we hope you enjoy the day!
+### And finally: we hope you enjoy the workshop
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -226,6 +203,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -243,17 +246,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
