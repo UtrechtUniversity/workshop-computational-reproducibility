@@ -283,7 +283,7 @@ def my_function(param_a, param_b):
 ![errormanagement](images/errormanagement.svg)
 
 ---
-# Make robust code with error management
+# Error management
 
 #### Protect the user:
 
@@ -292,6 +292,7 @@ def my_function(param_a, param_b):
   - check values before processing them
   - identify and manage exceptions
 - Produce errors when expectations are not met.
+
 - Consider error options, and perform error management:
   - redirect the program
   - log or report the error, to allow the user (or developer) to troubleshoot
