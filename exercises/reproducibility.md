@@ -19,28 +19,53 @@ Use the slides linked above for reference, and be sure to ask for help when you 
 
 #### 1.1 Video
 
-[Video: ]
+[Video: Dependencies]
 
 #### 1.2 Exercise
+Address dependencies and language versions in your README.
+- What version of your coding language is required?
+- Which packages does a user need to install before running your project?
+  What versions?
+- Can you provide their installation instructions?
 
-.....
 
-### 2. 
+### 2. (Optional) Make a Binder
 
 #### 2.1 Video
 
-[Video: ]
+[Video: Binder]
 
 #### 2.2 Exercise
+**For R**
 
-......
+- Generate a file called `runtime.txt`, either in the root of your project, or in a (hidden) folder called `.binder/`.
+- Write in the file: `r-2020-10-02` -- or specify the R version with `r-3.6-2020-10-02`.
+- Write a file called `install.R`, in `.binder/` or in root, and use it to write install code for your packages, e.g.:
+  ```
+  install.packages("ggplot2")
+  install.packages("dplyr")
+  ```
+- Binderise your project via [mybinder.org](https://mybinder.org/), and follow the instructions
 
-### 3. 
+**For Python**
+
+Binder automatically loads Python 3.6.
+
+- Add dependencies to your binder in the requirements.txt file like this:
+  ```
+  numpy==1.14.5
+  pandas==1.1.2
+  ```
+- Binderise your project via [mybinder.org](https://mybinder.org/), and follow the instructions
+
+
+### 3. (Optional) Get a DOI
 
 #### 3.1 Video
 
-[Video: ]
+[Video: Archiving](https://vimeo.com/463947879)
 
 #### 3.2 Exercise
 
-......
+- Follow the workflow [outlined in this guide](https://guides.github.com/activities/citable-code/) to archive your code to Zenodo.
+  Use the [Sandbox version of Zenodo](http://sandbox.zenodo.org/) to make sure your repository is not actually archived permanently!
