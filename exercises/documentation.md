@@ -35,7 +35,7 @@ Use the slides linked above for reference, and be sure to ask for help when you 
 
 #### 2.1 Video
 
-[Video: ]
+[Video: README](https://vimeo.com/464027978)
 
 #### 2.2 Exercise
 Edit your README file.
@@ -49,6 +49,6 @@ Make sure to include the following information:
 
 Do you want to truly understand the importance of decent installation information?
 [Read this experience by Elisabeth Bik](https://twitter.com/MicrobiomDigest/status/1283082285097422848), trying to install image forensics software.
-Look at the README of the software, and see what you can learn.
+Look at the [README of the software](https://github.com/GuidoBartoli/sherloq), and see what you can learn.
 
 _NB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity to add these here: please do!_
