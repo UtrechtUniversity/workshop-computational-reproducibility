@@ -15,7 +15,7 @@ As usual, we have short videos and accompanying exercises.
 Watch the video, then apply the exercises to your own project. 
 Use the slides linked above for reference, and be sure to ask for help when you need it!
 
-### 1. 
+### 1. Comments and docstrings
 
 #### 1.1 Video
 
@@ -31,7 +31,7 @@ Use the slides linked above for reference, and be sure to ask for help when you 
   Perhaps it needs more information.
   Try to comment on the thought behind the code rather than simply translating its process in English.
 
-### 2. 
+### 2. The README page
 
 #### 2.1 Video
 
