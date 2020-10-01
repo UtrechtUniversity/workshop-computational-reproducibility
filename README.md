@@ -34,7 +34,7 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
 | 11:15 | [Accessibility & reproducibility](exercises/reproducibility.md)  |
-| 12:15 | Reproduction of projects |
+| 12:15 | [Reproduction of projects](slides/slides_reproducibility.html#18) |
 | _13:00_ | _End_ |
 
 
