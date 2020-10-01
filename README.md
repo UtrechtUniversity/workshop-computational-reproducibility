@@ -16,7 +16,7 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 
 | Time  | Activity |
 |-------:|----------|
-| 9:00 | Welcome & introduction ([slides](slides/introduction.html))| 
+| 9:00 | Welcome & introduction ([slides](slides/slides_introduction.html))| 
 | 9:30 | [Project setup & version control with git](exercises/project-setup.md) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
