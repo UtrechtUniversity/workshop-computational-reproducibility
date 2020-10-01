@@ -41,6 +41,15 @@ _NB: You can check the slides for more detail._
 #### 2.2 Exercise
 - Follow the steps in the video (or [on these slides](../slides/slides_project-setup.html#17)) to turn your folder into a git repository
 - Make a remote version of your project on GitHub!
+- Please note: are there (temporary) files you do not wish to track?
+  Add them to the `.gitignore` file.
+  Consider a `.gitignore` template for your language: examples on [this github repo](https://github.com/github/gitignore).
+- Can you use Git and push to Github from your IDE?
+- Experiment with editing and committing on github itself.
+  You can then 'download' your code to your local repository using `git pull`.
+- Optional: What happens if you edit the same file online and locally, and try to push/pull?
+  (Hint: this often causes a 'merge conflict', which is no fun to experience.
+  Going through it today means we can assist you if necessary!)
 
  
 ### 3. Publication & licensing
