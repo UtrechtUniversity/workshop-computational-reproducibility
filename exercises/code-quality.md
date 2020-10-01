@@ -35,6 +35,7 @@ Use the slides linked above for reference, and be sure to ask for help when you 
 - Use a linter to run through your code and identify style issues.
 - Edit your code to improve the style compatibility, based on the feedback from your linter.
   If you work with Python, consider applying [autopep8](https://pypi.org/project/autopep8/) to automatically fix linting issues.
+- For the R users: a course participant found [styler](https://styler.r-lib.org/), which may do the same for R!
 - If you find code that is hard to read, or variable names that need adjusting, make a note to work on it.
   (Again, use #TODO or another consistent label!)
 
