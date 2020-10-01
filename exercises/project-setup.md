@@ -15,7 +15,7 @@ This section covers the following topics:
 Time for some hands-on practice!
 We have 3 short videos and accompanying exercises for you to go through one by one.
 Watch the video first, then apply the exercises to your own project.
-Use the [slides](slides/slides_project-setup.html) linked above to follow links discussed in the video.
+Use the [slides](../slides/slides_project-setup.html) linked above to follow links discussed in the video.
 Be sure to ask for help when you need it!
 
 ### 1. Project setup
@@ -25,8 +25,8 @@ Be sure to ask for help when you need it!
 
 #### 1.2 Exercise 
 _NB: You can check the slides for more detail._
-- Use cookiecutter to install a project structure in your system, following the video or [these slides](slides/slides_project-setup.html#4).
-- If you have trouble with cookiecutter: use the instructions [on this slide](slides/slides_project-setup.html#6) instead.
+- Use cookiecutter to install a project structure in your system, following the video or [these slides](../slides/slides_project-setup.html#4).
+- If you have trouble with cookiecutter: use the instructions [on this slide](../slides/slides_project-setup.html#6) instead.
 - Take a look at the folder and files within it, to see where your answers to cookiecutter ended up!
 - Place your project files in the right folder.
 - Adjust paths in your code, and be sure to use relative paths!
@@ -39,7 +39,7 @@ _NB: You can check the slides for more detail._
 [Video: version control with Git](https://vimeo.com/463264170)
 
 #### 2.2 Exercise
-- Follow the steps in the video (or [on these slides](../slides/slides_project-setup.html#17)) to make a git repository
+- Follow the steps in the video (or [on these slides](../slides/slides_project-setup.html#17)) to turn your folder into a git repository
 - Make a remote version of your project on GitHub!
 
  
