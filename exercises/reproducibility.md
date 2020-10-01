@@ -33,7 +33,7 @@ Address dependencies and language versions in your README.
 
 #### 2.1 Video
 
-[Video: Binder]
+[Video: Binder](https://vimeo.com/464010497)
 
 #### 2.2 Exercise
 **For R**
