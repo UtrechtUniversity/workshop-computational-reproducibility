@@ -46,7 +46,7 @@ _NB: You can check the slides for more detail._
 ### 3. Publication & licensing
 
 #### 3.1 Video
-[Video: Publication & licensing](https://vimeo.com/)
+[Video: Publication & licensing](https://vimeo.com/463659936)
 
 #### 3.2 Exercise
 - Check the license in your project
