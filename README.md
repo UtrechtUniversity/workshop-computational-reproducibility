@@ -58,6 +58,7 @@ Workshop development is being coordinated by [Barbara Vreede](https://github.com
 - [Lukas van de Wiel](https://github.com/hooiberg)
 - [Mateusz Kuzak](https://twitter.com/matkuzak)
 - [Menno Fraters](https://github.com/MFraters)
+- [Neha Moopen](https://github.com/nehamoopen)
 - [Philippe Delandmeter](https://github.com/delandmeterp)
 - [Renato Alves](https://github.com/unode)
 
