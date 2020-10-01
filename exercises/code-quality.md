@@ -29,7 +29,7 @@ Use the slides linked above for reference, and be sure to ask for help when you 
 
 #### 1.1 Video
 
-[Video: Readability](https://vimeo.com/463264170)
+[Video: Readability](https://vimeo.com/463572640)
 
 #### 1.2 Exercise
 - Use a linter to run through your code and identify style issues.
