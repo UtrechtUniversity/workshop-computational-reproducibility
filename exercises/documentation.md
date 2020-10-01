@@ -19,7 +19,7 @@ Use the slides linked above for reference, and be sure to ask for help when you 
 
 #### 1.1 Video
 
-[Video: ]
+[Video: Comments and docstrings](https://vimeo.com/463992354)
 
 #### 1.2 Exercise
 - Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
@@ -47,4 +47,4 @@ Make sure to include the following information:
 - How does the user call the main script(s) that should be executed?
 - And perhaps any other elements you are inspired to add (check out the examples!)
 
-_NB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity add these here: please do!_
+_NB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity to add these here: please do!_
