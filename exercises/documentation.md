@@ -47,4 +47,8 @@ Make sure to include the following information:
 - How does the user call the main script(s) that should be executed?
 - And perhaps any other elements you are inspired to add (check out the examples!)
 
+Do you want to truly understand the importance of decent installation information?
+[Read this experience by Elisabeth Bik](https://twitter.com/MicrobiomDigest/status/1283082285097422848), trying to install image forensics software.
+Look at the README of the software, and see what you can learn.
+
 _NB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity to add these here: please do!_
