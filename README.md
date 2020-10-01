@@ -42,29 +42,6 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 
 All workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). [View the license here](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md).
 
-
-## History and acknowledgements
-
-This course was developed at Utrecht University, supported by the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com) and [Research Data Management (RDM) support](https://www.uu.nl/en/research/research-data-management).
-
-Workshop development is being coordinated by [Barbara Vreede](https://github.com/bvreede), and the course received contributions from:
-- [Armel Lefebvre](https://github.com/armell)
-- [Bianca Kramer](https://github.com/bmkramer)
-- [Cedric Thieulot](https://github.com/cedrict)
-- [Erik van Sebille](https://github.com/erikvansebille)
-- [Jeroen Bosman](https://github.com/JeroenBosman)
-- [Jeroen Ooms](https://github.com/jeroen)
-- [Jonathan de Bruin](https://github.com/J535D165)
-- [Lukas van de Wiel](https://github.com/hooiberg)
-- [Mateusz Kuzak](https://twitter.com/matkuzak)
-- [Menno Fraters](https://github.com/MFraters)
-- [Neha Moopen](https://github.com/nehamoopen)
-- [Philippe Delandmeter](https://github.com/delandmeterp)
-- [Renato Alves](https://github.com/unode)
-
-The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [on these slides](https://docs.google.com/presentation/d/1MIPsWt08Kixe1TZfPeM8LvJv7p2es7lZ4Ui88FYbl5Y/edit?usp=sharing).
-
-
 ## External resources, recommended reading, and developer inspiration
 
 - [Software Development Guide by the Netherlands eScience Center](https://guide.esciencecenter.nl/)
@@ -72,3 +49,24 @@ The results of a brainstorm on 6 May 2019 at the Utrecht University Library is [
 - [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
 - [Pro GIT](https://www.git-scm.com/book/en/v2)
 - [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+
+## History and acknowledgements
+
+This course was developed at Utrecht University, supported by the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com) and [Research Data Management (RDM) support](https://www.uu.nl/en/research/research-data-management).
+
+Workshop development is being coordinated by [Barbara Vreede](https://github.com/bvreede), and the course received contributions from (in alphabetical order):
+[Armel Lefebvre](https://github.com/armell) |
+[Bianca Kramer](https://github.com/bmkramer)
+| [Cedric Thieulot](https://github.com/cedrict)
+| [Erik van Sebille](https://github.com/erikvansebille)
+| [Jeroen Bosman](https://github.com/JeroenBosman)
+| [Jeroen Ooms](https://github.com/jeroen)
+| [Jonathan de Bruin](https://github.com/J535D165)
+| [Lukas van de Wiel](https://github.com/hooiberg)
+| [Mateusz Kuzak](https://twitter.com/matkuzak)
+| [Menno Fraters](https://github.com/MFraters)
+| [Neha Moopen](https://github.com/nehamoopen)
+| [Philippe Delandmeter](https://github.com/delandmeterp)
+| [Renato Alves](https://github.com/unode)
+
