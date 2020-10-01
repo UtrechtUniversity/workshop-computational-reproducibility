@@ -6,9 +6,9 @@
 
 This section covers the following topics:
 * Setting up a folder structure
-* Choosing a license
 * using git for version control
 * publishing your project on github
+* Choosing a license
 
 ## Exercises
 
@@ -25,22 +25,31 @@ Be sure to ask for help when you need it!
 
 #### 1.2 Exercise 
 _NB: You can check the slides for more detail._
-- Use cookiecutter to install a project structure in your system (or use git clone, in case you do not get cookiecutter to work)
+- Use cookiecutter to install a project structure in your system, following the video or [these slides](slides/slides_project-setup.html#4).
+- If you have trouble with cookiecutter: use the instructions [on this slide](slides/slides_project-setup.html#6) instead.
 - Take a look at the folder and files within it, to see where your answers to cookiecutter ended up!
 - Place your project files in the right folder.
 - Adjust paths in your code, and be sure to use relative paths!
+- Does your code run in the new folder structure?
 
-### License
 
-Here's the video for this exercise on license: [Video 1.2]
+### 2. Version control
 
-..._exercise text_...
+#### 2.1 Video
+[Video: version control with Git](https://vimeo.com/463264170)
 
-### Version control
-
-And the last exercise for this chapter, which covers version control: [Video 1.3]
-
-..._exercise text_...
+#### 2.2 Exercise
+- Follow the steps in the video (or [on these slides](slides/slides_project-setup.html#17)) to make a git repository
+- Make a remote version of your project on GitHub!
 
  
+### 3. Publication & licensing
+
+#### 3.1 Video
+[Video: Publication & licensing](https://vimeo.com/)
+
+#### 3.2 Exercise
+- Check the license in your project
+- Take a look at other license options via [choosealicense.com](https://choosealicense.com/).
+- Do you want to change your license? Go into your Github and change the LICENSE.md file. Don't forget to pull your remote changes!
 
