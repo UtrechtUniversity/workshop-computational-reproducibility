@@ -2,7 +2,7 @@
 
 ## Content
 
-[Slides on Code Quality (for reference)](slides/slides_code-quality.html) 
+[Slides on Code Quality (for reference)](../slides/slides_code-quality.html) 
 
 This section covers the following topics:
 * code readability
