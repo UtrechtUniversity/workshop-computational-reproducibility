@@ -2,7 +2,7 @@
 
 ## Content
 
-[Project setup slides (for reference)](slides/slides_project-setup.html) 
+[Project setup slides (for reference)](../slides/slides_project-setup.html) 
 
 This section covers the following topics:
 * Setting up a folder structure
@@ -39,7 +39,7 @@ _NB: You can check the slides for more detail._
 [Video: version control with Git](https://vimeo.com/463264170)
 
 #### 2.2 Exercise
-- Follow the steps in the video (or [on these slides](slides/slides_project-setup.html#17)) to make a git repository
+- Follow the steps in the video (or [on these slides](../slides/slides_project-setup.html#17)) to make a git repository
 - Make a remote version of your project on GitHub!
 
  
