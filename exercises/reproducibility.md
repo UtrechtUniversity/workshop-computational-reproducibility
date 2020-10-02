@@ -15,11 +15,11 @@ Here are your last videos and accompanying exercises.
 Watch the video, then apply the exercises to your own project. 
 Use the slides linked above for reference, and be sure to ask for help when you need it!
 
-### 1. 
+### 1. Dependencies
 
 #### 1.1 Video
 
-[Video: Dependencies]
+[Video: Dependencies](https://vimeo.com/464028630)
 
 #### 1.2 Exercise
 Address dependencies and language versions in your README.
@@ -29,13 +29,13 @@ Address dependencies and language versions in your README.
 - Can you provide their installation instructions?
 
 
-### 2. (Optional) Make a Binder
+### 2. Binder
 
 #### 2.1 Video
 
 [Video: Binder](https://vimeo.com/464010497)
 
-#### 2.2 Exercise
+#### 2.2 Exercise (optional)
 **For R**
 
 - Generate a file called `runtime.txt`, either in the root of your project, or in a (hidden) folder called `.binder/`.
@@ -45,7 +45,7 @@ Address dependencies and language versions in your README.
   install.packages("ggplot2")
   install.packages("dplyr")
   ```
-- Binderise your project via [mybinder.org](https://mybinder.org/), and follow the instructions
+- Binderise your project by following the instructions via [mybinder.org](https://mybinder.org/)
 
 **For Python**
 
@@ -56,16 +56,16 @@ Binder automatically loads Python 3.6.
   numpy==1.14.5
   pandas==1.1.2
   ```
-- Binderise your project via [mybinder.org](https://mybinder.org/), and follow the instructions
+- Binderise your project by following the instructions via [mybinder.org](https://mybinder.org/)
 
 
-### 3. (Optional) Get a DOI
+### 3. Archiving
 
 #### 3.1 Video
 
 [Video: Archiving](https://vimeo.com/463947879)
 
-#### 3.2 Exercise
+#### 3.2 Exercise (optional)
 
 - Follow the workflow [outlined in this guide](https://guides.github.com/activities/citable-code/) to archive your code to Zenodo.
   Use the [Sandbox version of Zenodo](http://sandbox.zenodo.org/) to make sure your repository is not actually archived permanently!
