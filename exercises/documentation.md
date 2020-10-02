@@ -24,12 +24,12 @@ Use the slides linked above for reference, and be sure to ask for help when you 
 #### 1.2 Exercise
 - Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
   _Keep in mind: what does my user need to know when they are working with this function?_
-- Look at the existing comments.
-  Can you replace a 'how' comment for a 'why' comment (think: what is the purpose of this code? rather than this is how this code works)?
-  OR: are there elements without comments that need them? 
-  Have you found yourself staring at a piece of code for too long without understanding it?
-  Perhaps it needs more information.
-  Try to comment on the thought behind the code rather than simply translating its process in English.
+- Grab a limited chunk of code to work on, and look at the existing comments.
+  Can you replace a 'how' comment with a 'why' comment?
+  _Think: what is the purpose of this code? Rather than: this is how this code works._
+- Are there elements in your chunk that are currently without comments that would benefit from clarification? 
+  _Try to comment on the thought behind the code rather than simply translating its process in English._
+- Can you delete superfluous comments or zombie code?
 
 ### 2. The README page
 
