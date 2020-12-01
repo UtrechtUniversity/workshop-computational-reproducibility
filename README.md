@@ -10,23 +10,6 @@ If you are attending this workshop, you can prepare a few things so we can hit t
 We have [more details on this page](preparations).
 
 
-## Course materials
-
-### Slides
-1. [Introduction](slides/slides_introduction.html)
-1. [Project setup and version control](slides/slides_project-setup.html)
-1. [Code quality](slides/slides_code-quality.html)
-1. [Project documentation](slides/slides_documentation.html)
-1. [Accessibility & Reproducibility](slides/slides_reproducibility.html)
-
-
-### Exercises
-1. [Project setup & version control with git](exercises/project-setup.md)
-1. [Code quality](exercises/code-quality.md) 
-1. [Project documentation](exercises/documentation.md) 
-1. [Accessibility & reproducibility](exercises/reproducibility.md) 
-
-
 ## Schedule
 
 ### Day 1
@@ -62,6 +45,22 @@ We have [more details on this page](preparations).
 - [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
 - [Pro GIT](https://www.git-scm.com/book/en/v2)
 - [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+## Course materials (for reference, these are also linked in the schedule above!)
+
+### Slides
+1. [Introduction](slides/slides_introduction.html)
+1. [Project setup and version control](slides/slides_project-setup.html)
+1. [Code quality](slides/slides_code-quality.html)
+1. [Project documentation](slides/slides_documentation.html)
+1. [Accessibility & Reproducibility](slides/slides_reproducibility.html)
+
+
+### Exercises
+1. [Project setup & version control with git](exercises/project-setup.md)
+1. [Code quality](exercises/code-quality.md) 
+1. [Project documentation](exercises/documentation.md) 
+1. [Accessibility & reproducibility](exercises/reproducibility.md) 
 
 
 ## License
