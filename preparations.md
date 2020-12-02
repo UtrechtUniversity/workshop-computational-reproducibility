@@ -36,6 +36,6 @@ If you have no experience with the terminal at all, we recommend practising with
 ### Code platforms
 - **Sign up for a [github](https://github.com/join?source=header-home), [gitlab](https://gitlab.com/users/sign_up), or [bitbucket](https://bitbucket.org/account/signup/) account**. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
 - **Make sure you have an ssh key pair set up** between your computer and the github/gitlab/bitbucket account. 
-There is a [great tutorial on how to do this on github](https://help.github.com/en/enterprise/2.17/user/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
-There is often no need to use a passphrase for your key, but you can opt to use this for an extra layer of security.
+There is a [great tutorial on how to do this on github](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh).
+There is often no need to use a passphrase for your key (and it will slow you down!), but you can opt to use this for an extra layer of security.
 Here is a [guide by github on how to work with passphrases](https://help.github.com/en/enterprise/2.19/user/github/authenticating-to-github/working-with-ssh-key-passphrases).
