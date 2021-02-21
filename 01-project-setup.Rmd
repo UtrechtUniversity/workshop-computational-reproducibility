@@ -1,8 +1,0 @@
-# Project Setup
-
-Here is a review of existing methods.
-
-```{r}
-knitr::include_url("../slides/slides_project-setup.html")
-```
-
