@@ -1,0 +1,178 @@
+---
+title: "Dependency management"
+author: "Best Practices for Writing Reproducible Code // part 4"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, 'custom.css']
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Congratulations!
+
+You now have a project!
+- Your project structure is accessible
+- Your code is readable and invites re-use
+- The project is under version control
+- It has a landing page on Github, with information for a user
+
+Are you done?
+
+#### It depends...
+
+![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
+
+---
+# Dependencies
+
+Dependencies and versions can stop your users/readers from being able to run your code.
+
+For example: this code written in Python 2.7:
+```{python, eval=F, error=TRUE}
+print "Hello world!"
+```
+```{python,echo=F}
+print("Hello world!")
+```
+
+
+No longer works in Python 3!
+```{python, eval=F, error=TRUE}
+print "Hello world!"
+```
+```
+  File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
+    print "Hello world!"
+                       ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
+```
+
+Instead, we write:
+```{python}
+print("Hello world!")
+```
+
+---
+# The reproducibility trade-off
+
+How far do you go towards reproducibility?
+
+![](images/dependencytradeoff.svg)
+
+
+- **due diligence** starts at declaring dependencies.
+
+- You can empower your declared dependencies with a package/environment manager such as `conda`.
+
+- packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
+
+- containers are awesome, and container tools like Docker and Singularity probably sound more daunting than they actually are.
+
+- online environments can be created for your work (in a relatively user friendly way):
+  - [CodeOcean](https://codeocean.com) (`$$$`)
+  - [binder](https://mybinder.org/) (free!)
+
+---
+# Our advice
+
+#### Are you working with Python?
+- Use `conda` and declare your dependencies in an `environment.yml` file.
+
+#### Are you working with R?
+- Use `renv` and package your dependencies in a lockfile.
+
+
+_In the next slides we will elaborate on some other options as well, but honestly, just do this._
+
+---
+# Declaring dependencies
+
+#### OK: declare (in your README) how your project works **for you**.
+  - What language, what version?
+  - What packages/libraries do you load
+  - What OS do you use? (Does it work on your collaborator's system?)
+
+#### Better: prepare a file for a package manager:
+- **what?** A single file describing the necessary dependencies, which can be used to install all dependencies in one step
+- **where?** Store the file in the repository root (main folder)
+- **which?** This depends on the environment/package manager you want to use:
+  - For `conda` (python and R): generate an `environment.yml` file
+  - For `pip` (python only): generate a `requirements.txt` file
+  - *NB: you can use both, if you need `pip` for the installation of any specific dependency!*
+
+---
+# Declaring dependencies
+
+#### `environment.yml` (for conda)
+- Used by `conda` to create an environment populated by specific packages and languages.
+- Generate it with `conda env export -f environment.yml`
+- [Here is an example](https://github.com/ericmjl/essays-on-data-science/blob/master/environment.yml). Search for [more on GitHub](https://github.com/search?l=YAML&o=desc&p=5&q=filename%3Aenvironment.yml+language%3AYAML+language%3AYAML&s=indexed&type=Code).
+- Consider going through [this quick intro](https://geohackweek.github.io/Introductory/01-conda-tutorial/)  to `conda` environments.
+- Or get the full story in the [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+
+
+#### `requirements.txt` (for pip)
+- Generate it with `pip freeze > requirements.txt`
+- [Here is an example](https://github.com/Curly-Mo/musinformatics/blob/552494f8e6aec9810b1027e725bbf24a6784b369/requirements.txt). Search for [more on GitHub](https://github.com/search?p=3&q=filename%3Arequirements.txt&type=Code).
+- Install dependencies declared with `pip install -r requirements.txt`
+
+---
+
+# Packaging dependencies
+
+.pull-left[
+#### In R: `renv`
+Install with:
+```r
+install.packages("renv")
+```
+Activate with:
+```r
+renv::init()
+```
+Update with:
+```r
+renv::snapshot()
+```
+Load the contents of a lockfile with:
+```r
+renv::restore()
+```
+[Read more here.](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/)
+]
+
+.pull-right[
+#### In Python: `pipenv`
+
+[Follow this brief tutorial](https://packaging.python.org/tutorials/managing-dependencies/) to set up `pipenv` for your project.
+
+]
+
+---
+# Your turn!
+
+1. Add basic dependency information to your readme file:
+  - What version of your language is required?
+  - Which packages does a user need to load before running your project?
+  - Can you provide installation instructions?
+  
+1. Are you working with Python?
+  - Generate an environment for your project, and store the `environment.yml` file in root.
+  
+1. Are you working with R?
+  - Install `renv`, and initiate it to store the lock file in root.
+  
+1. Be sure again to update your git repository:
+   ```bash
+   git add [your changed files]
+   git commit -m "the change you made"
+   git push
+   ```
+
+

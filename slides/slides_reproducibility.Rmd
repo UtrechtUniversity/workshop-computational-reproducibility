@@ -1,6 +1,6 @@
 ---
 title: "Accessibility and Reproducibility"
-author: "Best Practices for Writing Reproducible Code // part 4"
+author: "Best Practices for Writing Reproducible Code // part 5"
 output:
   xaringan::moon_reader:
     css: [default, metropolis, metropolis-fonts, 'custom.css']
@@ -14,107 +14,7 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
-# Congratulations!
-
-You now have a project!
-- Your project structure is accessible
-- Your code is readable and invites re-use
-- The project is under version control
-- It has a landing page on Github, with information for a user
-
-Are you done?
-
-#### It depends...
-
-![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
-
----
-# Dependencies
-
-Dependencies and versions can stop your users/readers from being able to run your code.
-
-For example: this code written in Python 2.7:
-```{python, eval=F, error=TRUE}
-print "Hello world!"
-```
-```{python,echo=F}
-print("Hello world!")
-```
-
-
-No longer works in Python 3!
-```{python, eval=F, error=TRUE}
-print "Hello world!"
-```
-```
-  File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
-    print "Hello world!"
-                       ^
-SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
-```
-
-Instead, we write:
-```{python}
-print("Hello world!")
-```
-
----
-# The reproducibility trade-off
-
-How far do you go towards reproducibility?
-
-![](images/dependencytradeoff.svg)
-
-
-- **due diligence** starts at declaring dependencies.
-
-- packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
-
-- containers are awesome, and container tools like Docker and Singularity probably sound more daunting than they actually are.
-
-- But! Even more user-friendly options exist: like [CodeOcean](https://codeocean.com) (`$$$`) and [binder](https://mybinder.org/) (free!)
-
----
-
-# Declaring dependencies
-
-- Declare how your project works **for you**.
-  - What language, what version?
-  - What packages/libraries do you load
-  - What OS do you use? (Does it work on your collaborator's system?)
-
-- This information should be in the requirements file of your project.
-
-#### Getting accurate version information:
-
-In R:
-```r
-sessionInfo()
-```
-
-For Python (in shell):
-```bash
-pip freeze
-```
-
-
----
-# Your turn!
-
-1. Add detailed requirement information to your requirements file.
-
-1. Add basic dependency information to your readme file:
-  - What version of your language is required?
-  - Which packages does a user need to load before running your project?
-  - Can you provide installation instructions?
-  
-1. **OR**: give a package manager a try!
-
----
-# All done?
-
-_Not quite yet!_
-It's time to think about the future...
+# Let's think about the future...
 
 --
 
@@ -183,13 +83,18 @@ Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 
 ![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
 ---
-# Final touch
+# Getting your DOI
 
-Take your DOI and place it as a badge at the top of your README:
+Do you know your DOI?
+
+As a final touch (only with real Zenodo!): you can take your DOI and place it as a badge at the top of your README.
 
 ```
 [![DOI](https://zenodo.org/badge/doi/YOUR.DOI.svg)](http://dx.doi.org/YOUR.DOI)
 ```
+
+__This is not recommended with a Sandbox DOI, because sandbox projects are not permanent.__
+__The Sandbox DOI will not work like a normal one does!__
 
 
 ---
