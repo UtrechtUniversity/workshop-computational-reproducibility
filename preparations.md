@@ -20,7 +20,7 @@ If you have no experience with the terminal at all, we recommend practising with
 
 ### Installation
 - **Git**
-  - Check if you have git by typing in a terminal: `git -h`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
+  - Check if you have git by typing in a terminal: `git`. If you get a lot of options, you are good to go; you can stop reading. If you get an error message, you will need to install it. Here is how to do that.
   - On a windows system: use [gitforwindows.org](https://gitforwindows.org). Make sure you include **git bash** in your installation!
   - On Mac or Linux: use [git-scm.com](https://git-scm.com/)
   - With Linux you can also use `apt install git` in your terminal, or whatever installer you prefer.
@@ -36,6 +36,11 @@ If you have no experience with the terminal at all, we recommend practising with
 ### Code platforms
 - **Sign up for a [github](https://github.com/join?source=header-home), [gitlab](https://gitlab.com/users/sign_up), or [bitbucket](https://bitbucket.org/account/signup/) account**. We will be doing our demonstrations in github, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
 - **Make sure you have an ssh key pair set up** between your computer and the github/gitlab/bitbucket account. 
-There is a [great tutorial on how to do this on github](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh).
+There is a [great tutorial on how to do this on github](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh).
 There is often no need to use a passphrase for your key (and it will slow you down!), but you can opt to use this for an extra layer of security.
-Here is a [guide by github on how to work with passphrases](https://help.github.com/en/enterprise/2.19/user/github/authenticating-to-github/working-with-ssh-key-passphrases).
+Here is a [guide by github on how to work with passphrases](https://docs.github.com/en/github/authenticating-to-github/working-with-ssh-key-passphrases).
+- Confirm the functionality of your ssh keypair using `ssh git@github.com`. Your terminal should tell you something like:
+  ```
+  Hi bvreede! You've successfully authenticated, but GitHub does not provide shell access.
+  Connection to github.com closed.
+  ```
