@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Accessibility and Reproducibility</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Best Practices for Writing Reproducible Code // part 4" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Accessibility and Reproducibility
+### Best Practices for Writing Reproducible Code // part 4
+
+---
+
+
+
+# Congratulations!
+
+You now have a project!
+- Your project structure is accessible
+- Your code is readable and invites re-use
+- The project is under version control
+- It has a landing page on Github, with information for a user
+
+Are you done?
+
+#### It depends...
+
+![dependencies](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg)
+
+---
+# Dependencies
+
+Dependencies and versions can stop your users/readers from being able to run your code.
+
+For example: this code written in Python 2.7:
+
+```python
+print "Hello world!"
+```
+
+```
+## Hello world!
+```
+
+
+No longer works in Python 3!
+
+```python
+print "Hello world!"
+```
+```
+  File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
+    print "Hello world!"
+                       ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
+```
+
+Instead, we write:
+
+```python
+print("Hello world!")
+```
+
+```
+## Hello world!
+```
+
+---
+# The reproducibility trade-off
+
+How far do you go towards reproducibility?
+
+![](images/dependencytradeoff.svg)
+
+
+- **due diligence** starts at declaring dependencies.
+
+- packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
+
+- containers are awesome, and container tools like Docker and Singularity probably sound more daunting than they actually are.
+
+- But! Even more user-friendly options exist: like [CodeOcean](https://codeocean.com) (`$$$`) and [binder](https://mybinder.org/) (free!)
+
+---
+
+# Declaring dependencies
+
+- Declare how your project works **for you**.
+  - What language, what version?
+  - What packages/libraries do you load
+  - What OS do you use? (Does it work on your collaborator's system?)
+
+- This information should be in the requirements file of your project.
+
+#### Getting accurate version information:
+
+In R:
+```r
+sessionInfo()
+```
+
+For Python (in shell):
+```bash
+pip freeze
+```
+
+
+---
+# Your turn!
+
+1. Add detailed requirement information to your requirements file.
+
+1. Add basic dependency information to your readme file:
+  - What version of your language is required?
+  - Which packages does a user need to load before running your project?
+  - Can you provide installation instructions?
+  
+1. **OR**: give a package manager a try!
+
+---
+# All done?
+
+_Not quite yet!_
+It's time to think about the future...
+
+--
+
+#### Will this repository still be here in five years? 
+
+### Will my account? 
+
+## Will GitHub?
+---
+# Archiving the project
+
+![zenodo-part3](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
+
+Zenodo has a sandbox environment!
+- Not the main data repository, but still functional.
+- You will get an *actual* DOI, and your project will (probably?) not be deleted!
+- Only do this following exercise if you are OK with your code staying online!
+- You will not be able to do this with a private repository.
+
+Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._)
+
+#### Your turn:
+- Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
+- GitHub will then ask permission to give Zenodo access; click "Authorize application".
+
+
+---
+# Select your repository
+
+
+![toggle](https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
+---
+# Release your project!
+
+
+![release](https://guides.github.com/activities/citable-code/repo-view.png)
+
+... and follow the workflow!
+
+(Unsure about version number? Wait a slide! :-))
+
+---
+# Semantic versioning
+
+A version has three numbers: MAJOR.MINOR.PATCH
+
+- MAJOR version denotes changes that alter the compatibility (i.e. someone using your functions may need to change their use for their code to still work),
+- MINOR version adds functionality, but remains compatible
+- PATCH version makes (compatible) bug fixes.
+
+(If your bug fix changes compatibility, it is therefore a MAJOR version change!)
+
+#### You can release today with v0.1.0
+---
+# Check zenodo
+
+Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
+
+![citable-upload](https://guides.github.com/activities/citable-code/upload-tab.png)
+---
+# Getting your DOI
+
+- Add some final descriptions
+- Click 'publish'
+- Voilá!
+
+![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
+---
+# Final touch
+
+Take your DOI and place it as a badge at the top of your README:
+
+```
+[![DOI](https://zenodo.org/badge/doi/YOUR.DOI.svg)](http://dx.doi.org/YOUR.DOI)
+```
+
+
+---
+
+# Are you ready?
+
+#### Let's exchange projects!
+
+Please go to [tinyurl.com/repco-share](https://docs.google.com/spreadsheets/d/1FlQnSj8ipbUNhZgr_nS1PHnaapL8SvamWcfPjKTaBhA/edit#gid=0), and fill out:
+- your project name
+- your project (github) URL
+- your name
+- the language in which the project was written
+
+in the yellow columns.
+--
+
+#### Now, write your name in one of the blue columns behind a project you will reproduce.
+
+We hope that everyone's repository will get a reproduction-attempt, so only add your name to the second column if there are no repos left (for you)!
+--
+
+#### As you reproduce, please give your colleague feedback!
+
+Fill out the form at [tinyurl.com/repco-feedback](https://docs.google.com/forms/d/e/1FAIpQLSfH4mGicAAvDipysWM9AfcH0sQdd9L202atRLlQsXRGUJ3QAA/viewform)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

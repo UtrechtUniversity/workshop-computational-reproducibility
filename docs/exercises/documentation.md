@@ -1,30 +1,27 @@
-# Documentation
+# Exercises: Documentation
 
-Time for some documentation around your code! 
+## Content
+
+[Slides on Documentation (for reference)](../slides/slides_documentation.html) 
 
 The following topics are covered:
 * commenting code and functions (docstrings)
 * writing a README file
 
+## Exercises
+
+Time for some documentation around your code! 
 As usual, we have short videos and accompanying exercises. 
 Watch the video, then apply the exercises to your own project. 
 Use the slides linked above for reference, and be sure to ask for help when you need it!
 
-## Comments and docstrings
+### 1. Comments and docstrings
 
-### Video
+#### 1.1 Video
 
-```{r}
-vembedr::embed_url("https://vimeo.com/463992354")
-```
+[Video: Comments and docstrings](https://vimeo.com/463992354)
 
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_documentation.html#4")
-```
-
-### Exercise
+#### 1.2 Exercise
 - Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
   _Keep in mind: what does my user need to know when they are working with this function?_
 - Grab a limited chunk of code to work on, and look at the existing comments.
@@ -34,22 +31,13 @@ knitr::include_url("../slides/slides_documentation.html#4")
   _Try to comment on the thought behind the code rather than simply translating its process in English._
 - Can you delete superfluous comments or zombie code?
 
-## The README page
+### 2. The README page
 
-### Video
+#### 2.1 Video
 
-```{r}
-vembedr::embed_url("https://vimeo.com/464027978")
-```
+[Video: README](https://vimeo.com/464027978)
 
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_documentation.html#16")
-```
-
-
-### Exercise
+#### 2.2 Exercise
 Edit your README file.
 Take your time. This is important!
 

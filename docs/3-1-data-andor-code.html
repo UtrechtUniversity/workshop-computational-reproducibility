@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Best Practices in Writing Reproducible Code</title>
-  <meta name="description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <title>3.1 Data and/or Code | Best Practices in Writing Reproducible Code</title>
+  <meta name="description" content="3.1 Data and/or Code | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Best Practices in Writing Reproducible Code" />
+  <meta property="og:title" content="3.1 Data and/or Code | Best Practices in Writing Reproducible Code" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="3.1 Data and/or Code | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Best Practices in Writing Reproducible Code" />
+  <meta name="twitter:title" content="3.1 Data and/or Code | Best Practices in Writing Reproducible Code" />
   
-  <meta name="twitter:description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="3.1 Data and/or Code | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
 <meta name="author" content="RDM Support, Utrecht University" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="2-acknowledgements.html"/>
+<link rel="prev" href="3-preparation.html"/>
+<link rel="next" href="3-2-terminal.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,24 +265,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Best Practices in Writing Reproducible Code</h1>
-<p class="author"><em>RDM Support, Utrecht University</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-05-26</em></p>
-</div>
-<div id="welcome" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Welcome!</h1>
-<p>Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.</p>
-<p>Our workshop material is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You can <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md">view the license here</a>.</p>
-
+<div id="data-andor-code" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Data and/or Code</h2>
+<ul>
+<li><p><strong>Bring some code!</strong> We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: it is nice if there is an output for someone to see at the end!). <em>NB: If you will not have code to work on, you can still take advantage of the workshop, but please contact your instructor before the course.</em></p></li>
+<li><p><strong>Optional: if your data cannot be public, fake it!</strong> We will be exchanging repositories at the end of the day, and try to reproduce each other’s work. This can be problematic if your data cannot be shared. If the structure of the data can be put online, you could simulate the dataset (including covariates, so simple models have similar outcomes) using a package like <a href="https://cran.r-project.org/web/packages/fakeR/index.html">fakeR</a>, which simulates fake data within the same structure. Or check out or <a href="https://www.r-bloggers.com/generate-synthetic-data-using-r/">this post on conjurer</a>.</p></li>
+</ul>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="2-acknowledgements.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-preparation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="3-2-terminal.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

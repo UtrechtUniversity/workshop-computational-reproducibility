@@ -1,0 +1,23 @@
+# Acknowledgements
+
+This workshop was developed at Utrecht University, supported by [Research Data Management (RDM) Support](https://www.uu.nl/en/research/research-data-management) and the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com).
+
+The workshop is currently coordinated by [Neha Moopen](https://github.com/nehamoopen), with support from [Bianca Kramer](https://github.com/bmkramer) and [Jacques Flores](https://github.com/Mish-JPFD).
+
+The workshop has received contributions from (in alphabetical order):
+
+-   [Armel Lefebvre](https://github.com/armell)
+-   [Barbara Vreede](https://github.com/bvreede)
+-   [Bianca Kramer](https://github.com/bmkramer)
+-   [Cedric Thieulot](https://github.com/cedrict)
+-   [Erik van Sebille](https://github.com/erikvansebille)
+-   [Jacques Flores](https://github.com/Mish-JPFD)
+-   [Jeroen Bosman](https://github.com/JeroenBosman)
+-   [Jeroen Ooms](https://github.com/jeroen)
+-   [Jonathan de Bruin](https://github.com/J535D165)
+-   [Lukas van de Wiel](https://github.com/hooiberg)
+-   [Mateusz Kuzak](https://twitter.com/matkuzak)
+-   [Menno Fraters](https://github.com/MFraters)
+-   [Neha Moopen](https://github.com/nehamoopen)
+-   [Philippe Delandmeter](https://github.com/delandmeterp)
+-   [Renato Alves](https://github.com/unode)

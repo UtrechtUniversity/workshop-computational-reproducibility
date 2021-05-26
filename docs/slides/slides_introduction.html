@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Welcome!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Best Practices for Writing Reproducible Code" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Welcome!
+### Best Practices for Writing Reproducible Code
+
+---
+
+
+
+# Thanks!
+
+- To you for being here!
+
+- To the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com) and [Research Data Management Support (RDM Support)](https://www.uu.nl/en/research/research-data-management) for supporting the development of this workshop
+
+- To Armel Lefebvre, Bianca Kramer, Cedric Thieulot, Erik van Sebille, Jeroen Bosman, Jeroen Ooms, Jonathan de Bruin, Lukas van de Wiel, Mateusz Kuzak, Menno Fraters, Neha Moopen, Philippe Delandmeter, and Renato Alves, for helping develop this workshop
+
+- To your teachers and helpers today!
+
+#### Who are you? What brings you here?
+
+- E.g. your name, pronouns, background, and motivation for this workshop.
+
+
+---
+
+# General guidelines (and advice!)
+- Ask for help when you need it! 
+  - You can ask a question in the Teams chat.
+     - We will try to answer it directly.
+  - Indicate you are stuck in the Status Chart ([tinyurl.com/repcochart](https://tinyurl.com/repcochart))
+     - We will invite you to a 1:1 call in a Helper channel.
+
+--
+
+- Please mute yourself when you are not speaking (we are strict and will mute you without warning)
+
+--
+
+- We appreciate your video, but only share if you are comfortable.
+
+--
+
+- Close as many unnecessary windows and programs as possible.
+
+--
+
+- Take a computer break when we take a break: a timer will show when we return!
+
+--
+
+### Please open the workshop site
+You can find all workshop information at [tinyurl.com/repcopilot](https://utrechtuniversity.github.io/workshop-computational-reproducibility/).
+
+
+---
+# Being reproducible
+![example](images/screenshots/badexample.png)
+
+---
+# Is this enough?
+
+- Access to the code
+- Access to the data
+- (And let's assume we can replicate the enviroment)
+
+How confident do you feel?
+--
+
+&gt; This code is a kludgly, ugly, inefficient mess. 
+(...)
+&gt;  It is probably riddled with problems, mistakes, bugs, inefficiencies, vestigial code stubs, etc etc.
+(...)
+&gt; I am as confident as I am capable of being that all of the factual claims that were made in the manuscript are accurate.
+
+--
+
+We need to do more: we need to inspire trust.
+- The code is correct (and I have made it easy for you/someone to check);
+- My workflow is robust;
+- My workflow *itself* is accessible, and I will be guiding you through it.
+
+
+---
+# The Four Facets of Reproducibility
+
+.pull-left-medium[
+#### Documentation
+What do you need to execute this project? Where do you start?
+
+#### Organization
+Demonstrate a trustworthy workflow.
+
+#### Automation
+Automated analyses trace your steps, and prevent human error (or at the very least: document it).
+
+#### Dissemination
+Share your data, release your code, publish your findings.]
+
+--
+.pull-right-medium[
+![futureself](https://imgs.xkcd.com/comics/future_self.png)
+]
+---
+# What will we do in this workshop?
+
+We will take you through a workflow (in a broad sense!)
+
+--
+
+- Setting up a project
+
+- Establishing a robust backup / version control system
+
+- Writing good code
+
+- Writing documentation
+
+- Making your project accessible
+
+--
+
+We will end by trying to reproduce each others' projects!
+
+
+
+---
+# What do we expect from you?
+
+- Our group has many different abilities and experiences. We hope you will value this as much as we do!
+
+- We have done our best to make the workshop asynchronous so you can work at your own pace.
+
+- However, we have incorporated several moments for shared discussion and questions. Use them!
+
+- Feel free and safe to share your expertise and experiences.
+
+--
+
+#### Our objectives for you
+We want to teach you **good habits** that will make your work more accessible, trustworthy, and reproducible by others. In doing so, we have tried to identify those habits that are a **good return on investment**: meaning, they save you time in the not-so-long run.
+
+--
+
+### And finally: we hope you enjoy the workshop
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

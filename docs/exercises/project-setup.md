@@ -1,4 +1,8 @@
-# Project Management
+# Exercises: Project Setup
+
+## Content
+
+[Project setup slides (for reference)](../slides/slides_project-setup.html) 
 
 This section covers the following topics:
 * Setting up a folder structure
@@ -6,29 +10,20 @@ This section covers the following topics:
 * publishing your project on github
 * Choosing a license
 
-Time for some hands-on practice!
+## Exercises
 
+Time for some hands-on practice!
 We have 3 short videos and accompanying exercises for you to go through one by one.
 Watch the video first, then apply the exercises to your own project.
-Use the [slides]("../slides/slides_project-setup.html") linked above to follow links discussed in the video.
+Use the [slides](../slides/slides_project-setup.html) linked above to follow links discussed in the video.
 Be sure to ask for help when you need it!
 
-## Project setup
+### 1. Project setup
 
-### Video
+#### 1.1 Video
+[Video: Project management](https://vimeo.com/462773031)
 
-```{r}
-vembedr::embed_url("https://vimeo.com/462773031")
-```
-
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_project-setup.html#3")
-```
-
-### Exercises
-
+#### 1.2 Exercise 
 _NB: You can check the slides for more detail._
 - Use cookiecutter to install a project structure in your system, following the video or [these slides](../slides/slides_project-setup.html#4).
 - If you have trouble with cookiecutter: use the instructions [on this slide](../slides/slides_project-setup.html#6) instead.
@@ -37,22 +32,13 @@ _NB: You can check the slides for more detail._
 - Adjust paths in your code, and be sure to use relative paths!
 - Does your code run in the new folder structure?
 
-## Version control
 
-### Video
+### 2. Version control
 
-```{r}
-vembedr::embed_url("https://vimeo.com/463264170")
-```
+#### 2.1 Video
+[Video: version control with Git](https://vimeo.com/463264170)
 
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_project-setup.html#15")
-```
-
-### Exercise
-
+#### 2.2 Exercise
 - Follow the steps in the video (or [on these slides](../slides/slides_project-setup.html#17)) to turn your folder into a git repository
 - Make a remote version of your project on GitHub!
 - Please note: are there (temporary) files you do not wish to track?
@@ -65,22 +51,14 @@ knitr::include_url("../slides/slides_project-setup.html#15")
   (Hint: this often causes a 'merge conflict', which is no fun to experience.
   Going through it today means we can assist you if necessary!)
 
-## Publication & licensing
+ 
+### 3. Publication & licensing
 
-### Video
+#### 3.1 Video
+[Video: Publication & licensing](https://vimeo.com/463659936)
 
-```{r}
-vembedr::embed_url("https://vimeo.com/463659936")
-```
-
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_project-setup.html#9")
-```
-
-### Exercise
-
+#### 3.2 Exercise
 - Check the license in your project
 - Take a look at other license options via [choosealicense.com](https://choosealicense.com/).
 - Do you want to change your license? Go into your Github and change the LICENSE.md file. Don't forget to pull your remote changes!
+

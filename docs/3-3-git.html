@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Best Practices in Writing Reproducible Code</title>
-  <meta name="description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <title>3.3 Git | Best Practices in Writing Reproducible Code</title>
+  <meta name="description" content="3.3 Git | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Best Practices in Writing Reproducible Code" />
+  <meta property="og:title" content="3.3 Git | Best Practices in Writing Reproducible Code" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="3.3 Git | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Best Practices in Writing Reproducible Code" />
+  <meta name="twitter:title" content="3.3 Git | Best Practices in Writing Reproducible Code" />
   
-  <meta name="twitter:description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="3.3 Git | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
 <meta name="author" content="RDM Support, Utrecht University" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="2-acknowledgements.html"/>
+<link rel="prev" href="3-2-terminal.html"/>
+<link rel="next" href="3-4-final-test.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,24 +265,133 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Best Practices in Writing Reproducible Code</h1>
-<p class="author"><em>RDM Support, Utrecht University</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-05-26</em></p>
+<div id="git" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Git</h2>
+<div id="coding-platforms" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Coding Platforms</h3>
+<p>Sign up for a <a href="https://github.com/join?source=header-home">GitHub</a>, <a href="https://gitlab.com/users/sign_up">GitLab</a>, or <a href="https://bitbucket.org/account/signup/">BitBucket</a> account.</p>
+<p>Please note our workshop materials and demonstrations will be in GitHub, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.</p>
 </div>
-<div id="welcome" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Welcome!</h1>
-<p>Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.</p>
-<p>Our workshop material is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You can <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md">view the license here</a>.</p>
-
+<div id="install-git" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Install Git</h3>
+<p>You first want to double-check if Git is already installed on your computer.</p>
+<p>Go to your terminal and enter <code>which git</code> to request the path to your Git executable:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="3-3-git.html#cb1-1"></a>which git</span>
+<span id="cb1-2"><a href="3-3-git.html#cb1-2"></a><span class="co">## /usr/local/bin/git</span></span></code></pre></div>
+<p>and then <code>git --version</code> to see its version:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="3-3-git.html#cb2-1"></a>git <span class="op">--</span>version</span>
+<span id="cb2-2"><a href="3-3-git.html#cb2-2"></a><span class="co">## git version 2.31.1</span></span></code></pre></div>
+<p>If the terminal returns a path and version, that means you have Git and you can skip this installation step! That being said, you might want to ensure your Git is the latest version.</p>
+<p>If you don’t see a path and version, but something like <code>git: command not found</code> - then you definitely need to continue with installation. Follow the the instructions relevant to your operating system.</p>
+<ul>
+<li><p><strong>Windows:</strong> Go to <a href="https://gitforwindows.org">gitforwindows.org</a>. Make sure you include <strong>Git Bash</strong> in your installation!</p></li>
+<li><p><strong>Mac:</strong> Go to <a href="http://git-scm.com/downloads">git-scm.com</a> and install the the latest version available.</p></li>
+<li><p><strong>Linux:</strong> Go the Linux-specific page of <a href="https://git-scm.com/download/linux">git-scm.com</a>. There are commands specific to various package managers.</p></li>
+</ul>
+</div>
+<div id="git-config" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> <code>git config</code></h3>
+<p>Now that installation is done, it’s time to introduce yourself to Git!</p>
+<p>Go to your terminal and type the following, one after the other:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="3-3-git.html#cb3-1"></a>git config <span class="op">--</span>global user.name <span class="st">&#39;Your Name&#39;</span></span>
+<span id="cb3-2"><a href="3-3-git.html#cb3-2"></a>git config <span class="op">--</span>global user.email <span class="st">&#39;yourname@example.com&#39;</span></span>
+<span id="cb3-3"><a href="3-3-git.html#cb3-3"></a>git config <span class="op">--</span>global <span class="op">--</span>list</span></code></pre></div>
+<p><strong>Important:</strong> make sure you use the email associated with your <strong>GitHub</strong> account!</p>
+<p>The first two commands won’t return any information, the last one will confirm if Git received your introduction alright. That is, your name and email will be returned.</p>
+</div>
+<div id="set-up-ssh-keys" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Set up SSH keys</h3>
+<p>SSH keys provide a more secure way of logging onto servers than relying on passwords alone. It’s similar to how two-factor authentication provides an extra layer of security over regular passwords/passcodes.</p>
+<p>There are number of steps involved in this setup, but we’re going to summarize it here - so you don’t get lost:</p>
+<ol style="list-style-type: decimal">
+<li>Check for existing SSH keys.</li>
+<li>Generate new SSH keys.</li>
+<li>Add private key to the ssh-agent.</li>
+<li>Add public key to your GitHub/GitLab/BitBucket account.</li>
+<li>Test your SSH connection.</li>
+</ol>
+<div id="check-for-existing-ssh-keys." class="section level4" number="3.3.4.1">
+<h4><span class="header-section-number">3.3.4.1</span> Check for existing SSH keys.</h4>
+<p>Go to your terminal and type the following command to list existing SSH keys:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="3-3-git.html#cb4-1"></a>ls <span class="op">-</span>al <span class="op">~</span><span class="er">/</span>.ssh</span></code></pre></div>
+<p>If you have key pairs already, they may look like the following:</p>
+<ul>
+<li><p><code>id_rsa.pub</code> (public key) &amp; <code>id_rsa</code> (private key)</p></li>
+<li><p><code>id_ecdsa.pub</code> (public key) &amp; <code>id_ecdsa</code> (private key)</p></li>
+<li><p><code>id_ed25519.pub</code> (public key) &amp; <code>id_ed25519</code> (private key)</p></li>
+</ul>
+<p>If you’re happy to stick with your existing keys, then you can jump to step 3 which is about adding the private key to the ssh-agent.</p>
+</div>
+<div id="generate-new-ssh-keys" class="section level4" number="3.3.4.2">
+<h4><span class="header-section-number">3.3.4.2</span> Generate new SSH keys</h4>
+<p>Go to your terminal and type the following command, substituting “USEFUL-LABEL” with something like your GitHub username and/or your device.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="3-3-git.html#cb5-1"></a>ssh<span class="op">-</span>keygen <span class="op">-</span>t ed25519 <span class="op">-</span>C <span class="st">&quot;USEFUL-LABEL&quot;</span></span></code></pre></div>
+<p>Accept the proposal to save the key in the default file location. Just press Enter here:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="3-3-git.html#cb6-1"></a><span class="op">&gt;</span><span class="st"> </span>Enter a file <span class="cf">in</span> which to save the <span class="kw">key</span> (<span class="op">/</span>Users<span class="op">/</span>you<span class="op">/</span>.ssh<span class="op">/</span>id_ed25519)<span class="op">:</span><span class="st"> </span>[Press enter]</span></code></pre></div>
+<p>If you’re new to setting up SSH keys, then skip the option to enter a passphrase. It’s a best practice, but you can come back to it after the workshop. Just leave the passphrase option empty and press Enter:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="3-3-git.html#cb7-1"></a><span class="op">&gt;</span><span class="st"> </span>Enter <span class="kw">passphrase</span> (empty <span class="cf">for</span> no passphrase)<span class="op">:</span></span></code></pre></div>
+<p>Here’s an example of how it should have played out, if everything went smoothly:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="3-3-git.html#cb8-1"></a>jenny<span class="op">@</span><span class="dv">2015</span><span class="op">-</span>mbp <span class="op">~</span><span class="st"> </span><span class="er">$</span><span class="st"> </span>ssh<span class="op">-</span>keygen <span class="op">-</span>t rsa <span class="op">-</span>b <span class="dv">4096</span> <span class="op">-</span>C <span class="st">&quot;USEFUL-COMMENT&quot;</span></span>
+<span id="cb8-2"><a href="3-3-git.html#cb8-2"></a>Generating public<span class="op">/</span>private rsa key pair.</span>
+<span id="cb8-3"><a href="3-3-git.html#cb8-3"></a>Enter file <span class="cf">in</span> which to save the <span class="kw">key</span> (<span class="op">/</span>Users<span class="op">/</span>jenny<span class="op">/</span>.ssh<span class="op">/</span>id_rsa)<span class="op">:</span><span class="st">     </span></span>
+<span id="cb8-4"><a href="3-3-git.html#cb8-4"></a>Enter <span class="kw">passphrase</span> (empty <span class="cf">for</span> no passphrase)<span class="op">:</span><span class="st"> </span></span>
+<span id="cb8-5"><a href="3-3-git.html#cb8-5"></a>Enter same passphrase again<span class="op">:</span><span class="st"> </span></span>
+<span id="cb8-6"><a href="3-3-git.html#cb8-6"></a>Your identification has been saved <span class="cf">in</span> <span class="op">/</span>Users<span class="op">/</span>jenny<span class="op">/</span>.ssh<span class="op">/</span>id_rsa.</span>
+<span id="cb8-7"><a href="3-3-git.html#cb8-7"></a>Your public key has been saved <span class="cf">in</span> <span class="op">/</span>Users<span class="op">/</span>jenny<span class="op">/</span>.ssh<span class="op">/</span>id_rsa.pub.</span>
+<span id="cb8-8"><a href="3-3-git.html#cb8-8"></a>The key fingerprint is<span class="op">:</span></span>
+<span id="cb8-9"><a href="3-3-git.html#cb8-9"></a>SHA256<span class="op">:</span>ki0TNHm8qIvpH7<span class="op">/</span>c0qQmdv2xxhYHCwlpn3<span class="op">+</span>rVhKVeDo USEFUL<span class="op">-</span>COMMENT</span>
+<span id="cb8-10"><a href="3-3-git.html#cb8-10"></a>The key<span class="st">&#39;s randomart image is:</span></span>
+<span id="cb8-11"><a href="3-3-git.html#cb8-11"></a><span class="st">+---[RSA 4096]----+</span></span>
+<span id="cb8-12"><a href="3-3-git.html#cb8-12"></a><span class="st">|      o+   . .   |</span></span>
+<span id="cb8-13"><a href="3-3-git.html#cb8-13"></a><span class="st">|     .=.o . +    |</span></span>
+<span id="cb8-14"><a href="3-3-git.html#cb8-14"></a><span class="st">|     ..= + +     |</span></span>
+<span id="cb8-15"><a href="3-3-git.html#cb8-15"></a><span class="st">|      .+* E      |</span></span>
+<span id="cb8-16"><a href="3-3-git.html#cb8-16"></a><span class="st">|     .= So =     |</span></span>
+<span id="cb8-17"><a href="3-3-git.html#cb8-17"></a><span class="st">|    .  +. = +    |</span></span>
+<span id="cb8-18"><a href="3-3-git.html#cb8-18"></a><span class="st">|   o.. = ..* .   |</span></span>
+<span id="cb8-19"><a href="3-3-git.html#cb8-19"></a><span class="st">|  o ++=.o =o.    |</span></span>
+<span id="cb8-20"><a href="3-3-git.html#cb8-20"></a><span class="st">| ..o.++o.=+.     |</span></span>
+<span id="cb8-21"><a href="3-3-git.html#cb8-21"></a><span class="st">+----[SHA256]-----+</span></span></code></pre></div>
+</div>
+<div id="add-private-key-to-the-ssh-agent" class="section level4" number="3.3.4.3">
+<h4><span class="header-section-number">3.3.4.3</span> Add private key to the ssh-agent</h4>
+<p>While the actions are similar, the specific commands for this step vary between operating systems. Therefore, we’ll link you to the relevant GitHub guide for this step: <a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">Generating a new SSH key and adding it to the ssh-agent</a></p>
+<p>Make sure you’re following the instructions for the right operating system and then skip the sub-section on <em>Adding your SSH key to the ssh-agent</em>.</p>
+<p>Effectively, what this step does is to ‘activate’ your private key.</p>
+</div>
+<div id="add-public-key-to-your-githubgitlabbitbucket-account" class="section level4" number="3.3.4.4">
+<h4><span class="header-section-number">3.3.4.4</span> Add public key to your GitHub/GitLab/BitBucket account</h4>
+<ul>
+<li><p>Open your public SSH key (the file ending with .pub) in a text editor and copy the whole key. Make sure to avoid copying any newlines or whitespace.</p></li>
+<li><p>On GitHub, click on your profile picture and go to <em>Settings</em> -&gt; <em>SSH &amp; GPG keys</em>.</p></li>
+<li><p>Click on <em>New SSH key</em>.</p></li>
+<li><p>Paste your public key in the box and give it an informative label, maybe the same as the “USEFUL-LABEL” you used when generating the keys.</p></li>
+</ul>
+</div>
+<div id="test-your-ssh-connection" class="section level4" number="3.3.4.5">
+<h4><span class="header-section-number">3.3.4.5</span> Test your SSH connection</h4>
+<p>Open your terminal and type in the following command:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="3-3-git.html#cb9-1"></a>ssh <span class="op">-</span>T git<span class="op">@</span>github.com</span></code></pre></div>
+<p>You may see a warning which includes an RSA key fingerprint. Make sure this fingerprint matches that of GitHub’s, you can double-check that here: <a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints">GitHub’s SSH key fingerprints</a></p>
+<p>If the fingerprint matches, type <em>yes</em> if you were asked if wanted to continue connecting.</p>
+<p>If all goes well, you’ll see something like the following:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="3-3-git.html#cb10-1"></a><span class="op">&gt;</span><span class="st"> </span>Hi username<span class="op">!</span><span class="st"> </span>You<span class="st">&#39;ve successfully authenticated, but GitHub does not provide shell access.</span></span></code></pre></div>
+<p>Make sure it’s your username that terminal returns!</p>
+</div>
+<div id="troubleshooting-https" class="section level4" number="3.3.4.6">
+<h4><span class="header-section-number">3.3.4.6</span> Troubleshooting &amp; HTTPS</h4>
+<p>“Error: Permission denied (publickey)”</p>
+<p>Toggle between SSH &amp; HTTPS</p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="2-acknowledgements.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-2-terminal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="3-4-final-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

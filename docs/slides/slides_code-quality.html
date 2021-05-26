@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Code Quality</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Best Practices for Writing Reproducible Code // part 2" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Code Quality
+### Best Practices for Writing Reproducible Code // part 2
+
+---
+
+
+
+
+# Aspects of good quality code
+
+.pull-left[
+- Readable
+
+- Reusable
+
+- Robust
+]
+
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
+
+.pull-right[
+![goodcode](https://imgs.xkcd.com/comics/good_code.png)
+
+]
+
+---
+# Code readability
+
+- Code is for computer, comments are for humans.
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+--
+
+#### Compare:
+```r
+this &lt;- function(arg1,arg2) res&lt;-arg1*arg2;return(res)
+hurts &lt;- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+```
+
+```r
+this &lt;- function(arg1,arg2){
+  res &lt;- arg1 * arg2
+  return(res)
+}
+
+hurts &lt;- mean(
+  c(
+    this(3,4),
+    this(3,1),
+    this(9,9)
+    )
+  )
+print(hurts)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+--
+
+#### Compare:
+
+```python
+for i in my_shopping_basket:
+  if(test(i)) &gt; 10:
+    purch(i)
+  else:
+    disc(i)
+```
+
+```python
+for item in basket:
+  if(testNecessity(item)) &gt; 10:
+    purchase(item)
+  else:
+    discard(item)
+```
+
+
+---
+# Code readability
+
+- ~~Code is for computer, comments are for humans.~~
+
+- Use whitespace and newlines strategically.
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+- use a consistent style
+  - consistency will make your code easier to understand and maintain
+  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
+  
+--
+
+#### Compare:
+
+```r
+myVar&lt;-original_variable+MOD(new.var)
+```
+```r
+my_var &lt;- original_var + Modified(new_var)
+```
+---
+# Styleguides
+
+  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
+  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
+  
+![codequality](https://imgs.xkcd.com/comics/code_quality.png)
+.footnote[
+Source: [xkcd](https://xkcd.com/1513/)
+]
+---
+# Your turn
+
+#### Where can you improve the readability of your code?
+
+- Run a linter (e.g. `flake8` for Python or `lintr` for R) to identify conflicts with style guides.
+  
+- If you find code that is hard to read, make a note to work on it.
+(Schedule time to refactor, but do not do this now!)
+
+_Tip! Use_ `#TODO` _or_ `//TODO` _(depending on your comment marker) to easily find these spots later on.
+Many IDEs extract these into a task list!_
+
+---
+# Code reusability
+
+- Less code written, more work done
+
+- Writing a tool while doing your analysis
+
+- Stop reinventing the wheel!
+
+
+---
+# Code reusability: some guidelines
+
+- Separate code and data: data is specific, code need not be
+
+  - consider using a config file for project-specific (meta)data
+  - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, **once**.
+--
+
+- Do One Thing (and do it well)
+
+  - One function for one purpose
+  - One class for one purpose
+  - One script for one purpose (no copy-pasting to recycle it!)
+--
+
+- Don't Repeat Yourself: use functions
+
+ - Write routines in functions, i.e., code you reuse often
+ - Identify potential functions by action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
+ 
+
+
+---
+# Code reusability through functions
+
+Functions are smaller code units reponsible of one task.
+
+- Functions are meant to be reused
+
+- Functions accept arguments (though they may also be empty!)
+
+- What arguments a function accept is defined by its parameters
+
+Functions do not necessarily make code shorter (at first)! Compare:
+```r
+indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
+indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
+```
+
+```r
+def indexString(inputList,z):
+	zIndex = [n for n,i in enumerate(li) if i == z]
+	return zIndex
+	
+indexATG = indexString(myList,'ATG')
+indexAAG = indexString(myList,'AAG')
+```
+
+---
+
+# Think in building blocks!
+
+.pull-left[
+Small, cohesive units are much better than...
+
+![tetris](images/tetris.svg)]
+--
+.pull-right[
+... a customized behemoth!
+![tetris](images/tetris_help.svg)]
+
+
+---
+
+# Your turn: visualize your code!
+
+Choose:
+- Make a screenshot, process it in paint, powerpoint, or your favorite editor;
+- Copy paste your code to a text editor, and use markers.
+
+The objective is for you to 'see' your code!
+
+- Yellow denotes scripted, unstructured code _(basic, sequential lines of instructions)_
+   
+- Purple denotes functions or other structured code _(e.g. for-loops, conditionals, etc.)_
+
+- Green denotes comments (or comment blocks)
+   _(consider combining this with yellow for heavily commented code)_
+
+Again, make notes in your code (`#TODO`!) if you see:
+- **Scripted code**: this can be a function
+- **Structured code**: this should be re-structured 
+
+What can you learn from your colleagues today?
+---
+# Your turn: make a function
+
+You have visualized your code. Use your findings to improve it!
+
+- **Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
+
+- If there is no function to work on: try and address the readability of your code.
+
+_However_: for future exercises you will need at least one function, preferably with parameters, in your code! For example:
+
+```python
+def my_function(param_a, param_b):
+  if param_b == 99:
+    return None
+  
+  if param_a == 100:
+    do_something(param_a)
+  else:
+    do_something_else(param_a)
+```
+---
+# Code robustness
+
+![errormanagement](images/errormanagement_implicit.svg)
+---
+# Code robustness
+
+![errormanagement](images/errormanagement_explicit.svg)
+
+---
+# Code robustness
+
+![errormanagement](images/errormanagement.svg)
+
+---
+# Error management
+
+#### Protect the user:
+
+- Make assumptions and expectations explicit.
+
+  - check values before processing them
+  - identify and manage exceptions
+- Produce errors when expectations are not met.
+
+- Consider error options, and perform error management:
+  - redirect the program
+  - log or report the error, to allow the user (or developer) to troubleshoot
+  - if necessary: abort the run
+  
+---
+# Advanced robustness: unit tests
+
+#### Protect the developer (you!)
+
+- Test the expected behavior of your functions:
+  - Confirm a known output given a known input
+  - Do errors get produced as expected when the input calls for it?
+  
+- Capture unexpected errors to identify further options for error management
+
+- You can automate running tests when pushing to Github using Continuous Integration
+
+- Tests are **definitely** worth learning when your project increases in size!
+
+_More on tests later..._
+
+---
+# Throwing an error
+
+```python
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
+    if index &gt; len(my_vector) - 1:
+        raise IndexError('Index higher than vector length.')
+    return my_vector[index]
+
+read_vector_value(index=6)
+```
+
+```
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index higher than vector length.
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 3, in read_vector_value
+```
+--
+#### Why not simply adjust the function output?
+
+```python
+def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
+    if index &gt; len(my_vector) - 1:
+        return None
+    return my_vector[index]
+
+print(read_vector_value(index=6))
+```
+
+```
+## None
+```
+--
+_Because it is unclear if `None` is expected behavior or indicative of a problem._
+---
+# Warning message without breaking
+#### An error breaks code execution
+
+```r
+read_vector_value &lt;- function(index=1,my_vector=c(10,5,4,12,25)){
+  if(index&gt;length(my_vector)){
+    stop("Index higher than vector length.")}
+return(my_vector[index])
+}
+
+print(read_vector_value(index=6))
+```
+
+```
+## Error in read_vector_value(index = 6): Index higher than vector length.
+```
+--
+#### Capture the error but release a warning
+
+```r
+read_vector_value &lt;- function(index=1,my_vector=c(10,5,4,12,25)){
+  if(index&gt;length(my_vector)){
+    warning("Index higher than vector length.")
+    return(NA)}
+return(my_vector[index])
+}
+
+print(read_vector_value(index=6))
+```
+
+```
+## Warning in read_vector_value(index = 6): Index higher than vector length.
+```
+
+```
+## [1] NA
+```
+---
+# Redirecting with exceptions
+
+If you do not want to interrupt your script when an error is raised: use try/catch ('except' in Python). NB: Note that Python allows you to distinguish by error type!
+
+.pull-left[
+
+```python
+try:
+  read_vector_value(6)
+except IndexError:
+  print("This is an exception")
+```
+
+```
+## This is an exception
+```
+]
+.pull-right[
+
+```python
+try:
+  read_vector_value(6)
+except ArithmeticError:
+  print("This is an exception")
+```
+
+```
+## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index higher than vector length.
+## 
+## Detailed traceback: 
+##   File "&lt;string&gt;", line 2, in &lt;module&gt;
+##   File "&lt;string&gt;", line 3, in read_vector_value
+```
+]
+
+--
+
+#### In R you can use [tryCatch()](http://www.mazamascience.com/WorkingWithData/?p=912):
+
+
+```r
+tryCatch({
+    read_vector_value(6)
+}, error = function(e) {
+    print("This is an exception.")
+})
+```
+
+```
+## [1] "This is an exception."
+```
+
+---
+# Validating input
+
+Consider early statements in the script to validate (data) input.
+
+With if/else:
+```python
+if not protein_data:
+  raise ValueError("Dataset cannot be empty")
+```
+
+With try/catch:
+```r
+tryCatch({
+  do_something_that_might_go_wrong(protein_data)
+}, error = function(e){
+  log(e)
+}, finally = {
+  cleanup(protein_data)
+})
+```
+---
+# Expectations and assumptions
+
+#### Expect the worst
+- use of wrong input values for functions
+- malformed text input
+- wrong data types
+
+![nouser](https://4.bp.blogspot.com/_YzKCMr-tcMM/S9bN9dGqgBI/AAAAAAAAALo/cxqBx5AaoYk/s640/23GORILLA.jpg)
+.footnote[
+Source: [cartoontester](https://cartoontester.blogspot.com/2010/02/thats-not-bug.html)
+]
+---
+
+# Your turn: explicit expectations
+
+#### Identify assumptions in your code
+- What assumptions/expectations exist on your data or (user) input?
+- What assumptions/expectations exist on the input of (a) function(s)?
+  
+#### Make the input/data assumptions explicit
+- **Option 1**: Explicitly state assumptions on data or input in your README.md.
+- **Option 2**: Write a piece of code that tests the validity of data/input, and reports an error if the expectations are not met.
+
+#### Test the input for a function
+- Modify the code inside your function to
+  - check the value of the arguments passed to your function using if/else statements;
+  - raise an error in case an argument is out of the range of acceptable values.
+
+---
+
+# Unit testing
+Unit testing is a generic testing approach.
+
+Your software is tested by focusing on smaller units, for instance a series of functions or class.
+
+Extra packages\\imports are needed
+
+- in R with the testthat/testthis packages
+  - https://github.com/r-lib/testthat, https://github.com/r-lib/testthis
+- in python with pytest, unittest
+  - https://docs.python.org/3/library/unittest.html 
+
+---
+# Running unit tests
+__Code editors/IDEs__ such as visual studio code, RStudio, Pycharm...
+
+- Integrate functionalities to run and show the results of unit tests
+  - E.g., RStudio in the build menu -&gt; test package
+  
+1. Create a unittest file
+  
+  ```R
+  usethis::use_test("hello")
+  ```
+  
+2. Edit the file test-hello.R in the tests folder (created by usethis)
+  
+  ```R
+  test_that("multiplication works", {
+    expect_equal(2 * 2, 4)
+  })
+  ```
+  
+3. Run tests
+  - In RStudio using the menu __or__
+  ```R
+    devtools::test()
+  ```
+---
+# Example
+
+#### Testing our read_vector function
+
+
+```python
+import unittest
+class TestStringMethods(unittest.TestCase):
+    def test_retrieval(self):
+        self.assertEqual(read_vector_value(0), 10)
+    
+    def test_error(self):
+        with self.assertRaises(IndexError):
+            read_vector_value(5)
+```
+
+Run the tests by calling `unittest.main()`
+
+Or, when working in a notebook:
+
+```python
+unittest.main(argv=['trick to make it work in a notebook'], exit=False)
+```
+
+```
+## &lt;unittest.main.TestProgram object at 0x7f9cf5b06710&gt;
+## 
+## ..
+## ----------------------------------------------------------------------
+## Ran 2 tests in 0.001s
+## 
+## OK
+```
+---
+# Making a test fail
+
+
+```python
+import unittest
+class TestStringMethods(unittest.TestCase):
+    def test_retrieval(self):
+        self.assertEqual(read_vector_value(0), 10)
+    
+    def test_error(self):
+        with self.assertRaises(IndexError):
+            read_vector_value(5)
+            
+    def test_retrieval_wrong(self):
+        self.assertEqual(read_vector_value(0), 11)
+```
+---
+# Result of faulty test
+
+
+```
+## &lt;unittest.main.TestProgram object at 0x7f9cf5af14a8&gt;
+## 
+## ..F
+## ======================================================================
+## FAIL: test_retrieval_wrong (__main__.TestStringMethods)
+## ----------------------------------------------------------------------
+## Traceback (most recent call last):
+##   File "&lt;string&gt;", line 10, in test_retrieval_wrong
+## AssertionError: 10 != 11
+## 
+## ----------------------------------------------------------------------
+## Ran 3 tests in 0.001s
+## 
+## FAILED (failures=1)
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

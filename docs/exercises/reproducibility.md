@@ -1,31 +1,27 @@
-# Accessibility & Reproducibility
+# Exercises: Reproducibility
 
-Last but not least, let's make our code accessible for others! 
+## Content
+
+[Slides on Reproducibility (for reference)](../slides/slides_reproducibility.html) 
 
 The following topics are covered:
 * obtaining a doi and ensuring accessibility
 * dealing with requirements and dependencies
 
+## Exercises
+
+Last but not least, let's make our code accessible for others! 
 Here are your last videos and accompanying exercises. 
 Watch the video, then apply the exercises to your own project. 
 Use the slides linked above for reference, and be sure to ask for help when you need it!
 
-## Dependencies
+### 1. Dependencies
 
-### Video
+#### 1.1 Video
 
-```{r}
-vembedr::embed_url("https://vimeo.com/464028630")
-```
+[Video: Dependencies](https://vimeo.com/464028630)
 
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_reproducibility.html#3")
-```
-
-
-### Exercise
+#### 1.2 Exercise
 Address dependencies and language versions in your README.
 - What version of your coding language is required?
 - Which packages does a user need to install before running your project?
@@ -33,16 +29,13 @@ Address dependencies and language versions in your README.
 - Can you provide their installation instructions?
 
 
-## Binder
+### 2. Binder
 
-### Video
+#### 2.1 Video
 
-```{r}
-vembedr::embed_url("https://vimeo.com/464010497")
-```
+[Video: Binder](https://vimeo.com/464010497)
 
-### Exercise (optional)
-
+#### 2.2 Exercise (optional)
 **For R**
 
 - Generate a file called `runtime.txt`, either in the root of your project, or in a (hidden) folder called `.binder/`.
@@ -66,21 +59,13 @@ Binder automatically loads Python 3.6.
 - Binderise your project by following the instructions via [mybinder.org](https://mybinder.org/)
 
 
-## Archiving
+### 3. Archiving
 
-### Video
+#### 3.1 Video
 
-```{r}
-vembedr::embed_url("https://vimeo.com/463947879")
-```
+[Video: Archiving](https://vimeo.com/463947879)
 
-### Slides
-
-```{r}
-knitr::include_url("../slides/slides_reproducibility.html#7")
-```
-
-### Exercise (optional)
+#### 3.2 Exercise (optional)
 
 - Follow the workflow [outlined in this guide](https://guides.github.com/activities/citable-code/) to archive your code to Zenodo.
   Use the [Sandbox version of Zenodo](http://sandbox.zenodo.org/) to make sure your repository is not actually archived permanently!

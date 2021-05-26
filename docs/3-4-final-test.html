@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Best Practices in Writing Reproducible Code</title>
-  <meta name="description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <title>3.4 Final Test! | Best Practices in Writing Reproducible Code</title>
+  <meta name="description" content="3.4 Final Test! | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Best Practices in Writing Reproducible Code" />
+  <meta property="og:title" content="3.4 Final Test! | Best Practices in Writing Reproducible Code" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="3.4 Final Test! | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Best Practices in Writing Reproducible Code" />
+  <meta name="twitter:title" content="3.4 Final Test! | Best Practices in Writing Reproducible Code" />
   
-  <meta name="twitter:description" content="Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="3.4 Final Test! | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
 <meta name="author" content="RDM Support, Utrecht University" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="2-acknowledgements.html"/>
+<link rel="prev" href="3-3-git.html"/>
+<link rel="next" href="4-introduction.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,24 +265,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Best Practices in Writing Reproducible Code</h1>
-<p class="author"><em>RDM Support, Utrecht University</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-05-26</em></p>
+<div id="final-test" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Final Test!</h2>
+<p>If you’ve set up your SSH keys alright, we can try going ahead and seeing whether you can <em>push</em> and <em>pull</em> from GitHub successfully.</p>
+<p>This is something we’ll do during the workshop as well, but trying it out beforehand reduces chances of errors while the course is ongoing.</p>
+<p>The sequence of steps is as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a test repository on GitHub.</p></li>
+<li><p>Clone the test repository.</p></li>
+<li><p>Make local changes.</p></li>
+<li><p><em>Push</em> the local changes to GitHub. This is where the magic happens (or not)!</p></li>
+<li><p>If all went well, you can refresh the webpage with your GitHub repository and you’ll see your local changes.</p></li>
+<li><p>Make changes online.</p></li>
+<li><p><em>Pull</em> the online changes to your computer, so your local repository is up to date.</p></li>
+<li><p>If all went well, then your online changes are available locally as well. It also means you’re fully set up with Git &amp; GitHub!</p></li>
+</ol>
+<div id="create-a-test-repository-on-github" class="section level4" number="3.4.0.1">
+<h4><span class="header-section-number">3.4.0.1</span> Create a test repository on GitHub</h4>
+<ul>
+<li><p>Log into GitHub.</p></li>
+<li><p>Click the green <em>New</em> (repository) button.</p></li>
+<li><p>You can name your repository as <code>testrepo</code>.</p></li>
+<li><p>Make sure it’s a Public repository.</p></li>
+<li><p>Click <em>YES</em>, when asked if you want to initialize the repository with a README.</p></li>
+<li><p>Click the green <em>Create repository</em> button.</p></li>
+<li><p>Copy the SSH URL for cloning via the green <em>Clone or Download</em> button.</p></li>
+</ul>
 </div>
-<div id="welcome" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Welcome!</h1>
-<p>Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.</p>
-<p>Our workshop material is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You can <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md">view the license here</a>.</p>
+<div id="clone-the-test-repository" class="section level4" number="3.4.0.2">
+<h4><span class="header-section-number">3.4.0.2</span> Clone the test repository</h4>
+<p>Go to your terminal and type the following command, substiting the SSH clone URL you copied in the previous step after <code>git clone</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="3-4-final-test.html#cb11-1"></a>git clone git<span class="op">@</span>github.com<span class="op">:</span>username<span class="op">/</span>testrepo.git</span></code></pre></div>
+<p>This should create a local copy of your repository as a folder with files contained within.</p>
+</div>
+<div id="make-local-changes" class="section level4" number="3.4.0.3">
+<h4><span class="header-section-number">3.4.0.3</span> Make local changes</h4>
+<p>Navigate to the folder of your repository and open the README file. Make an edit, such as <em>This is a line I’m adding offline to my local copy</em>. Save the file and close it.</p>
+</div>
+<div id="push-the-local-changes-to-github" class="section level4" number="3.4.0.4">
+<h4><span class="header-section-number">3.4.0.4</span> Push the local changes to GitHub</h4>
+<p>Go to your terminal and type the following command(s):</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="3-4-final-test.html#cb12-1"></a>git add .</span></code></pre></div>
+<p>This adds all changed files to a ‘staging area’.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="3-4-final-test.html#cb13-1"></a>git commit <span class="op">-</span>m <span class="st">&quot;insert-understandable-message-here&quot;</span></span></code></pre></div>
+<p>Now you’re officially ‘committing’ the changes you made. You want to add a understandable commit message so you have a clear record of your changes.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="3-4-final-test.html#cb14-1"></a>git push</span></code></pre></div>
+<p>With this command, you push the local changes and commit message to your repository online.</p>
+<p>This is where errors can pop up if the SSH set-up didn’t go as smoothly as expected. Troubleshoot the error messages the best you can!</p>
+<p>If everything went smoothly, you can refresh the webpage with GitHub repository and you should see that your changes have been synced.</p>
+</div>
+<div id="make-changes-online" class="section level4" number="3.4.0.5">
+<h4><span class="header-section-number">3.4.0.5</span> Make changes online</h4>
+<p>Now we want to go the other way around, open your README file on GitHub and make an edit online. You can do this by:</p>
+<ul>
+<li><p>Clicking on the README file and the pencil icon to open edit mode.</p></li>
+<li><p>Add a sentence to your README like <em>This is a line I’m adding from GitHub.com</em>.</p></li>
+<li><p>When saving, you’ll have to provide a meaningful commit message again.</p></li>
+</ul>
+</div>
+<div id="pull-from-github" class="section level4" number="3.4.0.6">
+<h4><span class="header-section-number">3.4.0.6</span> Pull from GitHub</h4>
+<p>Now go to your terminal and type the following command:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="3-4-final-test.html#cb15-1"></a>git pull</span></code></pre></div>
+<p>If all goes well, you’ll see some activity in the terminal which suggests the changes are being downloaded. You can then check out your README file and see whether your online change has been synced.</p>
+</div>
+<div id="wrap-up" class="section level4" number="3.4.0.7">
+<h4><span class="header-section-number">3.4.0.7</span> Wrap-Up</h4>
+<p>Did it work? You did it! You pushed and pulled from GitHub successfully, woohoo!</p>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="2-acknowledgements.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-3-git.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
