@@ -9,3 +9,7 @@
 4. [Pro GIT](https://www.git-scm.com/book/en/v2)
 
 5. [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)
+
+6. [Happy Git with R](https://happygitwithr.com/)
+
+7. [NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git](https://bvreede.github.io/presentations/presentations/2021-05-18_Git-intro-escience.html#1)

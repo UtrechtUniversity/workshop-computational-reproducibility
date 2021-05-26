@@ -150,6 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.2" data-path="3-3-git.html"><a href="3-3-git.html#install-git"><i class="fa fa-check"></i><b>3.3.2</b> Install Git</a></li>
 <li class="chapter" data-level="3.3.3" data-path="3-3-git.html"><a href="3-3-git.html#git-config"><i class="fa fa-check"></i><b>3.3.3</b> <code>git config</code></a></li>
 <li class="chapter" data-level="3.3.4" data-path="3-3-git.html"><a href="3-3-git.html#set-up-ssh-keys"><i class="fa fa-check"></i><b>3.3.4</b> Set up SSH keys</a></li>
+<li class="chapter" data-level="3.3.5" data-path="3-3-git.html"><a href="3-3-git.html#if-ssh-fails-https"><i class="fa fa-check"></i><b>3.3.5</b> If SSH fails, HTTPS!</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="3-4-final-test.html"><a href="3-4-final-test.html"><i class="fa fa-check"></i><b>3.4</b> Final Test!</a></li>
 </ul></li>
@@ -310,6 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add public key to your GitHub/GitLab/BitBucket account.</li>
 <li>Test your SSH connection.</li>
 </ol>
+<p>These instructions are borrowed heavily from <a href="https://happygitwithr.com/">Happy Git with R</a>, GitHub’s user guides, and <a href="https://bvreede.github.io/presentations/presentations/2021-05-18_Git-intro-escience.html#1">NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git</a>.</p>
 <div id="check-for-existing-ssh-keys." class="section level4" number="3.3.4.1">
 <h4><span class="header-section-number">3.3.4.1</span> Check for existing SSH keys.</h4>
 <p>Go to your terminal and type the following command to list existing SSH keys:</p>
@@ -356,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="add-private-key-to-the-ssh-agent" class="section level4" number="3.3.4.3">
 <h4><span class="header-section-number">3.3.4.3</span> Add private key to the ssh-agent</h4>
 <p>While the actions are similar, the specific commands for this step vary between operating systems. Therefore, we’ll link you to the relevant GitHub guide for this step: <a href="https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">Generating a new SSH key and adding it to the ssh-agent</a></p>
-<p>Make sure you’re following the instructions for the right operating system and then skip the sub-section on <em>Adding your SSH key to the ssh-agent</em>.</p>
+<p>Make sure you’re following the instructions for the right operating system and then jump to the sub-section on <em>Adding your SSH key to the ssh-agent</em>.</p>
 <p>Effectively, what this step does is to ‘activate’ your private key.</p>
 </div>
 <div id="add-public-key-to-your-githubgitlabbitbucket-account" class="section level4" number="3.3.4.4">
@@ -378,10 +380,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="3-3-git.html#cb10-1"></a><span class="op">&gt;</span><span class="st"> </span>Hi username<span class="op">!</span><span class="st"> </span>You<span class="st">&#39;ve successfully authenticated, but GitHub does not provide shell access.</span></span></code></pre></div>
 <p>Make sure it’s your username that terminal returns!</p>
 </div>
-<div id="troubleshooting-https" class="section level4" number="3.3.4.6">
-<h4><span class="header-section-number">3.3.4.6</span> Troubleshooting &amp; HTTPS</h4>
-<p>“Error: Permission denied (publickey)”</p>
-<p>Toggle between SSH &amp; HTTPS</p>
+<div id="troubleshooting" class="section level4" number="3.3.4.6">
+<h4><span class="header-section-number">3.3.4.6</span> Troubleshooting</h4>
+<p>GitHub has a whole page on <a href="https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh">Troubleshooting SSH</a>. If you run into issues, you should double-check if your errors are covered here.</p>
+<p>We have collected some commonly seen errors:</p>
+<ul>
+<li><p><strong>You have made the key pair and copied the public key to GitHub, but SSH will not connect.</strong>
+Are you sure that you <a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">turned on the agent</a>?</p></li>
+<li><p>You recieve an error message like <a href="https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">“Error: Permission denied (publickey)”</a>. Follow the link to GitHub guide on this issue.</p></li>
+<li><p>Did you add the public key to GitHub?</p></li>
+<li><p>Toggle between SSH &amp; HTTPS</p></li>
+<li><p>Did you configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?</p></li>
+<li><p><strong>You can run commands like <code>ssh-keygen</code> or <code>eval</code>, but they do not return any information, not even an error message.</strong>
+If you are on Windows and have have Citrix workspace installed, there is a known bug where Citrix interferes with the SSH key generation process.</p>
+<ul>
+<li>Uninstall Citrix workspace</li>
+<li>Restart your computer</li>
+<li>Restart the SSH key generation tutorial.</li>
+<li>If, after setting up SSH key pairs, you want to reinstall Citrix, be sure to do so via the Microsoft store.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="if-ssh-fails-https" class="section level3" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> If SSH fails, HTTPS!</h3>
+<p>If you find yourself despairing over the SSH key setup, don’t worry! HTTPS is a sufficient back-up!</p>
+<p>You will need to create a <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Personal Access Token from Github</a> to identify yourself over the HTTPS protocol:</p>
+<ul>
+<li><p>Click on your profile icon (top right side of your screen)</p></li>
+<li><p>Go to <em>Settings</em> -&gt; <em>Developer Settings</em> -&gt; <em>Personal Access Tokens</em></p></li>
+<li><p>Create a new token, and select the ‘repo’ scope for its access.</p></li>
+<li><p>Copy the token and use it when Git asks for a password when connecting to Github.</p></li>
+</ul>
+<p>See the <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Github website for more info</a>.</p>
+<div id="troubleshooting-personal-access-tokens" class="section level4" number="3.3.5.1">
+<h4><span class="header-section-number">3.3.5.1</span> Troubleshooting Personal Access Tokens</h4>
+<p>You can only view a Personal Access Token once, and they are impossible to type. However, you can store it in your system so it can be used to authenticate you without your having to re-enter it.</p>
+<ul>
+<li><p>If you are on Windows, go to the terminal and type <code>git config --global credential.helper wincred</code></p></li>
+<li><p>If you are on a different system, and git does not cache your credentials automatically, <a href="https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git">here is a Github tutorial to fix that</a>.</p></li>
+</ul>
 </div>
 </div>
 </div>

@@ -84,6 +84,8 @@ There are number of steps involved in this setup, but we're going to summarize i
 4. Add public key to your GitHub/GitLab/BitBucket account.
 5. Test your SSH connection.
 
+These instructions are borrowed heavily from [Happy Git with R](https://happygitwithr.com/), GitHub's user guides, and [NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git](https://bvreede.github.io/presentations/presentations/2021-05-18_Git-intro-escience.html#1).
+
 #### Check for existing SSH keys.
 
 Go to your terminal and type the following command to list existing SSH keys:
@@ -152,7 +154,7 @@ The key's randomart image is:
 
 While the actions are similar, the specific commands for this step vary between operating systems. Therefore, we'll link you to the relevant GitHub guide for this step: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
 
-Make sure you're following the instructions for the right operating system and then skip the sub-section on _Adding your SSH key to the ssh-agent_.
+Make sure you're following the instructions for the right operating system and then jump to the sub-section on _Adding your SSH key to the ssh-agent_.
 
 Effectively, what this step does is to 'activate' your private key.
 
@@ -186,15 +188,57 @@ If all goes well, you'll see something like the following:
 
 Make sure it's your username that terminal returns!
 
-#### Troubleshooting & HTTPS
+#### Troubleshooting 
 
-"Error: Permission denied (publickey)"
+GitHub has a whole page on [Troubleshooting SSH](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh). If you run into issues, you should double-check if your errors are covered here. 
 
-Toggle between SSH & HTTPS 
+We have collected some commonly seen errors:
+
+* **You have made the key pair and copied the public key to GitHub, but SSH will not connect.**
+  Are you sure that you [turned on the agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)?
+  
+* You recieve an error message like ["Error: Permission denied (publickey)"](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey). Follow the link to GitHub guide on this issue.
+
+* Did you add the public key to GitHub?
+
+* Toggle between SSH & HTTPS 
+
+* Did you configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?
+
+* **You can run commands like `ssh-keygen` or `eval`, but they do not return any information, not even an error message.**
+  If you are on Windows and have have Citrix workspace installed, there is a known bug where Citrix interferes with the SSH key generation process.
+  - Uninstall Citrix workspace
+  - Restart your computer
+  - Restart the SSH key generation tutorial.
+  - If, after setting up SSH key pairs, you want to reinstall Citrix, be sure to do so via the Microsoft store.
+
+### If SSH fails, HTTPS!
+
+If you find yourself despairing over the SSH key setup, don't worry! HTTPS is a sufficient back-up!
+
+You will need to create a [Personal Access Token from Github](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to identify yourself over the HTTPS protocol:
+
+* Click on your profile icon (top right side of your screen)
+
+* Go to _Settings_ -> _Developer Settings_ -> _Personal Access Tokens_
+
+* Create a new token, and select the ‘repo’ scope for its access.
+
+* Copy the token and use it when Git asks for a password when connecting to Github.
+
+See the [Github website for more info](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+
+#### Troubleshooting Personal Access Tokens
+
+You can only view a Personal Access Token once, and they are impossible to type. However, you can store it in your system so it can be used to authenticate you without your having to re-enter it.
+
+* If you are on Windows, go to the terminal and type `git config --global credential.helper wincred`
+
+* If you are on a different system, and git does not cache your credentials automatically, [here is a Github tutorial to fix that](https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git).
 
 ## Final Test!
 
-If you've set up your SSH keys alright, we can try going ahead and seeing whether you can _push_ and _pull_ from GitHub successfully.
+If you've set up your SSH keys alright, we can try going ahead and seeing whether you can _push_ and _pull_ from GitHub successfully. If you're going the HTTPS route due to issues, no worries! Just make sure your switch out the SSH clone URL for the HTTPS clone URL. 
 
 This is something we'll do during the workshop as well, but trying it out beforehand reduces chances of errors while the course is ongoing. 
 
@@ -234,7 +278,7 @@ The sequence of steps is as follows:
 
 #### Clone the test repository 
 
-Go to your terminal and type the following command, substiting the SSH clone URL you copied in the previous step after `git clone`:
+Go to your terminal and type the following command, substituting the SSH clone URL you copied in the previous step after `git clone`:
 
 ```{r eval=FALSE}
 git clone git@github.com:username/testrepo.git

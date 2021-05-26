@@ -13,7 +13,9 @@ generate-new-ssh-keys
 add-private-key-to-the-ssh-agent
 add-public-key-to-your-githubgitlabbitbucket-account
 test-your-ssh-connection
-troubleshooting-https
+troubleshooting
+if-ssh-fails-https
+troubleshooting-personal-access-tokens
 final-test
 create-a-test-repository-on-github
 clone-the-test-repository

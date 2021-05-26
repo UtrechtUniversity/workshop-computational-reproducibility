@@ -150,6 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.2" data-path="3-3-git.html"><a href="3-3-git.html#install-git"><i class="fa fa-check"></i><b>3.3.2</b> Install Git</a></li>
 <li class="chapter" data-level="3.3.3" data-path="3-3-git.html"><a href="3-3-git.html#git-config"><i class="fa fa-check"></i><b>3.3.3</b> <code>git config</code></a></li>
 <li class="chapter" data-level="3.3.4" data-path="3-3-git.html"><a href="3-3-git.html#set-up-ssh-keys"><i class="fa fa-check"></i><b>3.3.4</b> Set up SSH keys</a></li>
+<li class="chapter" data-level="3.3.5" data-path="3-3-git.html"><a href="3-3-git.html#if-ssh-fails-https"><i class="fa fa-check"></i><b>3.3.5</b> If SSH fails, HTTPS!</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="3-4-final-test.html"><a href="3-4-final-test.html"><i class="fa fa-check"></i><b>3.4</b> Final Test!</a></li>
 </ul></li>
@@ -267,7 +268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="final-test" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Final Test!</h2>
-<p>If you’ve set up your SSH keys alright, we can try going ahead and seeing whether you can <em>push</em> and <em>pull</em> from GitHub successfully.</p>
+<p>If you’ve set up your SSH keys alright, we can try going ahead and seeing whether you can <em>push</em> and <em>pull</em> from GitHub successfully. If you’re going the HTTPS route due to issues, no worries! Just make sure your switch out the SSH clone URL for the HTTPS clone URL.</p>
 <p>This is something we’ll do during the workshop as well, but trying it out beforehand reduces chances of errors while the course is ongoing.</p>
 <p>The sequence of steps is as follows:</p>
 <ol style="list-style-type: decimal">
@@ -294,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="clone-the-test-repository" class="section level4" number="3.4.0.2">
 <h4><span class="header-section-number">3.4.0.2</span> Clone the test repository</h4>
-<p>Go to your terminal and type the following command, substiting the SSH clone URL you copied in the previous step after <code>git clone</code>:</p>
+<p>Go to your terminal and type the following command, substituting the SSH clone URL you copied in the previous step after <code>git clone</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="3-4-final-test.html#cb11-1"></a>git clone git<span class="op">@</span>github.com<span class="op">:</span>username<span class="op">/</span>testrepo.git</span></code></pre></div>
 <p>This should create a local copy of your repository as a folder with files contained within.</p>
 </div>

@@ -1,6 +1,6 @@
 # Introduction
 
-```{r}
+```{r echo=FALSE}
 knitr::include_url("../slides/slides_introduction.html")
 ```
 
