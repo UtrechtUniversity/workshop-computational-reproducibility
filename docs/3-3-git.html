@@ -388,9 +388,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>You have made the key pair and copied the public key to GitHub, but SSH will not connect.</strong>
 Are you sure that you <a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">turned on the agent</a>?</p></li>
 <li><p>You recieve an error message like <a href="https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey">“Error: Permission denied (publickey)”</a>. Follow the link to GitHub guide on this issue.</p></li>
-<li><p>Did you add the public key to GitHub?</p></li>
-<li><p>Toggle between SSH &amp; HTTPS</p></li>
-<li><p>Did you configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?</p></li>
+<li><p>Did you remember to add the public key to GitHub?</p></li>
+<li><p><strong>Did you set up SSH keys, but connect to your GitHub using HTTPS?</strong></p>
+<p>You can check your remote URL by going to terminal and typing:</p></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="3-3-git.html#cb11-1"></a>git remote <span class="op">-</span>v</span></code></pre></div>
+<p>An SSH remote should like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="3-3-git.html#cb12-1"></a>git<span class="op">@</span>github.com<span class="op">:</span>USERNAME<span class="op">/</span>REPOSITORY.git</span></code></pre></div>
+<p>Whereas a HTTPS remote will look this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="3-3-git.html#cb13-1"></a>https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>USERNAME<span class="op">/</span>REPOSITORY.git</span></code></pre></div>
+<p>You can switch between the SSH &amp; HTTPS remotes for your repo using the following command: <code>git remote set-url</code>
+See GitHub’s user guide on <a href="https://docs.github.com/en/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url">Changing a remote repository’s URL</a></p>
+<ul>
+<li><p>Did you remember to configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?</p></li>
 <li><p><strong>You can run commands like <code>ssh-keygen</code> or <code>eval</code>, but they do not return any information, not even an error message.</strong>
 If you are on Windows and have have Citrix workspace installed, there is a known bug where Citrix interferes with the SSH key generation process.</p>
 <ul>

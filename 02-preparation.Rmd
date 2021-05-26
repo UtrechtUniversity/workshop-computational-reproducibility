@@ -199,11 +199,32 @@ We have collected some commonly seen errors:
   
 * You recieve an error message like ["Error: Permission denied (publickey)"](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey). Follow the link to GitHub guide on this issue.
 
-* Did you add the public key to GitHub?
+* Did you remember to add the public key to GitHub?
 
-* Toggle between SSH & HTTPS 
+* **Did you set up SSH keys, but connect to your GitHub using HTTPS?**
 
-* Did you configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?
+  You can check your remote URL by going to terminal and typing:
+  
+```{r eval=FALSE}
+git remote -v
+```
+  
+  An SSH remote should like this:
+
+```{r eval=FALSE}
+git@github.com:USERNAME/REPOSITORY.git
+```
+
+  Whereas a HTTPS remote will look this:
+
+```{r eval=FALSE}
+https://github.com/USERNAME/REPOSITORY.git
+```
+
+  You can switch between the SSH & HTTPS remotes for your repo using the following command: `git remote set-url`
+  See GitHub's user guide on [Changing a remote repository's URL](https://docs.github.com/en/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url)
+
+* Did you remember to configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?
 
 * **You can run commands like `ssh-keygen` or `eval`, but they do not return any information, not even an error message.**
   If you are on Windows and have have Citrix workspace installed, there is a known bug where Citrix interferes with the SSH key generation process.
