@@ -35,11 +35,9 @@ knitr::include_url("../slides/slides_project-setup.html#3")
 
 _NB: You can check the slides for more detail._
 
-* Use cookiecutter to install a project structure in your system, following the video or [these slides](../slides/slides_project-setup.html#4).
+* The video and [slides](../slides/slides_project-setup.html#4) ask you to use a tool called cookiecutter to install a project structure in your system. However, we're going to skip that and go straight to the 'backup' instructions! It will be more efficient for us during the online version of the course.
 
-* If you have trouble with cookiecutter: use the instructions [on this slide](../slides/slides_project-setup.html#6) instead
-
-* Take a look at the folder and files within it, to see where your answers to cookiecutter ended up!
+* Use the instructions [on this slide](../slides/slides_project-setup.html#6) to clone a template repository of a project folder structure to your computer. Remember to also follow the instructions on removing the .git folder that is downloaded.
 
 * Place your project files in the right folder.
 
