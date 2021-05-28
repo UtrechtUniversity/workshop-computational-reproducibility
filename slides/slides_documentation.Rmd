@@ -122,6 +122,7 @@ In R you will need a separate package to deal with docstrings:
 ```r
 library(docstring)
 
+multiply <- function(x,y){
 #' @title Multiply two numbers
 #' @description This function takes two 
 #' input numbers and multiplies
@@ -129,7 +130,7 @@ library(docstring)
 #' @param x The first value
 #' @param y The second value
 #' @return The two arguments multiplied.
-multiply <- function(x,y){
+
   return(x*y)
 }
 
