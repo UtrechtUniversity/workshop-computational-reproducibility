@@ -36,6 +36,7 @@ vembedr::embed_url("https://vimeo.com/463572640")
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_code-quality.html#3")
 ```
+[Slides](../slides/slides_code-quality.html#3)
 
 ### Exercise
 
@@ -62,6 +63,7 @@ vembedr::embed_url("https://vimeo.com/463647105")
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_code-quality.html#12")
 ```
+[Slides](../slides/slides_code-quality.html#12)
 
 ### Exercise
 
@@ -88,6 +90,7 @@ vembedr::embed_url("https://vimeo.com/463647105")
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_code-quality.html#21")
 ```
+[Slides](../slides/slides_code-quality.html#21)
 
 ### Exercise
 
