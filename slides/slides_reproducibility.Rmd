@@ -118,5 +118,4 @@ We hope that everyone's repository will get a reproduction-attempt, so only add 
 --
 
 #### As you reproduce, please give your colleague feedback!
-
-Fill out the form at [tinyurl.com/repco-feedback](https://docs.google.com/forms/d/e/1FAIpQLSfH4mGicAAvDipysWM9AfcH0sQdd9L202atRLlQsXRGUJ3QAA/viewform)
+Open an issue in your colleague's GitHub repository and copy/paste this [feedback template](../feedback-on-reproducing-projects.txt)
