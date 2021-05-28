@@ -25,7 +25,7 @@ vembedr::embed_url("https://vimeo.com/464028630")
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_reproducibility.html#3")
 ```
-
+[Slides](../slides/slides_reproducibility.html#3)
 
 ### Exercise
 Address dependencies and language versions in your README.
@@ -84,6 +84,8 @@ vembedr::embed_url("https://vimeo.com/463947879")
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_reproducibility.html#7")
 ```
+
+[Slides](../slides/slides_reproducibility.html#7)
 
 ### Exercise (optional)
 
