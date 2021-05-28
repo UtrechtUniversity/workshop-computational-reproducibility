@@ -6,11 +6,11 @@ Hint: you can place an X within the square brackets to mark off a checkbox, like
 
 ---
 
-1. What project did you reproduce (include the link)?
+**1. What project did you reproduce (include the link)?**
 
-- 
+-> 
 
-2. Does the project have the following on it's GitHub repository?
+**2. Does the project have the following on it's GitHub repository?**
 
 - [ ] README
 - [ ] A license
@@ -18,45 +18,45 @@ Hint: you can place an X within the square brackets to mark off a checkbox, like
 - [ ] Requirements for running the code (dependencies)
 - [ ] An understandable folder structure
 
-3. What did you appreciate about the project's repository?
+**3. What did you appreciate about the project's repository?**
 
--
+->
 
-4. Do you have any suggestions for improvement to the repository?
+**4. Do you have any suggestions for improvement to the repository?**
 
--
+->
 
-5. Did you manage to run the project successfully?
+**5. Did you manage to run the project successfully?**
 
 - [ ] Yes
 - [ ] Largely
 - [ ] No
 - [ ] Other (please specify):
 
-6. Where did you have to give up reproducing this repository (if applicable)?
+**6. Where did you have to give up reproducing this repository (if applicable)?**
 
--
+->
 
-7. Did you have to go into the code?
+**7. Did you have to go into the code?**
 
 - [ ] Yes
 - [ ] No
 - [ ] I didn't have to, but I had time left/was intrigued, so I did it anyway!
 
-8. If you looked at the code: what did you like?
+**8. If you looked at the code: what did you like?**
 
--
+->
 
-9. If you looked at the code, what would be a single line of advice you want to pass on to it's author?
+**9. If you looked at the code, what would be a single line of advice you want to pass on to it's author?**
 
--
+->
 
-10. Any final comments to the author?
+**10. Any final comments to the author?**
 
--
+->
 
-11. Do you think the class will benefit from a live demo of the reproduction of this project? Why/what can we learn?
+**11. Do you think the class will benefit from a live demo of the reproduction of this project? Why/what can we learn?**
 
--
+->
 
  
