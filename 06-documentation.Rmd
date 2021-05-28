@@ -25,6 +25,7 @@ vembedr::embed_url("https://vimeo.com/463992354")
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_documentation.html#4")
 ```
+[Slides](../slides/slides_documentation.html#4)
 
 ### Exercise
 
@@ -52,8 +53,9 @@ vembedr::embed_url("https://vimeo.com/464027978")
 
 ```{r echo=FALSE}
 knitr::include_url("../slides/slides_documentation.html#16")
-```
 
+```
+[Slides](../slides/slides_documentation.html#16)
 
 ### Exercise
 
