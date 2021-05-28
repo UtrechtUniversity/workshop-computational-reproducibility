@@ -103,13 +103,15 @@ __The Sandbox DOI will not work like a normal one does!__
 
 #### Let's exchange projects!
 
-Please go to [tinyurl.com/repco-share](https://docs.google.com/spreadsheets/d/1FlQnSj8ipbUNhZgr_nS1PHnaapL8SvamWcfPjKTaBhA/edit#gid=0), and fill out:
+Please go to the second tab in the status chart [tinyurl.com/repcochart](https://docs.google.com/spreadsheets/d/1J3SfR2C0cghVjUPGCjk9UXZzipB3c7HL5Z1iicK8adc/edit#gid=600881461), and fill out:
 - your project name
 - your project (github) URL
 - your name
 - the language in which the project was written
 
 in the yellow columns.
+
+NB this information will be deleted right after the course
 --
 
 #### Now, write your name in one of the blue columns behind a project you will reproduce.
