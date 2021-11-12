@@ -60,7 +60,8 @@ We have [more details on this page](preparations).
 1. [Project setup and version control](slides/slides_project-setup.html)
 1. [Code quality](slides/slides_code-quality.html)
 1. [Project documentation](slides/slides_documentation.html)
-1. [Accessibility & Reproducibility](slides/slides_reproducibility.html)
+2. [Accessibility & Reproducibility: Dependency Management](slides/slides_environment.html)
+3. [Accessibility & Reproducibility: Archiving](slides/slides_reproducibility.html)
 
 
 ### Exercises
