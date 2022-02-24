@@ -14,6 +14,17 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+
+```{r share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
+
+```{r style-share-again, echo=FALSE}
+xaringanExtra::style_share_again(
+  share_buttons = c("twitter", "linkedin")
+)
+```
+
 # Research compendium
 
 > A research compendium is a collection of *all digital parts of a research project* including data, code, texts (...). The collection is created in such a way that reproducing all results is straightforward.

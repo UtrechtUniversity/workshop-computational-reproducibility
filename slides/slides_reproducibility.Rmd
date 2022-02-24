@@ -14,6 +14,17 @@ output:
 options(htmltools.dir.version = FALSE)
 ```
 
+
+```{r share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
+
+```{r style-share-again, echo=FALSE}
+xaringanExtra::style_share_again(
+  share_buttons = c("twitter", "linkedin")
+)
+```
+
 # Let's think about the future...
 
 --

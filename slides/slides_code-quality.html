@@ -4,9 +4,15 @@
     <title>Code Quality</title>
     <meta charset="utf-8" />
     <meta name="author" content="Best Practices for Writing Reproducible Code // part 2" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
@@ -20,6 +26,18 @@ class: center, middle, inverse, title-slide
 
 
 
+
+
+
+
+<style>.shareagain-bar {
+--shareagain-foreground: rgb(255, 255, 255);
+--shareagain-background: rgba(0, 0, 0, 0.5);
+--shareagain-facebook: none;
+--shareagain-pinterest: none;
+--shareagain-pocket: none;
+--shareagain-reddit: none;
+}</style>
 
 # Aspects of good quality code
 
@@ -335,10 +353,6 @@ read_vector_value(index=6)
 
 ```
 ## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index higher than vector length.
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 1, in &lt;module&gt;
-##   File "&lt;string&gt;", line 3, in read_vector_value
 ```
 --
 #### Why not simply adjust the function output?
@@ -389,7 +403,8 @@ print(read_vector_value(index=6))
 ```
 
 ```
-## Warning in read_vector_value(index = 6): Index higher than vector length.
+## Warning in read_vector_value(index = 6): Index higher than
+## vector length.
 ```
 
 ```
@@ -424,10 +439,6 @@ except ArithmeticError:
 
 ```
 ## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: Index higher than vector length.
-## 
-## Detailed traceback: 
-##   File "&lt;string&gt;", line 2, in &lt;module&gt;
-##   File "&lt;string&gt;", line 3, in read_vector_value
 ```
 ]
 
@@ -564,7 +575,7 @@ unittest.main(argv=['trick to make it work in a notebook'], exit=False)
 ```
 
 ```
-## &lt;unittest.main.TestProgram object at 0x7f9cf5b06710&gt;
+## &lt;unittest.main.TestProgram object at 0x0000018EF1D00A30&gt;
 ## 
 ## ..
 ## ----------------------------------------------------------------------
@@ -594,7 +605,7 @@ class TestStringMethods(unittest.TestCase):
 
 
 ```
-## &lt;unittest.main.TestProgram object at 0x7f9cf5af14a8&gt;
+## &lt;unittest.main.TestProgram object at 0x0000018EF1C8FA60&gt;
 ## 
 ## ..F
 ## ======================================================================
@@ -605,7 +616,7 @@ class TestStringMethods(unittest.TestCase):
 ## AssertionError: 10 != 11
 ## 
 ## ----------------------------------------------------------------------
-## Ran 3 tests in 0.001s
+## Ran 3 tests in 0.000s
 ## 
 ## FAILED (failures=1)
 ```

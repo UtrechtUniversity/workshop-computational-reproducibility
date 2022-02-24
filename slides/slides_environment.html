@@ -4,9 +4,15 @@
     <title>Dependency management</title>
     <meta charset="utf-8" />
     <meta name="author" content="Best Practices for Writing Reproducible Code // part 4" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
   </head>
   <body>
@@ -19,6 +25,18 @@ class: center, middle, inverse, title-slide
 ---
 
 
+
+
+
+
+<style>.shareagain-bar {
+--shareagain-foreground: rgb(255, 255, 255);
+--shareagain-background: rgba(0, 0, 0, 0.5);
+--shareagain-facebook: none;
+--shareagain-pinterest: none;
+--shareagain-pocket: none;
+--shareagain-reddit: none;
+}</style>
 
 # Congratulations!
 
@@ -188,6 +206,8 @@ renv::restore()
    git commit -m "the change you made"
    git push
    ```
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
