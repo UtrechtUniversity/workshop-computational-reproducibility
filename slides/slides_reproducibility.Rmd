@@ -56,12 +56,13 @@ Zenodo and Github have a pipeline that makes your life easier! (_Check the full 
 # Select your repository
 
 
-![toggle](https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
+![toggle](https://web.archive.org/web/20211021121037if_/https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
+
 ---
 # Release your project!
 
 
-![release](https://guides.github.com/activities/citable-code/repo-view.png)
+![release](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/repo-view.png)
 
 ... and follow the workflow!
 
@@ -84,7 +85,7 @@ A version has three numbers: MAJOR.MINOR.PATCH
 
 Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 
-![citable-upload](https://guides.github.com/activities/citable-code/upload-tab.png)
+![citable-upload](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/upload-tab.png)
 ---
 # Getting your DOI
 
@@ -92,7 +93,7 @@ Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 - Click 'publish'
 - Voilá!
 
-![zenodo-upload](https://guides.github.com/activities/citable-code/zenodo-form.png)
+![zenodo-upload](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/zenodo-form.png)
 ---
 # Getting your DOI
 
