@@ -45,7 +45,7 @@ Zenodo has a sandbox environment!
 - Only do this following exercise if you are OK with your code staying online!
 - You will not be able to do this with a private repository.
 
-Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://guides.github.com/activities/citable-code/)._)
+Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo)._)
 
 #### Your turn:
 - Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
