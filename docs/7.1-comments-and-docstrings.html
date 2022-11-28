@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Code Quality | Best Practices in Writing Reproducible Code</title>
-  <meta name="description" content="6 Code Quality | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <title>7.1 Comments and docstrings | Best Practices in Writing Reproducible Code</title>
+  <meta name="description" content="7.1 Comments and docstrings | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Code Quality | Best Practices in Writing Reproducible Code" />
+  <meta property="og:title" content="7.1 Comments and docstrings | Best Practices in Writing Reproducible Code" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="6 Code Quality | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="7.1 Comments and docstrings | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Code Quality | Best Practices in Writing Reproducible Code" />
+  <meta name="twitter:title" content="7.1 Comments and docstrings | Best Practices in Writing Reproducible Code" />
   
-  <meta name="twitter:description" content="6 Code Quality | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="7.1 Comments and docstrings | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
 <meta name="author" content="RDM Support, Utrecht University" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="5.3-publication-licensing.html"/>
-<link rel="next" href="6.1-readability.html"/>
+<link rel="prev" href="7-documentation.html"/>
+<link rel="next" href="7.2-the-readme-page.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,33 +265,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="code-quality" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Code Quality<a href="6-code-quality.html#code-quality" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Let’s start making our code readable and reusable!</p>
-<p>This section covers the following topics:</p>
+<div id="comments-and-docstrings" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Comments and docstrings<a href="7.1-comments-and-docstrings.html#comments-and-docstrings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="video-6" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Video<a href="7.1-comments-and-docstrings.html#video-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/463992354" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+<div id="slides-7" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Slides<a href="7.1-comments-and-docstrings.html#slides-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<iframe src="../slides/slides_documentation.html#4" width="672" height="400px" data-external="1">
+</iframe>
+<p><a href="../slides/slides_documentation.html#4">Slides</a></p>
+</div>
+<div id="exercise-5" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Exercise<a href="7.1-comments-and-docstrings.html#exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>code readability</p></li>
-<li><p>reusable code</p></li>
-<li><p>defensive programming</p></li>
+<li><p>Add a docstring to a function, preferably the last function you worked on (so it’s fresh in your memory).
+<em>Keep in mind: what does my user need to know when they are working with this function?</em></p></li>
+<li><p>Grab a limited chunk of code to work on, and look at the existing comments.
+Can you replace a ‘how’ comment with a ‘why’ comment?
+<em>Think: what is the purpose of this code? Rather than: this is how this code works.</em></p></li>
+<li><p>Are there elements in your chunk that are currently without comments that would benefit from clarification?
+<em>Try to comment on the thought behind the code rather than simply translating its process in English.</em></p></li>
+<li><p>Can you delete superfluous comments or zombie code?</p></li>
 </ul>
-<p>Like the previous chapter, we have 3 short videos and accompanying exercises.
-Watch the video, then apply the exercises to your own project.
-<strong>Note:</strong> these exercises get you to work on your code in detail.
-Depending on how many issues you discover, it may take some time to refactor your code.
-Today, focus on identifying issues, and mark them with #TODO or equivalent, so you can find them later.
-<strong>We recommend spending a maximum of 20 minutes on each exercise.</strong>
-However, if you have time, do get started with refactoring your code!
-While code refactoring can be a time consuming exercise, it is also a great way to learn from your past mistakes, up your coding game, and significantly improve your code at the same time.</p>
-<p><em>Tip! Use #TODO or //TODO (depending on your comment marker) to easily find your tasks later on. Many IDEs extract these into a task list!</em></p>
-<p>The slides are linked below for reference, and be sure to ask for help when you need it!</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="5.3-publication-licensing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="6.1-readability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="7-documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="7.2-the-readme-page.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

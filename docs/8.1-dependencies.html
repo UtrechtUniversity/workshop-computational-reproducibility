@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Code Quality | Best Practices in Writing Reproducible Code</title>
-  <meta name="description" content="6 Code Quality | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <title>8.1 Dependencies | Best Practices in Writing Reproducible Code</title>
+  <meta name="description" content="8.1 Dependencies | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Code Quality | Best Practices in Writing Reproducible Code" />
+  <meta property="og:title" content="8.1 Dependencies | Best Practices in Writing Reproducible Code" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="6 Code Quality | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="8.1 Dependencies | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Code Quality | Best Practices in Writing Reproducible Code" />
+  <meta name="twitter:title" content="8.1 Dependencies | Best Practices in Writing Reproducible Code" />
   
-  <meta name="twitter:description" content="6 Code Quality | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="8.1 Dependencies | Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook." />
   
 
 <meta name="author" content="RDM Support, Utrecht University" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="5.3-publication-licensing.html"/>
-<link rel="next" href="6.1-readability.html"/>
+<link rel="prev" href="8-accessibility-reproducibility.html"/>
+<link rel="next" href="8.2-binder.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -265,33 +265,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="code-quality" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Code Quality<a href="6-code-quality.html#code-quality" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Let’s start making our code readable and reusable!</p>
-<p>This section covers the following topics:</p>
+<div id="dependencies" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Dependencies<a href="8.1-dependencies.html#dependencies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="video-8" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Video<a href="8.1-dependencies.html#video-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/464028630" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+<div id="slides-9" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Slides<a href="8.1-dependencies.html#slides-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<iframe src="../slides/slides_environment.html#1" width="672" height="400px" data-external="1">
+</iframe>
+<p><a href="../slides/slides_reproducibility.html#1">Slides</a></p>
+</div>
+<div id="exercise-7" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Exercise<a href="8.1-dependencies.html#exercise-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Address dependencies and language versions in your README.</p>
 <ul>
-<li><p>code readability</p></li>
-<li><p>reusable code</p></li>
-<li><p>defensive programming</p></li>
+<li><p>What version of your coding language is required?</p></li>
+<li><p>Which packages does a user need to install before running your project?
+What versions?</p></li>
+<li><p>Can you provide their installation instructions?</p></li>
 </ul>
-<p>Like the previous chapter, we have 3 short videos and accompanying exercises.
-Watch the video, then apply the exercises to your own project.
-<strong>Note:</strong> these exercises get you to work on your code in detail.
-Depending on how many issues you discover, it may take some time to refactor your code.
-Today, focus on identifying issues, and mark them with #TODO or equivalent, so you can find them later.
-<strong>We recommend spending a maximum of 20 minutes on each exercise.</strong>
-However, if you have time, do get started with refactoring your code!
-While code refactoring can be a time consuming exercise, it is also a great way to learn from your past mistakes, up your coding game, and significantly improve your code at the same time.</p>
-<p><em>Tip! Use #TODO or //TODO (depending on your comment marker) to easily find your tasks later on. Many IDEs extract these into a task list!</em></p>
-<p>The slides are linked below for reference, and be sure to ask for help when you need it!</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="5.3-publication-licensing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="6.1-readability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="8-accessibility-reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8.2-binder.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

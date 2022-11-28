@@ -40,6 +40,17 @@ _NB: You can check the slides for more detail._
 
 * Use the instructions [on this slide](../slides/slides_project-setup.html#6) to clone a template repository of a project folder structure to your computer. Remember to also follow the instructions on removing the .git folder that is downloaded.
 
+* R users can also use the following code:
+
+```{r eval=FALSE, echo=TRUE}
+
+# install.packages("usethis")
+
+usethis::use_zip("https://github.com/bvreede/good-enough-project-template/archive/refs/heads/master.zip",
+                 destdir = getwd())
+```
+
+
 * Place your project files in the right folder.
 
 * Adjust paths in your code, and be sure to use relative paths!
