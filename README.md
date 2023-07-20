@@ -2,7 +2,7 @@
 
 _If you are looking at a GitHub README, please note that the slides are best viewed [via GitHub pages](https://utrechtuniversity.github.io/workshop-computational-reproducibility/)._
 
-_A gitbook is under development as well: [check it out](https://utrechtuniversity.github.io/workshop-computational-reproducibility/docs/index.html)!_
+_You can view the workshop book here: [check it out](https://utrechtuniversity.github.io/workshop-computational-reproducibility/docs/index.html)!_
 
 Ensuring your research is reproducible can be a difficult task.
 Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage.
