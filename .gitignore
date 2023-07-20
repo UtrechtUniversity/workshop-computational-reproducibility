@@ -53,3 +53,4 @@ vignettes/*.pdf
 
 # mac specific files
 .DS_Store
+/.quarto/
