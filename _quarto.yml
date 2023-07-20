@@ -1,0 +1,60 @@
+project:
+  type: book
+  output-dir: docs #../docs in Python
+
+book:
+  title: "Best Practices for Writing Reproducible Code"
+  author: "Research Data Management Support<br>Utrecht University"
+  date: last-modified
+  search: true
+  chapters:
+    - index.qmd
+    - "bookfiles/01-acknowledgements.qmd"
+    #- schedule.qmd # Not here yet
+    - part: "Preparation"
+      chapters: 
+        - "bookfiles/02-preparation.qmd"
+    - part: "Course introduction"
+      chapters: 
+        - "bookfiles/03-course-introduction.qmd"
+    - part: "Project management" # to be split into multiple files
+      chapters:
+        - "bookfiles/04-project-management.qmd"
+    - part: "Code quality" # to be split into multiple files
+      chapters:
+        - "bookfiles/05-code-quality.qmd"
+    - part: "Documentation" # to be split into multiple files
+      chapters:
+        - "bookfiles/06-documentation.qmd"
+    - part: "Accessibility & Reproducibility" # to be split into multiple files
+      chapters:
+        - "bookfiles/07-reproducibility.qmd"
+  appendices:
+  - "bookfiles/08-references.qmd"
+  repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility
+  repo-actions: [edit]
+  #sidebar:
+  #  logo: ../images/python-hex-logo.png # not there yet
+
+bibliography: 
+- book.bib # Python: references.bib
+- packages.bib
+
+format:
+  html:
+    theme: cosmo
+
+# OLD from index.Rmd
+#site: bookdown::bookdown_site
+#documentclass: book
+#biblio-style: apalike
+#link-citations: yes
+#description: Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook.
+
+#OLD from bookdown
+#book_filename: "repco"
+#output_dir: "docs"
+#delete_merged_file: true
+#language:
+#  ui:
+#    chapter_name: ""
