@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Research Data Management Support Utrecht University">
-<meta name="dcterms.date" content="2023-07-20">
 
-<title>Best Practices for Writing Reproducible Code</title>
+<title>Best Practices for Writing Reproducible Code - 7&nbsp; Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./bookfiles/01-acknowledgements.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../bookfiles/07-reproducibility.html" rel="next">
+<link href="../bookfiles/05-code-quality.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -61,6 +60,8 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<link href="../site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="../site_libs/fitvids-2.1.1/fitvids.min.js"></script>
 
 
 </head>
@@ -71,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Best Practices for Writing Reproducible Code</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Documentation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -84,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Best Practices for Writing Reproducible Code</a> 
+      <a href="../">Best Practices for Writing Reproducible Code</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
 </div>
@@ -99,12 +100,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/01-acknowledgements.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Acknowledgements</span></a>
+  <a href="../bookfiles/01-acknowledgements.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Acknowledgements</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -117,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/02-preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Preparation</span></a>
+  <a href="../bookfiles/02-preparation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Preparation</span></a>
   </div>
 </li>
       </ul>
@@ -132,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/03-course-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="../bookfiles/03-course-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
       </ul>
@@ -147,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/04-project-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project Management</span></a>
+  <a href="../bookfiles/04-project-management.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Project Management</span></a>
   </div>
 </li>
       </ul>
@@ -162,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/05-code-quality.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Quality</span></a>
+  <a href="../bookfiles/05-code-quality.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Quality</span></a>
   </div>
 </li>
       </ul>
@@ -177,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/06-documentation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Documentation</span></a>
+  <a href="../bookfiles/06-documentation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Documentation</span></a>
   </div>
 </li>
       </ul>
@@ -192,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/07-reproducibility.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accessibility &amp; Reproducibility</span></a>
+  <a href="../bookfiles/07-reproducibility.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accessibility &amp; Reproducibility</span></a>
   </div>
 </li>
       </ul>
@@ -207,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bookfiles/08-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="../bookfiles/08-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">References</span></a>
   </div>
 </li>
       </ul>
@@ -221,35 +222,34 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome"><span class="toc-section-number">1</span>  Welcome!</a></li>
+  <li><a href="#comments-and-docstrings" id="toc-comments-and-docstrings" class="nav-link active" data-scroll-target="#comments-and-docstrings"><span class="toc-section-number">7.1</span>  Comments and docstrings</a>
+  <ul class="collapse">
+  <li><a href="#video" id="toc-video" class="nav-link" data-scroll-target="#video"><span class="toc-section-number">7.1.1</span>  Video</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides"><span class="toc-section-number">7.1.2</span>  Slides</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="toc-section-number">7.1.3</span>  Exercise</a></li>
+  </ul></li>
+  <li><a href="#the-readme-page" id="toc-the-readme-page" class="nav-link" data-scroll-target="#the-readme-page"><span class="toc-section-number">7.2</span>  The README page</a>
+  <ul class="collapse">
+  <li><a href="#video-1" id="toc-video-1" class="nav-link" data-scroll-target="#video-1"><span class="toc-section-number">7.2.1</span>  Video</a></li>
+  <li><a href="#slides-1" id="toc-slides-1" class="nav-link" data-scroll-target="#slides-1"><span class="toc-section-number">7.2.2</span>  Slides</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="toc-section-number">7.2.3</span>  Exercise</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/index.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/bookfiles/06-documentation.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Best Practices for Writing Reproducible Code</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Documentation</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Research Data Management Support<br>Utrecht University </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 20, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -257,12 +257,90 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="welcome" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Welcome!</h1>
-<p>Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.</p>
-<p>Our workshop material is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You can <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md">view the license here</a>.</p>
+<p>Time for some documentation around your code!</p>
+<p>The following topics are covered:</p>
+<ul>
+<li><p>commenting code and functions (docstrings)</p></li>
+<li><p>writing a README file</p></li>
+</ul>
+<p>As usual, we have short videos and accompanying exercises. Watch the video, then apply the exercises to your own project. Use the slides linked above for reference, and be sure to ask for help when you need it!</p>
+<section id="comments-and-docstrings" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="comments-and-docstrings"><span class="header-section-number">7.1</span> Comments and docstrings</h2>
+<section id="video" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="video"><span class="header-section-number">7.1.1</span> Video</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/463992354" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="slides" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="slides"><span class="header-section-number">7.1.2</span> Slides</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
+<iframe src="../slides/slides_documentation.html#4" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+</div>
+<p><a href="../slides/slides_documentation.html#4">Slides</a></p>
+</section>
+<section id="exercise" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="exercise"><span class="header-section-number">7.1.3</span> Exercise</h3>
+<ul>
+<li><p>Add a docstring to a function, preferably the last function you worked on (so it’s fresh in your memory). <em>Keep in mind: what does my user need to know when they are working with this function?</em></p></li>
+<li><p>Grab a limited chunk of code to work on, and look at the existing comments. Can you replace a ‘how’ comment with a ‘why’ comment? <em>Think: what is the purpose of this code? Rather than: this is how this code works.</em></p></li>
+<li><p>Are there elements in your chunk that are currently without comments that would benefit from clarification? <em>Try to comment on the thought behind the code rather than simply translating its process in English.</em></p></li>
+<li><p>Can you delete superfluous comments or zombie code?</p></li>
+</ul>
+</section>
+</section>
+<section id="the-readme-page" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="the-readme-page"><span class="header-section-number">7.2</span> The README page</h2>
+<section id="video-1" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="video-1"><span class="header-section-number">7.2.1</span> Video</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/464027978" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="slides-1" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="slides-1"><span class="header-section-number">7.2.2</span> Slides</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
+<iframe src="../slides/slides_documentation.html#16" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+</div>
+<p><a href="../slides/slides_documentation.html#16">Slides</a></p>
+</section>
+<section id="exercise-1" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">7.2.3</span> Exercise</h3>
+<p>Edit your README file. Take your time. This is important!</p>
+<p>Make sure to include the following information:</p>
+<ul>
+<li><p>What does your project do?</p></li>
+<li><p>How does the user access your project? (E.g. download, or clone with <code>git clone</code>…)</p></li>
+<li><p>How does the user call the main script(s) that should be executed?</p></li>
+<li><p>And perhaps any other elements you are inspired to add (check out the examples!)</p></li>
+</ul>
+<p>Do you want to truly understand the importance of decent installation information? <a href="https://twitter.com/MicrobiomDigest/status/1283082285097422848">Read this experience by Elisabeth Bik</a>, trying to install image forensics software. Look at the <a href="https://github.com/GuidoBartoli/sherloq">README of the software</a>, and see what you can learn.</p>
+<p><em>NB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity to add these here: please do!</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -401,10 +479,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../bookfiles/05-code-quality.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Code Quality</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./bookfiles/01-acknowledgements.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Acknowledgements</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../bookfiles/07-reproducibility.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Accessibility &amp; Reproducibility</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
