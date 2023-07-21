@@ -7,135 +7,135 @@
     "text": "1 Welcome!\nEnsuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.\nOur workshop material is licensed under a Creative Commons Attribution 4.0 International License. You can view the license here."
   },
   {
-    "objectID": "bookfiles/01-acknowledgements.html",
-    "href": "bookfiles/01-acknowledgements.html",
+    "objectID": "01-acknowledgements.html",
+    "href": "01-acknowledgements.html",
     "title": "2  Acknowledgements",
     "section": "",
     "text": "This workshop was developed at Utrecht University, supported by Research Data Management (RDM) Support and the Open Science Community Utrecht (OSCU).\nThe workshop is currently coordinated by Neha Moopen, with support from Bianca Kramer and Jacques Flores.\nThe workshop has received contributions from (in alphabetical order):\n\nArmel Lefebvre\nBarbara Vreede\nBianca Kramer\nCedric Thieulot\nErik van Sebille\nJacques Flores\nJeroen Bosman\nJeroen Ooms\nJonathan de Bruin\nLukas van de Wiel\nMateusz Kuzak\nMenno Fraters\nNeha Moopen\nPhilippe Delandmeter\nRenato Alves"
   },
   {
-    "objectID": "bookfiles/02-preparation.html#data-andor-code",
-    "href": "bookfiles/02-preparation.html#data-andor-code",
+    "objectID": "02-preparation.html#data-andor-code",
+    "href": "02-preparation.html#data-andor-code",
     "title": "3  Preparation",
     "section": "3.1 Data and/or Code",
     "text": "3.1 Data and/or Code\n\nBring some code! We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: it is nice if there is an output for someone to see at the end!). NB: If you will not have code to work on, you can still take advantage of the workshop, but please contact your instructor before the course.\nOptional: if your data cannot be public, fake it! We will be exchanging repositories at the end of the day, and try to reproduce each other’s work. This can be problematic if your data cannot be shared. If the structure of the data can be put online, you could simulate the dataset (including covariates, so simple models have similar outcomes) using a package like fakeR, which simulates fake data within the same structure. Or check out or this post on conjurer."
   },
   {
-    "objectID": "bookfiles/02-preparation.html#terminal",
-    "href": "bookfiles/02-preparation.html#terminal",
+    "objectID": "02-preparation.html#terminal",
+    "href": "02-preparation.html#terminal",
     "title": "3  Preparation",
     "section": "3.2 Terminal",
     "text": "3.2 Terminal\nSome of the work we will do will take place over the command line, for which you will need a terminal.\n\nMac OS and Linux have easily accessible terminals (the program is usually called Terminal, so that’s easy).\nWindows’ default terminal (Command Prompt) uses different commands, so we do not recommend it for this workshop. Instead, as you install Git (next sub-section), you can get the Git Bash terminal with your installation.\n\nIf you have no experience with the terminal at all, we recommend practicing with it for some basic folder navigation to start. This 8.5 minute video is a good introduction."
   },
   {
-    "objectID": "bookfiles/02-preparation.html#git",
-    "href": "bookfiles/02-preparation.html#git",
+    "objectID": "02-preparation.html#git",
+    "href": "02-preparation.html#git",
     "title": "3  Preparation",
     "section": "3.3 Git",
     "text": "3.3 Git\n\n3.3.1 Coding Platforms\nSign up for a GitHub, GitLab, or BitBucket account.\nPlease note our workshop materials and demonstrations will be in GitHub, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.\n\n\n3.3.2 Install Git\nYou first want to double-check if Git is already installed on your computer.\nGo to your terminal and enter which git to request the path to your Git executable:\n\nwhich git\n## /usr/local/bin/git\n\nand then git --version to see its version:\n\ngit --version\n## git version 2.31.1\n\nIf the terminal returns a path and version, that means you have Git and you can skip this installation step! That being said, you might want to ensure your Git is the latest version.\nIf you don’t see a path and version, but something like git: command not found - then you definitely need to continue with installation. Follow the the instructions relevant to your operating system.\n\nWindows: Go to gitforwindows.org. Make sure you include Git Bash in your installation!\nMac: Go to git-scm.com and install the the latest version available.\nLinux: Go the Linux-specific page of git-scm.com. There are commands specific to various package managers.\n\n\n\n3.3.3 git config\nNow that installation is done, it’s time to introduce yourself to Git!\nGo to your terminal and type the following, one after the other:\n\ngit config --global user.name 'Your Name'\ngit config --global user.email 'yourname@example.com'\ngit config --global --list\n\nImportant: make sure you use the email associated with your GitHub account!\nThe first two commands won’t return any information, the last one will confirm if Git received your introduction alright. That is, your name and email will be returned.\n\n\n3.3.4 Set up SSH keys\nSSH keys provide a more secure way of logging onto servers than relying on passwords alone. It’s similar to how two-factor authentication provides an extra layer of security over regular passwords/passcodes.\nThere are number of steps involved in this setup, but we’re going to summarize it here - so you don’t get lost:\n\nCheck for existing SSH keys.\nGenerate new SSH keys.\nAdd private key to the ssh-agent.\nAdd public key to your GitHub/GitLab/BitBucket account.\nTest your SSH connection.\n\nThese instructions are borrowed heavily from Happy Git with R, GitHub’s user guides, and NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git.\n\n3.3.4.1 Check for existing SSH keys.\nGo to your terminal and type the following command to list existing SSH keys:\n\nls -al ~/.ssh\n\nIf you have key pairs already, they may look like the following:\n\nid_rsa.pub (public key) & id_rsa (private key)\nid_ecdsa.pub (public key) & id_ecdsa (private key)\nid_ed25519.pub (public key) & id_ed25519 (private key)\n\nIf you’re happy to stick with your existing keys, then you can jump to step 3 which is about adding the private key to the ssh-agent.\n\n\n3.3.4.2 Generate new SSH keys\nGo to your terminal and type the following command, substituting “USEFUL-LABEL” with something like your GitHub username and/or your device.\n\nssh-keygen -t ed25519 -C \"USEFUL-LABEL\"\n\nAccept the proposal to save the key in the default file location. Just press Enter here:\n\n> Enter a file in which to save the key (/Users/you/.ssh/id_ed25519): [Press enter]\n\nIf you’re new to setting up SSH keys, then skip the option to enter a passphrase. It’s a best practice, but you can come back to it after the workshop. Just leave the passphrase option empty and press Enter:\n\n> Enter passphrase (empty for no passphrase):\n\nHere’s an example of how it should have played out, if everything went smoothly:\n\njenny@2015-mbp ~ $ ssh-keygen -t rsa -b 4096 -C \"USEFUL-COMMENT\"\nGenerating public/private rsa key pair.\nEnter file in which to save the key (/Users/jenny/.ssh/id_rsa):     \nEnter passphrase (empty for no passphrase): \nEnter same passphrase again: \nYour identification has been saved in /Users/jenny/.ssh/id_rsa.\nYour public key has been saved in /Users/jenny/.ssh/id_rsa.pub.\nThe key fingerprint is:\nSHA256:ki0TNHm8qIvpH7/c0qQmdv2xxhYHCwlpn3+rVhKVeDo USEFUL-COMMENT\nThe key's randomart image is:\n+---[RSA 4096]----+\n|      o+   . .   |\n|     .=.o . +    |\n|     ..= + +     |\n|      .+* E      |\n|     .= So =     |\n|    .  +. = +    |\n|   o.. = ..* .   |\n|  o ++=.o =o.    |\n| ..o.++o.=+.     |\n+----[SHA256]-----+\n\n\n\n3.3.4.3 Add private key to the ssh-agent\nWhile the actions are similar, the specific commands for this step vary between operating systems. Therefore, we’ll link you to the relevant GitHub guide for this step: Generating a new SSH key and adding it to the ssh-agent\nMake sure you’re following the instructions for the right operating system and then jump to the sub-section on Adding your SSH key to the ssh-agent.\nEffectively, what this step does is to ‘activate’ your private key.\n\n\n3.3.4.4 Add public key to your GitHub/GitLab/BitBucket account\n\nOpen your public SSH key (the file ending with .pub) in a text editor and copy the whole key. Make sure to avoid copying any newlines or whitespace.\nOn GitHub, click on your profile picture and go to Settings -> SSH & GPG keys.\nClick on New SSH key.\nPaste your public key in the box and give it an informative label, maybe the same as the “USEFUL-LABEL” you used when generating the keys.\n\n\n\n3.3.4.5 Test your SSH connection\nOpen your terminal and type in the following command:\n\nssh -T git@github.com\n\nYou may see a warning which includes an RSA key fingerprint. Make sure this fingerprint matches that of GitHub’s, you can double-check that here: GitHub’s SSH key fingerprints\nIf the fingerprint matches, type yes if you were asked if wanted to continue connecting.\nIf all goes well, you’ll see something like the following:\n\n> Hi username! You've successfully authenticated, but GitHub does not provide shell access.\n\nMake sure it’s your username that terminal returns!\n\n\n3.3.4.6 Troubleshooting\nGitHub has a whole page on Troubleshooting SSH. If you run into issues, you should double-check if your errors are covered here.\nWe have collected some commonly seen errors:\n\nYou have made the key pair and copied the public key to GitHub, but SSH will not connect. Are you sure that you turned on the agent?\nYou recieve an error message like “Error: Permission denied (publickey)”. Follow the link to GitHub guide on this issue.\nDid you remember to add the public key to GitHub?\nDid you set up SSH keys, but connect to your GitHub using HTTPS?\nYou can check your remote URL by going to terminal and typing:\n\n\ngit remote -v\n\nAn SSH remote should like this:\n\ngit@github.com:USERNAME/REPOSITORY.git\n\nWhereas a HTTPS remote will look this:\n\nhttps://github.com/USERNAME/REPOSITORY.git\n\nYou can switch between the SSH & HTTPS remotes for your repo using the following command: git remote set-url See GitHub’s user guide on Changing a remote repository’s URL\n\nDid you remember to configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?\nYou can run commands like ssh-keygen or eval, but they do not return any information, not even an error message. If you are on Windows and have have Citrix workspace installed, there is a known bug where Citrix interferes with the SSH key generation process.\n\nUninstall Citrix workspace\nRestart your computer\nRestart the SSH key generation tutorial.\nIf, after setting up SSH key pairs, you want to reinstall Citrix, be sure to do so via the Microsoft store.\n\n\n\n\n\n3.3.5 If SSH fails, HTTPS!\nIf you find yourself despairing over the SSH key setup, don’t worry! HTTPS is a sufficient back-up!\nYou will need to create a Personal Access Token from Github to identify yourself over the HTTPS protocol:\n\nClick on your profile icon (top right side of your screen)\nGo to Settings -> Developer Settings -> Personal Access Tokens\nCreate a new token, and select the ‘repo’ scope for its access.\nCopy the token and use it when Git asks for a password when connecting to Github.\n\nSee the Github website for more info.\n\n3.3.5.1 Troubleshooting Personal Access Tokens\nYou can only view a Personal Access Token once, and they are impossible to type. However, you can store it in your system so it can be used to authenticate you without your having to re-enter it.\n\nIf you are on Windows, go to the terminal and type git config --global credential.helper wincred\nIf you are on a different system, and git does not cache your credentials automatically, here is a Github tutorial to fix that."
   },
   {
-    "objectID": "bookfiles/02-preparation.html#final-test",
-    "href": "bookfiles/02-preparation.html#final-test",
+    "objectID": "02-preparation.html#final-test",
+    "href": "02-preparation.html#final-test",
     "title": "3  Preparation",
     "section": "3.4 Final Test!",
     "text": "3.4 Final Test!\nIf you’ve set up your SSH keys alright, we can try going ahead and seeing whether you can push and pull from GitHub successfully. If you’re going the HTTPS route due to issues, no worries! Just make sure your switch out the SSH clone URL for the HTTPS clone URL.\nThis is something we’ll do during the workshop as well, but trying it out beforehand reduces chances of errors while the course is ongoing.\nThe sequence of steps is as follows:\n\nCreate a test repository on GitHub.\nClone the test repository.\nMake local changes.\nPush the local changes to GitHub. This is where the magic happens (or not)!\nIf all went well, you can refresh the webpage with your GitHub repository and you’ll see your local changes.\nMake changes online.\nPull the online changes to your computer, so your local repository is up to date.\nIf all went well, then your online changes are available locally as well. It also means you’re fully set up with Git & GitHub!\n\n\n3.4.0.1 Create a test repository on GitHub\n\nLog into GitHub.\nClick the green New (repository) button.\nYou can name your repository as testrepo.\nMake sure it’s a Public repository.\nClick YES, when asked if you want to initialize the repository with a README.\nClick the green Create repository button.\nCopy the SSH URL for cloning via the green Clone or Download button.\n\n\n\n3.4.0.2 Clone the test repository\nGo to your terminal and type the following command, substituting the SSH clone URL you copied in the previous step after git clone:\n\ngit clone git@github.com:username/testrepo.git\n\nThis should create a local copy of your repository as a folder with files contained within.\n\n\n3.4.0.3 Make local changes\nNavigate to the folder of your repository and open the README file. Make an edit, such as This is a line I’m adding offline to my local copy. Save the file and close it.\n\n\n3.4.0.4 Push the local changes to GitHub\nGo to your terminal and type the following command(s):\n\ngit add .\n\nThis adds all changed files to a ‘staging area’.\n\ngit commit -m \"insert-understandable-message-here\"\n\nNow you’re officially ‘committing’ the changes you made. You want to add a understandable commit message so you have a clear record of your changes.\n\ngit push\n\nWith this command, you push the local changes and commit message to your repository online.\nThis is where errors can pop up if the SSH set-up didn’t go as smoothly as expected. Troubleshoot the error messages the best you can!\nIf everything went smoothly, you can refresh the webpage with GitHub repository and you should see that your changes have been synced.\n\n\n3.4.0.5 Make changes online\nNow we want to go the other way around, open your README file on GitHub and make an edit online. You can do this by:\n\nClicking on the README file and the pencil icon to open edit mode.\nAdd a sentence to your README like This is a line I’m adding from GitHub.com.\nWhen saving, you’ll have to provide a meaningful commit message again.\n\n\n\n3.4.0.6 Pull from GitHub\nNow go to your terminal and type the following command:\n\ngit pull\n\nIf all goes well, you’ll see some activity in the terminal which suggests the changes are being downloaded. You can then check out your README file and see whether your online change has been synced.\n\n\n3.4.0.7 Wrap-Up\nDid it work? You did it! You pushed and pulled from GitHub successfully, woohoo!"
   },
   {
-    "objectID": "bookfiles/03-course-introduction.html#schedule",
-    "href": "bookfiles/03-course-introduction.html#schedule",
+    "objectID": "03-course-introduction.html#schedule",
+    "href": "03-course-introduction.html#schedule",
     "title": "4  Introduction",
     "section": "4.1 Schedule",
     "text": "4.1 Schedule\n\n4.1.1 Pre-Workshop Installation Support\nNeha will be available the entire afternoon prior to Day 1 of the workshop to help with any installation issues, especially Git.\n\n\n4.1.2 Day 1\n\n\n\nTime\nActivity\n\n\n\n\n8:00\nInstallation Support\n\n\n9:00\nWelcome & introduction (slides)\n\n\n9:30\nProject setup & version control with git\n\n\n10:45\nQuestions & discussion\n\n\n11:00\nBreak\n\n\n11:15\nCode quality\n\n\n12:45\nQuestions & discussion\n\n\n13:00\nEnd\n\n\n\n\n\n4.1.3 Day 2\n\n\n\nTime\nActivity\n\n\n\n\n9:00\nCode quality discussion\n\n\n9:15\nDocumentation\n\n\n10:45\nQuestions & discussion\n\n\n11:00\nBreak\n\n\n11:15\nAccessibility & reproducibility\n\n\n12:15\nReproduction of projects\n\n\n13:00\nEnd"
   },
   {
-    "objectID": "bookfiles/03-course-introduction.html#course-materials",
-    "href": "bookfiles/03-course-introduction.html#course-materials",
+    "objectID": "03-course-introduction.html#course-materials",
+    "href": "03-course-introduction.html#course-materials",
     "title": "4  Introduction",
     "section": "4.2 Course Materials",
     "text": "4.2 Course Materials\n\n4.2.1 Slides\n\nIntroduction\nProject setup and version control\nCode quality\nProject documentation\nAccessibility & Reproducibility\n\n\n\n4.2.2 Exercises\n\nProject setup & version control with git\nCode quality\nProject documentation\nAccessibility & reproducibility"
   },
   {
-    "objectID": "bookfiles/04-project-management.html#project-setup",
-    "href": "bookfiles/04-project-management.html#project-setup",
+    "objectID": "04-project-management.html#project-setup",
+    "href": "04-project-management.html#project-setup",
     "title": "5  Project Management",
     "section": "5.1 Project setup",
     "text": "5.1 Project setup\n\n5.1.1 Video\n\n\n\n\n\n\n\n\n\n\n\n5.1.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n5.1.3 Exercises\nNB: You can check the slides for more detail.\n\nThe video and slides ask you to use a tool called cookiecutter to install a project structure in your system. However, we’re going to skip that and go straight to the ‘backup’ instructions! It will be more efficient for us during the online version of the course.\nUse the instructions on this slide to clone a template repository of a project folder structure to your computer. Remember to also follow the instructions on removing the .git folder that is downloaded.\nR users can also use the following code:\n\n\n# install.packages(\"usethis\")\n\nusethis::use_zip(\"https://github.com/bvreede/good-enough-project-template/archive/refs/heads/master.zip\",\n                 destdir = getwd())\n\n\nPlace your project files in the right folder.\nAdjust paths in your code, and be sure to use relative paths!\nDoes your code run in the new folder structure?"
   },
   {
-    "objectID": "bookfiles/04-project-management.html#version-control",
-    "href": "bookfiles/04-project-management.html#version-control",
+    "objectID": "04-project-management.html#version-control",
+    "href": "04-project-management.html#version-control",
     "title": "5  Project Management",
     "section": "5.2 Version control",
     "text": "5.2 Version control\n\n5.2.1 Video\n\n\n\n\n\n\n\n\n\n\n\n5.2.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n5.2.3 Exercise\n\nFollow the steps in the video (or on these slides) to turn your folder into a git repository.\nMake a remote version of your project on GitHub!\nPlease note: are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: examples on this github repo.\nCan you use Git and push to Github from your IDE?\nExperiment with editing and committing on GitHub itself. You can then ‘download’ your code to your local repository using git pull.\nOptional: What happens if you edit the same file online and locally, and try to push/pull? (Hint: this often causes a ‘merge conflict’, which is no fun to experience. Going through it today means we can assist you if necessary!)"
   },
   {
-    "objectID": "bookfiles/04-project-management.html#publication-licensing",
-    "href": "bookfiles/04-project-management.html#publication-licensing",
+    "objectID": "04-project-management.html#publication-licensing",
+    "href": "04-project-management.html#publication-licensing",
     "title": "5  Project Management",
     "section": "5.3 Publication & licensing",
     "text": "5.3 Publication & licensing\n\n5.3.1 Video\n\n\n\n\n\n\n\n\n\n\n\n5.3.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n5.3.3 Exercise\n\nCheck the license in your project\nTake a look at other license options via choosealicense.com.\nDo you want to change your license? Go into your Github and change the LICENSE.md file. Don’t forget to pull your remote changes!"
   },
   {
-    "objectID": "bookfiles/05-code-quality.html#readability",
-    "href": "bookfiles/05-code-quality.html#readability",
+    "objectID": "05-code-quality.html#readability",
+    "href": "05-code-quality.html#readability",
     "title": "6  Code Quality",
     "section": "6.1 Readability",
     "text": "6.1 Readability\n\n6.1.1 Video\n\n\n\n\n\n\n\n\n\n\n\n6.1.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n6.1.3 Exercise\n\nUse a linter to run through your code and identify style issues.\nEdit your code to improve the style compatibility, based on the feedback from your linter. If you work with Python, consider applying autopep8 to automatically fix linting issues.\nFor the R users: a course participant found styler, which may do the same for R!\nIf you find code that is hard to read, or variable names that need adjusting, make a note to work on it. (Again, use #TODO or another consistent label!)"
   },
   {
-    "objectID": "bookfiles/05-code-quality.html#reusability",
-    "href": "bookfiles/05-code-quality.html#reusability",
+    "objectID": "05-code-quality.html#reusability",
+    "href": "05-code-quality.html#reusability",
     "title": "6  Code Quality",
     "section": "6.2 Reusability",
     "text": "6.2 Reusability\n\n6.2.1 Video\n\n\n\n\n\n\n\n\n\n\n\n6.2.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n6.2.3 Exercise\nVisualize your code.\n\nUse yellow for scripted code, purple for structured code (for-loops, functions, etc.), and green for comments\nUse any tool that works for you (powerpoint, word, paint, or good old pencils and paper)\nDuring this exercise, try to identify yellow parts that can be structured and turned into (a) function(s). Label them, or rewrite them if you have time.\nMake a screenshot or picture of your visualization, and share it on Teams!"
   },
   {
-    "objectID": "bookfiles/05-code-quality.html#robustness",
-    "href": "bookfiles/05-code-quality.html#robustness",
+    "objectID": "05-code-quality.html#robustness",
+    "href": "05-code-quality.html#robustness",
     "title": "6  Code Quality",
     "section": "6.3 Robustness",
     "text": "6.3 Robustness\n\n6.3.1 Video\n\n\n\n\n\n\n\n\n\n\n\n6.3.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n6.3.3 Exercise\n\nIdentify assumptions in your code\n\nWhat assumptions/expectations exist on your data or (user) input?\nWhat assumptions/expectations exist on the input of (a) function(s)?\n\n\nBased on the assumptions/expectations you were able to identify, work on increasing the robustness of your code. Choose one:\n\nMake the input/data assumptions explicit\n\nOption 1: Explicitly state assumptions on data or input in your README.md.\nOption 2: Write a piece of code that tests the validity of data/input, and reports an error if the expectations are not met.\n\nTest the input for a function. Modify the code inside your function to:\n\ncheck the value of the arguments passed to your function using if/else statements;\nraise an error in case an argument is out of the range of acceptable values."
   },
   {
-    "objectID": "bookfiles/06-documentation.html#comments-and-docstrings",
-    "href": "bookfiles/06-documentation.html#comments-and-docstrings",
+    "objectID": "06-documentation.html#comments-and-docstrings",
+    "href": "06-documentation.html#comments-and-docstrings",
     "title": "7  Documentation",
     "section": "7.1 Comments and docstrings",
     "text": "7.1 Comments and docstrings\n\n7.1.1 Video\n\n\n\n\n\n\n\n\n\n\n\n7.1.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n7.1.3 Exercise\n\nAdd a docstring to a function, preferably the last function you worked on (so it’s fresh in your memory). Keep in mind: what does my user need to know when they are working with this function?\nGrab a limited chunk of code to work on, and look at the existing comments. Can you replace a ‘how’ comment with a ‘why’ comment? Think: what is the purpose of this code? Rather than: this is how this code works.\nAre there elements in your chunk that are currently without comments that would benefit from clarification? Try to comment on the thought behind the code rather than simply translating its process in English.\nCan you delete superfluous comments or zombie code?"
   },
   {
-    "objectID": "bookfiles/06-documentation.html#the-readme-page",
-    "href": "bookfiles/06-documentation.html#the-readme-page",
+    "objectID": "06-documentation.html#the-readme-page",
+    "href": "06-documentation.html#the-readme-page",
     "title": "7  Documentation",
     "section": "7.2 The README page",
     "text": "7.2 The README page\n\n7.2.1 Video\n\n\n\n\n\n\n\n\n\n\n\n7.2.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n7.2.3 Exercise\nEdit your README file. Take your time. This is important!\nMake sure to include the following information:\n\nWhat does your project do?\nHow does the user access your project? (E.g. download, or clone with git clone…)\nHow does the user call the main script(s) that should be executed?\nAnd perhaps any other elements you are inspired to add (check out the examples!)\n\nDo you want to truly understand the importance of decent installation information? Read this experience by Elisabeth Bik, trying to install image forensics software. Look at the README of the software, and see what you can learn.\nNB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity to add these here: please do!"
   },
   {
-    "objectID": "bookfiles/07-reproducibility.html#dependencies",
-    "href": "bookfiles/07-reproducibility.html#dependencies",
+    "objectID": "07-reproducibility.html#dependencies",
+    "href": "07-reproducibility.html#dependencies",
     "title": "8  Accessibility & Reproducibility",
     "section": "8.1 Dependencies",
     "text": "8.1 Dependencies\n\n8.1.1 Video\n\n\n\n\n\n\n\n\n\n\n\n8.1.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n8.1.3 Exercise\nAddress dependencies and language versions in your README.\n\nWhat version of your coding language is required?\nWhich packages does a user need to install before running your project? What versions?\nCan you provide their installation instructions?"
   },
   {
-    "objectID": "bookfiles/07-reproducibility.html#binder",
-    "href": "bookfiles/07-reproducibility.html#binder",
+    "objectID": "07-reproducibility.html#binder",
+    "href": "07-reproducibility.html#binder",
     "title": "8  Accessibility & Reproducibility",
     "section": "8.2 Binder",
     "text": "8.2 Binder\n\n8.2.1 Video\n\n\n\n\n\n\n\n\n\n\n\n8.2.2 Exercise (optional)\nFor R\n\nGenerate a file called runtime.txt, either in the root of your project, or in a (hidden) folder called .binder/.\nWrite in the file: r-2020-10-02 – or specify the R version with r-3.6-2020-10-02.\nWrite a file called install.R, in .binder/ or in root, and use it to write install code for your packages, e.g.:\ninstall.packages(\"ggplot2\")\ninstall.packages(\"dplyr\")\nBinderise your project by following the instructions via mybinder.org\n\nFor Python\nBinder automatically loads Python 3.6.\n\nAdd dependencies to your binder in the requirements.txt file like this:\nnumpy==1.14.5\npandas==1.1.2\nBinderise your project by following the instructions via mybinder.org"
   },
   {
-    "objectID": "bookfiles/07-reproducibility.html#archiving",
-    "href": "bookfiles/07-reproducibility.html#archiving",
+    "objectID": "07-reproducibility.html#archiving",
+    "href": "07-reproducibility.html#archiving",
     "title": "8  Accessibility & Reproducibility",
     "section": "8.3 Archiving",
     "text": "8.3 Archiving\n\n8.3.1 Video\n\n\n\n\n\n\n\n\n\n\n\n8.3.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n8.3.3 Exercise (optional)\n\nFollow the workflow outlined in this guide to archive your code to Zenodo. Use the Sandbox version of Zenodo to make sure your repository is not actually archived permanently!"
   },
   {
-    "objectID": "bookfiles/08-references.html",
-    "href": "bookfiles/08-references.html",
-    "title": "Appendix A — References",
+    "objectID": "08-references.html",
+    "href": "08-references.html",
+    "title": "9  References",
     "section": "",
     "text": "Software Development Guide by the Netherlands eScience Center\nThe Turing Way: a guide to reproducible data science by the Turing Institute\nSoftware Carpentry lessons\nPro GIT\nGood Enough Practices in Scientific Computing\nHappy Git with R\nNLeSC Small Scale Initiative - Introduction to GitVersion Control with Git"
   }
