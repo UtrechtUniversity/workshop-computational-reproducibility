@@ -1,0 +1,105 @@
+# Final Test
+
+## Final Test!
+
+If you've set up your SSH keys alright, we can try going ahead and seeing whether you can _push_ and _pull_ from GitHub successfully. If you're going the HTTPS route due to issues, no worries! Just make sure your switch out the SSH clone URL for the HTTPS clone URL. 
+
+This is something we'll do during the workshop as well, but trying it out beforehand reduces chances of errors while the course is ongoing. 
+
+The sequence of steps is as follows:
+
+1. Create a test repository on GitHub.
+
+2. Clone the test repository. 
+
+3. Make local changes.
+
+4. _Push_ the local changes to GitHub. This is where the magic happens (or not)!
+
+5. If all went well, you can refresh the webpage with your GitHub repository and you'll see your local changes.
+
+6. Make changes online.
+
+7. _Pull_ the online changes to your computer, so your local repository is up to date.
+
+8. If all went well, then your online changes are available locally as well. It also means you're fully set up with Git & GitHub!
+
+#### Create a test repository on GitHub
+
+* Log into GitHub.
+
+* Click the green _New_ (repository) button.
+
+* You can name your repository as `testrepo`.
+
+* Make sure it's a Public repository.
+
+* Click _YES_, when asked if you want to initialize the repository with a README.
+
+* Click the green _Create repository_ button.
+
+* Copy the SSH URL for cloning via the green _Clone or Download_ button.
+
+#### Clone the test repository 
+
+Go to your terminal and type the following command, substituting the SSH clone URL you copied in the previous step after `git clone`:
+
+```{r eval=FALSE}
+git clone git@github.com:username/testrepo.git
+```
+
+This should create a local copy of your repository as a folder with files contained within.
+
+#### Make local changes
+
+Navigate to the folder of your repository and open the README file. Make an edit, such as _This is a line I'm adding offline to my local copy_. Save the file and close it.
+
+#### Push the local changes to GitHub
+
+Go to your terminal and type the following command(s):
+
+```{r eval=FALSE}
+git add .
+```
+
+This adds all changed files to a 'staging area'.
+
+```{r eval=FALSE}
+git commit -m "insert-understandable-message-here"
+```
+
+Now you're officially 'committing' the changes you made. You want to add a understandable commit message so you have a clear record of your changes.
+
+```{r eval=FALSE}
+git push
+```
+
+With this command, you push the local changes and commit message to your repository online. 
+
+This is where errors can pop up if the SSH set-up didn't go as smoothly as expected. Troubleshoot the error messages the best you can!
+
+If everything went smoothly, you can refresh the webpage with GitHub repository and you should see that your changes have been synced.
+
+#### Make changes online
+
+Now we want to go the other way around, open your README file on GitHub and make an edit online. You can do this by: 
+
+* Clicking on the README file and the pencil icon to open edit mode. 
+
+* Add a sentence to your README like _This is a line I'm adding from GitHub.com_. 
+
+* When saving, you'll have to provide a meaningful commit message again.
+
+#### Pull from GitHub
+
+Now go to your terminal and type the following command:
+
+```{r eval=FALSE}
+git pull
+```
+
+If all goes well, you'll see some activity in the terminal which suggests the changes are being downloaded. You can then check out your README file and see whether your online change has been synced.
+
+#### Wrap-Up 
+
+Did it work? You did it! You pushed and pulled from GitHub successfully, woohoo!

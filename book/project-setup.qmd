@@ -1,0 +1,41 @@
+# Project setup
+
+### Video
+
+```{r echo=FALSE}
+vembedr::embed_url("https://vimeo.com/462773031")
+```
+
+### Slides
+
+```{r embed-xaringan-1, echo=FALSE}
+xaringanExtra::embed_xaringan(url = "../slides/slides_introduction.html", ratio = "4:3")
+```
+
+[Slides](../slides/slides_project-setup.html#3)
+
+### Exercises
+
+_NB: You can check the slides for more detail._
+
+* The video and [slides](../slides/slides_project-setup.html#4) ask you to use a tool called cookiecutter to install a project structure in your system. However, we're going to skip that and go straight to the 'backup' instructions! It will be more efficient for us during the online version of the course.
+
+* Use the instructions [on this slide](../slides/slides_project-setup.html#6) to clone a template repository of a project folder structure to your computer. Remember to also follow the instructions on removing the .git folder that is downloaded.
+
+* R users can also use the following code:
+
+```{r eval=FALSE, echo=TRUE}
+
+# install.packages("usethis")
+
+usethis::use_zip("https://github.com/bvreede/good-enough-project-template/archive/refs/heads/master.zip",
+                 destdir = getwd())
+```
+
+
+* Place your project files in the right folder.
+
+* Adjust paths in your code, and be sure to use relative paths!
+
+* Does your code run in the new folder structure?
+

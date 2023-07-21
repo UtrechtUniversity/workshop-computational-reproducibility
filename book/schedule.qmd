@@ -1,0 +1,31 @@
+# Schedule
+
+## Pre-Workshop Installation Support
+
+Neha will be available the entire afternoon prior to Day 1 of the workshop to help with any installation issues, especially Git.
+
+### Day 1
+
+| Time  | Activity |
+|-------:|----------|
+| 8:00 | Installation Support |
+| 9:00 | Welcome & introduction ([slides](slides/slides_introduction.html))| 
+| 9:30 | [Project setup & version control with git](exercises/project-setup.md) |
+| 10:45 | Questions & discussion |
+| _11:00_ | _Break_ |
+| 11:15 | [Code quality](exercises/code-quality.md)  |
+| 12:45 | Questions & discussion |
+| _13:00_ | _End_ |
+
+
+### Day 2
+
+| Time  | Activity |
+|-------:|----------|
+| 9:00 | Code quality discussion | 
+| 9:15 | [Documentation](exercises/documentation.md)  |
+| 10:45 | Questions & discussion |
+| _11:00_ | _Break_ |
+| 11:15 | [Accessibility & reproducibility](exercises/reproducibility.md)  |
+| 12:15 | [Reproduction of projects](slides/slides_reproducibility.html#18) |
+| _13:00_ | _End_ |

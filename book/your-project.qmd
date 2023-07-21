@@ -1,0 +1,7 @@
+# Your Project
+
+# Data and/or Code
+
+-   **Bring some code!** We will be working on improving your workflow, so it is nice to have material to work with. Consider that we will need something that is small enough that you can edit/play with it during the workshop, but also comprehensive so that someone else may be able to reproduce your project on their computer (i.e.: it is nice if there is an output for someone to see at the end!). *NB: If you will not have code to work on, you can still take advantage of the workshop, but please contact your instructor before the course.*
+
+-   **Optional: if your data cannot be public, fake it!** We will be exchanging repositories at the end of the day, and try to reproduce each other's work. This can be problematic if your data cannot be shared. If the structure of the data can be put online, you could simulate the dataset (including covariates, so simple models have similar outcomes) using a package like [fakeR](https://cran.r-project.org/web/packages/fakeR/index.html), which simulates fake data within the same structure. Or check out or [this post on conjurer](https://www.r-bloggers.com/generate-synthetic-data-using-r/).

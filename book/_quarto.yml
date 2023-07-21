@@ -9,27 +9,38 @@ book:
   search: true
   chapters:
     - index.qmd
-    - 01-acknowledgements.qmd
-    #- schedule.qmd # Not here yet
-    - part: "Preparation"
+    - acknowledgements.qmd
+    - schedule.qmd
+    - part: preparation.qmd
       chapters: 
-        - 02-preparation.qmd
-    - part: "Course introduction"
-      chapters: 
-        - 03-course-introduction.qmd
-    - part: "Project management" # to be split into multiple files
+        - your-project.qmd
+        - terminal.qmd
+        - git-and-github.qmd
+        - final-test.qmd
+    - introduction.qmd
+    - part: project-management.qmd 
       chapters:
-        - 04-project-management.qmd
-    - part: "Code quality" # to be split into multiple files
+        - project-setup.qmd
+        - version-control.qmd
+    - part: code-quality.qmd 
       chapters:
-        - 05-code-quality.qmd
-    - part: "Documentation" # to be split into multiple files
+        - readability.qmd
+        - reusability.qmd
+        - robustness.qmd
+    - part: documentation.qmd 
       chapters:
-        - 06-documentation.qmd
-    - part: "Accessibility & Reproducibility" # to be split into multiple files
+        - comments-and-docstrings.qmd
+        - readme-files.qmd
+    - part: "Accessibility & Reproducibility"
       chapters:
-        - 07-reproducibility.qmd
-    - 08-references.qmd
+        - dependency-management.qmd
+        - binder.qmd
+    - part: "Archiving & Publishing"
+      chapters:
+        - licensing.qmd    
+        - archiving-and-publishing.qmd
+    - reproducibility-check.qmd
+    - references.qmd
   repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility
   repo-actions: [edit]
   #sidebar:
@@ -41,18 +52,3 @@ bibliography:
 format:
   html:
     theme: cosmo
-
-# OLD from index.Rmd
-#site: bookdown::bookdown_site
-#documentclass: book
-#biblio-style: apalike
-#link-citations: yes
-#description: Best Practices in Writing Reproducible Code. The output format for this example is bookdown::gitbook.
-
-#OLD from bookdown
-#book_filename: "repco"
-#output_dir: "docs"
-#delete_merged_file: true
-#language:
-#  ui:
-#    chapter_name: ""

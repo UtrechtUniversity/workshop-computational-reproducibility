@@ -1,0 +1,28 @@
+# Documentation
+
+Time for some documentation around your code! 
+
+The following topics are covered:
+
+* commenting code and functions (docstrings)
+
+* writing a README file
+
+As usual, we have short videos and accompanying exercises. 
+Watch the video, then apply the exercises to your own project. 
+Use the slides linked above for reference, and be sure to ask for help when you need it!
+
+### Exercise
+
+* Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
+  _Keep in mind: what does my user need to know when they are working with this function?_
+
+* Grab a limited chunk of code to work on, and look at the existing comments.
+  Can you replace a 'how' comment with a 'why' comment?
+  _Think: what is the purpose of this code? Rather than: this is how this code works._
+
+* Are there elements in your chunk that are currently without comments that would benefit from clarification? 
+  _Try to comment on the thought behind the code rather than simply translating its process in English._
+
+* Can you delete superfluous comments or zombie code?
+

@@ -1,0 +1,5 @@
+# Preparation
+
+We have prepared the workshop as much as we could in a language-independent manner. That was not always possible, and where we are going into detail on tools and tricks we have done so catering to R and Python users. If you use a different language, you are very welcome to join our workshop, and we hope you will be able to help us add to the teaching materials with comparable tools you have found.
+
+Please go through this chapter carefully before the workshop, especially the sub-section on _Git_ and the _Final Test!_. It's necessary to have Git working so you can go through the course (relatively) smoothly. 

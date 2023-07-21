@@ -1,0 +1,14 @@
+# Accessibility & Reproducibility
+
+Last but not least, let's make our code accessible for others! 
+
+The following topics are covered:
+
+* obtaining a doi and ensuring accessibility
+
+* dealing with requirements and dependencies
+
+Here are your last videos and accompanying exercises. 
+Watch the video, then apply the exercises to your own project. 
+Use the slides linked above for reference, and be sure to ask for help when you need it!
+

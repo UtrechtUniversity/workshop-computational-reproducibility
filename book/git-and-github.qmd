@@ -1,0 +1,238 @@
+# Git & GitHub
+
+## Git
+
+### Coding Platforms
+
+Sign up for a [GitHub](https://github.com/join?source=header-home), [GitLab](https://gitlab.com/users/sign_up), or [BitBucket](https://bitbucket.org/account/signup/) account. 
+
+Please note our workshop materials and demonstrations will be in GitHub, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
+
+### Install Git
+
+You first want to double-check if Git is already installed on your computer.
+
+Go to your terminal and enter `which git` to request the path to your Git executable:
+
+```{r eval=FALSE}
+which git
+## /usr/local/bin/git
+```
+
+and then `git --version` to see its version:
+
+```{r eval=FALSE}
+git --version
+## git version 2.31.1
+```
+
+If the terminal returns a path and version, that means you have Git and you can skip this installation step! That being said, you might want to ensure your Git is the latest version.
+
+If you don't see a path and version, but something like `git: command not found` - then you definitely need to continue with installation. Follow the the instructions relevant to your operating system.
+
+* **Windows:** Go to [gitforwindows.org](https://gitforwindows.org). Make sure you include **Git Bash** in your installation!
+
+* **Mac:** Go to [git-scm.com](http://git-scm.com/downloads) and install the the latest version available. 
+
+* **Linux:** Go the Linux-specific page of [git-scm.com](https://git-scm.com/download/linux). There are commands specific to various package managers. 
+
+### `git config`
+
+Now that installation is done, it's time to introduce yourself to Git!
+
+Go to your terminal and type the following, one after the other:
+
+```{r eval=FALSE}
+git config --global user.name 'Your Name'
+git config --global user.email 'yourname@example.com'
+git config --global --list
+```
+
+**Important:** make sure you use the email associated with your **GitHub** account! 
+
+The first two commands won't return any information, the last one will confirm if Git received your introduction alright. That is, your name and email will be returned.
+
+### Set up SSH keys 
+
+SSH keys provide a more secure way of logging onto servers than relying on passwords alone. It's similar to how two-factor authentication provides an extra layer of security over regular passwords/passcodes.
+
+There are number of steps involved in this setup, but we're going to summarize it here - so you don't get lost:
+
+1. Check for existing SSH keys.
+2. Generate new SSH keys.
+3. Add private key to the ssh-agent.
+4. Add public key to your GitHub/GitLab/BitBucket account.
+5. Test your SSH connection.
+
+These instructions are borrowed heavily from [Happy Git with R](https://happygitwithr.com/), GitHub's user guides, and [NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git](https://bvreede.github.io/presentations/presentations/2021-05-18_Git-intro-escience.html#1).
+
+#### Check for existing SSH keys.
+
+Go to your terminal and type the following command to list existing SSH keys:
+
+```{r eval=FALSE}
+ls -al ~/.ssh
+```
+
+If you have key pairs already, they may look like the following:
+
+* `id_rsa.pub` (public key) & `id_rsa` (private key)
+
+* `id_ecdsa.pub` (public key) & `id_ecdsa` (private key)
+
+* `id_ed25519.pub` (public key) & `id_ed25519` (private key)
+
+If you're happy to stick with your existing keys, then you can jump to step 3 which is about adding the private key to the ssh-agent.
+
+#### Generate new SSH keys
+
+Go to your terminal and type the following command, substituting "USEFUL-LABEL" with something like your GitHub username and/or your device.  
+
+```{r eval=FALSE}
+ssh-keygen -t ed25519 -C "USEFUL-LABEL"
+```
+
+Accept the proposal to save the key in the default file location. Just press Enter here:
+
+```{r eval=FALSE}
+> Enter a file in which to save the key (/Users/you/.ssh/id_ed25519): [Press enter]
+```
+
+If you're new to setting up SSH keys, then skip the option to enter a passphrase. It's a best practice, but you can come back to it after the workshop. Just leave the passphrase option empty and press Enter:
+
+```{r eval=FALSE}
+> Enter passphrase (empty for no passphrase):
+```
+
+Here's an example of how it should have played out, if everything went smoothly:
+
+```{r eval=FALSE}
+jenny@2015-mbp ~ $ ssh-keygen -t rsa -b 4096 -C "USEFUL-COMMENT"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/jenny/.ssh/id_rsa):     
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/jenny/.ssh/id_rsa.
+Your public key has been saved in /Users/jenny/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:ki0TNHm8qIvpH7/c0qQmdv2xxhYHCwlpn3+rVhKVeDo USEFUL-COMMENT
+The key's randomart image is:
++---[RSA 4096]----+
+|      o+   . .   |
+|     .=.o . +    |
+|     ..= + +     |
+|      .+* E      |
+|     .= So =     |
+|    .  +. = +    |
+|   o.. = ..* .   |
+|  o ++=.o =o.    |
+| ..o.++o.=+.     |
++----[SHA256]-----+
+```
+
+#### Add private key to the ssh-agent
+
+While the actions are similar, the specific commands for this step vary between operating systems. Therefore, we'll link you to the relevant GitHub guide for this step: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
+
+Make sure you're following the instructions for the right operating system and then jump to the sub-section on _Adding your SSH key to the ssh-agent_.
+
+Effectively, what this step does is to 'activate' your private key.
+
+#### Add public key to your GitHub/GitLab/BitBucket account
+
+* Open your public SSH key (the file ending with .pub) in a text editor and copy the whole key. Make sure to avoid copying any newlines or whitespace. 
+
+* On GitHub, click on your profile picture and go to _Settings_ -> _SSH & GPG keys_. 
+
+* Click on _New SSH key_.
+
+* Paste your public key in the box and give it an informative label, maybe the same as the "USEFUL-LABEL" you used when generating the keys.
+
+#### Test your SSH connection
+
+Open your terminal and type in the following command:
+
+```{r eval=FALSE}
+ssh -T git@github.com
+```
+
+You may see a warning which includes an RSA key fingerprint. Make sure this fingerprint matches that of GitHub's, you can double-check that here: [GitHub's SSH key fingerprints](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
+
+If the fingerprint matches, type _yes_ if you were asked if wanted to continue connecting.
+
+If all goes well, you'll see something like the following:
+
+```{r eval=FALSE}
+> Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+Make sure it's your username that terminal returns!
+
+#### Troubleshooting 
+
+GitHub has a whole page on [Troubleshooting SSH](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh). If you run into issues, you should double-check if your errors are covered here. 
+
+We have collected some commonly seen errors:
+
+* **You have made the key pair and copied the public key to GitHub, but SSH will not connect.**
+  Are you sure that you [turned on the agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)?
+  
+* You recieve an error message like ["Error: Permission denied (publickey)"](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey). Follow the link to GitHub guide on this issue.
+
+* Did you remember to add the public key to GitHub?
+
+* **Did you set up SSH keys, but connect to your GitHub using HTTPS?**
+
+  You can check your remote URL by going to terminal and typing:
+  
+```{r eval=FALSE}
+git remote -v
+```
+  
+  An SSH remote should like this:
+
+```{r eval=FALSE}
+git@github.com:USERNAME/REPOSITORY.git
+```
+
+  Whereas a HTTPS remote will look this:
+
+```{r eval=FALSE}
+https://github.com/USERNAME/REPOSITORY.git
+```
+
+  You can switch between the SSH & HTTPS remotes for your repo using the following command: `git remote set-url`
+  See GitHub's user guide on [Changing a remote repository's URL](https://docs.github.com/en/github/getting-started-with-github/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url)
+
+* Did you remember to configure Mac OS Sierra or High Sierra to persistently store your passphrase in the keychain?
+
+* **You can run commands like `ssh-keygen` or `eval`, but they do not return any information, not even an error message.**
+  If you are on Windows and have have Citrix workspace installed, there is a known bug where Citrix interferes with the SSH key generation process.
+  - Uninstall Citrix workspace
+  - Restart your computer
+  - Restart the SSH key generation tutorial.
+  - If, after setting up SSH key pairs, you want to reinstall Citrix, be sure to do so via the Microsoft store.
+
+### If SSH fails, HTTPS!
+
+If you find yourself despairing over the SSH key setup, don't worry! HTTPS is a sufficient back-up!
+
+You will need to create a [Personal Access Token from Github](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to identify yourself over the HTTPS protocol:
+
+* Click on your profile icon (top right side of your screen)
+
+* Go to _Settings_ -> _Developer Settings_ -> _Personal Access Tokens_
+
+* Create a new token, and select the ‘repo’ scope for its access.
+
+* Copy the token and use it when Git asks for a password when connecting to Github.
+
+See the [Github website for more info](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+
+#### Troubleshooting Personal Access Tokens
+
+You can only view a Personal Access Token once, and they are impossible to type. However, you can store it in your system so it can be used to authenticate you without your having to re-enter it.
+
+* If you are on Windows, go to the terminal and type `git config --global credential.helper wincred`
+
+* If you are on a different system, and git does not cache your credentials automatically, [here is a Github tutorial to fix that](https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git).
