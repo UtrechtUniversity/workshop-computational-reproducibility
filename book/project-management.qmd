@@ -1,0 +1,18 @@
+# Project Management
+
+This section covers the following topics:
+
+* Setting up a folder structure
+
+* Using git for version control
+
+* Publishing your project on github
+
+* Choosing a license
+
+Time for some hands-on practice!
+
+We have 3 short videos and accompanying exercises for you to go through one by one.
+Watch the video first, then apply the exercises to your own project.
+Use the [slides](../slides/slides_project-setup.html) linked above to follow links discussed in the video.
+Be sure to ask for help when you need it!

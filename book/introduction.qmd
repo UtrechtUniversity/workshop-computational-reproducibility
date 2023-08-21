@@ -1,0 +1,30 @@
+# Introduction
+
+```{r echo=FALSE}
+xaringanExtra::embed_xaringan(url = "../slides/slides_introduction.html", ratio = "4:3")
+
+```
+
+## Course Materials 
+
+### Slides
+
+1. [Introduction](../slides/slides_introduction.html)
+
+2. [Project setup and version control](../slides/slides_project-setup.html)
+
+3. [Code quality](../slides/slides_code-quality.html)
+
+4. [Project documentation](../slides/slides_documentation.html)
+
+5. [Accessibility & Reproducibility](../slides/slides_reproducibility.html)
+
+### Exercises
+
+1. [Project setup & version control with git](../exercises/project-setup.md)
+
+2. [Code quality](../exercises/code-quality.md)
+
+3. [Project documentation](../exercises/documentation.md)
+
+4. [Accessibility & reproducibility](../exercises/reproducibility.md) 

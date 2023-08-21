@@ -1,0 +1,27 @@
+# Code Quality
+
+Let's start making our code readable and reusable!
+
+This section covers the following topics:
+
+* code readability
+
+* reusable code
+
+* defensive programming
+
+Like the previous chapter, we have 3 short videos and accompanying exercises. 
+Watch the video, then apply the exercises to your own project.
+**Note:** these exercises get you to work on your code in detail.
+Depending on how many issues you discover, it may take some time to refactor your code.
+Today, focus on identifying issues, and mark them with #TODO or equivalent, so you can find them later.
+**We recommend spending a maximum of 20 minutes on each exercise.**
+However, if you have time, do get started with refactoring your code!
+While code refactoring can be a time consuming exercise, it is also a great way to learn from your past mistakes, up your coding game, and significantly improve your code at the same time.
+
+_Tip! Use #TODO or //TODO (depending on your comment marker) to easily find your tasks later on. Many IDEs extract these into a task list!_
+
+The slides are linked below for reference, and be sure to ask for help when you need it!
+
+
+

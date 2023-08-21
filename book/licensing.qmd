@@ -1,0 +1,22 @@
+# Licensing
+
+### Video
+
+```{r echo=FALSE}
+vembedr::embed_url("https://vimeo.com/463659936")
+```
+
+### Slides
+
+```{r echo=FALSE}
+xaringanExtra::embed_xaringan(url = "../slides/slides_project-setup.html#9", ratio = "4:3")
+```
+[Slides](../slides/slides_project-setup.html#9)
+
+### Exercise
+
+* Check the license in your project
+
+* Take a look at other license options via [choosealicense.com](https://choosealicense.com/).
+
+* Do you want to change your license? Go into your Github and change the LICENSE.md file. Don't forget to pull your remote changes!

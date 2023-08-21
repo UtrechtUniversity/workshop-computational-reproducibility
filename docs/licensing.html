@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Research Data Management Support Utrecht University">
-<meta name="dcterms.date" content="2023-07-21">
 
-<title>Best Practices for Writing Reproducible Code</title>
+<title>Best Practices for Writing Reproducible Code - 18&nbsp; Licensing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./acknowledgements.html" rel="next">
+<link href="./archiving-and-publishing.html" rel="next">
+<link href="./binder.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +60,8 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<link href="site_libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet">
+<script src="site_libs/fitvids-2.1.1/fitvids.min.js"></script>
 
 
 </head>
@@ -71,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Best Practices for Writing Reproducible Code</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Licensing</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -99,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -242,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./licensing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Licensing</span></a>
+  <a href="./licensing.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Licensing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -271,35 +272,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome"><span class="toc-section-number">1</span>  Welcome!</a></li>
+  <li><a href="#video" id="toc-video" class="nav-link active" data-scroll-target="#video"><span class="toc-section-number">18.0.1</span>  Video</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides"><span class="toc-section-number">18.0.2</span>  Slides</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="toc-section-number">18.0.3</span>  Exercise</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/index.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/licensing.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Best Practices for Writing Reproducible Code</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Licensing</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Research Data Management Support<br>Utrecht University </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 21, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -307,10 +298,37 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="welcome" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Welcome!</h1>
-<p>Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.</p>
-<p>Our workshop material is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. You can <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/master/LICENSE.md">view the license here</a>.</p>
+<section id="video" class="level3" data-number="18.0.1">
+<h3 data-number="18.0.1" class="anchored" data-anchor-id="video"><span class="header-section-number">18.0.1</span> Video</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="vembedr">
+<div>
+<iframe class="vimeo-embed" src="https://player.vimeo.com/video/463659936" width="533" height="300" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-external="1"></iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="slides" class="level3" data-number="18.0.2">
+<h3 data-number="18.0.2" class="anchored" data-anchor-id="slides"><span class="header-section-number">18.0.2</span> Slides</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
+<iframe src="../slides/slides_project-setup.html#9" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+</div>
+<p><a href="../slides/slides_project-setup.html#9">Slides</a></p>
+</section>
+<section id="exercise" class="level3" data-number="18.0.3">
+<h3 data-number="18.0.3" class="anchored" data-anchor-id="exercise"><span class="header-section-number">18.0.3</span> Exercise</h3>
+<ul>
+<li><p>Check the license in your project</p></li>
+<li><p>Take a look at other license options via <a href="https://choosealicense.com/">choosealicense.com</a>.</p></li>
+<li><p>Do you want to change your license? Go into your Github and change the LICENSE.md file. Don’t forget to pull your remote changes!</p></li>
+</ul>
 
 
 </section>
@@ -451,10 +469,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./binder.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Binder</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./acknowledgements.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Acknowledgements</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./archiving-and-publishing.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Archiving &amp; Publication</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

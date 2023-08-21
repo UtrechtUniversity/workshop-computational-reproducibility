@@ -1,0 +1,9 @@
+# Terminal
+
+Some of the work we will do will take place over the command line, for which you will need a terminal.
+
+-   Mac OS and Linux have easily accessible terminals (the program is usually called _Terminal_, so that's easy).
+
+-   Windows' default terminal (Command Prompt) uses different commands, so we do not recommend it for this workshop. Instead, as you install Git (next sub-section), you can get the Git Bash terminal with your installation.
+
+If you have no experience with the terminal at all, we recommend practicing with it for some basic folder navigation to start. [This 8.5 minute video](https://www.youtube.com/watch?v=j6vKLJxAKfw) is a good introduction.

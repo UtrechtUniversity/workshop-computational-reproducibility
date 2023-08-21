@@ -1,0 +1,54 @@
+project:
+  type: book
+  output-dir: ../docs 
+
+book:
+  title: "Best Practices for Writing Reproducible Code"
+  author: "Research Data Management Support<br>Utrecht University"
+  date: last-modified
+  search: true
+  chapters:
+    - index.qmd
+    - acknowledgements.qmd
+    - schedule.qmd
+    - part: preparation.qmd
+      chapters: 
+        - your-project.qmd
+        - terminal.qmd
+        - git-and-github.qmd
+        - final-test.qmd
+    - introduction.qmd
+    - part: project-management.qmd 
+      chapters:
+        - project-setup.qmd
+        - version-control.qmd
+    - part: code-quality.qmd 
+      chapters:
+        - readability.qmd
+        - reusability.qmd
+        - robustness.qmd
+    - part: documentation.qmd 
+      chapters:
+        - comments-and-docstrings.qmd
+        - readme-files.qmd
+    - part: "Accessibility & Reproducibility"
+      chapters:
+        - dependency-management.qmd
+        - binder.qmd
+    - part: "Archiving & Publishing"
+      chapters:
+        - licensing.qmd    
+        - archiving-and-publishing.qmd
+    - reproducibility-check.qmd
+    - references.qmd
+  repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility
+  repo-actions: [edit]
+  #sidebar:
+  #  logo: ../images/python-hex-logo.png # not there yet
+
+bibliography: 
+- references.bib 
+
+format:
+  html:
+    theme: cosmo

@@ -1,0 +1,31 @@
+# Binder
+
+### Video
+
+```{r echo=FALSE}
+vembedr::embed_url("https://vimeo.com/464010497")
+```
+
+### Exercise (optional)
+
+**For R**
+
+- Generate a file called `runtime.txt`, either in the root of your project, or in a (hidden) folder called `.binder/`.
+- Write in the file: `r-2020-10-02` -- or specify the R version with `r-3.6-2020-10-02`.
+- Write a file called `install.R`, in `.binder/` or in root, and use it to write install code for your packages, e.g.:
+  ```
+  install.packages("ggplot2")
+  install.packages("dplyr")
+  ```
+- Binderise your project by following the instructions via [mybinder.org](https://mybinder.org/)
+
+**For Python**
+
+Binder automatically loads Python 3.6.
+
+- Add dependencies to your binder in the requirements.txt file like this:
+  ```
+  numpy==1.14.5
+  pandas==1.1.2
+  ```
+- Binderise your project by following the instructions via [mybinder.org](https://mybinder.org/)
