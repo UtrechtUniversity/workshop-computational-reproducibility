@@ -9,13 +9,13 @@ vembedr::embed_url("https://vimeo.com/463264170")
 ### Slides
 
 ```{r echo=FALSE}
-xaringanExtra::embed_xaringan(url = "../slides/slides_project-setup.html#15", ratio = "4:3")
+xaringanExtra::embed_xaringan(url = "slides/slides_project-setup.html#15", ratio = "4:3")
 ```
-[Slides](../slides/slides_project-setup.html#15)
+[Slides](slides/slides_project-setup.html#15)
 
 ### Exercise
 
-* Follow the steps in the video (or [on these slides](../slides/slides_project-setup.html#17)) to turn your folder into a git repository.
+* Follow the steps in the video (or [on these slides](slides/slides_project-setup.html#17)) to turn your folder into a git repository.
 
 * Make a remote version of your project on GitHub!
 

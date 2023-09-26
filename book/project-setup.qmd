@@ -9,10 +9,10 @@ vembedr::embed_url("https://vimeo.com/462773031")
 ### Slides
 
 ```{r embed-xaringan-1, echo=FALSE}
-xaringanExtra::embed_xaringan(url = "../slides/slides_introduction.html", ratio = "4:3")
+xaringanExtra::embed_xaringan(url = "slides/slides_introduction.html", ratio = "4:3")
 ```
 
-[Slides](../slides/slides_project-setup.html#3)
+[Slides](slides/slides_project-setup.html#3)
 
 ### Exercises
 
