@@ -9,9 +9,9 @@ vembedr::embed_url("https://vimeo.com/464028630")
 ### Slides
 
 ```{r echo=FALSE}
-xaringanExtra::embed_xaringan(url = "../slides/slides_environment.html#1", ratio = "4:3")
+xaringanExtra::embed_xaringan(url = "slides/slides_environment.html#1", ratio = "4:3")
 ```
-[Slides](../slides/slides_reproducibility.html#1)
+[Slides](slides/slides_reproducibility.html#1)
 
 ### Exercise
 Address dependencies and language versions in your README.

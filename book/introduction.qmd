@@ -1,7 +1,7 @@
 # Introduction
 
 ```{r echo=FALSE}
-xaringanExtra::embed_xaringan(url = "../slides/slides_introduction.html", ratio = "4:3")
+xaringanExtra::embed_xaringan(url = "slides/slides_introduction.html", ratio = "4:3")
 
 ```
 
