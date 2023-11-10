@@ -118,20 +118,50 @@ _In the next slides we will elaborate on some other options as well, but honestl
   - *NB: you can use both, if you need `pip` for the installation of any specific dependency!*
 
 ---
-# Declaring dependencies
+# Declaring dependencies: conda
 
 #### `environment.yml` (for conda)
 - Used by `conda` to create an environment populated by specific packages and languages.
-- Generate it with `conda env export -f environment.yml`
-- [Here is an example](https://github.com/ericmjl/essays-on-data-science/blob/master/environment.yml). Search for [more on GitHub](https://github.com/search?l=YAML&o=desc&p=5&q=filename%3Aenvironment.yml+language%3AYAML+language%3AYAML&s=indexed&type=Code).
-- Consider going through [this quick intro](https://geohackweek.github.io/Introductory/01-conda-tutorial/)  to `conda` environments.
-- Or get the full story in the [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
+```
+name: example_env
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - matplotlib
+  - seaborn
+  - pandas
+```
+- Go through your scripts and check the import statements and add necessary packages to the `environment.yml` file.
+- Use `conda env create -f environment.yml` to create a conda environment from file.
+- Consider going through [this quick intro](https://geohackweek.github.io/Introductory/01-conda-tutorial/)  to `conda` environments.
+- Generate it with `conda env export -f environment.yml`
+
+---
+
+# Declaring dependencies: pip
 
 #### `requirements.txt` (for pip)
+- Used by `pip` to install packages
+
+```
+###### Requirements without Version Specifiers ######
+pandas
+beautifulsoup4
+matplotlib
+
+###### Requirements with Version Specifiers ######
+torch == 2.0.0              # Version Matching. Must be version 2.0.0
+keyring >= 4.1.1            # Minimum version 4.1.1
+coverage != 3.5             # Version Exclusion. Anything except version 3.5
+Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
+
+```
+- Go through your scripts and check the import statements and add necessary packages to the `requirements.txt` file.
+- Use `pip install -r requirements.txt` to install all packages from file.
 - Generate it with `pip freeze > requirements.txt`
 - [Here is an example](https://github.com/Curly-Mo/musinformatics/blob/552494f8e6aec9810b1027e725bbf24a6784b369/requirements.txt). Search for [more on GitHub](https://github.com/search?p=3&q=filename%3Arequirements.txt&type=Code).
-- Install dependencies declared with `pip install -r requirements.txt`
 
 ---
 
@@ -174,7 +204,8 @@ renv::restore()
   - Can you provide installation instructions?
   
 1. Are you working with Python?
-  - Generate an environment for your project, and store the `environment.yml` file in root.
+  - Create a conda or pip requirements file for your project in the root
+  - check your scripts for the imported libraries and add them to the file.
   
 1. Are you working with R?
   - Install `renv`, and initiate it to store the lock file in root.
