@@ -58,6 +58,8 @@ Zenodo and Github have a pipeline that makes your life easier! (_Check the full 
 
 ![toggle](https://web.archive.org/web/20211021121037if_/https://guides.github.com/activities/citable-code/zenodo-toggle-on.png)
 
+Click on your enabled repository. This will take you to a page with a green GitHub button. With this button you can create a realease for your publication.
+
 ---
 # Release your project!
 
