@@ -14,6 +14,7 @@ book:
     - part: preparation.qmd
       chapters: 
         - your-project.qmd
+        - programming-language.qmd
         - terminal.qmd
         - git-and-github.qmd
         - final-test.qmd

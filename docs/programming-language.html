@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Best Practices for Writing Reproducible Code - Code Quality</title>
+<title>Best Practices for Writing Reproducible Code - 5&nbsp; Programming Language</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./readability.html" rel="next">
-<link href="./version-control.html" rel="prev">
+<link href="./terminal.html" rel="next">
+<link href="./your-project.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./code-quality.html">Code Quality</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preparation.html">Preparation</a></li><li class="breadcrumb-item"><a href="./programming-language.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Programming Language</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./programming-language.html" class="sidebar-item-text sidebar-link">
+  <a href="./programming-language.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Programming Language</span></span></a>
   </div>
 </li>
@@ -192,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./code-quality.html" class="sidebar-item-text sidebar-link active">
+            <a href="./code-quality.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Code Quality</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -306,14 +306,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#r" id="toc-r" class="nav-link active" data-scroll-target="#r"><span class="header-section-number">5.1</span> R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">5.2</span> Python</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/programming-language.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Code Quality</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Programming Language</span></h1>
 </div>
 
 
@@ -328,18 +335,42 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Let’s start making our code readable and reusable!</p>
-<p>This section covers the following topics:</p>
-<ul>
-<li><p>code readability</p></li>
-<li><p>reusable code</p></li>
-<li><p>defensive programming</p></li>
-</ul>
-<p>Like the previous chapter, we have 3 short videos and accompanying exercises. Watch the video, then apply the exercises to your own project. <strong>Note:</strong> these exercises get you to work on your code in detail. Depending on how many issues you discover, it may take some time to refactor your code. Today, focus on identifying issues, and mark them with #TODO or equivalent, so you can find them later. <strong>We recommend spending a maximum of 20 minutes on each exercise.</strong> However, if you have time, do get started with refactoring your code! While code refactoring can be a time consuming exercise, it is also a great way to learn from your past mistakes, up your coding game, and significantly improve your code at the same time.</p>
-<p><em>Tip! Use #TODO or //TODO (depending on your comment marker) to easily find your tasks later on. Many IDEs extract these into a task list!</em></p>
-<p>The slides are linked below for reference, and be sure to ask for help when you need it!</p>
+<section id="r" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="r"><span class="header-section-number">5.1</span> R</h2>
+<p>If you’re an R user, we ask you to ensure your installation of R &amp; RStudio are up to date.</p>
+<p>You can use the following links to upgrade your installation if required:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R (v4.3.x)</td>
+<td><a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a></td>
+</tr>
+<tr class="even">
+<td>RStudio (v2023.09.x)</td>
+<td><a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="python" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="python"><span class="header-section-number">5.2</span> Python</h2>
+<p>To ensure a smooth course, we ask you to check whether your Python installation is working correctly.</p>
+<p>If you have installed Python using (ana)conda, verify your installation according to <a href="https://docs.anaconda.com/free/anaconda/install/verify-install/" class="uri">https://docs.anaconda.com/free/anaconda/install/verify-install/</a>.</p>
+<p>If you’re using the regular Python installer, you can verify you installation by typing on the command prompt/command line:</p>
+<pre><code>python --version</code></pre>
+<p>and</p>
+<pre><code>pip --version</code></pre>
+<p>These should tell you which versions of python and pip are installed. For Python we recommend at least version 3.8.</p>
+<p>If you have difficulties, we recommend installing Python using <a href="https://docs.anaconda.com/free/anaconda/install/">Anaconda</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -577,13 +608,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./version-control.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Version control</span></span>
+      <a href="./your-project.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Your Project</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./readability.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Readability</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./terminal.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Terminal</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -591,4 +622,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/code-quality.qmd" class="toc-action">Edit this page</a></p></div></div></div></div></footer></body></html>
+</body></html>
