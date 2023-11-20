@@ -42,7 +42,8 @@ book:
     - reproducibility-check.qmd
     - references.qmd
   repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility
-  repo-actions: [edit]
+  repo-subdir: book
+  repo-actions: [edit, issue, source]
   #sidebar:
   #  logo: ../images/python-hex-logo.png # not there yet
 
