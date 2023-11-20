@@ -7,6 +7,11 @@ book:
   author: "Research Data Management Support<br>Utrecht University"
   date: last-modified
   search: true
+  repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility/
+  repo-subdir: book
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  
   chapters:
     - index.qmd
     - acknowledgements.qmd
@@ -42,10 +47,7 @@ book:
         - archiving-and-publishing.qmd
     - reproducibility-check.qmd
     - references.qmd
-  repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility/
-  repo-subdir: book
-  issue-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility/new
-  repo-actions: [edit, issue, source]
+
   #sidebar:
   #  logo: ../images/python-hex-logo.png # not there yet
 
