@@ -19,8 +19,12 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Setting up a project
+]
+.author[
 ### Best Practices for Writing Reproducible Code // part 1
+]
 
 ---
 
@@ -43,7 +47,7 @@ class: center, middle, inverse, title-slide
 &gt; A research compendium is a collection of *all digital parts of a research project* including data, code, texts (...). The collection is created in such a way that reproducing all results is straightforward.
 
 *Source: [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/compendia.html)*
-![compendium](https://raw.githubusercontent.com/alan-turing-institute/the-turing-way/master/book/website/figures/ResearchCompendium.jpg)
+![compendium](https://the-turing-way.netlify.app/_images/research-compendium.svg)
 
 
 .footnote[(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.app/welcome.html), CC-BY)]
@@ -71,72 +75,19 @@ class: center, middle, inverse, title-slide
 
 ---
 
-# Cookiecutter
+# Simple Project Templates
 
-You can set up a project template using a nifty tool called cookiecutter.
+You can set up a project template using one of the following template repositories of a project folder structure to your computer:
 
-First, ensure you have cookiecutter installed:
-```bash
-pip install cookiecutter
-```
-or with conda:
-```bash
-conda install cookiecutter
-```
+  - **R:** [https://github.com/UtrechtUniversity/simple-r-project](https://github.com/UtrechtUniversity/simple-r-project)
+  
+  - **Python:** [https://github.com/UtrechtUniversity/simple-python-template/](https://github.com/UtrechtUniversity/simple-python-template/)
 
-Trouble with conda or pip? Check the instructions [here](../preparations), or try the following alternatives:
-
-- MacOS X with Homebrew:
-```bash
-brew install cookiecutter
-```
-- Debian/Ubuntu:
-```bash
-sudo apt-get install cookiecutter
-```
----
-# Cookiecutter
-
-![cookiecutter](https://raw.githubusercontent.com/cookiecutter/cookiecutter/3ac078356adf5a1a72042dfe72ebfa4a9cd5ef38/logo/cookiecutter_medium.png)
-
-&gt; A command-line utility that creates projects from cookiecutters (project templates). e.g. creating a Python package project from a Python package project template.
-&gt;
-&gt; _[cookiecutter.readthedocs.io](https://cookiecutter.readthedocs.io/en/latest/)_
-
-There are MANY templates available for your purposes. [Take a look!](https://github.com/cookiecutter/cookiecutter)
-
-We have designed a template based on [this paper by Wilson _et al._](https://doi.org/10.1371/journal.pcbi.1005510) (2017). Go ahead and install it!
-
-```bash
-cookiecutter gh:bvreede/good-enough-project
-```
-
-Answer the questions cookiecutter asks you, and browse the resulting project to see where your answers ended up.
+Simple click through _Use this template_ -&gt; _Create a repository_ and enter the necessary information for your new repository such as the name and owner.
 
 ---
-# Backup option
 
-Did cookiecutter not work for you? We have a backup option:
-
-- Navigate to the location where you want to create your project.
-
-- Then clone this template repository:
-```bash
-git clone https://github.com/bvreede/good-enough-project-template.git
-```
-
-- We will initialize a git repository here. But for now: please remove the `.git` folder.
-  - Use your GUI explorer, not your terminal for this step!
-  - Ensure hidden files/folders are shown (on mac: press `cmd` + `shift` + `.` (dot)).
-  - Delete the entire `.git` folder in your project folder.
-
-
----
-# Your turn
-
-- Place your project files in the right folder.
-- Adjust paths in your code, and be sure to use relative (see next slide) paths! 
-- It is fine to have the main script (e.g. `main.py`) in the home folder!
+# A Good Enough Project
 
 ```
 .
@@ -161,7 +112,7 @@ git clone https://github.com/bvreede/good-enough-project-template.git
 └── src                &lt;- Source code for this project (HW)
 ```
 ---
-# A note on paths
+# Absolute vs. Relative Paths
 
 - Your project should be transportable between computers.
 
@@ -172,6 +123,22 @@ git clone https://github.com/bvreede/good-enough-project-template.git
 - `./` means: in this folder
 
 - `../` means: one folder up
+---
+
+# Your turn
+
+- Clone one of the following template repositories of a project folder structure to your computer:
+
+  - **R:** [https://github.com/UtrechtUniversity/simple-r-project](https://github.com/UtrechtUniversity/simple-r-project)
+  
+  - **Python:** [https://github.com/UtrechtUniversity/simple-python-template/](https://github.com/UtrechtUniversity/simple-python-template/)
+
+- Place your project files in the right folder.
+
+- Adjust paths in your code, and be sure to use relative (see next slide) paths! 
+
+- It is fine to have the main script (e.g. `main.py`) in the home folder!
+
 ---
 
 # Choosing a license
@@ -505,6 +472,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

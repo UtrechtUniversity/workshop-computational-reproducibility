@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -127,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Best Practices for Writing Reproducible Code</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/tree/main/book/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -350,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides"><span class="header-section-number">10.0.2</span> Slides</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">10.0.3</span> Exercises</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/project-setup.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/edit/main/book/project-setup.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/main/book/project-setup.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -389,30 +355,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="cell-output-display">
 <div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
-<iframe src="slides/slides_introduction.html" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
+<iframe src="slides/slides_project-setup.html" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
 <script>fitvids('.shareagain', {players: 'iframe'});</script>
 </div>
 </div>
 </div>
-<p><a href="slides/slides_project-setup.html#3">Slides</a></p>
+<p><a href="slides/slides_project-setup.html">Slides</a></p>
 </section>
 <section id="exercises" class="level3" data-number="10.0.3">
 <h3 data-number="10.0.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.0.3</span> Exercises</h3>
 <p><em>NB: You can check the slides for more detail.</em></p>
 <ul>
-<li><p>The video and <a href="../slides/slides_project-setup.html#4">slides</a> ask you to use a tool called cookiecutter to install a project structure in your system. However, we’re going to skip that and go straight to the ‘backup’ instructions! It will be more efficient for us during the online version of the course.</p></li>
-<li><p>Use the instructions <a href="../slides/slides_project-setup.html#6">on this slide</a> to clone a template repository of a project folder structure to your computer. Remember to also follow the instructions on removing the .git folder that is downloaded.</p></li>
-<li><p>R users can also use the following code:</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("usethis")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_zip</span>(<span class="st">"https://github.com/bvreede/good-enough-project-template/archive/refs/heads/master.zip"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">destdir =</span> <span class="fu">getwd</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<li><p>Clone one of the following template repositories of a project folder structure to your computer:</p>
 <ul>
-<li><p>Place your project files in the right folder.</p></li>
-<li><p>Adjust paths in your code, and be sure to use relative paths!</p></li>
+<li><p><strong>R:</strong> <a href="https://github.com/UtrechtUniversity/simple-r-project">https://github.com/UtrechtUniversity/simple-r-project</a></p></li>
+<li><p><strong>Python:</strong> <a href="https://github.com/UtrechtUniversity/simple-python-template/">https://github.com/UtrechtUniversity/simple-python-template/</a></p></li>
+</ul></li>
+<li><p>Once you have cloned the template repository to your computer, start moving your project files to the right folders.</p></li>
+<li><p>Adjust paths in your code, and be sure to use relative paths.</p></li>
 <li><p>Does your code run in the new folder structure?</p></li>
 </ul>
 

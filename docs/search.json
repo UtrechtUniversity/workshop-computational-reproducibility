@@ -88,7 +88,7 @@
     "href": "project-setup.html",
     "title": "10  Project setup",
     "section": "",
-    "text": "10.0.1 Video\n\n\n\n\n\n\n\n\n\n\n\n10.0.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n10.0.3 Exercises\nNB: You can check the slides for more detail.\n\nThe video and slides ask you to use a tool called cookiecutter to install a project structure in your system. However, we’re going to skip that and go straight to the ‘backup’ instructions! It will be more efficient for us during the online version of the course.\nUse the instructions on this slide to clone a template repository of a project folder structure to your computer. Remember to also follow the instructions on removing the .git folder that is downloaded.\nR users can also use the following code:\n\n\n# install.packages(\"usethis\")\n\nusethis::use_zip(\"https://github.com/bvreede/good-enough-project-template/archive/refs/heads/master.zip\",\n                 destdir = getwd())\n\n\nPlace your project files in the right folder.\nAdjust paths in your code, and be sure to use relative paths!\nDoes your code run in the new folder structure?"
+    "text": "10.0.1 Video\n\n\n\n\n\n\n\n\n\n\n\n10.0.2 Slides\n\n\n\n\n\n\n\n\nSlides\n\n\n10.0.3 Exercises\nNB: You can check the slides for more detail.\n\nClone one of the following template repositories of a project folder structure to your computer:\n\nR: https://github.com/UtrechtUniversity/simple-r-project\nPython: https://github.com/UtrechtUniversity/simple-python-template/\n\nOnce you have cloned the template repository to your computer, start moving your project files to the right folders.\nAdjust paths in your code, and be sure to use relative paths.\nDoes your code run in the new folder structure?"
   },
   {
     "objectID": "version-control.html",
