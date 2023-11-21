@@ -13,6 +13,11 @@ xaringanExtra::embed_xaringan(url = "slides/slides_project-setup.html", ratio = 
 ```
 [Slides](slides/slides_project-setup.html)
 
+
+```{=html}
+<iframe width="780" height="500" src="slides/slides-git-for-designers.pdf" scrolling="no" title="Git for Humans"></iframe>
+```
+
 ### Exercise
 
 * Follow the steps in the video (or [on these slides](slides/slides_project-setup.html#17)) to turn your folder into a git repository.

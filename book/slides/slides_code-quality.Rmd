@@ -151,19 +151,94 @@ my_var <- original_var + Modified(new_var)
 Source: [xkcd](https://xkcd.com/1513/)
 ]
 ---
-# Your turn
 
-#### Where can you improve the readability of your code?
+# Linters
 
-- Run a linter (e.g. `flake8` for Python or `lintr` for R) to identify conflicts with style guides.
-  
-- If you find code that is hard to read, make a note to work on it.
-(Schedule time to refactor, but do not do this now!)
+A linter is a **static** code analysis tool. 
 
-_Tip! Use_ `#TODO` _or_ `//TODO` _(depending on your comment marker) to easily find these spots later on.
-Many IDEs extract these into a task list!_
+It will browse your code and flag/report issues (style, errors, bugs) as output. 
+Then it's up to the programmer to go through the list and fix the issues.
+
+- **R:** The [`lintr`](https://lintr.r-lib.org/) package 
+
+- **Python:** There are several libraries, today we'll use [`flake8`](https://flake8.pycqa.org/en/latest/)
 
 ---
+
+# Linters
+
+The [lintr](https://lintr.r-lib.org/) package in R:
+
+![](https://lintr.r-lib.org/reference/figures/demo.gif)
+
+---
+
+# Linters
+
+The [lintr](https://lintr.r-lib.org/) package in R:
+
+![](images/lintr-r.JPG)
+
+_Function_: `lintr::lint(filename)`
+
+---
+
+# Linters
+
+The [`flake8`](https://flake8.pycqa.org/en/latest/) library in Python:
+
+_Function_: `flake8 path/to/code/to/check.py`
+
+---
+
+# (Auto)formatters
+
+While linters provide a report of issues, (auto)formatters will browse the code and correct issues automatically/directly.
+
+The corrections will depend on the rules encoded within the package/library.
+
+- **R:** The [`styler`](https://styler.r-lib.org/) package 
+
+- **Python:** There are several libraries, today we'll use [`black`](https://pypi.org/project/black/)
+
+---
+
+# (Auto)formatters
+
+The [styler](https://styler.r-lib.org/) package in R:
+
+![](https://raw.githubusercontent.com/lorenzwalthert/some_raw_data/master/styler_0.1.gif)
+
+_Function_: `styler::style_file(filepath)`
+
+---
+
+# (Auto)formatters
+
+The [`black`](https://pypi.org/project/black/) library in Python:
+
+_Function::_ `black {source_file_or_directory}`
+
+---
+
+# Your turn
+
+* Run a _linter_ through your code and identify style issues:
+
+    * **R:** [`lintr`](https://lintr.r-lib.org/)
+    * **Python:** [`flake8`](https://pypi.org/project/flake8/)
+
+* Edit your code to improve the style compatibility, based on the feedback from your linter.
+
+* Run an _autoformatter_ through your code to automatically fix issues instead of simply flagging them: 
+
+    * **R:** [`styler`](https://styler.r-lib.org/)
+    * **Python:** [`black`](https://pypi.org/project/black/)
+
+* If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.
+
+---
+
 # Code reusability
 
 - Less code written, more work done

@@ -16,12 +16,16 @@ xaringanExtra::embed_xaringan(url = "slides/slides_code-quality.html#3", ratio =
 
 ### Exercise
 
-* Use a linter to run through your code and identify style issues.
+* Run a _linter_ through your code and identify style issues:
+
+    * **R:** [`lintr`](https://lintr.r-lib.org/)
+    * **Python:** [`flake8`](https://pypi.org/project/flake8/)
 
 * Edit your code to improve the style compatibility, based on the feedback from your linter.
-  If you work with Python, consider applying [autopep8](https://pypi.org/project/autopep8/) to automatically fix linting issues.
 
-* For the R users: a course participant found [styler](https://styler.r-lib.org/), which may do the same for R!
+* Run an _autoformatter_ through your code to automatically fix issues instead of simply flagging them: 
 
-* If you find code that is hard to read, or variable names that need adjusting, make a note to work on it.
-  (Again, use #TODO or another consistent label!)
+    * **R:** [`styler`](https://styler.r-lib.org/)
+    * **Python:** [`black`](https://pypi.org/project/black/)
+
+* If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.

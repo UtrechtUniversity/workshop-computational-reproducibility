@@ -365,10 +365,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="exercise" class="level3" data-number="12.0.3">
 <h3 data-number="12.0.3" class="anchored" data-anchor-id="exercise"><span class="header-section-number">12.0.3</span> Exercise</h3>
 <ul>
-<li><p>Use a linter to run through your code and identify style issues.</p></li>
-<li><p>Edit your code to improve the style compatibility, based on the feedback from your linter. If you work with Python, consider applying <a href="https://pypi.org/project/autopep8/">autopep8</a> to automatically fix linting issues.</p></li>
-<li><p>For the R users: a course participant found <a href="https://styler.r-lib.org/">styler</a>, which may do the same for R!</p></li>
-<li><p>If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. (Again, use #TODO or another consistent label!)</p></li>
+<li><p>Run a <em>linter</em> through your code and identify style issues:</p>
+<ul>
+<li><strong>R:</strong> <a href="https://lintr.r-lib.org/"><code>lintr</code></a></li>
+<li><strong>Python:</strong> <a href="https://pypi.org/project/flake8/"><code>flake8</code></a></li>
+</ul></li>
+<li><p>Edit your code to improve the style compatibility, based on the feedback from your linter.</p></li>
+<li><p>Run an <em>autoformatter</em> through your code to automatically fix issues instead of simply flagging them:</p>
+<ul>
+<li><strong>R:</strong> <a href="https://styler.r-lib.org/"><code>styler</code></a></li>
+<li><strong>Python:</strong> <a href="https://pypi.org/project/black/"><code>black</code></a></li>
+</ul></li>
+<li><p>If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.</p></li>
 </ul>
 
 
