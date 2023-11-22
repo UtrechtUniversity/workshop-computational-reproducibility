@@ -206,7 +206,7 @@ The command above will create documentation files that can be visualized by call
 ]
 
 .footnote[
-__NB__ This works for R packages, with the proper file structure. See here: http://r-pkgs.had.co.nz/intro.html
+__NB__ This works for R packages, with the proper file structure. See here: https://r-pkgs.org/
 ]
 
 ---
