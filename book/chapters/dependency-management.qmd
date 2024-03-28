@@ -1,0 +1,20 @@
+# Dependency Management
+
+### Video
+
+{{< video https://vimeo.com/464028630 >}}
+
+### Slides
+
+
+[Slides](slides/slides_reproducibility.html#1)
+
+### Exercise
+Address dependencies and language versions in your README.
+
+* What version of your coding language is required?
+
+* Which packages does a user need to install before running your project?
+  What versions?
+
+* Can you provide their installation instructions?

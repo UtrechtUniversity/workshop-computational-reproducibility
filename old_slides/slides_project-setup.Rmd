@@ -1,0 +1,203 @@
+---
+title: "Setting up a project"
+author: "Best Practices for Writing Reproducible Code // part 1"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts, 'custom.css']
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+```{r share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
+
+```{r style-share-again, echo=FALSE}
+xaringanExtra::style_share_again(
+  share_buttons = c("twitter", "linkedin")
+)
+```
+
+# Research compendium
+
+> A research compendium is a collection of *all digital parts of a research project* including data, code, texts (...). The collection is created in such a way that reproducing all results is straightforward.
+
+*Source: [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/compendia.html)*
+![compendium](https://the-turing-way.netlify.app/_images/research-compendium.svg)
+
+
+.footnote[(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.app/welcome.html), CC-BY)]
+---
+# Getting started
+
+.pull-left[
+- Contain your project in a single recognizable folder
+
+- Distinguish folder _types_, name them accordingly:
+  - **Read-only**: data, metadata
+  - **Human-generated**: code, paper, documentation
+  - **Project-generated**: clean data, figures, models...
+
+- Initialize a **README** file, document your project
+
+- Choose a **license**
+
+- Publish your project.]
+
+.pull-right[
+-![exampleproject](images/screenshots/exampleproject.png)
+[Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
+]
+
+---
+
+# Simple Project Templates
+
+You can set up a project template using one of the following template repositories of a project folder structure to your computer:
+
+  - **R:** [https://github.com/UtrechtUniversity/simple-r-project](https://github.com/UtrechtUniversity/simple-r-project)
+  
+  - **Python:** [https://github.com/UtrechtUniversity/simple-python-template/](https://github.com/UtrechtUniversity/simple-python-template/)
+
+Simple click through _Use this template_ -> _Create a repository_ and enter the necessary information for your new repository such as the name and owner.
+
+---
+
+# A Good Enough Project
+
+```
+.
+├── .gitignore
+├── CITATION.md
+├── LICENSE.md
+├── README.md
+├── requirements.txt
+├── bin                <- Compiled and external code, ignored by git (PG)
+│   └── external       <- Any external source code, ignored by git (RO)
+├── config             <- Configuration files (HW)
+├── data               <- All project data, ignored by git
+│   ├── processed      <- The final, canonical data sets for modeling. (PG)
+│   ├── raw            <- The original, immutable data dump. (RO)
+│   └── temp           <- Intermediate data that has been transformed. (PG)
+├── docs               <- Documentation notebook for users (HW)
+│   ├── manuscript     <- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
+│   └── reports        <- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
+├── results
+│   ├── figures        <- Figures for the manuscript or reports (PG)
+│   └── output         <- Other output for the manuscript or reports (PG)
+└── src                <- Source code for this project (HW)
+```
+---
+# Absolute vs. Relative Paths
+
+- Your project should be transportable between computers.
+
+- For this reason, you should use **relative paths** only: compare
+  - `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
+  - `./data/zincfinger.json`
+
+- `./` means: in this folder
+
+- `../` means: one folder up
+---
+
+# Your turn
+
+- Clone one of the following template repositories of a project folder structure to your computer:
+
+  - **R:** [https://github.com/UtrechtUniversity/simple-r-project](https://github.com/UtrechtUniversity/simple-r-project)
+  
+  - **Python:** [https://github.com/UtrechtUniversity/simple-python-template/](https://github.com/UtrechtUniversity/simple-python-template/)
+
+- Place your project files in the right folder.
+
+- Adjust paths in your code, and be sure to use relative (see next slide) paths! 
+
+- It is fine to have the main script (e.g. `main.py`) in the home folder!
+
+---
+
+# Choosing a license
+
+- Copyright is implicit; others cannot use your code without your permission.
+
+- Licensing gives that permission, and its boundaries and conditions.
+
+- Choosing a license early on means being aware of your license as the project proceeds (and not creating conflicts).
+
+- There are over [80 OSI-approved licenses](https://opensource.org/licenses/alphabetical) (and [many](http://dbad-license.org), [many](http://www.wtfpl.net) others) to choose from.
+
+This is one I like to use:
+
+![license](images/screenshots/license.png)
+
+What is important to you? What does your lab use? [Choose your own license!](http://choosealicense.com)
+
+---
+# Publishing your project
+
+Uh... Isn't 'publication' the thing you do... _at the end?_ 
+
+--
+
+No! Publishing your project at an early stage
+- forces you to consider readability throughout
+- minimizes the mess you have to deal with when you (finally) decide to publish
+- allows collaboration and support
+- facilitates sharing and re-use.
+
+--
+
+_But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
+
+If you are super paranoid, you can always opt for a private repository. It is your work & up to you. But consider the advantages!
+
+---
+# Publishing unpublished data
+
+- If you have sensitive data...
+
+ - Don't include your data in your software repository (that's not what they are for anyway).
+ - Consider generating simulated data so your code can run regardless.
+
+- And for all data:
+
+  - Your data should be separate from your code!
+  - If your code references your data, consider a config or metadata file for these references.
+
+
+---
+# Where do I publish?
+.pull-left-larger[
+### Living project: github
+(or other social coding platform):
+
+- synergistic with version control software git
+
+- makes history public and accessible _(eek!)_
+
+- allows publication of different releases
+
+- provides a platform for interaction and collaboration
+
+### Archiving a release: zenodo
+(or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))
+- [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
+
+- this gives you a **doi** (digital object identifier): your code is citeable!
+]
+.pull-right-smaller[
+![octocat-project](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
+![zenodo](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
+]
+
+---
+
+

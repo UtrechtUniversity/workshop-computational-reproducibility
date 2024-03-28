@@ -1,0 +1,112 @@
+/*-- scss:defaults --*/
+// importing fonts
+@import url('https://fonts.googleapis.com/css?family=Merriweather:wght@300&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;800&display=swap');
+
+// fonts
+$font-family-sans-serif: 'Nunito', Tahoma, sans-serif !default;
+
+// headings
+$presentation-heading-font: 'Merriweather',  Tahoma, sans-serif  !default;
+$presentation-heading-color: #000000 !default;
+$h1-font-size: 3.0em !default;
+$h2-font-size: 2.7em !default;
+$h3-font-size: 2.15em !default;
+
+
+section.slide h2 {
+  color: black !important;
+  background-color: #FFCD00 !important;
+  width: 100%;
+  position: relative;
+  left: -20vw;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+
+
+//code
+$code-color: #883080 !default;
+$font-family-monospace: 'Inconsolata', monospace  !default;
+$code-color: #900C3F;
+$code-bg: #F7F7F7;  
+$code-block-font-size: 1em;
+$code-block-bg: #F7F7F7;
+
+
+// general  
+$body-bg: #FFFFFF;
+$body-color: #000000;
+$link-color: #883080;
+$presentation-font-size-root: 35px;
+
+/*-- scss:rules --*/
+.reveal pre code {
+  background-color: #FFFFFF;
+  font-size: 1em;
+  padding: 0.5em;
+  line-height: 1.2em;
+}
+
+
+.subtitle {
+  color: #000000;
+  font-size: $h2-font-size;
+  font-family: $presentation-heading-font;
+}
+
+.author {
+  color: $body-bg;
+  font-size: $h2-font-size;
+  font-family: $presentation-heading-font;
+}
+
+.footer {
+  font-family: $presentation-heading-font;
+}
+
+.reveal .slide-number {
+  font-family: $presentation-heading-font;
+}
+
+.reveal .panel-tabset [role=tab] {
+    font-size: 0.8em;
+}
+
+.reveal .footer {
+    color: #000000;
+}
+
+.reveal li {
+  padding: 10px; 
+}
+
+.center-x{
+    text-align: center;
+}
+
+section.has-dark-background a, section.has-dark-background a:hover {
+    color: #FFCD00;
+}
+
+
+.slide-logo {
+  display: block !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 10px !important;
+  max-height: 10% !important;
+  height: 100% !important;
+  width: auto !important;
+  color: $body-color !important;
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: 10px !important;
+  right: 10px !important;
+  top: unset !important;
+  color: #000000 !important;
+}
