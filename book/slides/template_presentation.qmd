@@ -1,0 +1,146 @@
+--- 
+format: 
+  revealjs:
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "John Doe"
+---
+
+# Chapter ONE {data-background-color="#FFCD00"}
+
+# {data-background-color="#FFCD00"}
+
+![](../images/UU_logo_2021_EN_RGB.png){.absolute bottom=-100 left=-240 width="300" height="120"}
+
+:::::::::::::: {.columns}
+
+::: {.column width="40%"}
+
+::: {.subtitle}
+
+Title
+
+:::
+:::
+::: {.column width="60%"}
+![](../images/image.jpg){fig-align="right" width="300"}
+:::
+::::::::::::::
+
+
+## Quarto
+::: {style="text-align: left; margin-top: 2em"}
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+:::
+
+## Bullets
+::: {style="text-align: left; margin-top: 2em"}
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+:::
+## Line Highlighting
+
+-   Highlight specific lines for emphasis
+-   Incrementally highlight additional lines
+
+``` {.python code-line-numbers="4-5|7|10"}
+import numpy as np
+import matplotlib.pyplot as plt
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+::: footer
+Learn more: [Line Highlighting](https://quarto.org/docs/presentations/revealjs/#line-highlighting)
+:::
+
+## Executable Code
+
+```{r}
+#| echo: true
+#| fig-width: 10
+#| fig-height: 4.5
+plot(cars)
+```
+
+::: footer
+Learn more: [Executable Code](https://quarto.org/docs/presentations/revealjs/#executable-code)
+:::
+
+## LaTeX Equations
+
+[MathJax](https://www.mathjax.org/) rendering of equations to HTML
+
+::: columns
+::: {.column width="40%"}
+``` tex
+\begin{gather*}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather*}
+\begin{align}
+a_{11}& =b_{11}&
+  a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+  a_{22}& =b_{22}+c_{22}
+\end{align}
+```
+:::
+
+::: {.column width="60%"}
+```{=tex}
+\begin{gather*}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather*}
+```
+```{=tex}
+\begin{align}
+a_{11}& =b_{11}&
+  a_{12}& =b_{12}\\
+a_{21}& =b_{21}&
+  a_{22}& =b_{22}+c_{22}
+\end{align}
+```
+:::
+:::
+
+::: footer
+Learn more: [LaTeX Equations](https://quarto.org/docs/authoring/markdown-basics.html#equations)
+:::
+
+## Column Layout {.smaller}
+
+Arrange content into columns of varying widths:
+
+::: columns
+::: {.column width="35%"}
+#### Motor Trend Car Road Tests
+
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="62%"}
+```{r}
+plot(cars)
+```
+:::
+:::
+
+::: footer
+Learn more: [Multiple Columns](https://quarto.org/docs/presentations/revealjs/#multiple-columns)
+:::
+
+# {data-background-color="#FFCD00"}
+
+![](../images/UU_logo_2021_EN_RGB_payoff.png)

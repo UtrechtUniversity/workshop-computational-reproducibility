@@ -1,59 +1,101 @@
 project:
-  type: book
-  output-dir: ../docs 
+  type: website
 
-book:
+website:
   title: "Best Practices for Writing Reproducible Code"
-  author: "Research Data Management Support<br>Utrecht University"
-  date: last-modified
-  search: true
-  repo-url: https://github.com/UtrechtUniversity/workshop-computational-reproducibility/
-  repo-subdir: book
-  repo-branch: main
-  repo-actions: [edit, issue, source]
-  
-  chapters:
-    - index.qmd
-    - acknowledgements.qmd
-    - schedule.qmd
-    - part: preparation.qmd
-      chapters: 
-        - your-project.qmd
-        - programming-language.qmd
-        - terminal.qmd
-        - git-and-github.qmd
-        - final-test.qmd
-    - introduction.qmd
-    - part: project-management.qmd 
-      chapters:
-        - project-setup.qmd
-        - version-control.qmd
-    - part: code-quality.qmd 
-      chapters:
-        - readability.qmd
-        - reusability.qmd
-        - robustness.qmd
-    - part: documentation.qmd 
-      chapters:
-        - comments-and-docstrings.qmd
-        - readme-files.qmd
-    - part: "Accessibility & Reproducibility"
-      chapters:
-        - dependency-management.qmd
-        - binder.qmd
-    - part: "Archiving & Publishing"
-      chapters:
-        - licensing.qmd    
-        - archiving-and-publishing.qmd
-    - reproducibility-check.qmd
-    - references.qmd
-
-  #sidebar:
-  #  logo: ../images/python-hex-logo.png # not there yet
+  page-navigation: true
+  page-footer:
+    right: "This website is built and maintained with ☕ and [Quarto](https://quarto.org/)."
+  sidebar:
+    tools:
+      - icon: github
+        menu:
+          - text: Source code
+            url:  https://github.com/UtrechtUniversity/workshop-computational-reproducibility
+          - text: Report an issue
+            url:  https://github.com/UtrechtUniversity/workshop-computational-reproducibility/issues
+    search: true
+    pinned: true
+    alignment: center
+    style: docked
+    collapse-level: 2
+    logo: images/uu-logo-en-geenwitruimte.png
+    logo-alt: "Logo of Utrecht University"
+    contents:
+      - section: "Course information"
+        contents:
+          - href: index.qmd
+            text: Home
+          - chapters/acknowledgements.qmd
+          - chapters/schedule.qmd
+      - section: "Preparation"
+        contents:
+          - href: chapters/preparation.qmd
+            text: Preparation
+          - chapters/your-project.qmd
+          - chapters/programming-language.qmd
+          - chapters/terminal.qmd
+          - chapters/git-and-github.qmd
+          - chapters/final-test.qmd
+      - section: "Introduction"
+        contents:
+          - href: chapters/introduction.qmd
+            text: Introduction
+      - section: "Project Management"
+        contents:
+          - href: chapters/project-management.qmd 
+            text: Project Management
+          - href: chapters/project-setup.qmd
+            text: Project Setup
+          - href: chapters/version-control.qmd
+            text: Version Control
+      - section: "Code Quality"
+        contents:
+          - href: chapters/code-quality.qmd
+            text: Code Quality
+          - href: chapters/readability.qmd
+            text: Readability
+          - href: chapters/reusability.qmd
+            text: Reusability
+          - href: chapters/robustness.qmd
+            text: Robustness
+      - section: "Documentation"
+        contents:
+          - href: chapters/documentation.qmd
+            text: Documentation
+          - href: chapters/comments-and-docstrings.qmd 
+            text: Comments and Docstrings
+          - href: chapters/readme-files.qmd  
+            text: README files
+      - section: "Accessibility & Reproducibility"
+        contents:
+          - href: chapters/accessibility-and-reproducibility.qmd
+            text: Accessibility & Reproducibility
+          - href: chapters/dependency-management.qmd
+            text: Dependency Management
+          - href: chapters/binder.qmd
+            text: Binder
+      - section: "Archiving & Publishing"
+        contents:
+          - href: chapters/licensing.qmd
+            text: Licensing
+          - href: chapters/archiving-and-publishing.qmd
+            text: Archiving & Publishing
+      - section: "Reproducibility Check"
+        contents:
+          - href: chapters/reproducibility-check.qmd
+            text: Reproducibility Check
+      - section: "References"
+        contents:
+          - href: chapters/references.qmd
+            text: References
 
 bibliography: 
 - references.bib 
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: [cosmo, styles/theme-light.scss]
+      dark: [cosmo, styles/theme-dark.scss]
+    css: styles.css
