@@ -1,0 +1,216 @@
+--- 
+format: 
+  revealjs:
+    margin: 0
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "Workshop Computational Reproducibility"
+---
+
+
+# Reproducibility {data-background-color="#FFCD00"}
+
+## Aspects of good quality code
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+::: {style="text-align: left; margin-top: 2em"}
+
+- Readable
+- Reusable
+- Robust
+
+:::
+:::
+::: {.column width="0%"}
+:::
+::: {.column width="55%"}
+
+![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/good_code.png){fig-align="center" width=70%}
+
+:::
+::::
+
+## Code readability: white space
+
+::: {.fragment .strike}
+Code is for computer, comments are for humans.
+:::
+
+. . .
+
+- Use whitespace and newlines strategically.
+
+. . .
+
+<!-- ::: {.fragment .fade-in-then-out} -->
+
+#### Compare:
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<!-- ::: {style="text-align: left; margin-top: 2em"} -->
+```r
+this <- function(arg1,arg2) res<-arg1*arg2;return(res)
+hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+```
+:::
+
+::: {.column width="30%"}
+
+
+```r
+this <- function(arg1,arg2){
+  res <- arg1 * arg2
+  return(res)
+}
+
+hurts <- mean(
+  c(
+    this(3,4),
+    this(3,1),
+    this(9,9)
+    )
+  )
+print(hurts)
+```
+
+:::
+::::
+
+<!-- ::: -->
+
+## Code readability: names
+
+- use descriptive names for functions and variables
+  - start functions with a verb
+  - make variable names _just_ long enough to be meaningful
+
+. . .
+
+#### Compare:
+:::: {.columns}
+::: {.column width="50%"}
+```python
+for i in my_shopping_basket:
+  if(test(i)) > 10:
+    purch(i)
+  else:
+    disc(i)
+```
+:::
+::: {.column width="50%"}
+```python
+for item in basket:
+  if(testNecessity(item)) > 10:
+    purchase(item)
+  else:
+    discard(item)
+```
+:::
+::::
+
+## Code readability: consistency
+
+- use a consistent style
+  - consistency will make your code easier to understand and maintain
+  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
+
+. . .
+
+#### Compare:
+
+:::: {.columns}
+::: {.column width="50%"}
+```r
+myVar<-original_variable+MOD(new.var)
+```
+:::
+::: {.column width="50%"}
+```r
+my_var <- original_var + Modified(new_var)
+```
+:::
+::::
+
+## Style guides
+
+  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
+  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
+  
+![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/code_quality.png){ width=30%}
+
+
+## Linters
+
+A linter is a **static** code analysis tool. 
+
+It will browse your code and flag/report issues (style, errors, bugs) as output. 
+Then it's up to the programmer to go through the list and fix the issues.
+
+- **R:** The [`lintr`](https://lintr.r-lib.org/) package 
+
+- **Python:** There are several libraries, today we'll use [`flake8`](https://flake8.pycqa.org/en/latest/)
+
+
+## Linters: R
+
+_Function_: `lintr::lint(filename)`
+
+The [lintr](https://lintr.r-lib.org/) package in R:
+
+![](../images/lintr-r.JPG){width=50%}
+
+## Linters: Python
+
+The [`flake8`](https://flake8.pycqa.org/en/latest/) library in Python:
+
+_Function_: `flake8 path/to/code/to/check.py`
+
+
+## (Auto)formatters
+
+While linters provide a report of issues, (auto)formatters will browse the code and correct issues automatically/directly.
+
+The corrections will depend on the rules encoded within the package/library.
+
+- **R:** The [`styler`](https://styler.r-lib.org/) package 
+
+- **Python:** There are several libraries, today we'll use [`black`](https://pypi.org/project/black/)
+
+## (Auto)formatters: R
+
+The [styler](https://styler.r-lib.org/) package in R:
+
+![](https://raw.githubusercontent.com/lorenzwalthert/some_raw_data/master/styler_0.1.gif)
+
+_Function_: `styler::style_file(filepath)`
+
+
+## (Auto)formatters: Python
+
+The [`black`](https://pypi.org/project/black/) library in Python:
+
+_Function::_ `black {source_file_or_directory}`
+
+
+
+## Your turn
+
+* Run a _linter_ through your code and identify style issues:
+
+    * **R:** [`lintr`](https://lintr.r-lib.org/)
+    * **Python:** [`flake8`](https://pypi.org/project/flake8/)
+
+* Edit your code to improve the style compatibility, based on the feedback from your linter.
+
+* Run an _autoformatter_ through your code to automatically fix issues instead of simply flagging them: 
+
+    * **R:** [`styler`](https://styler.r-lib.org/)
+    * **Python:** [`black`](https://pypi.org/project/black/)
+
+* If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.
