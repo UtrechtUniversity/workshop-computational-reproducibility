@@ -7,253 +7,272 @@ format:
     footer: "Workshop Computational Reproducibility"
 ---
 
-# Version Control {data-background-color="#FFCD00"}
+# Project documentation {data-background-color="#FFCD00"}
 
-## Why do you need version control?
+#### Why do you need documentation?
 
-:::: {.columns}
+- You want yourself to understand how code written some time ago works
 
-::: {.column width="55%"}
+- You want others to understand how to (re-)use your code
 
-::: {style="text-align: left; margin-top: 2em"}
+--
 
-- It will help you manage ~~your code~~ most of your files (it is like track changes on steroids: it applies to all files in a folder).
+#### For this you need to 
+- Explain parts of your code with __comments__
 
-- It allows you to trace back your steps: if something breaks, you can figure out what happened.
+- Explain what to install and how to get started in your __readme__
 
-- NO MORE thesis_final_final_SERIOUSLYFINAL.Rmd
+- Explain in-depth use of your code in a __notebook__
 
-#### even better:
-- a good version control system allows you to collaborate and share!
 
-- a good version control system facilitates experimentation!
-:::
-:::
-::: {.column width="5%"}
-:::
-::: {.column width="40%"}
+---
+# Comments
+#### Comments are annotations you write directly in the code source.
+.pull-left[
+They:
 
-![](http://www.phdcomics.com/comics/archive/phd101212s.gif){width=80%}
+- are written for users who deal with your source code
 
-:::
-::::
+- explain parts that are not intuitive from the code itself
 
-## What is git?
+- **do not** replace readable or structured code
 
-:::: {.columns}
+- (in a specific structure) can be used to directly generate documentation for users.
 
-::: {.column width="65%"}
+.footnote[Comic source: [Geek & Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/code-commenting-made-easy.html)]
+]
 
-::: {style="text-align: left; margin-top: 2em"}
+.pull-right[
+![comments](https://geekandpoke.typepad.com/.a/6a00d8341d3df553ef015432bf9167970c-800wi)
 
-- Distributed Version Control system written by Linus Torvalds (of Linux fame)
+]
+---
 
-- Allows you to log updates, branch your work (so you can experiment without losing the original!), and keep all backups, while efficiently using your storage
+# When *not* to use comments
 
-- Gives user a lot of control on what to track, and adds a narrative to changes ('commit comments')
+- ...to repeat in natural language what is written in your code
 
-- Current standard for code
+```r
+# Now we check if the age of a patient is greater than 18
+if(agePatient > 18)
 
-- Open Source software written for the command line...
-
-- ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.
-:::
-:::
-::: {.column width="5%"}
-:::
-::: {.column width="30%"}
-
-![](../images/screenshots/distributed.png){fig-align="center" width=70%}
-
-![](https://imgs.xkcd.com/comics/git.png){fig-align="center" width=70%}
-
-:::
-::::
-
-## Your turn: starting with git
-
-::: {style="text-align: left; margin-top: 2em"}
-
-1. (You should have installed git by now! If you have not: [git-scm.com](https://git-scm.com).)
-
-2. Navigate to your project folder in a terminal.
-```bash
-cd [path/to/project_folder]
 ```
-3. Initiate a git repository in this location:
-```bash
-git init
+--
+- ...to turn old code into zombie code (fine for troubleshooting, but do not leave it in!)
+
+```r
+# Do not run this!!
+# itDoesNotWork <- optimizeMulticoreDeepLearning(myProteins)
+# if(itDoesNotWork == 1444){
+#    connection <- connectToHPC(currentUser, password)
+#}
 ```
-4. Add all your files to the staging area:
-```bash
-git add *
+--
+- ...to replace version control, like git
+
+```r
+
+# removed on August 5
+# if() ...
+
+#Now, it connects to the API with o-auth2, updated 05/05/2016
+...
 ```
-5. Commit all the files in the staging area to your repository:
-```bash
-git commit -m "First commit"
+---
+
+# Comment lines: WHY over HOW
+
+Comment lines are used to explain the **purpose** of some piece of code.
+```python
+# Bug fix GH 20601
+# If the data frame is too big, the number of unique index combination
+# will cause int32 overflow on windows environments.
+# We want to check and raise an error before this happens
+num_rows = np.max([index_level.size for index_level in self.new_index_levels])
+num_columns = self.removed_level.
 ```
+*From [Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py)*
+---
+# Docstrings
 
-:::
+- Structured comments, associated to *segments* (rather than lines) of code, can be used to generate documentation for users*  of your project.
 
-## Your turn: connecting to github
+- These comments are called *docstrings*.
 
-::: {style="text-align: left; margin-top: 1em"}
+- Docstrings are parsed as the first statement of a module (e.g. a function or class).
 
-1. Go to your github account and add a new repository (click '+', then 'New repository'):
+- Docstrings allow you to provide documentation to a function, that is relevant to the user of that function.
 
-  ![](../images/screenshots/github_add_repo.png){fig-align="center" width=250}
+- Writing docstrings makes you generate your documentation as you are generating the code: efficiently, comprehensively!
 
-2. Fill out the information for your new repository. DO NOT initialize the repository yet!
 
-  ![](../images/screenshots/initialize.png){fig-align="center" width=600}
+.footnote[*) Remember? That's probably you!]
+---
+# Generating docstrings
+In R you will need a separate package to deal with docstrings:
+
+.pull-left[
+```r
+library(docstring)
+
+multiply <- function(x,y){
+#' @title Multiply two numbers
+#' @description This function takes two 
+#' input numbers and multiplies
+#' them. It returns the multiplied result.
+#' @param x The first value
+#' @param y The second value
+#' @return The two arguments multiplied.
+
+  return(x*y)
+}
+
+?multiply
+```
+]
+--
+.pull-right[![R example](images/screenshots/r_documentation.png)
+
+]
+
+*Much more information in the [vignette for docstring.](https://cran.r-project.org/web/packages/docstring/vignettes/docstring_intro.html)*
+
+---
+# Generating docstrings
+In Python, docstrings are string literal comments following a function declaration:
+
+```python
+def multiply(x,y):
+  """
+  Multiply two numbers
   
-3. Set the origin of your local repository to the URL of your repo on github:
-```bash
-git remote add origin git@github.com:[youraccount]/[yourrepo].git
+  This function takes two input numbers and multiplies them.
+  It returns the multiplied result.
+  Keyword arguments:
+  x -- the first value
+  y -- the second value
+  """
+  return x*y
+```
+NB: a triple single quote (`'''`) works, but PEP style prefers double quotes for docstrings.
+---
+
+# A glimpse into code generation
+
+Docstrings are formatted so that they can easily be turned into documentation of your package.
+
+You will need additional tools:
+
+  * http://www.doxygen.nl/ : C++ (and many more languages)
+  * http://www.sphinx-doc.org/ : Python
+  * https://roxygen2.r-lib.org/ : R
+
+We will not do this today, but it is worth checking out if you want to release your code!
+---
+# A glimpse into code generation
+
+In the console, in RStudio, run the following command:
+
+```R
+roxygen2::roxygenise()
 ```
 
-:::
+.pull-left-larger[
+The command above will create documentation files that can be visualized by calling help(your package)
+]
 
-## Your turn: pushing to github
+.pull-right-smaller[
 
-::: {style="text-align: left; margin-top: 2em"}
+![output](images/screenshots/document_roxygen_r_help.PNG)
 
-You can now push the content of your local repository to the one on github:
+]
 
-```bash
-git push -u origin main
-```
+.footnote[
+__NB__ This works for R packages, with the proper file structure. See here: http://r-pkgs.had.co.nz/intro.html
+]
 
-Congrats, your local repository now has an online representation!
+---
+# Your turn (choose one!)
 
-![](https://octodex.github.com/images/original.png){width=200} \\\_\_\_ _THANK YOU!_
+#### 1. Comment lines
+  
+a. Do you have superfluous comments? **Remove them!**
+   - Remove your zombie code and version control-like comments
+   - See if you can replace a 'how' comment for a 'why' comment (_what is the purpose of this code?_ rather than _this is how this code works_)
 
-Take a look at your online repository. Who is the author of your commits? If it is not you, you can configure git to use your identity (make sure github knows this email address):
+b. Are there elements without comments that need them? **Add them!**
+  - Have you found yourself staring at a piece of code for too long without understanding it? Perhaps it needs more information!
+  - Try to comment on the thought behind the code rather than phrasing it in English. 
+  
+  
+#### 2. Docstrings
+- Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
+- Keep in mind: what does my user need to know when they are working with this function?
 
-<br>
+---
+# README
 
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "your@email.com"
-```
+The README page is the first thing your user will see!
 
-:::
+The contents typically include one or more of the following:
 
-## Your workflow
+> - __Configuration instructions__
+- __Installation instructions__
+- __Operating instructions__
+- A file manifest (list of files included)
+- Copyright and licensing information
+- Contact information for the distributor or programmer
+- Known bugs
+- Troubleshooting
+- Credits and acknowledgments
 
-::: {style="text-align: left; margin-top: 2em"}
+*From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page*
+---
+# An example
+![mcfly](images/screenshots/mcfly.png)
 
-1. Add the changed file(s) to the staging area, and commit the changes:
-```bash
-git add src/filename.py anotherfile.txt
-git add config/configfile.json
-git commit -m "My commit message"
-```
-NB: don't forget your commit message (try what happens if you do!).
+---
+# README examples and templates
 
-![Image credit: Software Carpentries](../images/swcarpentry/git-staging-area.svg){width=700}
+Some examples from projects with high quality documentation:
 
-:::
+Bigger community software projects:
+- Python's [Pandas](https://github.com/pandas-dev/pandas)
+- [Scikit-learn](https://github.com/scikit-learn/scikit-learn)
+- Tidyverse's [Dplyr](https://github.com/tidyverse/dplyr)
 
-## What else can I do with git?
-
-::: {style="text-align: left; margin-top: 2em"}
-
-Check the status of your repository:
-```bash
-git status
-```
-Check the log of your previous commits:
-```bash
-git log
-git log --oneline
-```
-What differences are there between your last commit and your workspace? (Or between two previous commits...)
-```bash
-git diff
-git diff HEAD~3
-```
-SO much more!
-```bash
-git --help
-```
-:::
-
-## .gitignore
-
-::: {style="text-align: left; margin-top: 2em"}
-
-The .gitignore file in your template contains files that **by definition** will not be tracked by git.
-
-For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
-```bash
-.DS_Store
-```
-Similarly, you can ensure all output in a folder will not be tracked:
-```bash
-results/
-```
-
-Or all files with a certain extension:
-```bash
- *.dat 
-```
-
-_NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders: git does not track empty folders..._
-
-:::
-
-## Your turn!
-
-::: {style="text-align: left; margin-top: 2em"}
-
-1. Continue moving your files into the file template.
-
-1. Add, commit, and push all files you want to track! (Do you want to move a tracked file within a git repository?
-`git mv path/to/file.svg newpath/file.svg`
-and don't forget to commit!)
-
-1. Are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: [examples on this github repo](https://github.com/github/gitignore).
-
-1. Continue editing your code, and add/commit/push your changes. Can you do it from your IDE?
-
-1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using `git pull`.
-
-1. What happens if you edit the same file online and locally, and try to push/pull?
-
-:::
-
-## Enjoy, and git responsibly!
-
-::: {style="text-align: left; margin-top: 0.5em"}
-
-- Commits should be atomic: comprehensive 'units' of changes.
-  - **DO**: edit/add an .svg and add it to your .Rmd presentation in the same commit
-  - **DON'T**: edit for a full day and put this in a single commit (or worse: forget to...)
-
-- Commits should have informative messages so you (and others) can trace your steps
-
-  ![](https://imgs.xkcd.com/comics/git_commit.png){fig-align="center" width=500}
-
-- Track most files; .gitignore those files you don't.
-
-- Explore new ideas with branches, keep a stable version on `main`
-
-:::
+Research software:
+- e-science center's ['McFly' tool](https://github.com/NLeSC/mcfly)
+- Utrecht University's: [Automatic Systematic Review](https://github.com/msdslab/automated-systematic-review)
+- Utrecht University's [MICE](https://github.com/stefvanbuuren/mice)
 
 
-## Do you want to learn more?
+Templates and ideas:
 
-::: {style="text-align: left; margin-top: 2em"}
+- https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+- https://github.com/matiassingers/awesome-readme
 
-- A [Software Carpentry course on git](https://swcarpentry.github.io/git-novice/)
 
-- A [version control + git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control) on Atlassian
+---
+# README how?
 
-- A [git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) from Atlassian
+- When you create a repository on Github, there is an option to include a README file
+![readme_github](images/screenshots/github_new_repo_readme.png)
+- READMEs are files that can be written as text, and commonly use Markdown for formatting.
 
-- A book with [all the ins and outs of git](https://www.git-scm.com/book/en/v2) from the git website
+- Github will show the content of your README file at the root of the repository.
 
-![](../images/atlassian/bubblediag.svg){fig-align="center"}
+- Your cookiecutter template included a README, so you are all set!
 
-:::
+---
+# Your turn!
+
+Edit your README file.
+
+Make sure to include the following information:
+- What does your project do?
+- How do you start running your project?
+  - How does the user download your project? (consider `git clone`!)
+  - How does the user call the main script(s) that should be executed?
+  
+And perhaps any other elements you are inspired to add (check out the examples!)
