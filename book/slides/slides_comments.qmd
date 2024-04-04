@@ -1,0 +1,259 @@
+--- 
+format: 
+  revealjs:
+    margin: 0
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "Workshop Computational Reproducibility"
+---
+
+# Version Control {data-background-color="#FFCD00"}
+
+## Why do you need version control?
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+::: {style="text-align: left; margin-top: 2em"}
+
+- It will help you manage ~~your code~~ most of your files (it is like track changes on steroids: it applies to all files in a folder).
+
+- It allows you to trace back your steps: if something breaks, you can figure out what happened.
+
+- NO MORE thesis_final_final_SERIOUSLYFINAL.Rmd
+
+#### even better:
+- a good version control system allows you to collaborate and share!
+
+- a good version control system facilitates experimentation!
+:::
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="40%"}
+
+![](http://www.phdcomics.com/comics/archive/phd101212s.gif){width=80%}
+
+:::
+::::
+
+## What is git?
+
+:::: {.columns}
+
+::: {.column width="65%"}
+
+::: {style="text-align: left; margin-top: 2em"}
+
+- Distributed Version Control system written by Linus Torvalds (of Linux fame)
+
+- Allows you to log updates, branch your work (so you can experiment without losing the original!), and keep all backups, while efficiently using your storage
+
+- Gives user a lot of control on what to track, and adds a narrative to changes ('commit comments')
+
+- Current standard for code
+
+- Open Source software written for the command line...
+
+- ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.
+:::
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="30%"}
+
+![](../images/screenshots/distributed.png){fig-align="center" width=70%}
+
+![](https://imgs.xkcd.com/comics/git.png){fig-align="center" width=70%}
+
+:::
+::::
+
+## Your turn: starting with git
+
+::: {style="text-align: left; margin-top: 2em"}
+
+1. (You should have installed git by now! If you have not: [git-scm.com](https://git-scm.com).)
+
+2. Navigate to your project folder in a terminal.
+```bash
+cd [path/to/project_folder]
+```
+3. Initiate a git repository in this location:
+```bash
+git init
+```
+4. Add all your files to the staging area:
+```bash
+git add *
+```
+5. Commit all the files in the staging area to your repository:
+```bash
+git commit -m "First commit"
+```
+
+:::
+
+## Your turn: connecting to github
+
+::: {style="text-align: left; margin-top: 1em"}
+
+1. Go to your github account and add a new repository (click '+', then 'New repository'):
+
+  ![](../images/screenshots/github_add_repo.png){fig-align="center" width=250}
+
+2. Fill out the information for your new repository. DO NOT initialize the repository yet!
+
+  ![](../images/screenshots/initialize.png){fig-align="center" width=600}
+  
+3. Set the origin of your local repository to the URL of your repo on github:
+```bash
+git remote add origin git@github.com:[youraccount]/[yourrepo].git
+```
+
+:::
+
+## Your turn: pushing to github
+
+::: {style="text-align: left; margin-top: 2em"}
+
+You can now push the content of your local repository to the one on github:
+
+```bash
+git push -u origin main
+```
+
+Congrats, your local repository now has an online representation!
+
+![](https://octodex.github.com/images/original.png){width=200} \\\_\_\_ _THANK YOU!_
+
+Take a look at your online repository. Who is the author of your commits? If it is not you, you can configure git to use your identity (make sure github knows this email address):
+
+<br>
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
+
+:::
+
+## Your workflow
+
+::: {style="text-align: left; margin-top: 2em"}
+
+1. Add the changed file(s) to the staging area, and commit the changes:
+```bash
+git add src/filename.py anotherfile.txt
+git add config/configfile.json
+git commit -m "My commit message"
+```
+NB: don't forget your commit message (try what happens if you do!).
+
+![Image credit: Software Carpentries](../images/swcarpentry/git-staging-area.svg){width=700}
+
+:::
+
+## What else can I do with git?
+
+::: {style="text-align: left; margin-top: 2em"}
+
+Check the status of your repository:
+```bash
+git status
+```
+Check the log of your previous commits:
+```bash
+git log
+git log --oneline
+```
+What differences are there between your last commit and your workspace? (Or between two previous commits...)
+```bash
+git diff
+git diff HEAD~3
+```
+SO much more!
+```bash
+git --help
+```
+:::
+
+## .gitignore
+
+::: {style="text-align: left; margin-top: 2em"}
+
+The .gitignore file in your template contains files that **by definition** will not be tracked by git.
+
+For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
+```bash
+.DS_Store
+```
+Similarly, you can ensure all output in a folder will not be tracked:
+```bash
+results/
+```
+
+Or all files with a certain extension:
+```bash
+ *.dat 
+```
+
+_NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders: git does not track empty folders..._
+
+:::
+
+## Your turn!
+
+::: {style="text-align: left; margin-top: 2em"}
+
+1. Continue moving your files into the file template.
+
+1. Add, commit, and push all files you want to track! (Do you want to move a tracked file within a git repository?
+`git mv path/to/file.svg newpath/file.svg`
+and don't forget to commit!)
+
+1. Are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: [examples on this github repo](https://github.com/github/gitignore).
+
+1. Continue editing your code, and add/commit/push your changes. Can you do it from your IDE?
+
+1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using `git pull`.
+
+1. What happens if you edit the same file online and locally, and try to push/pull?
+
+:::
+
+## Enjoy, and git responsibly!
+
+::: {style="text-align: left; margin-top: 0.5em"}
+
+- Commits should be atomic: comprehensive 'units' of changes.
+  - **DO**: edit/add an .svg and add it to your .Rmd presentation in the same commit
+  - **DON'T**: edit for a full day and put this in a single commit (or worse: forget to...)
+
+- Commits should have informative messages so you (and others) can trace your steps
+
+  ![](https://imgs.xkcd.com/comics/git_commit.png){fig-align="center" width=500}
+
+- Track most files; .gitignore those files you don't.
+
+- Explore new ideas with branches, keep a stable version on `main`
+
+:::
+
+
+## Do you want to learn more?
+
+::: {style="text-align: left; margin-top: 2em"}
+
+- A [Software Carpentry course on git](https://swcarpentry.github.io/git-novice/)
+
+- A [version control + git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control) on Atlassian
+
+- A [git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) from Atlassian
+
+- A book with [all the ins and outs of git](https://www.git-scm.com/book/en/v2) from the git website
+
+![](../images/atlassian/bubblediag.svg){fig-align="center"}
+
+:::
