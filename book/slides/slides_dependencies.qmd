@@ -12,6 +12,7 @@ format:
 
 ## Congratulations!
 ::: {style="text-align: left; margin-top: 2em"}
+:::
 You now have a project!
 
 :::: {.columns}
@@ -32,27 +33,42 @@ Are you done? **It depends...**
 ![](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg){width=80%}
 :::
 ::::
-:::
 
 ## Dependencies
 ::: {style="text-align: left; margin-top: 1em"}
-Dependencies and versions can stop your users/readers from being able to run your code.
 :::
+Dependencies and versions can stop your users/readers from being able to run your code.
 For example: this code written in Python 2.7:
+
+::: {style="text-align: left; margin-top: 1em"}
+:::
+
 ```python
 print "Hello world!"
 ```
+::: {style="text-align: left; margin-top: 1em"}
+:::
 
 No longer works in Python 3!
+
+::: {style="text-align: left; margin-top: 1em"}
+:::
+
 ```python
 print "Hello world!"
 ```
+::: {style="text-align: left; margin-top: 1em"}
+:::
+
 ```
   File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
     print "Hello world!"
                        ^
 SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
 ```
+
+::: {style="text-align: left; margin-top: 1em"}
+:::
 
 Instead, we write:
 ```python
@@ -61,7 +77,11 @@ print("Hello world!")
 
 ## The reproducibility trade-off
 ::: {style="text-align: left; margin-top: 1em"}
+:::
+
 How far do you go towards reproducibility?
+
+::: {style="text-align: left; margin-top: 1em"}
 :::
 
 ![](../images/dependencytradeoff.svg){height="150pt"}
@@ -89,7 +109,8 @@ How far do you go towards reproducibility?
 ::::
 
 ## Our advice
-::: {style="text-align: left; margin-top: 1em"}
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 #### Are you working with Python?
 - Use `conda` and declare your dependencies in an `environment.yml` file.
@@ -99,22 +120,24 @@ How far do you go towards reproducibility?
 
 _In the next slides we will elaborate on some other options as well, but honestly, just do this._
 
-:::
 
 ## Declaring dependencies
+::: {style="text-align: left; margin-top: 1em"}
+:::
 
-#### OK: declare (in your README) how your project works **for you**.
-  - What language, what version?
-  - What packages/libraries do you load
-  - What OS do you use? (Does it work on your collaborator's system?)
+OK: declare (in your README) how your project works **for you**.
 
-#### Better: prepare a file for a package manager:
+- What language, what version?
+- What packages/libraries do you load
+- What OS do you use? (Does it work on your collaborator's system?)
+
+Better: prepare a file for a package manager:
+
 - **what?** A single file describing the necessary dependencies, which can be used to install all dependencies in one step
 - **where?** Store the file in the repository root (main folder)
 - **which?** This depends on the environment/package manager you want to use:
   - For `conda` (python and R): generate an `environment.yml` file
   - For `pip` (python only): generate a `requirements.txt` file
-  - *NB: you can use both, if you need `pip` for the installation of any specific dependency!*
 
 ## Declaring dependencies
 ::: {style="text-align: left; margin-top: 1em"}

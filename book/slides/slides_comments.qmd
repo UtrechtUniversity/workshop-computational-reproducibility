@@ -11,25 +11,23 @@ format:
 # Project documentation {data-background-color="#FFCD00"}
 
 ## Why do you need documentation?
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 - You want yourself to understand how code written some time ago works
-
 - You want others to understand how to (re-)use your code
 
 **For this you need to**
 
 - Explain parts of your code with __comments__
-
 - Explain what to install and how to get started in your __readme__
-
 - Explain in-depth use of your code in a __notebook__
 
 ## Comments
-
 :::: {.columns}
-::: {.column width="35%"}
+::: {.column width="60%"}
 ::: {style="text-align: left; margin-top: 2em"}
-
+:::
 **Comments are annotations you write directly in the code source.**
 
 They:
@@ -43,13 +41,11 @@ They:
 - (in a specific structure) can be used to directly generate documentation for users.
 :::
 
-:::
 ::: {.column width="5%"}
 :::
 
-::: {.column width="60%"}
-![](https://geekandpoke.typepad.com/.a/6a00d8341d3df553ef015432bf9167970c-800wi){fig-align="center" width=50%}
-
+::: {.column width="30%"}
+![](../images/comments.jpeg){height="50%"}
 :::
 
 ::: footer
@@ -57,8 +53,8 @@ Comic source: [Geek & Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/
 :::
 ::::
 
-## When *not* to use comments
-::: {style="text-align: left; margin-top: 0.25em; fontsize: 16"}
+## When **not** to use comments
+
 - ...to repeat in natural language what is written in your code
 
 ```r
@@ -86,30 +82,34 @@ if(agePatient > 18)
 #Now, it connects to the API with o-auth2, updated 05/05/2016
 ...
 ```
-:::
 
 ## Comment lines: WHY over HOW
+
 ::: {style="text-align: left; margin-top: 2em"}
+:::
 
 Comment lines are used to explain the **purpose** of some piece of code.
-\n
-\n
+
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 ```python
 # Bug fix GH 20601
 # If the data frame is too big, the number of unique index combination
 # will cause int32 overflow on windows environments.
 # We want to check and raise an error before this happens
+
 num_rows = np.max([index_level.size for index_level in self.new_index_levels])
 num_columns = self.removed_level.
 ```
-:::
 
 :::footer
 [Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py)
 :::
 
 ## Docstrings
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 - Structured comments, associated to *segments* (rather than lines) of code, can be used to generate documentation for users*  of your project.
 
@@ -127,6 +127,9 @@ num_columns = self.removed_level.
 :::
 
 ## Generating docstrings
+::: {style="text-align: left; margin-top: 2em"}
+:::
+
 In R you will need a separate package to deal with docstrings:
 
 :::: {.columns}
@@ -167,7 +170,13 @@ multiply <- function(x,y){
 :::
 
 ## Generating docstrings
+::: {style="text-align: left; margin-top: 2em"}
+:::
+
 In Python, docstrings are string literal comments following a function declaration:
+
+::: {style="text-align: left; margin-top: 1em"}
+:::
 
 ```python
 def multiply(x,y):
@@ -183,9 +192,14 @@ def multiply(x,y):
   return x*y
 ```
 
+::: {style="text-align: left; margin-top: 2em"}
+:::
+
 NB: a triple single quote (`'''`) works, but PEP style prefers double quotes for docstrings.
 
 ## A glimpse into code generation
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 Docstrings are formatted so that they can easily be turned into documentation of your package.
 
@@ -212,7 +226,14 @@ In the console, in RStudio, run the following command:
 roxygen2::roxygenise()
 ```
 
+::: {style="text-align: left; margin-top: 1em"}
+:::
+
 The command above will create documentation files that can be visualized by calling help(your package)
+
+::: {style="text-align: left; margin-top: 1em"}
+:::
+
 ![](../images/screenshots/document_roxygen_r_help.PNG){width=50%%}
 :::
 :::
@@ -223,6 +244,9 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 :::
 
 ## Your turn (choose one!)
+::: {style="text-align: left; margin-top: 2em"}
+:::
+
 **Comment lines**
 
 :::: {.columns}
@@ -235,7 +259,7 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 :::
 :::
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 ::: {style="text-align: left; margin-top: 0.5em"}
 - Are there elements without comments that need them? **Add them!**
   + Have you found yourself staring at a piece of code for too long without understanding it? Perhaps it needs more information!
@@ -249,23 +273,33 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 - Keep in mind: what does my user need to know when they are working with this function?
 
 ## README
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 The README page is the first thing your user will see!
 
 The contents typically include one or more of the following:
 
-::: {style="text-align: center"}
+:::: {.columns}
+::: {.column width="40%"}
+::: {style="text-align: left; margin-top: 0.5em"}
 - __Configuration instructions__
 - __Installation instructions__
 - __Operating instructions__
 - A file manifest (list of files included)
+:::
+:::
+
+::: {.column width="55%"}
+::: {style="text-align: left; margin-top: 0.5em"}
 - Copyright and licensing information
 - Contact information for the distributor or programmer
 - Known bugs
 - Troubleshooting
 - Credits and acknowledgments
 :::
-
+:::
+::::
 :::footer
 *From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page*
 :::
@@ -274,6 +308,8 @@ The contents typically include one or more of the following:
 ![mcfly](../images/screenshots/mcfly.png)
 
 ## README examples and templates
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 Some examples from projects with high quality documentation:
 
@@ -302,12 +338,17 @@ Some examples from projects with high quality documentation:
 :::
 ::::
 
+::: {style="text-align: left; margin-top: 2em"}
+:::
+
 **Templates and ideas:**
 
 - https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 - https://github.com/matiassingers/awesome-readme
 
 ## README how?
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 - When you create a repository on Github, there is an option to include a README file
 ![readme_github](images/screenshots/github_new_repo_readme.png)
@@ -318,8 +359,13 @@ Some examples from projects with high quality documentation:
 - Your cookiecutter template included a README, so you are all set!
 
 ## Your turn!
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
-Edit your README file.
+**Edit your README file.**
+
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 Make sure to include the following information:
 
@@ -330,5 +376,8 @@ Make sure to include the following information:
 - How does the user download your project? (consider `git clone`!)
 
 - How does the user call the main script(s) that should be executed?
+
+::: {style="text-align: left; margin-top: 2em"}
+:::
 
 And perhaps any other elements you are inspired to add (check out the examples!)
