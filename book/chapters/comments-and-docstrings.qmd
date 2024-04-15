@@ -4,7 +4,9 @@
 
 {{< video https://vimeo.com/463992354 >}}
 
-
 ### Slides
 
-[Slides](slides/slides_documentation.html#4)
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_comments.html" title="Version Control" width="720" height="540">
+</iframe>
+```
