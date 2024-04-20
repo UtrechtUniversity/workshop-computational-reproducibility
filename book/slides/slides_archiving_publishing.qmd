@@ -1,0 +1,181 @@
+--- 
+format: 
+  revealjs:
+    margin: 0
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "Workshop Computational Reproducibility"
+---
+
+# Archiving and Publication {data-background-color="#FFCD00"}
+
+## Let's think about the future... {.scrollable }
+::: {style="text-align: left; margin-top: 2em"}
+::: {.fragment fragment-index=1}
+
+
+- Will this repository still be here in five years? 
+
+
+
+- #### Will my account? 
+
+
+
+- ### Will GitHub?
+:::
+::::
+
+## Archiving the project
+
+::: {style="text-align: left; margin-top: 2em"}
+:::::::::::::: {.columns}
+
+::: {.column width="80%"}
+Zenodo has a sandbox environment!
+
+- Not the main data repository, but still functional.
+
+- You will get an *actual* DOI, and your project will (probably?) not be deleted!
+
+- Only do this following exercise if you are OK with your code staying online!
+
+- You will not be able to do this with a private repository.
+
+
+Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo)._)
+
+
+#### Your turn:
+
+
+- Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
+- GitHub will then ask permission to give Zenodo access; click "Authorize application".
+
+:::
+::: {.column width="20%"}
+![](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png){ width="300" fig-align="center"}
+
+
+:::
+::::::::::::::
+:::
+
+## Select your repository
+
+::: {style="text-align: left; margin-top: 2em"}
+
+![](https://web.archive.org/web/20211021121037if_/https://guides.github.com/activities/citable-code/zenodo-toggle-on.png){ width="90%" height="600" fig-align="center"}
+
+Click on your enabled repository. This will take you to a page with a green GitHub button. With this button you can create a realease for your publication.
+
+:::
+
+## Release your project!
+
+::: {style="text-align: left; margin-top: 1em"}
+![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/repo-view.png){ width="60%" fig-align="center" height="500"}
+
+... and follow the workflow!
+
+(Unsure about version number? Wait a slide! :-)
+
+:::
+
+## Semantic versioning
+
+::: {style="text-align: left; margin-top: 2em"}
+
+A version has three numbers: MAJOR.MINOR.PATCH
+
+- MAJOR version denotes changes that alter the compatibility (i.e. someone using your functions may need to change their use for their code to still work),
+- MINOR version adds functionality, but remains compatible
+- PATCH version makes (compatible) bug fixes.
+
+(If your bug fix changes compatibility, it is therefore a MAJOR version change!)
+
+
+**You can release today with v0.1.0**
+:::
+
+## Check zenodo
+
+::: {style="text-align: left; margin-top: 2em"}
+
+Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
+
+![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/upload-tab.png){ width="70%" height="600" fig-align="center"}
+
+:::
+
+## Getting your DOI
+
+::: {style="text-align: left; margin-top: 2em"}
+
+- Add some final descriptions
+- Click 'publish'
+- Voilá!
+
+![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/zenodo-form.png){ width="70%" height="500" fig-align="center"}
+
+:::
+
+## Getting your DOI
+
+
+::: {style="text-align: left; margin-top: 2em"}
+Do you know your DOI?
+<br><br>
+
+As a final touch (only with real Zenodo!): you can take your DOI and place it as a badge at the top of your README.
+<br><br>
+
+
+```bash
+[![DOI](https://zenodo.org/badge/doi/YOUR.DOI.svg)](http://dx.doi.org/YOUR.DOI)
+```
+
+<br><br>
+
+
+
+__This is not recommended with a Sandbox DOI, because sandbox projects are not permanent.__
+__The Sandbox DOI will not work like a normal one does!__
+
+
+
+:::
+
+## Are you ready? {.scrollable }
+::: {.fragment fragment-index=1}
+**Let's exchange projects!**
+
+Please go to the second tab in the status chart [tinyurl.com/repcochart](https://docs.google.com/spreadsheets/d/1J3SfR2C0cghVjUPGCjk9UXZzipB3c7HL5Z1iicK8adc/edit#gid=600881461), and fill out:
+
+- your project name
+- your project (github) URL
+- your name
+- the language in which the project was written
+
+in the yellow columns.
+
+
+NB this information will be deleted right after the course
+
+:::
+
+::: {.fragment fragment-index=2}
+**Now, write your name in one of the blue columns behind a project you will reproduce.**
+
+
+We hope that everyone's repository will get a reproduction-attempt, so only add your name to the second column if there are no repos left (for you)!
+
+:::
+
+::: {.fragment fragment-index=3}
+
+**As you reproduce, please give your colleague feedback!**
+
+Open an issue in your colleague's GitHub repository and copy/paste this [feedback template](../feedback-on-reproducing-projects.txt)
+
+:::

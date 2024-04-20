@@ -8,7 +8,11 @@
 ### Slides
 
 
-[Slides](slides/slides_project-setup.html#9)
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_licensing.html" title="Licensing" width="720" height="540">
+</iframe>
+```
+
 
 ### Exercise
 
