@@ -6,8 +6,10 @@
 
 
 ### Slides
-
-[Slides](slides/slides_reproducibility.html#1)
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_archiving_publishing.html" title="Archiving Publishing" width="720" height="540">
+</iframe>
+```
 
 ### Exercise (optional)
 
