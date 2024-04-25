@@ -7,7 +7,7 @@
 ### Slides
 
 ```{=html}
-<iframe class="slide-deck" src="../slides/slides_dependencies.html" title="Version Control" width="720" height="540">
+<iframe class="slide-deck" src="../slides/slides_dependencies.html" title="Version Control" width="960" height="540">
 </iframe>
 ```
 

@@ -9,7 +9,7 @@
 
 
 ```{=html}
-<iframe class="slide-deck" src="../slides/slides_licensing.html" title="Licensing" width="720" height="540">
+<iframe class="slide-deck" src="../slides/slides_licensing.html" title="Licensing" width="960" height="540">
 </iframe>
 ```
 

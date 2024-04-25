@@ -11,7 +11,7 @@ format:
 # Project documentation {data-background-color="#FFCD00"}
 
 ## Why do you need documentation?
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 :::
 
 - You want yourself to understand how code written some time ago works
@@ -24,10 +24,10 @@ format:
 - Explain in-depth use of your code in a __notebook__
 
 ## Comments
+::: {.theme-section}
 :::: {.columns}
 ::: {.column width="60%"}
-::: {style="text-align: left; margin-top: 2em"}
-:::
+
 **Comments are annotations you write directly in the code source.**
 
 They:
@@ -52,8 +52,11 @@ They:
 Comic source: [Geek & Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/code-commenting-made-easy.html)
 :::
 ::::
+:::
 
 ## When **not** to use comments
+
+::: {.theme-section}
 
 - ...to repeat in natural language what is written in your code
 
@@ -83,10 +86,12 @@ if(agePatient > 18)
 ...
 ```
 
+:::
+
 ## Comment lines: WHY over HOW
 
-::: {style="text-align: left; margin-top: 2em"}
-:::
+::: {.theme-section}
+
 
 Comment lines are used to explain the **purpose** of some piece of code.
 
@@ -107,9 +112,10 @@ num_columns = self.removed_level.
 [Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py)
 :::
 
-## Docstrings
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## Docstrings
+::: {.theme-section}
 
 - Structured comments, associated to *segments* (rather than lines) of code, can be used to generate documentation for users*  of your project.
 
@@ -126,9 +132,12 @@ num_columns = self.removed_level.
 \*Remember? That's probably you!
 :::
 
-## Generating docstrings
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## Generating docstrings
+
+::: {.theme-section}
+
 
 In R you will need a separate package to deal with docstrings:
 
@@ -169,14 +178,14 @@ multiply <- function(x,y){
 *Much more information in the [vignette for docstring.](https://cran.r-project.org/web/packages/docstring/vignettes/docstring_intro.html)*
 :::
 
-## Generating docstrings
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## Generating docstrings
+
+::: {.theme-section}
 
 In Python, docstrings are string literal comments following a function declaration:
 
-::: {style="text-align: left; margin-top: 1em"}
-:::
 
 ```python
 def multiply(x,y):
@@ -192,14 +201,13 @@ def multiply(x,y):
   return x*y
 ```
 
-::: {style="text-align: left; margin-top: 2em"}
-:::
-
 NB: a triple single quote (`'''`) works, but PEP style prefers double quotes for docstrings.
 
-## A glimpse into code generation
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## A glimpse into code generation
+
+::: {.theme-section}
 
 Docstrings are formatted so that they can easily be turned into documentation of your package.
 
@@ -239,13 +247,14 @@ The command above will create documentation files that can be visualized by call
 :::
 ::::
 
+:::
+
 :::footer
 __NB__ This works for R packages, with the proper file structure. See here: http://r-pkgs.had.co.nz/intro.html
 :::
 
 ## Your turn (choose one!)
-::: {style="text-align: left; margin-top: 2em"}
-:::
+::: {.theme-section}
 
 **Comment lines**
 
@@ -267,14 +276,18 @@ __NB__ This works for R packages, with the proper file structure. See here: http
 :::
 :::
 ::::
+
 **Docstrings**
 
 - Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
 - Keep in mind: what does my user need to know when they are working with this function?
 
-## README
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## README
+
+::: {.theme-section}
+
 
 The README page is the first thing your user will see!
 
@@ -300,6 +313,9 @@ The contents typically include one or more of the following:
 :::
 :::
 ::::
+
+:::
+
 :::footer
 *From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page*
 :::
@@ -308,8 +324,7 @@ The contents typically include one or more of the following:
 ![mcfly](../images/screenshots/mcfly.png)
 
 ## README examples and templates
-::: {style="text-align: left; margin-top: 2em"}
-:::
+::: {.theme-section}
 
 Some examples from projects with high quality documentation:
 
@@ -346,9 +361,11 @@ Some examples from projects with high quality documentation:
 - https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 - https://github.com/matiassingers/awesome-readme
 
-## README how?
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## README how?
+
+::: {.theme-section}
 
 - When you create a repository on Github, there is an option to include a README file
 ![readme_github](../images/screenshots/github_new_repo_readme.png)
@@ -358,9 +375,10 @@ Some examples from projects with high quality documentation:
 
 - Your cookiecutter template included a README, so you are all set!
 
-## Your turn!
-::: {style="text-align: left; margin-top: 2em"}
 :::
+
+## Your turn!
+::: {.theme-section}
 
 **Edit your README file.**
 
@@ -381,3 +399,5 @@ Make sure to include the following information:
 :::
 
 And perhaps any other elements you are inspired to add (check out the examples!)
+
+:::

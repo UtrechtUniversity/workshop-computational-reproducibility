@@ -98,4 +98,4 @@ format:
     theme: 
       light: [cosmo, styles/theme-light.scss]
       dark: [cosmo, styles/theme-dark.scss]
-    css: styles.css
+    # css: styles.css

@@ -5,17 +5,24 @@ format:
     theme: ../styles/uu.scss
     logo: ../images/UU_logo_2021_EN_RGB.png
     footer: "Workshop Computational Reproducibility"
+    mermaid:
+      theme: default
+    mermaid-format: png
+execute:
+  enabled: false
+  echo: true
 ---
 
 # Version Control {data-background-color="#FFCD00"}
 
+
 ## Why do you need version control?
+
+::: {.theme-section}
 
 :::: {.columns}
 
 ::: {.column width="55%"}
-
-::: {style="text-align: left; margin-top: 2em"}
 
 - It will help you manage ~~your code~~ most of your files (it is like track changes on steroids: it applies to all files in a folder).
 
@@ -28,7 +35,7 @@ format:
 
 - a good version control system facilitates experimentation!
 :::
-:::
+
 ::: {.column width="5%"}
 :::
 ::: {.column width="40%"}
@@ -37,14 +44,15 @@ format:
 
 :::
 ::::
+:::
 
 ## What is git?
+
+::: {.theme-section}
 
 :::: {.columns}
 
 ::: {.column width="65%"}
-
-::: {style="text-align: left; margin-top: 2em"}
 
 - Distributed Version Control system written by Linus Torvalds (of Linux fame)
 
@@ -57,7 +65,7 @@ format:
 - Open Source software written for the command line...
 
 - ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.
-:::
+
 :::
 ::: {.column width="5%"}
 :::
@@ -69,62 +77,111 @@ format:
 
 :::
 ::::
+:::
 
 ## Your turn: starting with git
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
-1. (You should have installed git by now! If you have not: [git-scm.com](https://git-scm.com).)
+1. We have created a repository from a template repository on GitHub. 
 
-2. Navigate to your project folder in a terminal.
-```bash
+2. After that, we cloned the repository to our local PC and moved some of our files into the repository.
+
+3. Navigate to your project folder in a terminal.
+```{python}
 cd [path/to/project_folder]
 ```
-3. Initiate a git repository in this location:
-```bash
-git init
-```
-4. Add all your files to the staging area:
-```bash
-git add *
-```
-5. Commit all the files in the staging area to your repository:
-```bash
-git commit -m "First commit"
+
+4. Verify that your project folder is a git repository by locating the .git folder:
+```{python}
+ls -a
 ```
 
 :::
 
-## Your turn: connecting to github
+## Your turn: Git history
 
-::: {style="text-align: left; margin-top: 1em"}
+::: {.theme-section}
 
-1. Go to your github account and add a new repository (click '+', then 'New repository'):
+Use [Git log](https://git-scm.com/docs/git-log) to check the history of your project:
+```{python}
+git log
+```
+![](../images/screenshots/git_log.png){fig-align="center"}
 
-  ![](../images/screenshots/github_add_repo.png){fig-align="center" width=250}
 
-2. Fill out the information for your new repository. DO NOT initialize the repository yet!
 
-  ![](../images/screenshots/initialize.png){fig-align="center" width=600}
-  
-3. Set the origin of your local repository to the URL of your repo on github:
-```bash
-git remote add origin git@github.com:[youraccount]/[yourrepo].git
+Alternatively, via GitHub it is also possible to view the history of your project. Let's see how a mature project looks like in this [repository of the happygitwithr book](https://github.com/jennybc/happy-git-with-r):
+
+![](../images/screenshots/git_history.png){fig-align="center"}
+
+:::
+
+## Git History
+
+```{mermaid}
+%%| echo: false
+%%| fig-width: 14
+gitGraph
+   commit id: "Intial commit"
+   commit id: "add my scripts"
+   commit id: "add plotting function"
+   commit id: "fix bug in plotting function"
+```
+
+
+## Your turn: Useful git commands
+
+::: {.theme-section}
+
+
+```{python}
+git status
+```
+
+[Git status](https://git-scm.com/docs/git-status) shows you the status of your repository. It tells you which files are created, modified, or deleted relative to the last **git snapshot** (aka __commit__) of your project.
+
+```{python}
+git diff
+```
+
+[Git diff](https://git-scm.com/docs/git-diff) shows you the actual differences between the files that you have changed since the last snapshot.
+
+```{python}
+git --help
+```
+
+This command will show you all the commands that you can use with git.
+
+:::
+
+## Your turn: Making changes
+
+::: {.theme-section}
+
+5. If you have added your files to your git repository on your PC, now add all your files to the staging area:
+```{python}
+git add *
+```
+
+5. Commit all the files in the staging area to your repository:
+```{python}
+git commit -m "add my files"
 ```
 
 :::
 
 ## Your turn: pushing to github
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 You can now push the content of your local repository to the one on github:
 
-```bash
-git push -u origin main
+```{python}
+git push
 ```
 
-Congrats, your local repository now has an online representation!
+Congrats, you have made your first push and your scripts are online!
 
 ![](https://octodex.github.com/images/original.png){width=200} \\\_\_\_ _THANK YOU!_
 
@@ -132,7 +189,7 @@ Take a look at your online repository. Who is the author of your commits? If it 
 
 <br>
 
-```bash
+```{python}
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
@@ -141,13 +198,15 @@ git config --global user.email "your@email.com"
 
 ## Your workflow
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 1. Add the changed file(s) to the staging area, and commit the changes:
-```bash
+```{python}
 git add src/filename.py anotherfile.txt
 git add config/configfile.json
+git status
 git commit -m "My commit message"
+git push
 ```
 NB: don't forget your commit message (try what happens if you do!).
 
@@ -155,47 +214,43 @@ NB: don't forget your commit message (try what happens if you do!).
 
 :::
 
-## What else can I do with git?
+## Summary
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
-Check the status of your repository:
-```bash
-git status
-```
-Check the log of your previous commits:
-```bash
+Useful git commands:
+
+```{python}
 git log
 git log --oneline
-```
-What differences are there between your last commit and your workspace? (Or between two previous commits...)
-```bash
+git status
 git diff
 git diff HEAD~3
-```
-SO much more!
-```bash
 git --help
 ```
+
 :::
 
 ## .gitignore
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 The .gitignore file in your template contains files that **by definition** will not be tracked by git.
 
 For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
-```bash
+
+```{python}
 .DS_Store
 ```
+
 Similarly, you can ensure all output in a folder will not be tracked:
-```bash
+
+```{python}
 results/
 ```
 
 Or all files with a certain extension:
-```bash
+```{python}
  *.dat 
 ```
 
@@ -205,7 +260,7 @@ _NB: There is a .gitkeep file in your template -- this does not do the opposite 
 
 ## Your turn!
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 1. Continue moving your files into the file template.
 
@@ -225,7 +280,7 @@ and don't forget to commit!)
 
 ## Enjoy, and git responsibly!
 
-::: {style="text-align: left; margin-top: 0.5em"}
+::: {.theme-section}
 
 - Commits should be atomic: comprehensive 'units' of changes.
   - **DO**: edit/add an .svg and add it to your .Rmd presentation in the same commit
@@ -244,7 +299,7 @@ and don't forget to commit!)
 
 ## Do you want to learn more?
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 - A [Software Carpentry course on git](https://swcarpentry.github.io/git-novice/)
 

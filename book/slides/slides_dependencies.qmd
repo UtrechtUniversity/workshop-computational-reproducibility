@@ -14,13 +14,14 @@ execute:
 # Dependency management {data-background-color="#FFCD00"}
 
 ## Congratulations!
-::: {style="text-align: left; margin-top: 2em"}
-:::
+
+::: {.theme-section}
+
 You now have a project!
 
 :::: {.columns}
+
 ::: {.column width="35%"}
-::: {style="text-align: left; margin-top: 1em"}
 
 - Your project structure is accessible
 - Your code is readable and invites re-use
@@ -29,65 +30,56 @@ You now have a project!
 
 Are you done? **It depends...**
 :::
-:::
+
 ::: {.column width="5%"}
 :::
 ::: {.column width="60%"}
 ![](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg){width=80%}
 :::
 ::::
+:::
 
 ## Dependencies
-::: {style="text-align: left; margin-top: 1em"}
-:::
+
+::: {.theme-section}
+
 Dependencies and versions can stop your users/readers from being able to run your code.
 For example: this code written in Python 2.7:
 
-::: {style="text-align: left; margin-top: 1em"}
-:::
 
 ```{python}
 #| eval: false
 print "Hello world!"
 ```
-::: {style="text-align: left; margin-top: 1em"}
-:::
 
 No longer works in Python 3!
 
-::: {style="text-align: left; margin-top: 1em"}
-:::
-
 ```{python}
 #| eval: false
 print "Hello world!"
 ```
-::: {style="text-align: left; margin-top: 1em"}
-:::
 
-```
+```{fontsize="0.6em"}
   File "/var/folders/96/r1yycxlj28958p1cdynhbyzw0000gn/T/Rtmpa0OGSM/chunk-code-b08d2b78904b.txt", line 1
     print "Hello world!"
                        ^
 SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello world!")?
 ```
 
-::: {style="text-align: left; margin-top: 1em"}
-:::
-
 Instead, we write:
 ```{python}
 print("Hello world!")
 ```
 
-## The reproducibility trade-off
-::: {style="text-align: left; margin-top: 1em"}
 :::
+
+## The reproducibility trade-off
+
+::: {.theme-section}
 
 How far do you go towards reproducibility?
 
-::: {style="text-align: left; margin-top: 1em"}
-:::
+<br>
 
 ![](../images/dependencytradeoff.svg){height="150pt"}
 
@@ -100,21 +92,25 @@ How far do you go towards reproducibility?
 - You can empower your declared dependencies with a package/environment manager such as `conda`.
 
 - packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
+
 :::
 :::
 
 ::: {.column width="45%"}
 ::: {style="text-align: left; margin-top: 1em"}
+
 - containers are awesome, and container tools like Docker and Singularity probably sound more daunting than they actually are.
 - online environments can be created for your work (in a relatively user friendly way):
   - [CodeOcean](https://codeocean.com) (`$$$`)
   - [binder](https://mybinder.org/) (free!)
+
 :::
 :::
 ::::
+:::
 
 ## Our advice
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 :::
 
 #### Are you working with Python?
@@ -127,7 +123,7 @@ _In the next slides we will elaborate on some other options as well, but honestl
 
 
 ## Declaring dependencies
-::: {style="text-align: left; margin-top: 1em"}
+::: {.theme-section}
 :::
 
 OK: declare (in your README) how your project works **for you**.
@@ -145,8 +141,7 @@ Better: prepare a file for a package manager:
   - For `pip` (python only): generate a `requirements.txt` file
 
 ## Declaring dependencies
-::: {style="text-align: left; margin-top: 1em"}
-:::
+::: {.theme-section}
 
 #### `environment.yml` (for conda)
 - Used by `conda` to create an environment populated by specific packages and languages.
@@ -160,9 +155,10 @@ Better: prepare a file for a package manager:
 - [Here is an example](https://github.com/Curly-Mo/musinformatics/blob/552494f8e6aec9810b1027e725bbf24a6784b369/requirements.txt). Search for [more on GitHub](https://github.com/search?p=3&q=filename%3Arequirements.txt&type=Code).
 - Install dependencies declared with `pip install -r requirements.txt`
 
-## Packaging dependencies
-::: {style="text-align: left; margin-top: 1em"}
 :::
+
+## Packaging dependencies{.smaller}
+::: {.theme-section}
 
 #### In R: `renv`
 
@@ -188,14 +184,17 @@ renv::restore()
 ```
 [Read more here.](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/)
 
-::: {style="text-align: left; margin-top: 2em"}
-:::
+<br>
 
 #### In Python: `pipenv`
 
 [Follow this brief tutorial](https://packaging.python.org/tutorials/managing-dependencies/) to set up `pipenv` for your project.
 
-## Your turn!
+:::
+
+## Your turn!{.smaller}
+
+::: {.theme-section}
 
 + Add basic dependency information to your readme file:
   - What version of your language is required?
@@ -215,3 +214,4 @@ renv::restore()
    git commit -m "the change you made"
    git push
    ```
+:::
