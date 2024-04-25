@@ -10,7 +10,8 @@ format:
 # Archiving and Publication {data-background-color="#FFCD00"}
 
 ## Let's think about the future... {.scrollable }
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
+
 ::: {.fragment fragment-index=1}
 
 
@@ -24,11 +25,12 @@ format:
 
 - ### Will GitHub?
 :::
-::::
+:::
 
 ## Archiving the project
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
+
 :::::::::::::: {.columns}
 
 ::: {.column width="80%"}
@@ -63,7 +65,7 @@ Zenodo and Github have a pipeline that makes your life easier! (_Check the full 
 
 ## Select your repository
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 ![](https://web.archive.org/web/20211021121037if_/https://guides.github.com/activities/citable-code/zenodo-toggle-on.png){ width="90%" height="600" fig-align="center"}
 
@@ -73,7 +75,8 @@ Click on your enabled repository. This will take you to a page with a green GitH
 
 ## Release your project!
 
-::: {style="text-align: left; margin-top: 1em"}
+::: {.theme-section}
+
 ![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/repo-view.png){ width="60%" fig-align="center" height="500"}
 
 ... and follow the workflow!
@@ -84,7 +87,7 @@ Click on your enabled repository. This will take you to a page with a green GitH
 
 ## Semantic versioning
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 A version has three numbers: MAJOR.MINOR.PATCH
 
@@ -100,7 +103,7 @@ A version has three numbers: MAJOR.MINOR.PATCH
 
 ## Check zenodo
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 
@@ -110,7 +113,7 @@ Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 
 ## Getting your DOI
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 - Add some final descriptions
 - Click 'publish'
@@ -122,8 +125,8 @@ Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
 
 ## Getting your DOI
 
+::: {.theme-section}
 
-::: {style="text-align: left; margin-top: 2em"}
 Do you know your DOI?
 <br><br>
 
@@ -142,11 +145,12 @@ As a final touch (only with real Zenodo!): you can take your DOI and place it as
 __This is not recommended with a Sandbox DOI, because sandbox projects are not permanent.__
 __The Sandbox DOI will not work like a normal one does!__
 
-
-
 :::
 
 ## Are you ready? {.scrollable }
+
+::: {.theme-section}
+
 ::: {.fragment fragment-index=1}
 **Let's exchange projects!**
 
@@ -178,4 +182,5 @@ We hope that everyone's repository will get a reproduction-attempt, so only add 
 
 Open an issue in your colleague's GitHub repository and copy/paste this [feedback template](../feedback-on-reproducing-projects.txt)
 
+:::
 :::

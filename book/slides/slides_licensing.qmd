@@ -8,8 +8,10 @@ format:
 ---
 
 # Licensing {data-background-color="#FFCD00"}
+
 ## Choosing a license 
-::: {style="text-align: left; margin-top: 2em"}
+
+::: {.theme-section}
 
 - Copyright is implicit; others cannot use your code without your permission.
 
@@ -24,20 +26,20 @@ This is one I like to use:
 ![](../images/screenshots/license.png){  width="60%" fig-align="center"}
 
 What is important to you? What does your lab use? [Choose your own license!](http://choosealicense.com)
-::::
 
-## Publishing your project?{.scrollable }
+:::
 
-::: {style="text-align: left; margin-top: 2em"}
+## Publishing your project?
+
+::: {.theme-section}
+
 ::: {.fragment fragment-index=1}
-Uh... Isn't 'publication' the thing you do... _at the end?
+Uh... Isn't 'publication' the thing you do... _at the end_ ?
 <br><br>
+
 :::
 
 ::: {.fragment fragment-index=2}
-
-
-
 
 No! Publishing your project at an early stage
 
@@ -46,11 +48,12 @@ No! Publishing your project at an early stage
   - allows collaboration and support
   - facilitates sharing and re-use.
 <br><br>
+
 :::
 
 ::: {.fragment fragment-index=3}
 
-But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
+_But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
 
   - If you are super paranoid, you can always opt for a private repository. It is your work & up to you. But consider the advantages!
 
@@ -59,7 +62,7 @@ But what if someone scoops my code! I'm a revolutionary, they will steal my idea
 
 ## Publishing unpublished data
 
-::: {style="text-align: left; margin-top: 2em"}
+::: {.theme-section}
 
 - If you have sensitive data...
 
@@ -75,15 +78,15 @@ But what if someone scoops my code! I'm a revolutionary, they will steal my idea
 
 ## Where do I publish?
 
-::: {style="text-align: left; margin-top: 1em"}
+::: {.theme-section}
 
-:::::::::::::: {.columns}
+:::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="60%"}
 
 ### Living project: github
 
-(or other social coding platform):
+_(or other social coding platform):_
 
 - synergistic with version control software git
 
@@ -93,20 +96,23 @@ But what if someone scoops my code! I'm a revolutionary, they will steal my idea
 
 - provides a platform for interaction and collaboration
 
+<br>
+
 ### Archiving a release: zenodo
-(or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))
+_(or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))_
+
 
 - [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
 
 - this gives you a **doi** (digital object identifier): your code is citeable!
 
 :::
-::: {.column width="30%"}
+::: {.column width="40%"}
 
 ![](../images/github-mark.png){fig-align="right" width="300"}
 
 ![](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png){fig-align="right" width="300"}
 :::
-::::::::::::::
+::::
 :::
 
