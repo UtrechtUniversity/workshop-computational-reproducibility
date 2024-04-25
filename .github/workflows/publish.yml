@@ -33,6 +33,9 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with: 
           tinytex: true
+
+      - name: Install Chrome for mermaid plots
+        uses: browser-actions/setup-chrome@v1
       
       # optional step when there is python code to execute
       - name: Setup Python
