@@ -1,3 +1,7 @@
+---
+format: "html"
+---
+
 # Readability
 
 ### Video
@@ -6,6 +10,10 @@
 
 ### Slides
 
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_cq_readability.html" title="Code Readability" width="960" height="540">
+</iframe>
+```
 
 ### Exercise
 
@@ -20,5 +28,11 @@
 
     * **R:** [`styler`](https://styler.r-lib.org/)
     * **Python:** [`black`](https://pypi.org/project/black/)
+
+::: {.callout-tip}
+## Tip
+
+You can use git commands to see the changes made by the autoformatter. Try `git diff`.
+:::
 
 * If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.

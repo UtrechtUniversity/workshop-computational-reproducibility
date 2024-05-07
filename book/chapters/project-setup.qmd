@@ -1,3 +1,7 @@
+---
+format: "html"
+---
+
 # Project setup
 
 ### Video
@@ -6,6 +10,10 @@
 
 ### Slides
 
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_project-setup.html" title="Project Setup" width="960" height="540">
+</iframe>
+```
 
 
 [Slides](slides/slides_project-setup.html)

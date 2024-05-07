@@ -1,16 +1,21 @@
-# Binder
+# Binder (optional)
+
+::: {.callout-note}
+This chapter is not taught in the course anymore, but is kept here for the ones interested in it.
+:::
 
 ### Video
 
+
 {{< video https://vimeo.com/464010497 >}}
-```
+
 
 ### Exercise (optional)
 
 **For R**
 
 - Generate a file called `runtime.txt`, either in the root of your project, or in a (hidden) folder called `.binder/`.
-- Write in the file: `r-2020-10-02` -- or specify the R version with `r-3.6-2020-10-02`.
+- Write in the file: `r-4.3-2024-01-10` -- or specify an older R version with `r-3.6-2020-10-02`.
 - Write a file called `install.R`, in `.binder/` or in root, and use it to write install code for your packages, e.g.:
   ```
   install.packages("ggplot2")
@@ -20,11 +25,12 @@
 
 **For Python**
 
-Binder automatically loads Python 3.6.
+Binder is mostly used for Jupyter notebooks. 
+automatically loads Python 3.7. [Using a different python version](https://mybinder.readthedocs.io/en/latest/howto/languages.html#python).
 
 - Add dependencies to your binder in the requirements.txt file like this:
   ```
-  numpy==1.14.5
-  pandas==1.1.2
+  numpy==1.25.0
+  pandas==1.3.0
   ```
 - Binderise your project by following the instructions via [mybinder.org](https://mybinder.org/)

@@ -1,14 +1,12 @@
 # Accessibility & Reproducibility
 
-Last but not least, let's make our code accessible for others! 
+In this last part, we will discuss how to make your work accessible and reproducible for others. Under what conditions can others use your work? How can you publish a version of your work in a way that other people can cite it and find it, even if it is in a few years from now? And lastly, how can you make sure that your work is reproducible, i.e. that others can rerun your analysis and get the same results?
 
-The following topics are covered:
+Chapters:
 
-* obtaining a doi and ensuring accessibility
+* [Dependency management](dependency-management.qmd)
+* [Licensing](licensing.qmd)
+* [Archiving and publishing](archiving-and-publishing.qmd)
+* [Binder (optional)](binder.qmd)
 
-* dealing with requirements and dependencies
-
-Here are your last videos and accompanying exercises. 
-Watch the video, then apply the exercises to your own project. 
-Use the slides linked above for reference, and be sure to ask for help when you need it!
 
