@@ -1,3 +1,7 @@
+---
+format: "html"
+---
+
 # Robustness
 
 ### Video
@@ -5,6 +9,11 @@
 {{< video https://vimeo.com/463636970 >}}
 
 ### Slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_cq_robustness.html" title="Code Robustness" width="960" height="540">
+</iframe>
+```
 
 [Slides](slides/slides_code-quality.html#21)
 

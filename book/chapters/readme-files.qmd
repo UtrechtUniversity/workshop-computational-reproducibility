@@ -3,6 +3,10 @@
 ### Video
 
 {{< video https://vimeo.com/464027978 >}}
+
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_project-documentation.html" title="Version Control" width="960" height="540">
+</iframe>
 ```
 
 ### Slides

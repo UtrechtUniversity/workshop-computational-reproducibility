@@ -2,7 +2,7 @@
 
 This workshop was developed at Utrecht University, supported by [Research Data Management (RDM) Support](https://www.uu.nl/en/research/research-data-management) and the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com).
 
-The workshop is currently coordinated by [Neha Moopen](https://github.com/nehamoopen), with support from [Bianca Kramer](https://github.com/bmkramer) and [Jacques Flores](https://github.com/Mish-JPFD).
+The workshop is currently coordinated by [Neha Moopen](https://github.com/nehamoopen), with support from [Raoul Schram](https://github.com/qubixes), [Parisa Zahedi](https://github.com/parisa-zahedi), [Christine Staiger](https://github.com/chStaiger) and [Jelle Treep](https://github.com/jelletreep).
 
 The workshop has received contributions from (in alphabetical order):
 

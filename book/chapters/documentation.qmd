@@ -1,28 +1,18 @@
 # Documentation
 
-Time for some documentation around your code! 
+Documentation is an essential part of software development. It helps you and others understand the code you have written, and how to use it. There are many different types of documentation, and different potential target audiences you might want to address. 
 
-The following topics are covered:
+The most important target audience is yourself in a few months time, when you have forgotten the details of what you did. From experience we can tell that having good documentation can make you very happy with yourself (and save a lot of frustration) when you come back to a project after some.
 
-* commenting code and functions (docstrings)
+Furthermore, it is important to keep in mind which other people might want to learn about, use or even adapt your code for their own purposes, and what they might need to know to be able to do so.
 
-* writing a README file
+In this part, we will cover some of the most important types of documentation, and how to structure and write your documentation.
 
-As usual, we have short videos and accompanying exercises. 
-Watch the video, then apply the exercises to your own project. 
-Use the slides linked above for reference, and be sure to ask for help when you need it!
+## Chapters:
 
-### Exercise
+* [Writing code documentation](comments-and-docstrings.qmd)
 
-* Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
-  _Keep in mind: what does my user need to know when they are working with this function?_
+* [Writing good README files](readme-files.qmd)
 
-* Grab a limited chunk of code to work on, and look at the existing comments.
-  Can you replace a 'how' comment with a 'why' comment?
-  _Think: what is the purpose of this code? Rather than: this is how this code works._
 
-* Are there elements in your chunk that are currently without comments that would benefit from clarification? 
-  _Try to comment on the thought behind the code rather than simply translating its process in English._
-
-* Can you delete superfluous comments or zombie code?
 
