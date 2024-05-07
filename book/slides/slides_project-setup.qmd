@@ -1,64 +1,63 @@
+--- 
+format: 
+  revealjs:
+    margin: 0
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "Workshop Computational Reproducibility"
 ---
-title: "Setting up a project"
-author: "Best Practices for Writing Reproducible Code // part 1"
-output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts, 'custom.css']
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
 
+# Setting up a project {data-background-color="#FFCD00"}
 
-```{r share-again, echo=FALSE}
-xaringanExtra::use_share_again()
-```
+## Research compendium
 
-```{r style-share-again, echo=FALSE}
-xaringanExtra::style_share_again(
-  share_buttons = c("twitter", "linkedin")
-)
-```
-
-# Research compendium
+::: {.theme-section}
 
 > A research compendium is a collection of *all digital parts of a research project* including data, code, texts (...). The collection is created in such a way that reproducing all results is straightforward.
 
 *Source: [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/compendia.html)*
-![compendium](https://the-turing-way.netlify.app/_images/research-compendium.svg)
 
 
-.footnote[(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.app/welcome.html), CC-BY)]
----
-# Getting started
+![](../images/research-compendium.svg){fig-align=center width=800px}
 
-.pull-left[
+:::
+
+::: footer
+(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.app/welcome.html), CC-BY)
+:::
+
+## Getting started
+
+::: {.theme-section}
+:::: {.columns}
+::: {.column width=50%}
+
 - Contain your project in a single recognizable folder
 
-- Distinguish folder _types_, name them accordingly:
-  - **Read-only**: data, metadata
-  - **Human-generated**: code, paper, documentation
-  - **Project-generated**: clean data, figures, models...
+* Distinguish folder _types_, name them accordingly:
+    + **Read-only**: data, metadata
+    + **Human-generated**: code, paper, documentation
+    + **Project-generated**: clean data, figures, models...
 
-- Initialize a **README** file, document your project
+* Initialize a **README** file, document your project
 
-- Choose a **license**
+* Choose a **license**
 
-- Publish your project.]
+* Publish your project.
 
-.pull-right[
--![exampleproject](images/screenshots/exampleproject.png)
+:::
+::: {.column width=50%}
+
+![](../images/screenshots/exampleproject.png)
 [Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
-]
 
----
+:::
+::::
+:::
 
-# Simple Project Templates
+## Simple Project Templates
+
+::: {.theme-section}
 
 You can set up a project template using one of the following template repositories of a project folder structure to your computer:
 
@@ -68,9 +67,9 @@ You can set up a project template using one of the following template repositori
 
 Simple click through _Use this template_ -> _Create a repository_ and enter the necessary information for your new repository such as the name and owner.
 
----
+:::
 
-# A Good Enough Project
+## A Good Enough Project
 
 ```
 .
@@ -94,37 +93,44 @@ Simple click through _Use this template_ -> _Create a repository_ and enter the 
 │   └── output         <- Other output for the manuscript or reports (PG)
 └── src                <- Source code for this project (HW)
 ```
----
-# Absolute vs. Relative Paths
 
-- Your project should be transportable between computers.
+## Absolute vs. Relative Paths
 
-- For this reason, you should use **relative paths** only: compare
-  - `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
-  - `./data/zincfinger.json`
+::: {.theme-section}
 
-- `./` means: in this folder
+* Your project should be transportable between computers.
 
-- `../` means: one folder up
----
+* For this reason, you should use **relative paths** only: compare
+    + `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
+    + `./data/zincfinger.json`
 
-# Your turn
+* `./` means: in this folder
 
-- Clone one of the following template repositories of a project folder structure to your computer:
+* `../` means: one folder up
 
-  - **R:** [https://github.com/UtrechtUniversity/simple-r-project](https://github.com/UtrechtUniversity/simple-r-project)
+:::
+
+## Your turn
+
+::: {.theme-section}
+
+* Clone one of the following template repositories of a project folder structure to your computer:
+
+    + **R:** [https://github.com/UtrechtUniversity/simple-r-project](https://github.com/UtrechtUniversity/simple-r-project)
   
-  - **Python:** [https://github.com/UtrechtUniversity/simple-python-template/](https://github.com/UtrechtUniversity/simple-python-template/)
+    + **Python:** [https://github.com/UtrechtUniversity/simple-python-template/](https://github.com/UtrechtUniversity/simple-python-template/)
 
-- Place your project files in the right folder.
+* Place your project files in the right folder.
 
-- Adjust paths in your code, and be sure to use relative (see next slide) paths! 
+* Adjust paths in your code, and be sure to use relative (see next slide) paths! 
 
-- It is fine to have the main script (e.g. `main.py`) in the home folder!
+* It is fine to have the main script (e.g. `main.py`) in the home folder!
 
----
+:::
 
-# Choosing a license
+## Choosing a license
+
+::: {.theme-section}
 
 - Copyright is implicit; others cannot use your code without your permission.
 
@@ -136,16 +142,19 @@ Simple click through _Use this template_ -> _Create a repository_ and enter the 
 
 This is one I like to use:
 
-![license](images/screenshots/license.png)
+![](../images/screenshots/license.png)
 
 What is important to you? What does your lab use? [Choose your own license!](http://choosealicense.com)
 
----
-# Publishing your project
+:::
+
+## Publishing your project
+
+::: {.theme-section}
 
 Uh... Isn't 'publication' the thing you do... _at the end?_ 
 
---
+::: {.fragment}
 
 No! Publishing your project at an early stage
 - forces you to consider readability throughout
@@ -153,29 +162,42 @@ No! Publishing your project at an early stage
 - allows collaboration and support
 - facilitates sharing and re-use.
 
---
+:::
+
+::: {.fragment}
 
 _But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
 
+:::
+
+::: {.fragment}
+
 If you are super paranoid, you can always opt for a private repository. It is your work & up to you. But consider the advantages!
+:::
+:::
 
----
-# Publishing unpublished data
+## Publishing unpublished data
 
-- If you have sensitive data...
+::: {.theme-section}
 
- - Don't include your data in your software repository (that's not what they are for anyway).
- - Consider generating simulated data so your code can run regardless.
+* If you have sensitive data...
 
-- And for all data:
+    + Don't include your data in your software repository (that's not what they are for anyway).
+    + Consider generating simulated data so your code can run regardless.
 
-  - Your data should be separate from your code!
-  - If your code references your data, consider a config or metadata file for these references.
+* And for all data:
 
+    + Your data should be separate from your code!
+    + If your code references your data, consider a config or metadata file for these references.
 
----
-# Where do I publish?
-.pull-left-larger[
+:::
+
+## Where do I publish?
+
+::: {.theme-section}
+:::: {.columns}
+::: {.column width=70%}
+
 ### Living project: github
 (or other social coding platform):
 
@@ -192,12 +214,12 @@ If you are super paranoid, you can always opt for a private repository. It is yo
 - [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
 
 - this gives you a **doi** (digital object identifier): your code is citeable!
-]
-.pull-right-smaller[
+
+:::
+::: {.column width=30%}
+
 ![octocat-project](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
 ![zenodo](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
-]
-
----
-
-
+:::
+::::
+:::

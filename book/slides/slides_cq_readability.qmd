@@ -28,12 +28,14 @@ format:
 :::
 ::: {.column width="55%"}
 
-![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/good_code.png){fig-align="center" width=70%}
+![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/good_code.png){fig-align="center" width=50%}
 
 :::
 ::::
 
 ## Code readability: white space
+
+::: {.theme-section}
 
 ::: {.fragment .strike}
 Code is for computer, comments are for humans.
@@ -81,10 +83,13 @@ print(hurts)
 
 :::
 ::::
+:::
 
 <!-- ::: -->
 
 ## Code readability: names
+
+::: {.theme-section}
 
 - use descriptive names for functions and variables
   - start functions with a verb
@@ -113,9 +118,11 @@ for item in basket:
 ```
 :::
 ::::
+:::
 
 ## Code readability: consistency
 
+::: {.theme-section}
 - use a consistent style
   - consistency will make your code easier to understand and maintain
   - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
@@ -136,16 +143,22 @@ my_var <- original_var + Modified(new_var)
 ```
 :::
 ::::
+:::
 
 ## Style guides
+
+::: {.theme-section}
 
   - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
   - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
   
-![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/code_quality.png){ width=30%}
+![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/code_quality.png){width=80%}
 
+:::
 
 ## Linters
+
+::: {.theme-section}
 
 A linter is a **static** code analysis tool. 
 
@@ -156,24 +169,39 @@ Then it's up to the programmer to go through the list and fix the issues.
 
 - **Python:** There are several libraries, today we'll use [`flake8`](https://flake8.pycqa.org/en/latest/)
 
+:::
 
 ## Linters: R
 
+::: {.theme-section}
+
+:::: {.columns}
+
+::: {.column width="40%"}
 _Function_: `lintr::lint(filename)`
 
 The [lintr](https://lintr.r-lib.org/) package in R:
+:::
 
-![](../images/lintr-r.JPG){width=50%}
+::: {.column width="60%"}
+![](../images/lintr-r.png){width=100%}
+:::
+::::
+:::
 
 ## Linters: Python
+
+::: {.theme-section}
 
 The [`flake8`](https://flake8.pycqa.org/en/latest/) library in Python:
 
 _Function_: `flake8 path/to/code/to/check.py`
 
+:::
 
 ## (Auto)formatters
 
+::: {.theme-section}
 While linters provide a report of issues, (auto)formatters will browse the code and correct issues automatically/directly.
 
 The corrections will depend on the rules encoded within the package/library.
@@ -182,24 +210,33 @@ The corrections will depend on the rules encoded within the package/library.
 
 - **Python:** There are several libraries, today we'll use [`black`](https://pypi.org/project/black/)
 
+:::
+
 ## (Auto)formatters: R
+
+::: {.theme-section}
 
 The [styler](https://styler.r-lib.org/) package in R:
 
-![](https://raw.githubusercontent.com/lorenzwalthert/some_raw_data/master/styler_0.1.gif)
+![](https://raw.githubusercontent.com/lorenzwalthert/some_raw_data/master/styler_0.1.gif){width=60%}
 
 _Function_: `styler::style_file(filepath)`
 
+:::
 
 ## (Auto)formatters: Python
+
+::: {.theme-section}
 
 The [`black`](https://pypi.org/project/black/) library in Python:
 
 _Function::_ `black {source_file_or_directory}`
 
-
+:::
 
 ## Your turn
+
+::: {.theme-section}
 
 * Run a _linter_ through your code and identify style issues:
 
@@ -214,3 +251,5 @@ _Function::_ `black {source_file_or_directory}`
     * **Python:** [`black`](https://pypi.org/project/black/)
 
 * If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.
+
+:::
