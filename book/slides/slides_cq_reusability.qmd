@@ -12,14 +12,19 @@ format:
 
 ## Code reusability
 
+::: {.theme-section}
+
 - Less code written, more work done
 
 - Writing a tool while doing your analysis
 
 - Stop reinventing the wheel!
 
+:::
 
 ## Code reusability: some guidelines
+
+::: {.theme-section}
 
 - **Separate code and data**: data is specific, code need not be
 
@@ -41,10 +46,11 @@ format:
  - Write routines in functions, i.e., code you reuse often
  - Identify potential functions by action: functions perform tasks (e.g. sorting, plotting, saving a file, transform data...)
  
-
+:::
 
 ## Code reusability through functions
 
+::: {.theme-section}
 Functions are smaller code units reponsible of one task.
 
 - Functions are meant to be reused
@@ -76,10 +82,11 @@ indexAAG = indexString(myList,'AAG')
 ```
 :::
 ::::
+:::
 
 ## Think in building blocks!
 
-<!-- .pull-left[ -->
+::: {.theme-section}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -93,10 +100,11 @@ Small, cohesive units are much better than...
 ![](../images/tetris_help.svg)
 :::
 ::::
-
+:::
 
 ## Your turn: visualize your code!
 
+::: {.theme-section}
 Choose:
 
 - Make a screenshot, process it in paint, powerpoint, or your favorite editor;
@@ -118,8 +126,11 @@ Again, make notes in your code (`#TODO`!) if you see:
 
 What can you learn from your colleagues today?
 
+:::
+
 ## Your turn: make a function
 
+::: {.theme-section}
 You have visualized your code. Use your findings to improve it!
 
 - **Preferably**: take scripted code and turn it into a function, _or_ split an existing function into two or more functions.
@@ -138,3 +149,4 @@ def my_function(param_a, param_b):
   else:
     do_something_else(param_a)
 ```
+:::

@@ -1,30 +1,19 @@
+--- 
+format: 
+  revealjs:
+    margin: 0
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "Workshop Computational Reproducibility"
 ---
-title: "Welcome!"
-author: "Best Practices for Writing Reproducible Code"
-output:
-  xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts, 'custom.css']
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-```
 
-```{r share-again, echo=FALSE}
-xaringanExtra::use_share_again()
-```
 
-```{r style-share-again, echo=FALSE}
-xaringanExtra::style_share_again(
-  share_buttons = c("twitter", "linkedin")
-)
-```
+# Welcome!{data-background-color="#FFCD00"}
 
-# Thanks!
+
+## Thanks:
+
+::: {.theme-section}
 
 - To you for being here!
 
@@ -34,55 +23,45 @@ xaringanExtra::style_share_again(
 
 - To your teachers and helpers today!
 
+<br>
+
 #### Who are you? What brings you here?
 
 - E.g. your name, pronouns, background, and motivation for this workshop.
 
+:::
 
----
+## General guidelines (and advice!)
 
-# General guidelines (and advice!)
-- Ask for help when you need it! 
-  - You can ask a question in the Teams chat.
-     - We will try to answer it directly.
-  - Indicate you are stuck in the Status Chart ([tinyurl.com/repcochart](https://tinyurl.com/repcochart))
-     - We will invite you to a 1:1 call in a Helper channel.
+::: {.theme-section}
 
---
+* Ask for help when you need it! 
+    + Raise your hand
+    + Use a sticky note
+* Our helpers can help you with technical issues
 
-- Please mute yourself when you are not speaking (we are strict and will mute you without warning)
+* Take a computer break when we take a break!
 
---
+<br>
 
-- We appreciate your video, but only share if you are comfortable.
-
---
-
-- Close as many unnecessary windows and programs as possible.
-
---
-
-- Take a computer break when we take a break: a timer will show when we return!
-
---
-
-### Please open the workshop site
+#### Please open the workshop site
 You can find all workshop information at [tinyurl.com/repcopilot](https://utrechtuniversity.github.io/workshop-computational-reproducibility/).
 
+:::
 
----
-# Being reproducible
-![example](images/screenshots/badexample.png)
+## Being reproducible
 
----
-# Is this enough?
+![](../images/screenshots/badexample.png){width=75%}
+
+## Is this enough? {.smaller}
+
+::: {.theme-section}
 
 - Access to the code
 - Access to the data
 - (And let's assume we can replicate the enviroment)
 
-How confident do you feel?
---
+**How confident do you feel?**
 
 > This code is a kludgly, ugly, inefficient mess. 
 (...)
@@ -90,73 +69,81 @@ How confident do you feel?
 (...)
 > I am as confident as I am capable of being that all of the factual claims that were made in the manuscript are accurate.
 
---
+<br>
 
 We need to do more: we need to inspire trust.
+
 - The code is correct (and I have made it easy for you/someone to check);
 - My workflow is robust;
 - My workflow *itself* is accessible, and I will be guiding you through it.
 
+:::
 
----
-# The Four Facets of Reproducibility
+## The Four Facets of Reproducibility
 
-.pull-left-medium[
+:::: {.columns}
+::: {.column width="60%"}
+::: {.theme-section}
 #### Documentation
 What do you need to execute this project? Where do you start?
 
-#### Organization
-Demonstrate a trustworthy workflow.
-
-#### Automation
-Automated analyses trace your steps, and prevent human error (or at the very least: document it).
+<br>
 
 #### Dissemination
-Share your data, release your code, publish your findings.]
+Share your data, release your code, publish your findings.
 
---
-.pull-right-medium[
-![futureself](https://imgs.xkcd.com/comics/future_self.png)
-]
----
-# What will we do in this workshop?
+<br>
+
+#### Automation
+
+Automated analyses trace your steps, and prevent human error (or at the very least: document it).
+
+<br>
+
+#### Dissemination
+
+Share your data, release your code, publish your findings.
+
+:::
+:::
+::: {.column width="40%"}
+![](https://imgs.xkcd.com/comics/future_self.png){width=60%}
+:::
+::::
+
+## What will we do in this workshop?
+
+::: {.theme-section}
 
 We will take you through a workflow (in a broad sense!)
 
---
-
 - Setting up a project
-
 - Establishing a robust backup / version control system
-
 - Writing good code
-
 - Writing documentation
-
 - Making your project accessible
 
---
+<br>
 
-We will end by trying to reproduce each others' projects!
+### We will end by trying to reproduce each others' projects!
 
+:::
 
+## What do we expect from you?
 
----
-# What do we expect from you?
+::: {.theme-section}
 
 - Our group has many different abilities and experiences. We hope you will value this as much as we do!
-
 - We have done our best to make the workshop asynchronous so you can work at your own pace.
-
 - However, we have incorporated several moments for shared discussion and questions. Use them!
-
 - Feel free and safe to share your expertise and experiences.
 
---
-
 #### Our objectives for you
+<br>
 We want to teach you **good habits** that will make your work more accessible, trustworthy, and reproducible by others. In doing so, we have tried to identify those habits that are a **good return on investment**: meaning, they save you time in the not-so-long run.
 
---
+<br>
 
-### And finally: we hope you enjoy the workshop
+#### And finally: we hope you enjoy the workshop
+
+:::

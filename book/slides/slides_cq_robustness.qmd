@@ -12,21 +12,23 @@ format:
 
 ## Code robustness
 
-![errormanagement](../images/errormanagement_implicit.svg)
+![](../images/errormanagement_implicit.svg)
 
 ## Code robustness
 
-![errormanagement](../images/errormanagement_explicit.svg)
+![](../images/errormanagement_explicit.svg)
 
 ## Code robustness
 
-![errormanagement](../images/errormanagement.svg)
+![](../images/errormanagement.svg)
 
 
 
 ## Error management
 
-#### Protect the user:
+::: {.theme-section}
+
+**Protect the user:**
 
 - Make assumptions and expectations explicit.
 
@@ -39,10 +41,13 @@ format:
   - log or report the error, to allow the user (or developer) to troubleshoot
   - if necessary: abort the run
 
+:::
 
 ## Advanced robustness: unit tests
 
-#### Protect the developer (you!)
+::: {.theme-section}
+
+**Protect the developer (you!)**
 
 - Test the expected behavior of your functions:
   - Confirm a known output given a known input
@@ -56,7 +61,12 @@ format:
 
 _More on tests later..._
 
+:::
+
 ## Throwing an error (Python)
+
+::: {.theme-section}
+
 ```python
 def read_vector_value(index=0, my_vector=[10,5,4,12,25]):
     if index > len(my_vector) - 1:
@@ -83,7 +93,11 @@ print(read_vector_value(index=6))
 
 _Because it is unclear if `None` is expected behavior or indicative of a problem._
 
+:::
+
 ## Warning message without breaking (R)
+
+::: {.theme-section}
 
 **An error breaks code execution**
 
@@ -110,9 +124,11 @@ return(my_vector[index])
 
 print(read_vector_value(index=6))
 ```
-
+:::
 
 ## Redirecting with exceptions (Python)
+
+::: {.theme-section}
 
 If you do not want to interrupt your script when an error is raised: use try/catch ('except' in Python). NB: Note that Python allows you to distinguish by error type!
 ```python
@@ -139,9 +155,11 @@ try:
 except ArithmeticError:
   print("This is an exception")  # This will not be executed
 ```
+:::
 
 ## Redirecting with exceptions (R)
 
+::: {.theme-section}
 
 **In R you can use [tryCatch()](http://www.mazamascience.com/WorkingWithData/?p=912):**
 
@@ -163,7 +181,11 @@ tryCatch({
 })
 ```
 
+:::
+
 ## Validating input
+
+::: {.theme-section}
 
 Consider early statements in the script to validate (data) input.
 
@@ -183,9 +205,11 @@ tryCatch({
   cleanup(protein_data)
 })
 ```
-
+:::
 
 ## Expectations and assumptions
+
+::: {.theme-section}
 
 **Expect the worst:**
 
@@ -195,8 +219,11 @@ tryCatch({
 
 ![Source: [cartoontester](https://cartoontester.blogspot.com/2010/02/thats-not-bug.html)](https://4.bp.blogspot.com/_YzKCMr-tcMM/S9bN9dGqgBI/AAAAAAAAALo/cxqBx5AaoYk/s640/23GORILLA.jpg)
 
+:::
 
 ## Your turn: explicit expectations
+
+::: {.theme-section}
 
 **Identify assumptions in your code**
 
@@ -213,3 +240,5 @@ tryCatch({
 - Modify the code inside your function to
   - check the value of the arguments passed to your function using if/else statements;
   - raise an error in case an argument is out of the range of acceptable values.
+
+:::
