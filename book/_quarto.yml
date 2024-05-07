@@ -18,7 +18,7 @@ website:
     pinned: true
     alignment: center
     style: docked
-    collapse-level: 2
+    collapse-level: 1
     logo: images/uu-logo-en-geenwitruimte.png
     logo-alt: "Logo of Utrecht University"
     contents:
@@ -29,30 +29,24 @@ website:
           - chapters/acknowledgements.qmd
           - chapters/schedule.qmd
       - section: "Preparation"
-        contents:
-          - href: chapters/preparation.qmd
-            text: Preparation
+        href: chapters/preparation.qmd
+        contents:    
           - chapters/your-project.qmd
           - chapters/programming-language.qmd
           - chapters/terminal.qmd
           - chapters/git-and-github.qmd
           - chapters/final-test.qmd
-      - section: "Introduction"
-        contents:
-          - href: chapters/introduction.qmd
-            text: Introduction
+      - chapters/introduction.qmd
       - section: "Project Management"
+        href: chapters/project-management.qmd 
         contents:
-          - href: chapters/project-management.qmd 
-            text: Project Management
           - href: chapters/project-setup.qmd
             text: Project Setup
           - href: chapters/version-control.qmd
             text: Version Control
       - section: "Code Quality"
+        href: chapters/code-quality.qmd
         contents:
-          - href: chapters/code-quality.qmd
-            text: Code Quality
           - href: chapters/readability.qmd
             text: Readability
           - href: chapters/reusability.qmd
@@ -60,35 +54,25 @@ website:
           - href: chapters/robustness.qmd
             text: Robustness
       - section: "Documentation"
+        href: chapters/documentation.qmd
         contents:
-          - href: chapters/documentation.qmd
-            text: Documentation
           - href: chapters/comments-and-docstrings.qmd 
             text: Comments and Docstrings
           - href: chapters/readme-files.qmd  
             text: README files
       - section: "Accessibility & Reproducibility"
+        href: chapters/accessibility-and-reproducibility.qmd
         contents:
-          - href: chapters/accessibility-and-reproducibility.qmd
-            text: Accessibility & Reproducibility
           - href: chapters/dependency-management.qmd
             text: Dependency Management
-          - href: chapters/binder.qmd
-            text: Binder
-      - section: "Archiving & Publishing"
-        contents:
           - href: chapters/licensing.qmd
             text: Licensing
           - href: chapters/archiving-and-publishing.qmd
             text: Archiving & Publishing
-      - section: "Reproducibility Check"
-        contents:
-          - href: chapters/reproducibility-check.qmd
-            text: Reproducibility Check
-      - section: "References"
-        contents:
-          - href: chapters/references.qmd
-            text: References
+          - href: chapters/binder.qmd
+            text: Binder
+      - chapters/reproducibility-check.qmd
+      - chapters/references.qmd
 
 bibliography: 
 - references.bib 
