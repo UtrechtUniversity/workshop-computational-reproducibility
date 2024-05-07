@@ -1,18 +1,12 @@
 # Project Management
 
-This section covers the following topics:
+Reproducible coding starts with organizing your project and workflow in such a way that you, contributors and potential users can navigate easily through files, folders, changes and different versions of your project. A great tool that helps with this is a Version Control System. Git is now *the* standard for Version Control and we will use Git and GitHub (the most popular online platform for working with Git) throughout this course.
 
-* Setting up a folder structure
+## Chapters:
 
-* Using git for version control
+* [Setting up a folder structure](project-setup.qmd)
 
-* Publishing your project on github
+* [Using git and GitHub for version control](version-control.qmd)
 
-* Choosing a license
 
-Time for some hands-on practice!
 
-We have 3 short videos and accompanying exercises for you to go through one by one.
-Watch the video first, then apply the exercises to your own project.
-Use the [slides](../slides/slides_project-setup.html) linked above to follow links discussed in the video.
-Be sure to ask for help when you need it!

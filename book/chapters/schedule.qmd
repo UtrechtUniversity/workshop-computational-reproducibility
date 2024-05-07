@@ -2,15 +2,15 @@
 
 ## Pre-Workshop Installation Support
 
-Neha will be available the entire afternoon prior to Day 1 of the workshop to help with any installation issues, especially Git.
+Please make sure to follow the [preparation instructions] carefully well before the workshop starts. In case you run into issues, check the pre-workshop email that is sent to you one week before the workshop. It will provide instrutions on how to find help.
 
 ### Day 1
 
 | Time  | Activity |
 |-------:|----------|
 | 8:00 | Installation Support |
-| 9:00 | Welcome & introduction ([slides](../slides/slides_introduction.html))| 
-| 9:30 | [Project setup & version control with git](project-setup.qmd) |
+| 9:00 | [Welcome & introduction](introduction.qmd))| 
+| 9:30 | [Project setup & version control with git](project-management.qmd) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
 | 11:15 | [Code quality](code-quality.qmd)  |
@@ -26,6 +26,6 @@ Neha will be available the entire afternoon prior to Day 1 of the workshop to he
 | 9:15 | [Documentation](documentation.qmd)  |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
-| 11:15 | [Accessibility & reproducibility](dependency-management.qmd)  |
-| 12:15 | [Reproduction of projects](../slides/slides_reproducibility.html#18) |
+| 11:15 | [Accessibility & reproducibility](accessibility-and-reproducibility.qmd)  |
+| 12:15 | [Reproduction of projects](reproducibility-check.qmd) |
 | _13:00_ | _End_ |
