@@ -129,6 +129,23 @@ gitGraph
    commit id: "fix bug in plotting function"
 ```
 
+## Git History: Compare!
+
+::: {.theme-section}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](http://www.phdcomics.com/comics/archive/phd101212s.gif){width=65% fig-align="center"}
+
+:::
+::: {.column width="50%"}
+
+![](../images/final-git.png){width=80% fig-align="center"}
+
+:::
+::::
+:::
 
 ## Your turn: Useful git commands
 
