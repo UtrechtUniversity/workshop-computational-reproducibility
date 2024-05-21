@@ -84,8 +84,14 @@ We need to do more: we need to inspire trust.
 :::: {.columns}
 ::: {.column width="60%"}
 ::: {.theme-section}
+
 #### Documentation
 What do you need to execute this project? Where do you start?
+
+<br>
+
+#### Organization
+Demonstrate a trustworthy workflow.
 
 <br>
 
@@ -99,10 +105,6 @@ Share your data, release your code, publish your findings.
 Automated analyses trace your steps, and prevent human error (or at the very least: document it).
 
 <br>
-
-#### Dissemination
-
-Share your data, release your code, publish your findings.
 
 :::
 :::
