@@ -27,6 +27,6 @@ Please make sure to follow the [preparation instructions] carefully well before 
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
 | 11:15 | [Reproducibility](reproducibility.qmd)  |
-| 11:15 | [Publishing](publishing.qmd)
+| 11:45 | [Publishing](publishing.qmd)
 | 12:15 | [Reproduction of projects](reproducibility-check.qmd) |
 | _13:00_ | _End_ |
