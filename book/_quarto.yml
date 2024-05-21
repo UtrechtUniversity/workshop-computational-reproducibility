@@ -67,7 +67,7 @@ website:
               text: Dependency Management
             - href: chapters/binder.qmd
               text: Binder
-      - section: "Accessibility & Reproducibility"
+      - section: "Publishing"
         href: chapters/publishing.qmd
         contents:
           - href: chapters/licensing.qmd
