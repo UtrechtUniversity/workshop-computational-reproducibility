@@ -1,0 +1,11 @@
+# Reproducibility
+
+In this part, we will discuss how to make your work accessible and reproducible for others.
+How can you make sure that your work is reproducible, i.e. that others can rerun your analysis and get the same results?
+
+Chapters:
+
+* [Dependency management](dependency-management.qmd)
+* [Binder (optional)](binder.qmd)
+
+
