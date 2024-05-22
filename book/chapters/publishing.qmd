@@ -1,0 +1,10 @@
+# Publishing
+
+In this last part, we will discuss how to make your work accessible for others. Under what conditions can others use your work? How can you publish a version of your work in a way that other people can cite it and find it, even if it is in a few years from now?
+
+Chapters:
+
+* [Licensing](licensing.qmd)
+* [Archiving and publishing](archiving-and-publishing.qmd)
+
+

@@ -4,8 +4,6 @@ project:
 website:
   title: "Best Practices for Writing Reproducible Code"
   page-navigation: true
-  page-footer:
-    right: "This website is built and maintained with ☕ and [Quarto](https://quarto.org/)."
   sidebar:
     tools:
       - icon: github
@@ -60,17 +58,20 @@ website:
             text: Comments and Docstrings
           - href: chapters/readme-files.qmd  
             text: README files
-      - section: "Accessibility & Reproducibility"
-        href: chapters/accessibility-and-reproducibility.qmd
+      - section: "Reproducibility"
+        href: chapters/reproducibility.qmd
         contents:
-          - href: chapters/dependency-management.qmd
-            text: Dependency Management
+            - href: chapters/dependency-management.qmd
+              text: Dependency Management
+            - href: chapters/binder.qmd
+              text: Binder
+      - section: "Publishing"
+        href: chapters/publishing.qmd
+        contents:
           - href: chapters/licensing.qmd
             text: Licensing
           - href: chapters/archiving-and-publishing.qmd
             text: Archiving & Publishing
-          - href: chapters/binder.qmd
-            text: Binder
       - chapters/reproducibility-check.qmd
       - chapters/references.qmd
 
