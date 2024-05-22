@@ -4,8 +4,6 @@ project:
 website:
   title: "Best Practices for Writing Reproducible Code"
   page-navigation: true
-  page-footer:
-    right: "This website is built and maintained with ☕ and [Quarto](https://quarto.org/)."
   sidebar:
     tools:
       - icon: github
