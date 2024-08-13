@@ -37,16 +37,6 @@ jobs:
       - name: Install Chrome for mermaid plots
         uses: browser-actions/setup-chrome@v1
       
-      # optional step when there is python code to execute
-      - name: Setup Python
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          python-version: 3.8
-          channels: conda-forge
-          miniforge-variant: Mambaforge
-          activate-environment: quarto-import
-          environment-file: _import/environment.yml
-
       # optional steps when Rmarkdown code is used
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
