@@ -16,8 +16,8 @@ on:
   push:
     branches: main
     paths:
-      - 'book/**.qmd'
-      - 'book/**.yml'
+      - 'slides/presentation.qmd'
+      - '**.yml'
 
 jobs:
   quarto:
