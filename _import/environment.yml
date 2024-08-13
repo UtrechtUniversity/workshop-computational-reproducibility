@@ -1,9 +1,0 @@
-name: quarto-import
-channels:
-- conda-forge
-dependencies:
-- python=3.8
-- numpy
-- matplotlib
-- pip
-- pip:

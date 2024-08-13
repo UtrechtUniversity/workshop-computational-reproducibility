@@ -1,85 +1,13 @@
-project:
-  type: website
-
-website:
-  title: "Best Practices for Writing Reproducible Code"
-  page-navigation: true
-  page-footer:
-    right: "This website is built and maintained with ☕ and [Quarto](https://quarto.org/)."
-  sidebar:
-    tools:
-      - icon: github
-        menu:
-          - text: Source code
-            url:  https://github.com/UtrechtUniversity/workshop-computational-reproducibility
-          - text: Report an issue
-            url:  https://github.com/UtrechtUniversity/workshop-computational-reproducibility/issues
-    search: true
-    pinned: true
-    alignment: center
-    style: docked
-    collapse-level: 1
-    logo: images/uu-logo-en-geenwitruimte.png
-    logo-alt: "Logo of Utrecht University"
-    contents:
-      - section: "Course information"
-        contents:
-          - href: index.qmd
-            text: Home
-          - chapters/acknowledgements.qmd
-          - chapters/schedule.qmd
-      - section: "Preparation"
-        href: chapters/preparation.qmd
-        contents:    
-          - chapters/your-project.qmd
-          - chapters/programming-language.qmd
-          - chapters/terminal.qmd
-          - chapters/git-and-github.qmd
-          - chapters/final-test.qmd
-      - chapters/introduction.qmd
-      - section: "Project Management"
-        href: chapters/project-management.qmd 
-        contents:
-          - href: chapters/project-setup.qmd
-            text: Project Setup
-          - href: chapters/version-control.qmd
-            text: Version Control
-      - section: "Code Quality"
-        href: chapters/code-quality.qmd
-        contents:
-          - href: chapters/readability.qmd
-            text: Readability
-          - href: chapters/reusability.qmd
-            text: Reusability
-          - href: chapters/robustness.qmd
-            text: Robustness
-      - section: "Documentation"
-        href: chapters/documentation.qmd
-        contents:
-          - href: chapters/comments-and-docstrings.qmd 
-            text: Comments and Docstrings
-          - href: chapters/readme-files.qmd  
-            text: README files
-      - section: "Accessibility & Reproducibility"
-        href: chapters/accessibility-and-reproducibility.qmd
-        contents:
-          - href: chapters/dependency-management.qmd
-            text: Dependency Management
-          - href: chapters/licensing.qmd
-            text: Licensing
-          - href: chapters/archiving-and-publishing.qmd
-            text: Archiving & Publishing
-          - href: chapters/binder.qmd
-            text: Binder
-      - chapters/reproducibility-check.qmd
-      - chapters/references.qmd
-
-bibliography: 
-- references.bib 
-
 format:
-  html:
-    theme: 
-      light: [cosmo, styles/theme-light.scss]
-      dark: [cosmo, styles/theme-dark.scss]
-    # css: styles.css
+  revealjs: 
+    menu: false
+    progress: true
+    width: 1920
+    height: 1080
+    margin: 0.1
+    embed-resources: true
+    slide-number: true
+    navigation-mode: linear
+    controls: true
+    code-line-numbers: false
+search: false

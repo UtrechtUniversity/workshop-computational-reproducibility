@@ -1,46 +1,35 @@
 --- 
 format: 
   revealjs:
-    theme: ../styles/uu.scss
-    logo: ../images/UU_logo_2021_EN_RGB.png
-    footer: "John Doe"
+    theme: styles/uu.scss
+    logo: images/UU_logo_2021_EN_RGB.png
+    footer: "Computational Reproducibility"
 ---
 
-# Chapter ONE {data-background-color="#FFCD00"}
+# Introduction to Computational Reproducibility{data-background-color="#FFCD00"}
 
-# {data-background-color="#FFCD00"}
-
-![](../images/UU_logo_2021_EN_RGB.png){.absolute bottom=-100 left=-240 width="300" height="120"}
-
-:::::::::::::: {.columns}
-
-::: {.column width="40%"}
-
-::: {.subtitle}
-
-Title
-
-:::
-:::
-::: {.column width="60%"}
-![](../images/image.jpg){fig-align="right" width="300"}
-:::
-::::::::::::::
-
-
-## Quarto
+## Contents
 ::: {.theme-section}
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+-   Reproducibility
+-   Project structure
+-   Documentation
+-   Code quality
+-   GitHub
 :::
 
-## Bullets
+## Reproducibility
 ::: {.theme-section}
-When you click the **Render** button a document will be generated that includes:
 
--   Content authored with markdown
--   Output from executable code
+
 :::
-## Line Highlighting
+
+## Project structure
+
+## Documentation
+
+## GitHub
+
+## Template
 
 -   Highlight specific lines for emphasis
 -   Incrementally highlight additional lines
@@ -143,4 +132,4 @@ Learn more: [Multiple Columns](https://quarto.org/docs/presentations/revealjs/#m
 
 # {data-background-color="#FFCD00"}
 
-![](../images/UU_logo_2021_EN_RGB_payoff.png)
+![](images/UU_logo_2021_EN_RGB_payoff.png)

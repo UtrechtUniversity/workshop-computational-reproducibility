@@ -1,8 +1,0 @@
-# Reproducibility Check
-
-In this last part of the course, we will do a reproducibility experiment. We ask you to make your GitHub repository publicly visible and take some time to finish any loose ends in your project. **It is not important that your project is perfect right now**, actually it hardly ever happens that people succeed in this exercise. Participating and finding out why others cannot reproduce the output is fun and an eye-opener for many!
-
-- add any last essential instructions to the readme file
-- try make sure the scripts are running without errors and produce some output
-- the instructors will coordinate the exchange of repositories
-
