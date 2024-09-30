@@ -28,7 +28,15 @@ git --version
 
 If the terminal returns a path and version, that means you have Git and you can skip this installation step! That being said, you might want to ensure your Git is the latest version.
 
-If you don't see a path and version, but something like `git: command not found` - then you definitely need to continue with installation. Follow the the instructions relevant to your operating system.
+If you don't see a path and version, but something like `git: command not found` - then you definitely need to continue with installation. 
+
+#### Utrecht University laptop
+
+If you use a laptop from Utrecht University, you can install git from the Software Center.
+
+#### Personal laptop
+
+Follow the the instructions relevant to your operating system.
 
 * **Windows:** Go to [gitforwindows.org](https://gitforwindows.org). Make sure you include **Git Bash** in your installation!
 
@@ -54,6 +62,7 @@ The first two commands won't return any information, the last one will confirm i
 
 ### Set up SSH keys 
 
+In the following steps, you will generate a private and a public SSH key, that together allow your local computer to interact with projects that are on GitHub.
 SSH keys provide a more secure way of logging onto servers than relying on passwords alone. It's similar to how two-factor authentication provides an extra layer of security over regular passwords/passcodes.
 
 There are number of steps involved in this setup, but we're going to summarize it here - so you don't get lost:
@@ -65,6 +74,7 @@ There are number of steps involved in this setup, but we're going to summarize i
 5. Test your SSH connection.
 
 These instructions are borrowed heavily from [Happy Git with R](https://happygitwithr.com/), GitHub's user guides, and [NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git](https://bvreede.github.io/presentations/presentations/2021-05-18_Git-intro-escience.html#1).
+
 
 #### Check for existing SSH keys.
 
@@ -132,11 +142,9 @@ The key's randomart image is:
 
 #### Add private key to the ssh-agent
 
-While the actions are similar, the specific commands for this step vary between operating systems. Therefore, we'll link you to the relevant GitHub guide for this step: [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
+We will now 'activate' your private key. To add your private key to the ssh-agent on your local computer, please follow the steps under [Adding your SSH key to the SSH agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). 
 
-Make sure you're following the instructions for the right operating system and then jump to the sub-section on _Adding your SSH key to the ssh-agent_.
-
-Effectively, what this step does is to 'activate' your private key.
+At the top of the page, be sure to **select Linux as the operating system, even if you use Windows or MacOS** and type the commands provided in your terminal. We've had issues with the instructions for the other operating systems.
 
 #### Add public key to your GitHub/GitLab/BitBucket account
 
@@ -147,6 +155,8 @@ Effectively, what this step does is to 'activate' your private key.
 * Click on _New SSH key_.
 
 * Paste your public key in the box and give it an informative label, maybe the same as the "USEFUL-LABEL" you used when generating the keys.
+
+* If you are part of a GitHub organization that requires Single-Sign On (such as the [Utrecht University organization](https://github.com/UtrechtUniversity)), you can also click "Configure SSO" after having created the SSH key. This will make sure you can also use your local computer with git repositories in that organization.
 
 #### Test your SSH connection
 
@@ -177,7 +187,7 @@ We have collected some commonly seen errors:
 * **You have made the key pair and copied the public key to GitHub, but SSH will not connect.**
   Are you sure that you [turned on the agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)?
   
-* You recieve an error message like ["Error: Permission denied (publickey)"](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey). Follow the link to GitHub guide on this issue.
+* You receive an error message like ["Error: Permission denied (publickey)"](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey). Follow the link to GitHub guide on this issue.
 
 * Did you remember to add the public key to GitHub?
 
