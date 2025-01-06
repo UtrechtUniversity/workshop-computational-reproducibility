@@ -8,8 +8,8 @@ Please make sure to follow the [preparation instructions] carefully well before 
 
 | Time  | Activity |
 |-------:|----------|
-| 8:00 | Installation Support |
-| 9:00 | [Welcome & introduction](introduction.qmd))| 
+| 8:45 | Walk-in and Installation Support |
+| 9:15 | [Welcome & introduction](introduction.qmd))| 
 | 9:30 | [Project setup & version control with git](project-management.qmd) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
