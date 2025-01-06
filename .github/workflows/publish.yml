@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+               
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with: 
@@ -38,13 +38,13 @@ jobs:
         uses: browser-actions/setup-chrome@v1
       
       # optional step when there is python code to execute
-      - name: Setup Python
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Setup Miniforge
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: 3.8
-          channels: conda-forge
-          miniforge-variant: Mambaforge
+          miniforge-version: latest
           activate-environment: quarto-import
+          python-version: "3.8"
+          channels: conda-forge
           environment-file: _import/environment.yml
 
       # optional steps when Rmarkdown code is used
