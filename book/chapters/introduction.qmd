@@ -25,12 +25,6 @@ format: "html"
 - [Licensing](../slides/slides_licensing.qmd)
 - [Archiving and publishing](../slides/slides_archiving_publishing.qmd)
 
-### Exercises
 
-1. [Project setup & version control with git](../exercises/project-setup.md)
-
-2. [Code quality](../exercises/code-quality.md)
-
-3. [Project documentation](../exercises/documentation.md)
 
 4. [Accessibility & reproducibility](../exercises/reproducibility.md) 
