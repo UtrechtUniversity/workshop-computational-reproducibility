@@ -11,7 +11,7 @@
 </iframe>
 ```
 
-[Slides](../slides/slides_dependencies.html)
+[Slides](../slides/slides_dependencies.qmd)
 
 ### Exercise
 Address dependencies and language versions in your README.
