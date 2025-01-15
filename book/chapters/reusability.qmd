@@ -16,7 +16,7 @@ format: "html"
 </iframe>
 ```
 
-[Slides](slides/slides_code-quality.html#12)
+[Slides](../slides/slides_cq_reusability.qmd
 
 ### Exercise
 
