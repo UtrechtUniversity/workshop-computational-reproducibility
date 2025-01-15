@@ -11,7 +11,7 @@
 
 ### Slides
 
-[Slides](slides/slides_project-documentation.qmd)
+[Slides](slides/slides_project-documentation.html)
 
 ### Exercise
 
