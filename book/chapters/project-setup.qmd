@@ -16,7 +16,7 @@ format: "html"
 ```
 
 
-[Slides](slides/slides_project-setup.qmd)
+[Slides](../slides/slides_project-setup.qmd)
 
 ### Exercises
 

@@ -15,29 +15,30 @@ execute:
 
 ## Congratulations!
 
-::: {.theme-section}
+::::: {.theme-section}
 
 You now have a project!
-
-:::: {.columns}
-
-::: {.column width="35%"}
 
 - Your project structure is accessible
 - Your code is readable and invites re-use
 - The project is under version control
 - It has a landing page on Github, with information for a user
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
 Are you done? **It depends...**
+
 :::
 
-::: {.column width="5%"}
+::: {.column width="50%"}
+![](https://reqtest.com/wp-content/uploads/2015/06/project-dependencies.jpg){width=70%}
 :::
-::: {.column width="60%"}
-![](https://inlooxcdn.azureedge.net/var/corporate_site/storage/images/media/images/blog/project-dependencies-header/940680-2-eng-GB/project-dependencies-header.jpg){width=80%}
-:::
+
 ::::
-:::
+
+:::::
 
 ## Dependencies
 

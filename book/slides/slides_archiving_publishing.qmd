@@ -180,7 +180,7 @@ We hope that everyone's repository will get a reproduction-attempt, so only add 
 
 **As you reproduce, please give your colleague feedback!**
 
-Open an issue in your colleague's GitHub repository and copy/paste this [feedback template](../feedback-on-reproducing-projects.txt)
+Open an issue in your colleague's GitHub repository and copy/paste this [feedback template](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/main/feedback-on-reproducing-projects.txt)
 
 :::
 :::

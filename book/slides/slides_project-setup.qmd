@@ -218,7 +218,7 @@ If you are super paranoid, you can always opt for a private repository. It is yo
 :::
 ::: {.column width=30%}
 
-![octocat-project](https://github.githubassets.com/images/modules/logos_page/Octocat.png)
+![octocat-project](https://octodex.github.com/images/original.png)
 ![zenodo](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png)
 :::
 ::::
