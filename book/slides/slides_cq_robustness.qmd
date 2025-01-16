@@ -161,7 +161,7 @@ except ArithmeticError:
 
 ::: {.theme-section}
 
-**In R you can use [tryCatch()](http://www.mazamascience.com/WorkingWithData/?p=912):**
+**In R you can use [tryCatch()](https://working-with-data.mazamascience.com/2020/10/08/basic-error-handing-in-r-with-trycatch/):**
 
 ```R
 read_vector_value <- function(index=1,my_vector=c(10,5,4,12,25)){

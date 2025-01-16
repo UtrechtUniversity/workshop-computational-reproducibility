@@ -45,7 +45,7 @@ The contents typically include one or more of the following:
 :::
 
 :::footer
-*From wikipedia's [Readme]("https://en.wikipedia.org/w/index.php?title=README&oldid=923233067") page*
+*From wikipedia's [Readme]("https://en.wikipedia.org/wiki/README") page*
 :::
 
 ## Example README
