@@ -12,7 +12,7 @@ Please note our workshop materials and demonstrations will be in GitHub, but mos
 
 You first want to double-check if Git is already installed on your computer.
 
-Go to your terminal and enter `which git` to request the path to your Git executable:
+Go to your [terminal](./terminal.qmd) and enter `which git` to request the path to your Git executable:
 
 ```{r eval=FALSE}
 which git
