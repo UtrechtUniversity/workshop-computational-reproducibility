@@ -1,14 +1,19 @@
-# Git & GitHub
+# Installing and setup Git
 
-## Git
+## Overview
+| Questions | Objectives |
+|-----------|------------|
+| How do I get set up to use Git? | Configure git the first time it is used on a computer.|
+| | Understand the basics of how automated version control systems work|
 
-### Coding Platforms
 
-Sign up for a [GitHub](https://github.com/join?source=header-home), [GitLab](https://gitlab.com/users/sign_up), or [BitBucket](https://bitbucket.org/account/signup/) account. 
+When we use Git on a new computer for the first time, we need to configure a few things. Below are a few examples of configurations we will set as we get started with Git:
 
-Please note our workshop materials and demonstrations will be in GitHub, but most things we will show you have easy parallels on the other networks, so you can likely just follow along.
+- our name and email address,
+- what our preferred text editor is,
+- and that we want to use these settings globally (i.e. for every project).
 
-### Install Git
+## Verify the installation of Git on your computer
 
 You first want to double-check if Git is already installed on your computer.
 
@@ -30,11 +35,11 @@ If the terminal returns a path and version, that means you have Git and you can 
 
 If you don't see a path and version, but something like `git: command not found` - then you definitely need to continue with installation. 
 
-#### Utrecht University laptop
+### Install Git on a Utrecht University laptop
 
 If you use a laptop from Utrecht University, you can install git from the Software Center.
 
-#### Personal laptop
+### Install git on a Personal laptop
 
 Follow the the instructions relevant to your operating system.
 
@@ -44,28 +49,37 @@ Follow the the instructions relevant to your operating system.
 
 * **Linux:** Go the Linux-specific page of [git-scm.com](https://git-scm.com/download/linux). There are commands specific to various package managers. 
 
-### `git config`
+## Configure Git
 
-Now that installation is done, it's time to introduce yourself to Git!
-
-Go to your terminal and type the following, one after the other:
+On a command line, Git commands are written as `git verb options`, where verb is what we actually want to do and options is additional optional information which may be needed for the verb. So here is how a user called Alfredo sets up his new laptop:
 
 ```{r eval=FALSE}
-git config --global user.name 'Your Name'
-git config --global user.email 'yourname@example.com'
+git config --global user.name 'Alfredo Linguini'
+git config --global user.email 'alfredo@ratatouille.fr'
+```
+
+This information is used to later connect to **GitHub** when we want to upload (push) or download (pull) code.
+
+Setup Git for yourself and
+**make sure you use the email associated with your GitHub account!** 
+
+Now that you configured Git for you, please check whether everything is correct with:
+
+```{r eval=FALSE}
 git config --global --list
 ```
 
-**Important:** make sure you use the email associated with your **GitHub** account! 
+## Set up an SSH key pair 
 
-The first two commands won't return any information, the last one will confirm if Git received your introduction alright. That is, your name and email will be returned.
+To authenticate with the GitHub server we will set up a so-called [SSH key pair](https://blog.aviada.mx/tech-tips/understanding-ssh-keys-a-comprehensive-guide-for-beginners/)
 
-### Set up SSH keys 
 
 In the following steps, you will generate a private and a public SSH key, that together allow your local computer to interact with projects that are on GitHub.
-SSH keys provide a more secure way of logging onto servers than relying on passwords alone. It's similar to how two-factor authentication provides an extra layer of security over regular passwords/passcodes.
+SSH keys provide a more secure way of logging onto servers than relying on passwords alone.
 
-There are number of steps involved in this setup, but we're going to summarize it here - so you don't get lost:
+You can think of the public key of an SSH key pair to be the lock which we will add to the GitHub server and the private key as the key, which needs to be placed in a special folder on your computer
+
+Below we summarize the steps we will carry out:
 
 1. Check for existing SSH keys.
 2. Generate new SSH keys.
@@ -76,7 +90,7 @@ There are number of steps involved in this setup, but we're going to summarize i
 These instructions are borrowed heavily from [Happy Git with R](https://happygitwithr.com/), GitHub's user guides, and [NLeSC Small Scale Initiative - Introduction to GitVersion Control with Git](https://bvreede.github.io/presentations/presentations/2021-05-18_Git-intro-escience.html#1).
 
 
-#### Check for existing SSH keys.
+### Check for existing SSH key pairs.
 
 Go to your terminal and type the following command to list existing SSH keys:
 
@@ -94,7 +108,7 @@ If you have key pairs already, they may look like the following:
 
 If you're happy to stick with your existing keys, then you can jump to step 3 which is about adding the private key to the ssh-agent.
 
-#### Generate new SSH keys
+### Generate a new SSH key pair
 
 Go to your terminal and type the following command, substituting "USEFUL-LABEL" with something like your GitHub username and/or your device.  
 
@@ -140,13 +154,13 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-#### Add private key to the ssh-agent
+### Add the private key to the ssh-agent
 
 We will now 'activate' your private key. To add your private key to the ssh-agent on your local computer, please follow the steps under [Adding your SSH key to the SSH agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). 
 
 At the top of the page, be sure to **select Linux as the operating system, even if you use Windows or MacOS** and type the commands provided in your terminal. We've had issues with the instructions for the other operating systems.
 
-#### Add public key to your GitHub/GitLab/BitBucket account
+### Add public key to your GitHub/GitLab/BitBucket account
 
 * Open your public SSH key (the file ending with .pub) in a text editor and copy the whole key. Make sure to avoid copying any newlines or whitespace. 
 
@@ -158,7 +172,7 @@ At the top of the page, be sure to **select Linux as the operating system, even 
 
 * If you are part of a GitHub organization that requires Single-Sign On (such as the [Utrecht University organization](https://github.com/UtrechtUniversity)), you can also click "Configure SSO" after having created the SSH key. This will make sure you can also use your local computer with git repositories in that organization.
 
-#### Test your SSH connection
+### Test your SSH connection
 
 Open your terminal and type in the following command:
 
@@ -178,7 +192,7 @@ If all goes well, you'll see something like the following:
 
 Make sure it's your username that terminal returns!
 
-#### Troubleshooting 
+### Troubleshooting 
 
 GitHub has a whole page on [Troubleshooting SSH](https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh). If you run into issues, you should double-check if your errors are covered here. 
 
@@ -223,26 +237,4 @@ https://github.com/USERNAME/REPOSITORY.git
   - Restart the SSH key generation tutorial.
   - If, after setting up SSH key pairs, you want to reinstall Citrix, be sure to do so via the Microsoft store.
 
-### If SSH fails, HTTPS!
-
-If you find yourself despairing over the SSH key setup, don't worry! HTTPS is a sufficient back-up!
-
-You will need to create a [Personal Access Token from Github](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) to identify yourself over the HTTPS protocol:
-
-* Click on your profile icon (top right side of your screen)
-
-* Go to _Settings_ -> _Developer Settings_ -> _Personal Access Tokens_
-
-* Create a new token, and select the ‘repo’ scope for its access.
-
-* Copy the token and use it when Git asks for a password when connecting to Github.
-
-See the [Github website for more info](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
-
-#### Troubleshooting Personal Access Tokens
-
-You can only view a Personal Access Token once, and they are impossible to type. However, you can store it in your system so it can be used to authenticate you without your having to re-enter it.
-
-* If you are on Windows, go to the terminal and type `git config --global credential.helper wincred`
-
-* If you are on a different system, and git does not cache your credentials automatically, [here is a Github tutorial to fix that](https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git).
+**Now you are ready to follow the training section about GitHub.**

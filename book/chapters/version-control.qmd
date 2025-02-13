@@ -1,19 +1,38 @@
 ---
 format: "html"
 ---
+# Automated version control 
 
-# Version control
+## Overview
+| Questions | Objectives |
+|-----------|------------|
+| What is version control and Why should I use it? | Understand the benefits of an automated version control system.|
+| | Understand the basics of how automated version control systems work|
+| How do I record changes in Git? | Understand the modify-add-commit cycle |
+| How do I check the status of my code version?|Explain where information is stored at each stage of that cycle.|
+|How can I recover old versions of files?| Walk through the git history, understand the use of commit hashes|
 
-### Video
+## Why do we need to keep track of versions?
 
-{{< video https://vimeo.com/463264170 >}}
+**Problem: If you have to identify and find your code from 17 days ago, can you?**
 
-### Slides
+Version control is an answer to the following questions (do you recognize some of them?):
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_version_control.html" title="Version Control" width="960" height="540">
-</iframe>
-```
+- "It broke … hopefully I have a working version somewhere?"
+- "Can you please send me the latest version?"
+- "Where is the latest version?"
+- "Which version are you using?"
+- "Which version have the authors used in the paper I am trying to reproduce?"
+- "Found a bug! Since when was it there?"
+- "I am sure it used to work. When did it change?"
+- "My laptop is gone. Is my thesis now gone?"
+
+## Popular automated version control systems
+*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All three platforms use the same *Git* commands but they doffer in their web interfaces.
+
+This tutorial uses GitHub.
+
+
 
 
 
