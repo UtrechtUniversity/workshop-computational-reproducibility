@@ -32,7 +32,80 @@ Version control is an answer to the following questions (do you recognize some o
 
 This tutorial uses GitHub.
 
+## Browse an existing project
 
+In this chapter, we will look at an existing repository to understand how all the pieces work together.
+
+::: {.callout-note}
+
+- See a real Git repository and understand what is inside of it.
+- Understand how version control allows advanced inspection of a repository.
+- See how Git allows multiple people to collaborate relatively easily.
+- See the big picture instead of remembering a bunch of commands.
+
+:::
+
+Go to the git repository [Recipe book](https://github.com/cr-workshop-exercises/recipe-book).
+
+### Basic Browsing
+The most basic thing to look at is the history of commits.
+
+- This is visible from a button in the repository view. We see every change, when, and who has committed.
+- Every change has a unique identifier, such as 554c187. This can be used to identify both this change, and the whole project’s version as of that change.
+- Clicking on a change in the view shows more.
+
+[Screenshot]
+
+We can also have a look at the history of a single file, so we know when the file was changed last and by whom. Click on a file and then on the history.
+
+[Screenshot]
+
+### Exercises
+
+Explore the Web interface!
+
+1. How many changes did the Guacamole recipe receive?
+2. Which recipes include the ingredient "salt"?
+
+Version control makes it very easy to find all occurrences of a single word. This is useful for things like finding where functions or variables are defined or used.
+
+### Who modified each line last and when?
+
+This is called the "annotate" or "blame" view. The name "blame" is very unfortunate, but it is the standard term for historical reasons for this functionality and it is not meant to blame anyone.
+
+[Screenshot]
+
+### Can you use these recipes yourself? Are you allowed to share modifications?
+
+- Look at the file LICENSE.
+- It says it is “Creative Commons Zero 1.0”, which is equivalent to public domain. You can use them without conditions.
+- Note the GitHub view of the file LICENSE gives a nice summary of what it means. Try it out:
+
+### Browse issues and pull requests in the upstream repository
+
+This can only be done through the GitHub view. Issues and Pull requests are different for each GitHub copy.
+
+- Click on the “Issues” tab. These are notes that people have added, which allow discussion about the project. Often they are used to communicate problems or ideas.
+
+- Click on the “Pull requests” tab. This allows anyone to propose changes, but only the repository owners can accept.
+
+### Summary
+
+- Git allowed us to understand this simple project much better than we could, if it was just a few files on our own computer.
+- It was easy to share the project with the course.
+
+In the next section we will create our own Git repository!
+
+
+## Creating a local code repository
+
+## Uploading your code repository to GitHub
+
+## The Git workflow
+
+Edit -> commit + message -> push
+
+Pull -> edit -> commit -> push
 
 
 
