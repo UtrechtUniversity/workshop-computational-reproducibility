@@ -16,7 +16,7 @@ format: "html"
 
 **Problem: If you have to identify and find your code from 17 days ago, can you?**
 
-Version control is an answer to the following questions (do you recognize some of them?):
+Version control is an answer to the following questions (do you recognise some of them?):
 
 - "It broke … hopefully I have a working version somewhere?"
 - "Can you please send me the latest version?"
@@ -28,7 +28,8 @@ Version control is an answer to the following questions (do you recognize some o
 - "My laptop is gone. Is my thesis now gone?"
 
 ## Popular automated version control systems
-*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All three platforms use the same *Git* commands but they doffer in their web interfaces.
+*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All three platforms use the same *Git* commands, i.e. you will be able to work in the same way with code on your laptop independent from which platform you choose.
+However the web interfaces of those three platforms look differently and might also offer different functionality.
 
 This tutorial uses GitHub.
 
@@ -78,16 +79,16 @@ This is called the "annotate" or "blame" view. The name "blame" is very unfortun
 ### Can you use these recipes yourself? Are you allowed to share modifications?
 
 - Look at the file LICENSE.
-- It says it is “Creative Commons Zero 1.0”, which is equivalent to public domain. You can use them without conditions.
+- It says it is "Creative Commons Zero 1.0", which is equivalent to public domain. You can use them without conditions.
 - Note the GitHub view of the file LICENSE gives a nice summary of what it means. Try it out:
 
 ### Browse issues and pull requests in the upstream repository
 
 This can only be done through the GitHub view. Issues and Pull requests are different for each GitHub copy.
 
-- Click on the “Issues” tab. These are notes that people have added, which allow discussion about the project. Often they are used to communicate problems or ideas.
+- Click on the "Issues" tab. These are notes that people have added, which allow discussion about the project. Often they are used to communicate problems or ideas.
 
-- Click on the “Pull requests” tab. This allows anyone to propose changes, but only the repository owners can accept.
+- Click on the "Pull requests" tab. This allows anyone to propose changes, but only the repository owners can accept.
 
 ### Summary
 
@@ -96,22 +97,142 @@ This can only be done through the GitHub view. Issues and Pull requests are diff
 
 In the next section we will create our own Git repository!
 
+## Creating a Code repository
 
-## Creating a local code repository
+::: {.callout-note}
 
-## Uploading your code repository to GitHub
+- Create an own GitHub repository from a template
+- The purpose of templates
+- Edit and adjust your repository through the GitHub web interface
 
-## The Git workflow
+:::
+
+### Forking versus creating
+
+Git knows two ways of creating an own Git repository.
+
+1. If you like to have a copy of an existing Git repository that someone else created, you create an own copy by "forking" the repository. This will create a copy of the repository under your GitHub account.
+
+2. You can create your own GitHub code repository. Simply go to your account and click on the green button "New" under "Your Repositories"
+
+### Simple repository templates provided by Utrecht University
+
+In this course you will create a new GitHub repository for your code using a template.
+By using our Utrecht University template you will already fill the repository with a file-folder structure, a license and a draft README file.
+
+Python developers please go to the [simple python template repository](https://github.com/UtrechtUniversity/simple-python-template).
+
+R developers please use the [simple R project repository](https://github.com/UtrechtUniversity/simple-r-project).
+
+1. Click on the green button "Use this template" and "Create a new repository".
+2. Now you can select an owner, most probably your account on GitHub and you can give the new repository an own name. You can also add a description which will show up on the repository's webpage.
+3. You will need to decide whether the repository will be publicly visible or only for you. Since later in the course we will have a look at each others repositories and give feedback **please choose "public"**.
+4. Click on "Create repository". The repository will now be created and be shown.
+
+With the template you created a repository where code (src or R), data and documentation are nicely separated.
+
+### Adjusting the new repository through the web interface
+
+You can now start and add your script or code from your computer to the repository:
+
+1. Navigate to the respective folder where you would like to place the file(s)
+
+2. Click on "Add file" and then choose whether you want to "upload" a file from your computer, or if you would like to "create a new" file and edit the text in the web browser.
+![](../images/github_figures_screenshots/git_add_file_browser.png)
+In case you upload files add a Commit title and text, or in the case of editing a file click on "Commit changes" and add a title and description.
+![](../images/github_figures_screenshots/git_commit_message.png){width=20%}
+
+3. Adjust the README.md file. Go back to the top level of your repository and click on the README file and then click on the pencil in the grey row above the text. 
+![](../images/github_figures_screenshots/git_edit_readme.png)
+This opens and editor in "edit" mode. Adjust the README a bit (we will also do some changes later). With the "Preview" button (next to "Edit") you can see how the file will be rendered.
+MarkDown files are an easy way to create documentation. If you are not yet familiar with MarkDown please have a look at one of the many [MarkDown Guides](https://www.MarkDownguide.org/basic-syntax/).
+
+**A word on "Commits"**
+As we saw in the previous section the commit titles are shown in the history of the repository. The title and the message will help us later to understand what we updated and why we updated the code base.
+
+Now that you have started to customise your new GitHub repository, let's have a look whether we can do that in a bit more convenient way, directly on your computer instead of through the web browser.
+
+## Working with your repository on your laptop
+
+::: {.callout-note}
+
+- Understand the difference between a local and a remote repository
+- The pull - commit - push workflow
+
+:::
+
+![](../images/github_figures_screenshots/git_create_repo.svg){width=700}
+
+When you create a repository on GitHub, it exists as a remote repository. This repository contains all files, but also information on commits, history and concepts that we have not discussed yet like  branches and tags.
+
+With cloning your remote GitHub repository you create a copy of all that on your computer. This we call a local repository. On your local repository you can change and add files without changing the remote GitHub repository.
+So this allows you to play around with your code and in case you messed up you can set the state of your code back to the remote repository.
+
+### Clone your repository
+
+Let's create a local clone (copy) of our remote GitHub repository.
+Click on the name of your repository to go back to the top level.
+You will see a green button "Code", click on the button, choose the "SSH" and use the copy icon to copy the url in the field.
+![](../images/github_figures_screenshots/git_clone.png)
+
+Open your git bash or terminal, navigate to the folder in which you would like to create the folder for your repository (e.g. `cd git_repos`) and do:
+
+```{python}
+git clone <paste the url here>
+```
+
+Now you can `cd` into you local repository and start working.
+
+### Update the remote GitHub repository
+![](../images/github_figures_screenshots/git_workflow.svg)
+{width=700}
+
+Let us open the README file again. You can do by opening a commandline editor like nano or vim (Mac, linux) or you can go to your file browser and open the README file with e.g. Notepad.
+
+Change something in your README file, e.g. add an extra sentence to the description, save it and go back to your git bash or terminal.
+
+Let us check how git detects changes between the local and remote repository, type in:
+
+```{python}
+git status
+```
+
+You will see that git detected that the README changed. How can we now update the remote GitHub repository with our local changes?
+
+We first have to "add" the changed files:
+
+```{python}
+git add <path shown in the status>
+```
+and observe the change of the status:
+
+```{python}
+git status
+```
+
+From the web interface we know, that all changes come with a commit message. Let's add it:
+
+```{python}
+git commit -m "<Replace with your message>"
+git status
+```
+
+
+
+
+
+
+### Update the local repository
 
 Edit -> commit + message -> push
 
 Pull -> edit -> commit -> push
 
-
+## The .gitignore file
 
 ### Exercise
 
-* After moving files into your repository, run `git status` to see what Git thinks has changed.
+* After moving files into your local repository on your computer, run `git status` to see what Git thinks has changed.
 
 * Please note: are there (temporary) files you do not wish to track?
   Add them to the `.gitignore` file.
@@ -134,3 +255,7 @@ Your changes are now saved in your local (on your PC) repository. You still need
 * Optional: What happens if you edit the same file online and locally, and try to push/pull?
   (Hint: this often causes a 'merge conflict', which is no fun to experience.
   Going through it today means we can assist you if necessary!)
+  
+ ### References
+ CodeRefinery, [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)
+ GithHub
