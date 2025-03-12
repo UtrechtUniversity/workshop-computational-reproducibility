@@ -217,18 +217,49 @@ git commit -m "<Replace with your message>"
 git status
 ```
 
+Now you will see in the status message that there is one commit on your computer waiting to be send ("push") to the remote GitHub repository.
 
+```{python}
+git push
+```
 
-
-
+Go to the browser and inspect the history and the new changes in your remote repository.
 
 ### Update the local repository
 
-Edit -> commit + message -> push
+Assume you changed your remote repository through the browser, how do you update your local repository?
 
-Pull -> edit -> commit -> push
+Make another change to your README file in the web browser of GitHub and commit the change. Now go back to your terminal and do:
+
+```
+git status
+git pull
+```
+
+Voilá, the changes from the remote GitHub repository are now in your local repository.
 
 ## The .gitignore file
+
+With the command "add" you have to specify folders or files to add to a commit. Everything that is not added explicitly will be ignored 
+in the commit and "push".
+
+In some cases we never ever want to add certain files to the GitHub repository, although we need them or they are created automatically locally. Think of Mac's infamous ".DS_store" files or resulting data from your workflow that you do not need to upload to GitHub since the code creates them.
+
+To always ignore certain files we have the ".gitignore" file.
+Your repository contains an example. Please inspect it in you local repository. When you are working on Mac please also add
+
+```
+# mac specific files
+.DS_Store
+```
+
+You do not need to upload this file to the remote repository. the ".gitignore" file works on your local repository. However, if you are working together with people on your code, it is wise to add the file to the remote repository since then all of your users will respect, that certain files should not be uploaded.
+
+### Summary
+
+- We went through the power of the GitHub web interface to setup a project.
+- We saw the use of employing templates to get our initial file folder structure and some essential default files.
+- We introduced the concept of a local repository and a remote repository and how to update files between the two.
 
 ### Exercise
 
@@ -238,13 +269,8 @@ Pull -> edit -> commit -> push
   Add them to the `.gitignore` file.
   Consider a `.gitignore` template for your language: examples on [this github repo](https://github.com/github/gitignore).
 
-* Run `git add` to stage the changes, use `git status` to check what has happened.
-
-* Run `git commit` to add the changes to you git project history and use a descriptive commit message.
 
 * Run `git log` to see the history of your project.
-
-Your changes are now saved in your local (on your PC) repository. You still need to push the changes to GitHub. Run `git push` to do this.
 
 * Can you use Git and push to Github from your IDE?
 
@@ -258,4 +284,3 @@ Your changes are now saved in your local (on your PC) repository. You still need
   
  ### References
  CodeRefinery, [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)
- GithHub
