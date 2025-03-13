@@ -284,5 +284,8 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
   (Hint: this often causes a 'merge conflict', which is no fun to experience.
   Going through it today means we can assist you if necessary!)
   
- ### References
+## Advanced material
+- [GitHub branches and issues](git-advanced-branches.qmd)
+  
+### References
  CodeRefinery, [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)
