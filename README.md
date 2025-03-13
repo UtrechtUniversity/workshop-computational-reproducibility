@@ -74,7 +74,7 @@ Workshop development is being coordinated by [Neha Moopen](https://github.com/ne
 -   [Jeroen Ooms](https://github.com/jeroen)
 -   [Jonathan de Bruin](https://github.com/J535D165)
 -   [Lukas van de Wiel](https://github.com/hooiberg)
--   [Mateusz Kuzak](https://twitter.com/matkuzak)
+-   [Mateusz Kuzak](https://www.esciencecenter.nl/team/mateusz-kuzak/)
 -   [Menno Fraters](https://github.com/MFraters)
 -   [Neha Moopen](https://github.com/nehamoopen)
 -   [Parisa Zahedi](https://github.com/parisa-zahedi)
