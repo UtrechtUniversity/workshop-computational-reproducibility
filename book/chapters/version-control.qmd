@@ -6,7 +6,7 @@ format: "html"
 ## Overview
 | Questions | Objectives |
 |-----------|------------|
-| What is version control and Why should I use it? | Understand the benefits of an automated version control system.|
+| What is version control and why should I use it? | Understand the benefits of an automated version control system.|
 | | Understand the basics of how automated version control systems work|
 | How do I record changes in Git? | Understand the modify-add-commit cycle |
 | How do I check the status of my code version?|Explain where information is stored at each stage of that cycle.|
@@ -55,11 +55,13 @@ The most basic thing to look at is the history of commits.
 - Every change has a unique identifier, such as 554c187. This can be used to identify both this change, and the whole project’s version as of that change.
 - Clicking on a change in the view shows more.
 
-[Screenshot]
+
+![](../images/github_figures_screenshots/git_browse_commits.png){width=700}
 
 We can also have a look at the history of a single file, so we know when the file was changed last and by whom. Click on a file and then on the history.
 
-[Screenshot]
+
+![](../images/github_figures_screenshots/git_browse_history.png){width=700}
 
 ### Exercises
 
@@ -74,7 +76,7 @@ Version control makes it very easy to find all occurrences of a single word. Thi
 
 This is called the "annotate" or "blame" view. The name "blame" is very unfortunate, but it is the standard term for historical reasons for this functionality and it is not meant to blame anyone.
 
-[Screenshot]
+![](../images/github_figures_screenshots/git_browse_blame.png){width=700}
 
 ### Can you use these recipes yourself? Are you allowed to share modifications?
 
