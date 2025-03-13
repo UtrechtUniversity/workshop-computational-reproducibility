@@ -1,0 +1,161 @@
+---
+format: "html"
+---
+# Git branching and merging 
+
+## Overview
+| Questions | Objectives |
+|-----------|------------|
+| What are branches and how to use them? | Understand adding changes in two separate branches.|
+| | Merge branches.|
+| | Issues and branches. |
+
+## What are branches?
+
+A branch is a line of development, and the main branch or master branch are often the default branch in Git.
+
+You can see all branches in the dropdown menu when you click on the button "Main". 
+
+![](../images/github_figures_screenshots/git_branches.png)
+
+Branches contain different versions of files or extra files. Usually a branch contains the code for one new feature.
+
+In the previous part we created a repository with only one branch, the main branch. 
+Now we want to do this:
+
+![](../images/github_figures_screenshots/git_gophers.png)
+
+Software development is often not linear:
+
+- We typically need at least one version of the code to “work” (to compile, to give expected results, …).
+- At the same time we work on new features, often several features concurrently. Often they are unfinished.
+- We need to be able to separate different lines of work really well.
+
+The strength of version control is that it permits the researcher to isolate different tracks of work, which can later be merged to create a composite version that contains all changes:
+
+![](../images/github_figures_screenshots/git-collaborative-branches.svg)
+
+
+
+- We see branching points and merging points.
+- Main line development is often called main or master.
+- Other than this convention there is nothing special about main or master, it is a branch like any other.
+- Commits form a directed acyclic graph (we have left out the arrows to avoid confusion about the time arrow).
+
+A group of commits that create a single narrative are called a branch. There are different branching strategies, but it is useful to think that a branch tells the story of a feature, e.g. “fast sequence extraction” or “Python interface” or “fixing bug in matrix inversion algorithm”.
+
+## Creating 
+
+You can create a branch in the web browser like this:
+
+1. Go to your repository
+2. Click on "Main" (see screenshot above) and click on "View all branches". You will get an overview of all branches and how actively they are used.
+3. Click on "New branch" and give the new branch a name e.g. "experiment".
+ 
+We have now two branches, both containing the same files in the remote repository. 
+
+Since we only have one branch, the "main" branch, the new branch will automatically created from there. Once you have more than one branch, you can select from which branch you would like to create the new one.
+
+We need to update our local repository on our laptop and "switch" to the new branch to work on a new feature.
+
+```python
+git pull
+git checkout experiment
+```
+ 
+After pulling the new state from the remote repository you will see that git informs you that there is a new branch.
+
+We can now work on the new branch **without changing the main branch**.
+
+## Exercise: Create and commit to the new branch
+
+- Change some files in your repository, e.g. add an extra section to the README file
+- Commit the changes and push them
+- Verify in the web browser that the files in "main" and the new branch differ.
+
+
+## Merging branches
+
+Now that we changed some files in the new branch and we are happy with the changes. We would like to "copy over" or merge them with the files in the "main" branch.
+
+Go to the web page of you GitHub repository and click on the tab "Insights" and there in the left-side menu on "Network". It will take some time until the information is loaded.
+
+![](../images/github_figures_screenshots/git_network.png)
+
+The white line is the path of the "main" branch and we can see that there were some changes added in the "experiment" branch.
+We also see when those changes on the branches were made.
+
+To "merge" the changes of the "experiment" branch into "main", click on the tab "Pull requests" and then on the button "New pull request". Select as base "main" and your new branch as compare.
+
+![](../images/github_figures_screenshots/git_pull_request.png)
+
+GitHub will already show you all of the changes that you have made and will inform you whether those changes can be merged with the base. Create the pull request, you can leave some more comments, descriptions and suggestions for testing in the pull request. If you share your code repository with other developers, you can also request their reviews on your code.
+
+::: {.callout-note}
+
+Even when you created a pull request, you can still continue working on your branch. The pull request will always show the latest state of the branch you would like to merge. Likewise will the base branch always be at the latest state.
+
+:::
+
+Now click on "Merge pull request" and navigate back to the "network" graph.
+
+![](../images/github_figures_screenshots/git_merged_branches.png)
+
+The "experiment" branch has been merged into "main" and we can now e.g. delete it.
+
+![](../images/github_figures_screenshots/git_delete_branch.png)
+
+To synchronise our local repository again, we need to do:
+
+```python
+git pull
+git checkout main
+```
+
+## Commandline tips and tricks for merging branches in the local repository
+
+- Verify in which state your local repository is compared to the remote repository
+ 
+ ```python
+ git status
+ ```
+- "Forget" (Stash the changes  in a dirty working directory away) committed changes on your branch
+ 
+ ```python
+ git stash
+ ```
+- Check on which branch your are
+  
+  ```
+  git branch
+  ```
+- Create a new branch in the local repository
+
+  ```python
+  git branch experiment main  # creates branch "experiment" from "main"
+  ```
+- Locally merge a branch into "main". Move to the branch you would like to use as base and merge:
+
+  
+  ```python
+  git checkout main
+  git merge <branch name>
+  ```
+  
+A nice tutorial how to work with branches in your local repository can be found [here](https://coderefinery.github.io/git-intro/branches/#exercise-create-and-commit-to-branches).
+
+## Issues
+
+In GitHub users of your code or you yourself can create "issues". An issue can e a feature request, a bug or simply a contained "Todo" in your project.
+
+Click on the tab "Issues" and create one.
+
+![](../images/github_figures_screenshots/git_issue.png)
+
+Once the issue is created, you can create a branch for it like we did beforehand:
+
+![](../images/github_figures_screenshots/git_branch_for_issue.png)
+
+Once the branch tackling the content of the issue is merged, the issue will be closed automatically. Also any commits on the branch are shown in the description of the issue, which is very handy feature together with the commenting and by this having a discussion about the code.
+
+## Merge conflicts

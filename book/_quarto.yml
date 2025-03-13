@@ -73,7 +73,12 @@ website:
           - href: chapters/archiving-and-publishing.qmd
             text: Archiving & Publishing
       - chapters/reproducibility-check.qmd
+      - section: "Advanced material"
+        contents:
+          - href: chapters/git-advanced-branches.qmd
       - chapters/references.qmd
+
+        
 
 bibliography: 
 - references.bib 
