@@ -88,12 +88,12 @@ execute:
 2. After that, we cloned the repository to our local PC and moved some of our files into the repository.
 
 3. Navigate to your project folder in a terminal.
-```{python}
+```
 cd [path/to/project_folder]
 ```
 
 4. Verify that your project folder is a git repository by locating the .git folder:
-```{python}
+```
 ls -a
 ```
 
@@ -104,7 +104,7 @@ ls -a
 ::: {.theme-section}
 
 Use [Git log](https://git-scm.com/docs/git-log) to check the history of your project:
-```{python}
+```
 git log
 ```
 ![](../images/screenshots/git_log.png){fig-align="center"}
@@ -152,19 +152,19 @@ gitGraph
 ::: {.theme-section}
 
 
-```{python}
+```
 git status
 ```
 
 [Git status](https://git-scm.com/docs/git-status) shows you the status of your repository. It tells you which files are created, modified, or deleted relative to the last **git snapshot** (aka __commit__) of your project.
 
-```{python}
+```
 git diff
 ```
 
 [Git diff](https://git-scm.com/docs/git-diff) shows you the actual differences between the files that you have changed since the last snapshot.
 
-```{python}
+```
 git --help
 ```
 
@@ -177,12 +177,12 @@ This command will show you all the commands that you can use with git.
 ::: {.theme-section}
 
 5. If you have added your files to your git repository on your PC, now add all your files to the staging area:
-```{python}
+```
 git add *
 ```
 
 5. Commit all the files in the staging area to your repository:
-```{python}
+```
 git commit -m "add my files"
 ```
 
@@ -194,7 +194,7 @@ git commit -m "add my files"
 
 You can now push the content of your local repository to the one on github:
 
-```{python}
+```
 git push
 ```
 
@@ -206,7 +206,7 @@ Take a look at your online repository. Who is the author of your commits? If it 
 
 <br>
 
-```{python}
+```
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
@@ -218,7 +218,7 @@ git config --global user.email "your@email.com"
 ::: {.theme-section}
 
 1. Add the changed file(s) to the staging area, and commit the changes:
-```{python}
+```
 git add src/filename.py anotherfile.txt
 git add config/configfile.json
 git status
@@ -237,7 +237,7 @@ NB: don't forget your commit message (try what happens if you do!).
 
 Useful git commands:
 
-```{python}
+```
 git log
 git log --oneline
 git status
@@ -256,18 +256,18 @@ The .gitignore file in your template contains files that **by definition** will 
 
 For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
 
-```{python}
+```
 .DS_Store
 ```
 
 Similarly, you can ensure all output in a folder will not be tracked:
 
-```{python}
+```
 results/
 ```
 
 Or all files with a certain extension:
-```{python}
+```
  *.dat 
 ```
 

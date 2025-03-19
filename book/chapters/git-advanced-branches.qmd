@@ -58,7 +58,7 @@ Since we only have one branch, the "main" branch, the new branch will automatica
 
 We need to update our local repository on our laptop and "switch" to the new branch to work on a new feature.
 
-```python
+```
 git pull
 git checkout experiment
 ```
@@ -107,7 +107,7 @@ The "experiment" branch has been merged into "main" and we can now e.g. delete i
 
 To synchronise our local repository again, we need to do:
 
-```python
+```
 git pull
 git checkout main
 ```
@@ -116,12 +116,12 @@ git checkout main
 
 - Verify in which state your local repository is compared to the remote repository
  
- ```python
+ ```
  git status
  ```
 - "Forget" (Stash the changes  in a dirty working directory away) committed changes on your branch
  
- ```python
+ ```
  git stash
  ```
 - Check on which branch your are
@@ -131,13 +131,13 @@ git checkout main
   ```
 - Create a new branch in the local repository
 
-  ```python
+  ```
   git branch experiment main  # creates branch "experiment" from "main"
   ```
 - Locally merge a branch into "main". Move to the branch you would like to use as base and merge:
 
   
-  ```python
+  ```
   git checkout main
   git merge <branch name>
   ```
