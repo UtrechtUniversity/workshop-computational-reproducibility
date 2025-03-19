@@ -5,8 +5,11 @@ format:
     theme: ../styles/uu.scss
     logo: ../images/UU_logo_2021_EN_RGB.png
     footer: "Workshop Computational Reproducibility"
+    mermaid:
+      theme: default
+    mermaid-format: png
 execute:
-  enabled: true
+  enabled: false
   echo: true
 ---
 
@@ -48,15 +51,13 @@ Dependencies and versions can stop your users/readers from being able to run you
 For example: this code written in Python 2.7:
 
 
-```{python}
-#| eval: false
+```python
 print "Hello world!"
 ```
 
 No longer works in Python 3!
 
-```{python}
-#| eval: false
+```python
 print "Hello world!"
 ```
 
@@ -68,7 +69,7 @@ SyntaxError: Missing parentheses in call to 'print'. Did you mean print("Hello w
 ```
 
 Instead, we write:
-```{python}
+```python
 print("Hello world!")
 ```
 

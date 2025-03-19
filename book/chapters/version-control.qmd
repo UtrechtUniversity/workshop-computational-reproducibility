@@ -179,7 +179,7 @@ You will see a green button "Code", click on the button, choose the "SSH" and us
 
 Open your git bash or terminal, navigate to the folder in which you would like to create the folder for your repository (e.g. `cd git_repos`) and do:
 
-```{python}
+```
 git clone <paste the url here>
 ```
 
@@ -195,7 +195,7 @@ Change something in your README file, e.g. add an extra sentence to the descript
 
 Let us check how git detects changes between the local and remote repository, type in:
 
-```{python}
+```
 git status
 ```
 
@@ -203,25 +203,25 @@ You will see that git detected that the README changed. How can we now update th
 
 We first have to "add" the changed files:
 
-```{python}
+```
 git add <path shown in the status>
 ```
 and observe the change of the status:
 
-```{python}
+```
 git status
 ```
 
 From the web interface we know, that all changes come with a commit message. Let's add it:
 
-```{python}
+```
 git commit -m "<Replace with your message>"
 git status
 ```
 
 Now you will see in the status message that there is one commit on your computer waiting to be send ("push") to the remote GitHub repository.
 
-```{python}
+```
 git push
 ```
 
