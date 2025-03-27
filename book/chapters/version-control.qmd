@@ -10,7 +10,7 @@ format: "html"
 | | Understand the basics of how automated version control systems work|
 | How do I record changes in Git? | Understand the modify-add-commit cycle |
 | How do I check the status of my code version?|Explain where information is stored at each stage of that cycle.|
-| How can I recover old versions of files? | Browse the (git) history of a project |
+|How can I recover old versions of files?| Walk through the git history, understand the use of commit hashes|
 
 ## Why do we need to keep track of versions?
 
@@ -28,7 +28,7 @@ Version control is an answer to the following questions (do you recognise some o
 - "My laptop is gone. Is my thesis now gone?"
 
 ## Popular automated version control systems
-*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [Codeberg](https://codeberg.org), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All platforms use the same *Git* commands, i.e. you will be able to work in the same way with code on your laptop independent from which platform you choose.
+*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All three platforms use the same *Git* commands, i.e. you will be able to work in the same way with code on your laptop independent from which platform you choose.
 However the web interfaces of those three platforms look differently and might also offer different functionality.
 
 This tutorial uses GitHub.
@@ -49,10 +49,10 @@ In this chapter, we will look at an existing repository to understand how all th
 Go to the git repository [Recipe book](https://github.com/cr-workshop-exercises/recipe-book).
 
 ### Basic Browsing
-When using git for version control, you create snapshots of your project whenever you think it is useful. These snapshots are called "commits". These commits together form the history of your project. You can always revisit previous snapshots (commits) e.g. when you want to check how you did something in an earlier stage of your project. 
+The most basic thing to look at is the history of commits.
 
-- This is visible from a button in the repository view on GitHub.com (see figure below how to open the history). We see every change, when, and who has committed.
-- Every change has a title, an author, a date and a unique identifier, such as `554c187`. 
+- This is visible from a button in the repository view. We see every change, when, and who has committed.
+- Every change has a unique identifier, such as 554c187. This can be used to identify both this change, and the whole project’s version as of that change.
 - Clicking on a change in the view shows more.
 
 
@@ -191,7 +191,7 @@ Now you can `cd` into you local repository and start working.
 ### Update the remote GitHub repository
 ![](../images/github_figures_screenshots/git_workflow.svg){width=700 fig-align="center"}
 
-Let us open the README file again. You can do by opening a commandline editor like nano or vim (Mac, linux) or you can go to your file browser and open the README file with e.g. Notepad or VS Code.
+Let us open the README file again. You can do by opening a commandline editor like nano or vim (Mac, linux) or you can go to your file browser and open the README file with e.g. Notepad.
 
 Change something in your README file, e.g. add an extra sentence to the description, save it and go back to your git bash or terminal.
 
@@ -206,7 +206,7 @@ You will see that git detected that the README changed. How can we now update th
 We first have to "add" the changed files:
 
 ```
-git add <path of the file as shown in status>
+git add <path shown in the status>
 ```
 and observe the change of the status:
 
@@ -242,9 +242,6 @@ git pull
 
 Voilá, the changes from the remote GitHub repository are now in your local repository.
 
-The difference between `git pull` and `git clone`:
-
-`git clone` is a one time action to get a copy of an online repository on GitHub that is not present yet on your PC. `git pull` is done to update the repository with any (potential) changes to the online copy of this repository on GitHub.
 ## The .gitignore file
 
 With the command "add" you have to specify folders or files to add to a commit. Everything that is not added explicitly will be ignored 
@@ -264,8 +261,8 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
 
 ### Summary
 
-- We explored the GitHub web interface to setup and manage a project.
-- We used a "template repository" to initiate a repository with a predefined file folder structure and some default files to make life a bit easier.
+- We went through the power of the GitHub web interface to setup a project.
+- We saw the use of employing templates to get our initial file folder structure and some essential default files.
 - We introduced the concept of a local repository and a remote repository and how to update files between the two.
 
 ### Exercise
@@ -291,6 +288,9 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
   
 ## Advanced material
 - [GitHub branches and issues](git-advanced-branches.qmd)
-  
+
+## Presenter slides
+- [Markdown](../slides/slides_version_control.qmd)
+
 ### References
  CodeRefinery, [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)

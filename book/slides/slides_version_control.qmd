@@ -16,7 +16,13 @@ execute:
 # Version Control {data-background-color="#FFCD00"}
 
 
-## Why do you need version control?
+## Why do we need to keep track of versions?
+
+::: {.theme-section}
+
+:::
+
+## Why do we need to keep track of versions?
 
 ::: {.theme-section}
 
@@ -24,16 +30,15 @@ execute:
 
 ::: {.column width="55%"}
 
-- It will help you manage ~~your code~~ most of your files (it is like track changes on steroids: it applies to all files in a folder).
+- "It broke … hopefully I have a working version somewhere?"
+- "Can you please send me the latest version?"
+- "Where is the latest version?"
+- "Which version are you using?"
+- "Which version have the authors used in the paper I am trying to reproduce?"
+- "Found a bug! Since when was it there?"
+- "I am sure it used to work. When did it change?"
+- "My laptop is gone. Is my thesis now gone?"
 
-- It allows you to trace back your steps: if something breaks, you can figure out what happened.
-
-- NO MORE thesis_final_final_SERIOUSLYFINAL.Rmd
-
-#### even better:
-- a good version control system allows you to collaborate and share!
-
-- a good version control system facilitates experimentation!
 :::
 
 ::: {.column width="5%"}
@@ -46,32 +51,27 @@ execute:
 ::::
 :::
 
-## What is git?
+## Popular automated version control systems
 
 ::: {.theme-section}
 
 :::: {.columns}
 
-::: {.column width="65%"}
+::: {.column width="40%"}
 
-- Distributed Version Control system written by Linus Torvalds (of Linux fame)
+- GitHub
+- GitLab
+- Codeberg
+- BitBucket
 
-- Allows you to log updates, branch your work (so you can experiment without losing the original!), and keep all backups, while efficiently using your storage
+They have different webinterfaces but all work with git.
 
-- Gives user a lot of control on what to track, and adds a narrative to changes ('commit comments')
-
-- Current standard for code
-
-- Open Source software written for the command line...
-
-- ... but many GUI-clients exist nowadays, and most coding IDEs have built-in git.
+**This tutorial uses GitHub.**
 
 :::
 ::: {.column width="5%"}
 :::
-::: {.column width="30%"}
-
-![](../images/screenshots/distributed.png){fig-align="center" width=70%}
+::: {.column width="45%"}
 
 ![](https://imgs.xkcd.com/comics/git.png){fig-align="center" width=70%}
 
@@ -79,73 +79,180 @@ execute:
 ::::
 :::
 
-## Your turn: starting with git
+## Browse an existing project
 
 ::: {.theme-section}
 
-1. We have created a repository from a template repository on GitHub. 
+We will start easy!
 
-2. After that, we cloned the repository to our local PC and moved some of our files into the repository.
+::: {.callout-note}
 
-3. Navigate to your project folder in a terminal.
-```
-cd [path/to/project_folder]
-```
-
-4. Verify that your project folder is a git repository by locating the .git folder:
-```
-ls -a
-```
+- See a real Git repository and understand what is inside of it.
+- Understand how version control allows advanced inspection of a repository.
+- See how Git allows multiple people to collaborate relatively easily.
+- See the big picture instead of remembering a bunch of commands.
 
 :::
 
-## Your turn: Git history
 
-::: {.theme-section}
+Go to:
 
-Use [Git log](https://git-scm.com/docs/git-log) to check the history of your project:
-```
-git log
-```
-![](../images/screenshots/git_log.png){fig-align="center"}
-
-
-
-Alternatively, via GitHub it is also possible to view the history of your project. Let's see how a mature project looks like in this [repository of the happygitwithr book](https://github.com/jennybc/happy-git-with-r):
-
-![](../images/screenshots/git_history.png){fig-align="center"}
+**https://tinyurl.com/repcorecipes**
 
 :::
 
-## Git History
+## A word on "Commits"
+::: {.theme-section}
 
-```{mermaid}
-%%| echo: false
-%%| fig-width: 14
-gitGraph
-   commit id: "Intial commit"
-   commit id: "add my scripts"
-   commit id: "add plotting function"
-   commit id: "fix bug in plotting function"
-```
+- The commit titles are shown in the history of the repository. 
+- The title and the message will help us later to understand what we updated and why we updated the code base.
 
-## Git History: Compare!
+Now that you have started to customise your new GitHub repository, let’s have a look whether we can do that in a bit more convenient way, directly on your computer instead of through the web browser.
+
+:::
+
+## Exercises
 
 ::: {.theme-section}
 
+Explore the Web interface!
+
+1. How many changes did the Guacamole recipe receive?
+2. Which recipes include the ingredient "salt"?
+3. Who modified each line last and when?
+4. Can you use these recipes yourself? Are you allowed to share modifications?
+5. Browse issues and pull requests in the upstream repository
+
+**Summary**
+
+- Git allowed us to understand this simple project much better than we could, if it was just a few files on our own computer.
+- It was easy to share the project with the course.
+
+In the next section we will create our own Git repository!
+
+:::
+
+## Creating a Code repository
+::: {.theme-section}
+
+Git knows two ways of creating an own Git repository.
+
+1. If you like to have a copy of an existing Git repository that someone else created, you create an own copy by "forking" the repository. This will create a copy of the repository under your GitHub account.
+
+2. You can create your own GitHub code repository. Simply go to your account and click on the green button "New" under "Your Repositories"
+
+**Simple repository templates provided by Utrecht University**
+
+- Python developers: https://github.com/UtrechtUniversity/simple-python-template
+- R developers: https://github.com/UtrechtUniversity/simple-r-project
+
+:::
+
+
+
+## Working with your repository on your laptop
+::: {.theme-section}
+
+![](../images/github_figures_screenshots/git_create_repo.svg){width=55% fig-align="center"}
+
+- Clone: Create a local copy
+- Pull: Fetch changes in the remote repo
+- Push: Update remote repo with local changes
+
+:::
+
+## Update the remote GitHub repository
+::: {.theme-section}
 :::: {.columns}
-::: {.column width="50%"}
 
-![](http://www.phdcomics.com/comics/archive/phd101212s.gif){width=65% fig-align="center"}
+::: {.column width="60%"}
 
+
+![](../images/github_figures_screenshots/git_workflow.svg){fig-align="center"}
 :::
-::: {.column width="50%"}
 
-![](../images/final-git.png){width=80% fig-align="center"}
+::: {.column width="35%"}
+
+- Open the README file
+- Change the contents of the README file and save
+- Check the status `git status`
+- Prepare to send it off
+	- `git add README.md`
+	- `git commit -m "Change the README file"`
 
 :::
 ::::
 :::
+
+## Pushing to GitHub
+::: {.theme-section}
+
+You can now push the content of your local repository to the one on GitHub:
+
+```
+git push
+```
+
+Congrats, you have made your first push and your scripts are online!
+
+![](https://octodex.github.com/images/original.png){width=200} \\\_\_\_ _THANK YOU!_
+
+Take a look at your online repository. 
+- Who is the author of your commits? 
+- If it is not you, you can configure git to use your identity (make sure GitHub knows this email address):
+
+<br>
+
+```
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
+
+:::
+
+## Update the local repository
+::: {.theme-section}
+
+- Assume you changed your remote repository through the browser
+	- How do you update your local repository?
+
+- Make another change to your README file in the web browser of GitHub.
+- Now go back to your terminal and do:
+
+```
+git status
+git pull
+```
+:::
+
+## The .gitignore file
+::: {.theme-section}
+- Located in your local repository `.gitignore`
+- Lists files and folder which Git should ignore: They are **NOT** uploaded to GitHub	
+- E.g. .DS_Store
+:::
+
+## Exercises
+
+::: {.theme-section}
+
+- After moving files into your local repository on your computer, run git status to see what Git thinks has changed.
+
+
+Please note: are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: examples on this github repo.
+
+- Run git log to see the history of your project.
+
+- Can you use Git and push to Github from your IDE?
+
+- Experiment with editing and committing on GitHub itself (e.g. add something to the README file). You can then 'download' your changes to your local repository using git pull.
+
+- Run git log again to see the history of your project.
+
+- Optional: What happens if you edit the same file online and locally, and try to push/pull? (Hint: this often causes a 'merge conflict', which is no fun to experience. Going through it today means we can assist you if necessary!)
+
+:::
+
 
 ## Your turn: Useful git commands
 
@@ -172,160 +279,7 @@ This command will show you all the commands that you can use with git.
 
 :::
 
-## Your turn: Making changes
-
-::: {.theme-section}
-
-5. If you have added your files to your git repository on your PC, now add all your files to the staging area:
-```
-git add *
-```
-
-5. Commit all the files in the staging area to your repository:
-```
-git commit -m "add my files"
-```
-
-:::
-
-## Your turn: pushing to github
-
-::: {.theme-section}
-
-You can now push the content of your local repository to the one on github:
-
-```
-git push
-```
-
-Congrats, you have made your first push and your scripts are online!
-
-![](https://octodex.github.com/images/original.png){width=200} \\\_\_\_ _THANK YOU!_
-
-Take a look at your online repository. Who is the author of your commits? If it is not you, you can configure git to use your identity (make sure github knows this email address):
-
-<br>
-
-```
-git config --global user.name "Your Name"
-git config --global user.email "your@email.com"
-```
-
-:::
-
-## Your workflow
-
-::: {.theme-section}
-
-1. Add the changed file(s) to the staging area, and commit the changes:
-```
-git add src/filename.py anotherfile.txt
-git add config/configfile.json
-git status
-git commit -m "My commit message"
-git push
-```
-NB: don't forget your commit message (try what happens if you do!).
-
-![Image credit: Software Carpentries](../images/swcarpentry/git-staging-area.svg){width=700}
-
-:::
-
-## Summary
-
-::: {.theme-section}
-
-Useful git commands:
-
-```
-git log
-git log --oneline
-git status
-git diff
-git diff HEAD~3
-git --help
-```
-
-:::
-
-## .gitignore
-
-::: {.theme-section}
-
-The .gitignore file in your template contains files that **by definition** will not be tracked by git.
-
-For example, if you do not want to track a file .DS_Store (always present on my mac), you enter a line like this in your .gitignore file:
-
-```
-.DS_Store
-```
-
-Similarly, you can ensure all output in a folder will not be tracked:
-
-```
-results/
-```
-
-Or all files with a certain extension:
-```
- *.dat 
-```
-
-_NB: There is a .gitkeep file in your template -- this does not do the opposite to .gitignore, but is instead used as a placeholder for folders: git does not track empty folders..._
-
-:::
-
-## Your turn!
-
-::: {.theme-section}
-
-1. Continue moving your files into the file template.
-
-1. Add, commit, and push all files you want to track! (Do you want to move a tracked file within a git repository?
-`git mv path/to/file.svg newpath/file.svg`
-and don't forget to commit!)
-
-1. Are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: [examples on this github repo](https://github.com/github/gitignore).
-
-1. Continue editing your code, and add/commit/push your changes. Can you do it from your IDE?
-
-1. Experiment with editing and committing on github itself. You can then 'download' your code to your local repository using `git pull`.
-
-1. What happens if you edit the same file online and locally, and try to push/pull?
-
-:::
-
-## Enjoy, and git responsibly!
-
-::: {.theme-section}
-
-- Commits should be atomic: comprehensive 'units' of changes.
-  - **DO**: edit/add an .svg and add it to your .Rmd presentation in the same commit
-  - **DON'T**: edit for a full day and put this in a single commit (or worse: forget to...)
-
-- Commits should have informative messages so you (and others) can trace your steps
-
-  ![](https://imgs.xkcd.com/comics/git_commit.png){fig-align="center" width=500}
-
-- Track most files; .gitignore those files you don't.
-
-- Explore new ideas with branches, keep a stable version on `main`
-
-:::
 
 
-## Do you want to learn more?
 
-::: {.theme-section}
 
-- A [Software Carpentry course on git](https://swcarpentry.github.io/git-novice/)
-
-- A [version control + git tutorial](https://www.atlassian.com/git/tutorials/what-is-version-control) on Atlassian
-
-- A [git cheatsheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet) from Atlassian
-
-- A book with [all the ins and outs of git](https://www.git-scm.com/book/en/v2) from the git website
-
-![](../images/atlassian/bubblediag.svg){fig-align="center"}
-
-:::
