@@ -242,6 +242,9 @@ git pull
 
 Voilá, the changes from the remote GitHub repository are now in your local repository.
 
+The difference between `git pull` and `git clone`:
+
+`git clone` is a one time action to get a copy of an online repository on GitHub that is not present yet on your PC. `git pull` is done to update the repository with any (potential) changes to the online copy of this repository on GitHub.
 ## The .gitignore file
 
 With the command "add" you have to specify folders or files to add to a commit. Everything that is not added explicitly will be ignored 
