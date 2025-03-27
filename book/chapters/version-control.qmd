@@ -28,7 +28,7 @@ Version control is an answer to the following questions (do you recognise some o
 - "My laptop is gone. Is my thesis now gone?"
 
 ## Popular automated version control systems
-*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All three platforms use the same *Git* commands, i.e. you will be able to work in the same way with code on your laptop independent from which platform you choose.
+*Git* is the by far most used version control system. Platforms using *Git* are [GitHub](https://github.com/), [Codeberg](https://codeberg.org), [GitLab](https://gitlab.com) and [BitBucket](https://bitbucket.org). All platforms use the same *Git* commands, i.e. you will be able to work in the same way with code on your laptop independent from which platform you choose.
 However the web interfaces of those three platforms look differently and might also offer different functionality.
 
 This tutorial uses GitHub.
