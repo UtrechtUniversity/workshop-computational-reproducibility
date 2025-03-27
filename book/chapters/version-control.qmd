@@ -10,7 +10,7 @@ format: "html"
 | | Understand the basics of how automated version control systems work|
 | How do I record changes in Git? | Understand the modify-add-commit cycle |
 | How do I check the status of my code version?|Explain where information is stored at each stage of that cycle.|
-|How can I recover old versions of files?| Walk through the git history, understand the use of commit hashes|
+| How can I recover old versions of files? | Browse the (git) history of a project |
 
 ## Why do we need to keep track of versions?
 
