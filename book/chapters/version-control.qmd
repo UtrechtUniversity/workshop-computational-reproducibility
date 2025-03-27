@@ -206,7 +206,7 @@ You will see that git detected that the README changed. How can we now update th
 We first have to "add" the changed files:
 
 ```
-git add <path shown in the status>
+git add <path of the file as shown in status>
 ```
 and observe the change of the status:
 
