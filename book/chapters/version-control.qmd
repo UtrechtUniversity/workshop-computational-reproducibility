@@ -191,7 +191,7 @@ Now you can `cd` into you local repository and start working.
 ### Update the remote GitHub repository
 ![](../images/github_figures_screenshots/git_workflow.svg){width=700 fig-align="center"}
 
-Let us open the README file again. You can do by opening a commandline editor like nano or vim (Mac, linux) or you can go to your file browser and open the README file with e.g. Notepad.
+Let us open the README file again. You can do by opening a commandline editor like nano or vim (Mac, linux) or you can go to your file browser and open the README file with e.g. Notepad or VS Code.
 
 Change something in your README file, e.g. add an extra sentence to the description, save it and go back to your git bash or terminal.
 
