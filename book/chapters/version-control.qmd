@@ -264,7 +264,7 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
 
 ### Summary
 
-- We went through the power of the GitHub web interface to setup a project.
+- We explored the GitHub web interface to setup and manage a project.
 - We used a "template repository" to initiate a repository with a predefined file folder structure and some default files to make life a bit easier.
 - We introduced the concept of a local repository and a remote repository and how to update files between the two.
 
