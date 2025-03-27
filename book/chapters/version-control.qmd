@@ -51,7 +51,7 @@ Go to the git repository [Recipe book](https://github.com/cr-workshop-exercises/
 ### Basic Browsing
 When using git for version control, you create snapshots of your project whenever you think it is useful. These snapshots are called "commits". These commits together form the history of your project. You can always revisit previous snapshots (commits) e.g. when you want to check how you did something in an earlier stage of your project. 
 
-- This is visible from a button in the repository view. We see every change, when, and who has committed.
+- This is visible from a button in the repository view on GitHub.com (see figure below how to open the history). We see every change, when, and who has committed.
 - Every change has a unique identifier, such as 554c187. This can be used to identify both this change, and the whole project’s version as of that change.
 - Clicking on a change in the view shows more.
 
