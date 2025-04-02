@@ -276,7 +276,7 @@ In this part of the tutorial we showed:
 
 ## Issues
 
-In GitHub users of your code or you yourself can create "issues". An issue can e a feature request, a bug or simply a contained "Todo" in your project.
+In GitHub users of your code or you yourself can create "issues". An issue can be a feature request, a bug or simply a "Todo" for your project.
 
 Click on the tab "Issues" and create one.
 
