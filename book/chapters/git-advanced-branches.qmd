@@ -12,7 +12,7 @@ format: "html"
 
 ## What are branches?
 
-A branch is a line of development, and the main branch or master branch are often the default branch in Git.
+A branch is a line of development in which you develop a new feature of your code or you refine on an existing feature in your code. Usually the branches called "main" or "master" branch are the default branches in Git. Usually we do not want to change them directly, they should contain a verified version of your code that can be run.
 
 You can see all branches in the dropdown menu when you click on the button "Main". 
 
@@ -27,7 +27,7 @@ Now we want to do this:
 
 Software development is often not linear:
 
-- We typically need at least one version of the code to “work” (to compile, to give expected results, …).
+- We typically need at least one version of the code to “work” (to compile, to give expected results, …) --> "Main" or "Master"
 - At the same time we work on new features, often several features concurrently. Often they are unfinished.
 - We need to be able to separate different lines of work really well.
 
@@ -44,13 +44,18 @@ The strength of version control is that it permits the researcher to isolate dif
 
 A group of commits that create a single narrative are called a branch. There are different branching strategies, but it is useful to think that a branch tells the story of a feature, e.g. “fast sequence extraction” or “Python interface” or “fixing bug in matrix inversion algorithm”.
 
+To experiment with branches we will create a "fork" from our recipe GitHub repository:
+
+- Go to https://tinyurl.com/repcorecipes
+- Click on the Dropdown menu "Fork" and "Create new fork"
+
 ## Creating 
 
-You can create a branch in the web browser like this:
+Now we use the web browser to create a new branch in your own recipe repository on Github. You can create a branch in the web browser like this:
 
 1. Go to your repository
 2. Click on "Main" (see screenshot above) and click on "View all branches". You will get an overview of all branches and how actively they are used.
-3. Click on "New branch" and give the new branch a name e.g. "experiment".
+3. Click on "New branch" and give the new branch a name e.g. "cakes".
  
 We have now two branches, both containing the same files in the remote repository. 
 
@@ -58,91 +63,213 @@ Since we only have one branch, the "main" branch, the new branch will automatica
 
 We need to update our local repository on our laptop and "switch" to the new branch to work on a new feature.
 
+## Working with branches in the web browser 
+
+Navigate back to your recipe-book. When you now click on "main", you will see the second branch. By clicking on the new branch we switch or "checkout" the its contents.
+
+We can now create a new folder "cakes" and a file "chocolate_cake.md":
+
+- Click on "Add file" and "Create new file"
+- In the field to add a name for the file fill in "cakes/chcoclate_cake.md"
+
+![](../images/github_figures_screenshots/git_branches_cake.png)width=700 fig-align="center"}
+
+- Commit your changes to the cake branch
+
+You will see the file being committed and rendered.
+However, if you now try to switch branches to main (click on "cakes" and choose "main") for this file you will see a "404" error. the file does not exist in the main branch.
+
+### Merging the changes into the main branch
+
+How can we now "merge" the new recipe into the main branch?
+In Git merging two branches in the web browser can be done by so-called "Pull requests" or PRs. Pull requests are a way to change, review, and merge code in a Git repository.
+
+To create a Pull request, click on the tab "Pull Requests" and then on the button "New pull request".
+
+We can choose now the "base" branch, the branch we would like to update and the "compare" branch, the branch with which we would like to update the "base".
+
+Select as "base" your main branch and **adjust the repository**. Since our repository is a "Fork", GitHub assumes we would like to merge our changes into the repository we forked our repository from. We can adjust that by clicking on "base repository" and o our own repository. Next we set the base branch to "main". Now we need to choose the  compare branch and set that to "cakes".
+
+You will see the differences between the two branches popping up. 
+
+![](../images/github_figures_screenshots/git_pull_request.png)width=700 fig-align="center"}
+
+GitHub also informs us whether the changes can be merged without any problems.
+
+Click on "Create pull request", give the PR a name and a description.
+
+We can decide to alter our recipe in the cakes branch, the "Pull Request" will recognise those changes and include them. I.e. you can continue to work on your changes you suggested in the "Pull request" and all those new changes will be included in the update.
+
+To update your main branch, or as we say in git: To merge your changes into "main" click on the button "Merge pull request".
+This does not only update the content of the files in your main branch, but also adds all your commits from the "cakes" branch to the history of the main branch.
+
+![](../images/github_figures_screenshots/git_update_history.png){width=700 fig-align="center"}
+
+Since all of our changes are now in the main branch, we can delete our "cakes" branch. Navigate to the branch overview and click on the little trash can next to your "cakes" branch.
+
+
+### Inspecting merges and your development
+
+The branches webpage gives us a good overview over which branches are active, stale or have already been merged. However to get a whole overview GitHub gives you some more insights:
+
+- Click on the tab "Insights"
+- And then on the left hand side on "Network". It will take some time until the information is shown.
+
+![](../images/github_figures_screenshots/git_network.png){width=700 fig-align="center"}
+
+You will see the network graph of your own recipe repository, but also all other "forks" by other people.
+
+In your section you should see that we started out with the main branch and we created another branch (blue line). The blue line shows one dot, and when you hover over it you will see the information that this is a commit with an identifier (hash). The arrow at the end of the blue line denotes that this branch was merged into the main branch.
+
+Even though we deleted the "cakes" branch, GitHub still knows where and when our commits were made!!!
+
+## Working with branches on your laptop
+
+In the previous section we saw how to work with branches in the web interface. Assume now we want to do some development on our laptop. How can we retrieve the information on branches and and switch to the branch we want to locally work on.
+
+If you have not done so yet "clone" the repository to you computer:
+
+```
+git clone git@github.com:<user>/recipe-book.git
+cd recipe-book
+```
+Now we create a new branch in the web interface, this time it will be "cheesecake".
+
+
 ```
 git pull
-git checkout experiment
 ```
- 
-After pulling the new state from the remote repository you will see that git informs you that there is a new branch.
 
-We can now work on the new branch **without changing the main branch**.
+We can list all branches in the repository with
+
+```
+git branch -a
+
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/cheesecake
+  remotes/origin/main
+```
+
+This command shows us also that the branch we are on is the main branch.
+
+To switch between branches we use the command "checkout":
+
+```
+git checkout cheesecake
+```
+
+And we can verify which branch we are currently on with
+
+```
+git status
+```
 
 ## Exercise: Create and commit to the new branch
 
-- Change some files in your repository, e.g. add an extra section to the README file
+- Add a cheesecake recipe to your local repository on the "cheesecake" branch
 - Commit the changes and push them
-- Verify in the web browser that the files in "main" and the new branch differ.
+- Verify in the web browser that the files in "main" and the "cheesecake" branch differ.
+
+- Merge the two branches in the web interface through creating a "Pull request"
 
 
-## Merging branches
+## Summary
 
-Now that we changed some files in the new branch and we are happy with the changes. We would like to "copy over" or merge them with the files in the "main" branch.
+In this part of the tutorial we saw:
 
-Go to the web page of you GitHub repository and click on the tab "Insights" and there in the left-side menu on "Network". It will take some time until the information is loaded.
+- How to create branches in the remote repository through the web interface
+- How we can update the content of branches
+- How we can merge changes from one branch into another branch
 
-![](../images/github_figures_screenshots/git_network.png)
+## Creating branches in your local repository
+In the sections above we discussed how to create a branch in the remote repository on GitHub and then working with that branch on your computer in your local repository. 
 
-The white line is the path of the "main" branch and we can see that there were some changes added in the "experiment" branch.
-We also see when those changes on the branches were made.
+You can also create branches directly in your local repository on your computer.
 
-To "merge" the changes of the "experiment" branch into "main", click on the tab "Pull requests" and then on the button "New pull request". Select as base "main" and your new branch as compare.
-
-![](../images/github_figures_screenshots/git_pull_request.png)
-
-GitHub will already show you all of the changes that you have made and will inform you whether those changes can be merged with the base. Create the pull request, you can leave some more comments, descriptions and suggestions for testing in the pull request. If you share your code repository with other developers, you can also request their reviews on your code.
-
-::: {.callout-note}
-
-Even when you created a pull request, you can still continue working on your branch. The pull request will always show the latest state of the branch you would like to merge. Likewise will the base branch always be at the latest state.
-
-:::
-
-Now click on "Merge pull request" and navigate back to the "network" graph.
-
-![](../images/github_figures_screenshots/git_merged_branches.png)
-
-The "experiment" branch has been merged into "main" and we can now e.g. delete it.
-
-![](../images/github_figures_screenshots/git_delete_branch.png)
-
-To synchronise our local repository again, we need to do:
+Let us create a new cake recipe branch only in your local repository:
 
 ```
-git pull
+git branch applepie main
+```
+
+The command creates a branch called "applepie" from the main branch and it is only available in your local repository (no "remotes" prefix)
+
+```
+git branch -a
+  applepie
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/cheesecake
+  remotes/origin/main
+```
+
+Now we can check this out and add an apple pie recipe
+
+```
+git checkout applepie
+```
+
+We add a local file "cakes/applepie.md" with some ingredients and. instructions.
+
+```
+git status
+
+On branch applepie
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cakes/applepie.md
+```
+
+We need to commit our changes. **Note**, this time we only create the commit, we do not push to the remote repository:
+
+```
+git add cakes/applepie.md
+git commit -m "adding applepie"
+```
+
+We could push now the new branch to our remote GitHub repository and follow the workflow above to merge the changes into the main branch.
+But in this example we will merge the changes in our local repository.
+
+### Merging the branch locally
+
+To merge changes from a development branch into the main or another branch you need to first switch to the branch into which you want to merge.
+In our case we want to merge into main. So we need to switch/checkout again to the main branch:
+
+```
 git checkout main
+git status
 ```
 
-## Commandline tips and tricks for merging branches in the local repository
+Now we can merge "applepie" into main:
 
-- Verify in which state your local repository is compared to the remote repository
- 
- ```
- git status
- ```
-- "Forget" (Stash the changes  in a dirty working directory away) committed changes on your branch
- 
- ```
- git stash
- ```
-- Check on which branch your are
-  
-  ```
-  git branch
-  ```
-- Create a new branch in the local repository
+```
+git merge applepie
 
-  ```
-  git branch experiment main  # creates branch "experiment" from "main"
-  ```
-- Locally merge a branch into "main". Move to the branch you would like to use as base and merge:
 
-  
-  ```
-  git checkout main
-  git merge <branch name>
-  ```
-  
-A nice tutorial how to work with branches in your local repository can be found [here](https://coderefinery.github.io/git-intro/branches/#exercise-create-and-commit-to-branches).
+Updating 2565755..ea932e4
+Fast-forward
+ cakes/applepie.md | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 cakes/applepie.md
+```
+
+Now we can "push" the changes of our altered local main branch to the remote repository and delete our local branch:
+
+```
+git push
+git branch -d applepie
+git branch -a
+```
+
+Now verify in the web browser that your new apple pie recipie is present in the remote main branch.
+
+## Summary
+In this part of the tutorial we showed:
+
+- How to create a branch only in your local repository and how to update its contents
+- How to merge the changes from the branch in your local repository into the main branch in your local repository
+
 
 ## Issues
 
