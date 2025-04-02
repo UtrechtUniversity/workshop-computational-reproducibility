@@ -16,14 +16,16 @@ A branch is a line of development in which you develop a new feature of your cod
 
 You can see all branches in the dropdown menu when you click on the button "Main". 
 
-![](../images/github_figures_screenshots/git_branches.png)
+![](../images/github_figures_screenshots/git_branches.png){width=300 fig-align="center"}
+
 
 Branches contain different versions of files or extra files. Usually a branch contains the code for one new feature.
 
 In the previous part we created a repository with only one branch, the main branch. 
 Now we want to do this:
 
-![](../images/github_figures_screenshots/git_gophers.png)
+![](../images/github_figures_screenshots/git_gophers.png){width=700 fig-align="center"}
+
 
 Software development is often not linear:
 
@@ -33,7 +35,8 @@ Software development is often not linear:
 
 The strength of version control is that it permits the researcher to isolate different tracks of work, which can later be merged to create a composite version that contains all changes:
 
-![](../images/github_figures_screenshots/git-collaborative-branches.svg)
+![](../images/github_figures_screenshots/git-collaborative-branches.svg){width=700 fig-align="center"}
+
 
 
 
@@ -72,7 +75,7 @@ We can now create a new folder "cakes" and a file "chocolate_cake.md":
 - Click on "Add file" and "Create new file"
 - In the field to add a name for the file fill in "cakes/chcoclate_cake.md"
 
-![](../images/github_figures_screenshots/git_branches_cake.png)width=700 fig-align="center"}
+![](../images/github_figures_screenshots/git_branches_cake.png){width=700 fig-align="center"}
 
 - Commit your changes to the cake branch
 
@@ -92,7 +95,7 @@ Select as "base" your main branch and **adjust the repository**. Since our repos
 
 You will see the differences between the two branches popping up. 
 
-![](../images/github_figures_screenshots/git_pull_request.png)width=700 fig-align="center"}
+![](../images/github_figures_screenshots/git_pull_request.png){width=700 fig-align="center"}
 
 GitHub also informs us whether the changes can be merged without any problems.
 
@@ -277,11 +280,13 @@ In GitHub users of your code or you yourself can create "issues". An issue can e
 
 Click on the tab "Issues" and create one.
 
-![](../images/github_figures_screenshots/git_issue.png)
+![](../images/github_figures_screenshots/git_issue.png){width=700 fig-align="center"}
+
 
 Once the issue is created, you can create a branch for it like we did beforehand:
 
-![](../images/github_figures_screenshots/git_branch_for_issue.png)
+![](../images/github_figures_screenshots/git_branch_for_issue.png){width=700 fig-align="center"}
+
 
 Once the branch tackling the content of the issue is merged, the issue will be closed automatically. Also any commits on the branch are shown in the description of the issue, which is very handy feature together with the commenting and by this having a discussion about the code.
 
