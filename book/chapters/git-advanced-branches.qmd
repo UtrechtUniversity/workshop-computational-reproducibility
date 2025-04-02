@@ -291,3 +291,31 @@ Once the issue is created, you can create a branch for it like we did beforehand
 Once the branch tackling the content of the issue is merged, the issue will be closed automatically. Also any commits on the branch are shown in the description of the issue, which is very handy feature together with the commenting and by this having a discussion about the code.
 
 ## Merge conflicts
+
+In the above examples we only added new files or extended contents of files. So it was easy to "merge" the files of two branches.
+
+Assume you are extending a file containing code with a new function and your collaborator extends the file with another function, Git will detect that those lines are both new and will reject the merge or push.
+
+![](https://swcarpentry.github.io/git-novice/fig/conflict.svg)
+
+Let us create a merge conflict:
+
+Create a branch "change_guacamole" from the main branch in the web interface of your remote recipe repository and edit in this branch the first line of the Guacamole recipe and commit it:
+
+![](../images/github_figures_screenshots/git_change_recipe.png){width=700 fig-align="center"}
+
+Now we also change the the first line of the same file in the main branch in the web browser and commit this one.
+
+![](../images/github_figures_screenshots/git_change_recipe2.png){width=700 fig-align="center"}
+
+Now create a Pull request to merge the "change_guacamole" branch into the main branch. GitHub will complain that it does not know how to merge the two changed files.
+
+![](../images/github_figures_screenshots/git_conflict.png){width=700 fig-align="center"}
+
+However, GitHub offers you a possibility to resolve those conflicts. Click on the button "Resolve conflict". this will open an editor where you can adjust the file manually to how it should look like.
+
+![](../images/github_figures_screenshots/git_resolve_conflict.png){width=700 fig-align="center"}
+
+Git highlights the lines which cause the conflict and also gives information which version of the lines come from which Pull Request. You can now edit the file, mark it as resolved and commit it by clicking "Commit merge".
+
+Finally we can finish our Pull request by merging.
