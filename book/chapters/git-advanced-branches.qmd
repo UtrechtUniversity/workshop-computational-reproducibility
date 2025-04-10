@@ -45,7 +45,7 @@ To experiment with branches we will create a "fork" from our recipe GitHub repos
 Now we use the web browser to create a new branch in your own recipe repository on Github. You can create a branch in the web browser like this:
 
 1. Go to your repository
-2. Click on "Main" (see screenshot above) and click on "View all branches". Here you can get an overview of all branches and how actively they are used (now there is just one branch).
+2. Click on "main" (see screenshot above) and click on "View all branches". Here you can get an overview of all branches and how actively they are used (now there is just one branch).
 3. Click on "New branch" and give the new branch a name e.g. "cakes".
  
 We have now two branches, both containing the same files in the remote repository. 
