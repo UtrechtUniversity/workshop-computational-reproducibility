@@ -267,7 +267,7 @@ Once the branch tackling the content of the issue is merged, the issue will be c
 
 ## Merge conflicts
 
-Merge conflicts can occur when a file is changed in both of the branches that you want to merge. E.g. in the main branch you added an additional ingredient for your apple pie recipe, while in another branch you added another ingredient. Git will now not 'know' whether you want the resulting file to have one of the ingredients, or both, and if both in what order they should be listed. Therefore git will raise a merge conflict. 
+Merge conflicts can occur when a file is changed in both of the branches that you want to merge. E.g. in the main branch you added an additional ingredient for your apple pie recipe, while in another branch you added another ingredient. Git will now not 'know' whether you want the resulting file to have one of the ingredients, or both, and if both in which order they should be listed. Therefore git will raise a merge conflict. 
 
 ![](https://swcarpentry.github.io/git-novice/fig/conflict.svg)
 
