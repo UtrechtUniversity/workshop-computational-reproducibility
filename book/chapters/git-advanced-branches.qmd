@@ -91,7 +91,7 @@ Click on "Create pull request", give the PR a title and a description. When you 
 
 If we decide we want to make additional changes to our recipe before merging the branch, we can alter the recipe in the cakes branch, the "Pull Request" will automatically recognise those changes and include them. I.e. you can continue to work on your branch and create new commits until you (or your collaborator) is happy with the "Pull request". 
 
-To update your main branch, or as we say in git: To merge your changes into 'main' click on the button 'Merge pull request'.
+To update your main branch, or as we say in Git: To merge your changes into "main" click on the button "Merge pull request".
 This does not only update the content of the files in your main branch, but also adds all your commits from the "cakes" branch to the history of the main branch.
 
 ![](../images/github_figures_screenshots/git_update_history.png){width=700 fig-align="center"}
