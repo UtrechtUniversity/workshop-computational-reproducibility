@@ -211,7 +211,7 @@ But in this example we will merge the changes in our local repository.
 
 ### Merging the branch on your laptop
 
-To merge changes from a development branch into the main (or another branch) you need to first switch to the target branch (thebranch into which you want to merge).
+To merge changes from a development branch into the main (or another branch) you need to first switch to the target branch (the branch into which you want to merge).
 In our case we want to merge into main. So we need to switch again to the main branch:
 
 ```
