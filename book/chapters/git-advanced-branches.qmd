@@ -78,7 +78,7 @@ To create a Pull request, click on the tab "Pull Requests" and then on the butto
 
 We can choose now the "base" branch, the target branch that should be updated with changes that have been applied to the "compare" branch.
 
-Select as "base" your main branch and **adjust the repository**. Since our repository is a "Fork" of an existing, GitHub assumes we would like to merge our changes into the repository that we forked our repository from. We can adjust that by clicking on "base repository" and then on our own repository. Next, we set the base branch to "main". Now we need to choose the compare branch and set that to "cakes".
+Select as "base" your main branch and **adjust the repository**. Since our repository is a "Fork" of an existing repository, GitHub assumes we would like to merge our changes into the repository that we forked our repository from. We can adjust that by clicking on "base repository" and then on our own repository. Next, we set the base branch to "main". Now we need to choose the compare branch and set that to "cakes".
 
 You will see the differences between the two branches popping up: 
 
