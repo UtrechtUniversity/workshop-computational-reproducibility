@@ -32,7 +32,7 @@ Software development is often not linear:
 - At the same time we work on a new feature, or maybe several features concurrently.
 - We need to be able to separate different lines of work really well.
 
-This means that the git history of the project can diverge: different branches will share the first part of their git history but will contain unique commits from the branching point. The strength of git version control is that it facilitates the researcher to isolate different tracks of work, which can later be merged to create a composite version that contains all changes. With merging you add commits from a 'feature' branch to the main branch to work towards a linear git history. More on that later.
+This means that the git history of the project can diverge: different branches will share the first part of their git history but will contain unique commits from the branching point. The strength of Git version control is that it facilitates the researcher to isolate different tracks of work, which can later be merged to create a composite version that contains all changes. With merging you add commits from a 'feature' branch to the main branch to work towards a linear Git history. More on that later.
 
 To experiment with branches we will create a "fork" from our recipe GitHub repository:
 
