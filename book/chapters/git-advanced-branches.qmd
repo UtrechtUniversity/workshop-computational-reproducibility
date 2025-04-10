@@ -104,7 +104,7 @@ Since all of our changes are now in the main branch, we can delete our 'cakes' b
 
 In the previous section we saw how to work with branches in the web interface. Assume now we want to make some changes on our laptop. How can we retrieve the information on branches and and switch to the branch we want to locally work on.
 
-If you have not done so yet "clone" the repository to you computer:
+If you have not done so yet "clone" the repository to your computer:
 
 ```
 git clone git@github.com:<user>/recipe-book.git
