@@ -40,12 +40,11 @@ The contents typically include one or more of the following:
 :::
 ::::
 
-[Example: why is this so important?](https://twitter.com/MicrobiomDigest/status/1283082285097422848)
 
 :::
 
 :::footer
-*From wikipedia's [Readme]("https://en.wikipedia.org/wiki/README") page*
+*From wikipedia's [Readme](https://en.wikipedia.org/wiki/README) page*
 :::
 
 ## Example README
