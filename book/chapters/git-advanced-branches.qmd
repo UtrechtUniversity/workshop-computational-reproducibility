@@ -50,7 +50,7 @@ Now we use the web browser to create a new branch in your own recipe repository 
  
 We have now two branches, both containing the same files in the remote repository. 
 
-Since we only had one branch, the "main" branch, the new branch will automatically created from the main branch. Once you have more than one branch, you can select from which branch you would like to create the new one.
+Since we only had one branch, the "main" branch, the new branch will automatically be created from the main branch. Once you have more than one branch, you can select from which branch you would like to create the new one.
 
 ## Working with branches in the web browser 
 
