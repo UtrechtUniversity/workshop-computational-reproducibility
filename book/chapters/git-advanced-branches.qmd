@@ -72,7 +72,7 @@ However, if you now try to switch branches to main (click on "cakes" and choose 
 ### Merging the changes into the main branch
 
 How can we now "merge" the new recipe into the main branch?
-The recommended and most convenient way is to work with so-called "Pull requests" or PRs. Pull requests are a feature of online git platforms (GitHub, Codeberg, etc.). Pull requests offer the possibility to review, discuss and update proposed changes before merging them into the main branch.
+The recommended and most convenient way is to work with so-called "Pull requests" or PRs. Pull requests are a feature of online Git platforms (GitHub, Codeberg, etc.). Pull requests offer the possibility to review, discuss and update proposed changes before merging them into the main branch.
 
 To create a Pull request, click on the tab "Pull Requests" and then on the button "New pull request".
 
