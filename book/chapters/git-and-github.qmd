@@ -71,7 +71,7 @@ git config --global --list
 
 ## Set up an SSH key pair 
 
-To authenticate with the GitHub server we will set up a so-called [SSH key pair](https://blog.aviada.mx/tech-tips/understanding-ssh-keys-a-comprehensive-guide-for-beginners/)
+To authenticate with the GitHub server we will set up a so-called [SSH key pair](https://carpentries-incubator.github.io/hpc-intro/11-connecting/index.html#secure-connections)
 
 
 In the following steps, you will generate a private and a public SSH key, that together allow your local computer to interact with projects that are on GitHub.
