@@ -46,7 +46,7 @@ In this chapter, we will look at an existing repository to understand how all th
 
 :::
 
-Go to the git repository [Recipe book](https://github.com/cr-workshop-exercises/recipe-book).
+Go to the git repository [Recipe book](https://github.com/dianaiusan/recipe-book).
 
 ### Basic Browsing
 The most basic thing to look at is the history of commits.

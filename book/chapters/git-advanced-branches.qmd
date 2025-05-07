@@ -36,7 +36,7 @@ This means that the git history of the project can diverge: different branches w
 
 To experiment with branches we will create a "fork" from our recipe GitHub repository:
 
-- Go to https://tinyurl.com/repcorecipes
+- Go to https://tinyurl.com/uu-recipes
 - Click on the Dropdown menu "Fork" and "Create new fork"
 - Make sure the box "Copy the `main` branch only" is checked
 
