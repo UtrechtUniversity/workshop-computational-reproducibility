@@ -27,27 +27,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-               
-      - name: Install Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with: 
-          tinytex: true
+        uses: actions/checkout@v4
 
       - name: Install Chrome for mermaid plots
         uses: browser-actions/setup-chrome@v1
       
-      # optional step when there is python code to execute
-      - name: Setup Miniforge
-        uses: conda-incubator/setup-miniconda@v3
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
         with:
-          miniforge-version: latest
-          activate-environment: quarto-import
-          python-version: "3.8"
-          channels: conda-forge
-          environment-file: _import/environment.yml
+          python-version-file: "pyproject.toml"
 
-      # optional steps when Rmarkdown code is used
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
       - name: Install packages
@@ -62,7 +51,7 @@ jobs:
         uses: actions/configure-pages@v1
 
       - name: Render Website
-        run: quarto render book/
+        run: uv run quarto render book/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
