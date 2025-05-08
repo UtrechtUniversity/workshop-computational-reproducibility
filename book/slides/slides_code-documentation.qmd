@@ -109,7 +109,7 @@ num_columns = self.removed_level.
 ```
 
 :::footer
-[Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/master/pandas/core/reshape/reshape.py)
+[Pandas reshape.py documentation](https://github.com/pandas-dev/pandas/blob/main/pandas/core/reshape/reshape.py)
 :::
 
 :::
