@@ -148,13 +148,13 @@ Better: prepare a file for a package manager:
 #### `environment.yml` (for conda)
 - Used by `conda` to create an environment populated by specific packages and languages.
 - Generate it with `conda env export -f environment.yml`
-- [Here is an example](https://github.com/ericmjl/essays-on-data-science/blob/master/environment.yml). Search for [more on GitHub](https://github.com/search?l=YAML&o=desc&p=5&q=filename%3Aenvironment.yml+language%3AYAML+language%3AYAML&s=indexed&type=Code).
+- [Here is an example](https://github.com/ericmjl/essays-on-data-science/blob/master/environment.yml). Search for [more on GitHub](https://github.com/search?q=path%3A**%2Fenvironment.yml+language%3AYAML+language%3AYAML&type=code).
 - Consider going through [this quick intro](https://geohackweek.github.io/Introductory/01-conda-tutorial/)  to `conda` environments.
 - Or get the full story in the [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
 #### `requirements.txt` (for pip)
 - Generate it with `pip freeze > requirements.txt`
-- [Here is an example](https://github.com/Curly-Mo/musinformatics/blob/552494f8e6aec9810b1027e725bbf24a6784b369/requirements.txt). Search for [more on GitHub](https://github.com/search?p=3&q=filename%3Arequirements.txt&type=Code).
+- [Here is an example](https://github.com/Curly-Mo/musinformatics/blob/552494f8e6aec9810b1027e725bbf24a6784b369/requirements.txt). Search for [more on GitHub](https://github.com/search?q=path%3A**%2Frequirements.txt&type=code).
 - Install dependencies declared with `pip install -r requirements.txt`
 
 :::
