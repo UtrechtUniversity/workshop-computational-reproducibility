@@ -99,17 +99,6 @@ Go to:
 
 **https://tinyurl.com/uu-recipes**
 
-:::
-
-## A word on "Commits"
-::: {.theme-section}
-
-- The commit titles are shown in the history of the repository. 
-- The title and the message will help us later to understand what we updated and why we updated the code base.
-
-Now that you have started to customise your new GitHub repository, let’s have a look whether we can do that in a bit more convenient way, directly on your computer instead of through the web browser.
-
-:::
 
 ## Exercises
 
@@ -132,6 +121,9 @@ In the next section we will create our own Git repository!
 
 :::
 
+:::
+
+
 ## Creating a Code repository
 ::: {.theme-section}
 
@@ -148,7 +140,15 @@ Git knows two ways of creating an own Git repository.
 
 :::
 
+## A word on "Commits"
+::: {.theme-section}
 
+- The commit titles are shown in the history of the repository. 
+- The title and the message will help us later to understand what we updated and why we updated the code base.
+
+Now that you have started to customise your new GitHub repository, let’s have a look whether we can do that in a bit more convenient way, directly on your computer instead of through the web browser.
+
+:::
 
 ## Working with your repository on your laptop
 ::: {.theme-section}

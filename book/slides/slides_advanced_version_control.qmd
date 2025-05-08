@@ -1,0 +1,156 @@
+--- 
+format: 
+  revealjs:
+    margin: 0
+    theme: ../styles/uu.scss
+    logo: ../images/UU_logo_2021_EN_RGB.png
+    footer: "Workshop Computational Reproducibility"
+    mermaid:
+      theme: default
+    mermaid-format: png
+execute:
+  enabled: false
+  echo: true
+---
+
+# Git branching and merging {data-background-color="#FFCD00"}
+
+
+## What are branches?
+
+::: {.theme-section}
+
+- Copy of your project
+- Copy is usually created from the "main" branch
+- Used to work on a new feature, solve a bug or refine an existing feature
+- Advantage: your main branch stays in a working state, while you work on new code in the copy or "feature branch"
+
+
+:::
+
+## What are branches?
+
+::: {.theme-section}
+
+:::: {.columns}
+::: {.column width="55%"}
+![](../images/github_figures_screenshots/git_gophers.png){width=1000 fig-align="left"}
+:::
+
+::: {.column width="5%"}
+:::
+::: {.column width="40%"}
+
+- Rule of thumb for branches:
+	- One branch --> one purpose	
+	- Need at least one version of the code to “work” (to compile, to give expected results, …) –-> “Main” or “Master”
+	- At the same time we work on a new feature, or maybe several features concurrently --> feature branches
+   - We need to be able to separate different lines of work really well.
+
+
+:::
+::::
+:::
+
+## Your turn: experiment with branches
+
+::: {.theme-section}
+
+To experiment with branches we will create a “fork” from our recipe GitHub repository:
+
+- Go to https://tinyurl.com/uu-recipes
+- Click on the Dropdown menu “Fork” and “Create new fork”
+- Make sure the box “Copy the main branch only” is checked
+
+Create a new branch from "main":
+
+- Click on "branches"
+- Click on “New branch” and give the new branch a name e.g. “cakes”
+- Create a new file called "cakes/chocolate_cake.md" and "commit"
+- Merge the branch "cake" into "main" to update the content there
+
+:::
+
+## Working with branches on your laptop
+
+::: {.theme-section}
+
+- Clone the recipe repository to your laptop:
+	
+	```
+	git clone git@github.com:<user>/recipe-book.git
+	cd recipe-book
+	```
+- Create a new branch "cheesecake" in the webinterface
+- "Pull" the changes to your computer:
+	
+	```
+	git pull
+	```
+:::
+
+## Exercise: Create and commit to the new branch
+::: {.theme-section}
+
+- Add a cheesecake recipe to your local repository on the “cheesecake” branch
+- Commit the changes and push them
+- Verify in the web browser that the files in “main” and the “cheesecake” branch differ.
+- Merge the two branches in the web interface through creating a “Pull request”
+
+:::
+
+
+## Summary
+
+::: {.theme-section}
+
+In this part of the tutorial we saw:
+
+- How to create branches in the remote repository through the web interface
+- How we can update the content of branches
+- How we can merge changes from one branch into another branch
+
+:::
+
+## Creating branches on your laptop
+
+::: {.theme-section}
+
+- We will now create a new branch in your local repository on your laptop. 
+- The branch will be merged into "main" in your local repository.
+- Finally we will update the "main" branch on GitHub.
+
+Please follow along on your git bash or terminal.
+
+
+:::
+
+## Summary
+
+::: {.theme-section}
+
+In this part of the tutorial we showed:
+
+- How to create a branch only in your local repository and how to update its contents
+- How to merge the changes from the branch in your local repository into the main branch in your local repository
+
+:::
+
+## Issues
+
+::: {.theme-section}
+
+- In GitHub users of your code or you yourself can create “issues”.
+- An issue can be a feature request, a bug or simply a “Todo” for your project.
+- You can create a branch for an issue to track how far the issue is solved. GitHub will link them for you.
+
+:::
+
+## Merge conflicts
+
+::: {.theme-section}
+
+![](https://swcarpentry.github.io/git-novice/fig/conflict.svg)
+
+Let us create a merge conflict and see how we can resolve it!
+:::
