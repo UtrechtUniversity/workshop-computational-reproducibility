@@ -290,7 +290,7 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
 - [GitHub branches and issues](git-advanced-branches.qmd)
 
 ## Presenter slides
-- [Markdown](../slides/slides_version_control.qmd)
+- [HTML](../slides/slides_version_control.qmd)
 
 ### References
  CodeRefinery, [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)
