@@ -2,7 +2,7 @@
 
 1. [Software Development Guide by the Netherlands eScience Center](https://guide.esciencecenter.nl/)
 
-2. [The Turing Way: a guide to reproducible data science by the Turing Institute](https://the-turing-way.netlify.app/welcome)
+2. [The Turing Way: a guide to reproducible data science by the Turing Institute](https://book.the-turing-way.org/)
 
 3. [Software Carpentry lessons](https://github.com/swcarpentry/swcarpentry)
 
