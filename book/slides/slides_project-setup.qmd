@@ -15,7 +15,7 @@ format:
 
 > A research compendium is a collection of *all digital parts of a research project* including data, code, texts (...). The collection is created in such a way that reproducing all results is straightforward.
 
-*Source: [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/compendia.html)*
+*Source: [The Turing Way](https://book.the-turing-way.org/reproducible-research/compendia)*
 
 
 ![](../images/research-compendium.svg){fig-align=center width=800px}
@@ -23,7 +23,7 @@ format:
 :::
 
 ::: footer
-(Artwork by Scriberia for [The Turing Way](https://the-turing-way.netlify.app/welcome.html), CC-BY)
+(Artwork by Scriberia for [The Turing Way](https://book.the-turing-way.org/), CC-BY)
 :::
 
 ## Getting started
