@@ -295,3 +295,8 @@ Finally we can finish our Pull request by merging.
 
 Solving merge conflicts can also be done on your laptop. In that case you have to open the file where the conflict is with an editor and resolve the conflict in a similar way. Some code editors (such as VSCodium) even have functionality to select the lines you want to keep and remove the rest with a single mouse click. Find the whole procedure [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
 
+## Presenter slides
+- [HTML](../slides/slides_advanced_version_control.qmd)
+
+### References
+  CodeRefinery, [Introduction to version control with Git](https://coderefinery.github.io/git-intro/branches/)
