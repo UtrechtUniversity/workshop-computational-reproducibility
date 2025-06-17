@@ -202,14 +202,35 @@ my_data <- (0:100) ^ 2 / 365
 ```
 :::
 
-## Consistency
+## Consistency and Style Guides
 ::: {.theme-section}
+
+
+:::: .columns
+
+::: {.column width="50%"}
+
 - Use a consistent style
   - Your language of choice will impact how you separate words e.g CamelCase or snake_case
   - Consistency will make your code easier to understand and maintain
   - Consult a styleguide for your language 
 
 :::
+
+::: {.column width="50%"}
+
+- Style Guides can help to stay consistent
+
+  - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
+  - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
+
+:::
+::::
+
+![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/code_quality.png){width=60%}
+
+:::
+
 
 ## Linters and Formatters
 
