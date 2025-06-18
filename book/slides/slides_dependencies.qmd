@@ -91,9 +91,9 @@ How far do you go towards reproducibility?
 
 - **due diligence** starts at declaring dependencies.
 
-- You can empower your declared dependencies with a package/environment manager such as `conda`.
+- You can empower your declared dependencies with a package/environment manager such as `uv` (or `conda`).
 
-- packaging dependencies uses tools like [renv](https://rstudio.github.io/renv/) (for R), or [pipenv](https://packaging.python.org/tutorials/managing-dependencies/) (for Python).
+- packaging dependencies using tools like [renv](https://rstudio.github.io/renv/) (for R), or [uv](https://docs.astral.sh/uv/) (for Python).
 
 :::
 :::
@@ -111,22 +111,10 @@ How far do you go towards reproducibility?
 ::::
 :::
 
-## Our advice
-::: {.theme-section}
-:::
-
-#### Are you working with Python?
-- Use `conda` and declare your dependencies in an `environment.yml` file.
-
-#### Are you working with R?
-- Use `renv` and package your dependencies in a lockfile.
-
-_In the next slides we will elaborate on some other options as well, but honestly, just do this._
-
 
 ## Declaring dependencies
+
 ::: {.theme-section}
-:::
 
 OK: declare (in your README) how your project works **for you**.
 
@@ -134,35 +122,83 @@ OK: declare (in your README) how your project works **for you**.
 - What packages/libraries do you load
 - What OS do you use? (Does it work on your collaborator's system?)
 
-Better: prepare a file for a package manager:
+Better: prepare a file for an environment manager:
 
 - **what?** A single file describing the necessary dependencies, which can be used to install all dependencies in one step
 - **where?** Store the file in the repository root (main folder)
 - **which?** This depends on the environment/package manager you want to use:
-  - For `conda` (python and R): generate an `environment.yml` file
-  - For `pip` (python only): generate a `requirements.txt` file
-
-## Declaring dependencies
-::: {.theme-section}
-
-#### `environment.yml` (for conda)
-- Used by `conda` to create an environment populated by specific packages and languages.
-- Generate it with `conda env export -f environment.yml`
-- [Here is an example](https://github.com/ericmjl/essays-on-data-science/blob/master/environment.yml). Search for [more on GitHub](https://github.com/search?q=path%3A**%2Fenvironment.yml+language%3AYAML+language%3AYAML&type=code).
-- Consider going through [this quick intro](https://geohackweek.github.io/Introductory/01-conda-tutorial/)  to `conda` environments.
-- Or get the full story in the [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
-
-#### `requirements.txt` (for pip)
-- Generate it with `pip freeze > requirements.txt`
-- [Here is an example](https://github.com/Curly-Mo/musinformatics/blob/552494f8e6aec9810b1027e725bbf24a6784b369/requirements.txt). Search for [more on GitHub](https://github.com/search?q=path%3A**%2Frequirements.txt&type=code).
-- Install dependencies declared with `pip install -r requirements.txt`
+  - `requirements.txt`
+  - `environment.yml`  
+  - `pyproject.toml`
 
 :::
 
-## Packaging dependencies{.smaller}
+## Dependency managers
+
+<br>
+
+::: {style="margin-left: 1em; font-size: 2em;"}
+
+`uv` (for Python)
+
+:::
+
 ::: {.theme-section}
 
-#### In R: `renv`
+- An extremely fast Python package and project manager, written in Rust.
+- Create separate [environments](https://docs.astral.sh/uv/pip/environments/) for your projects
+- Supports lock files and `pyproject.toml`
+- Relatively new, increasingly popular and our recommendation
+
+```{python}
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv venv --python 3.11
+uv init
+uv add 'pandas==1.5.3'
+```
+
+:::
+
+## Dependency managers
+
+<br>
+
+::: {style="margin-left: 1em; font-size: 2em;"}
+
+`conda` (for Python and R)
+
+:::
+
+::: {.theme-section}
+
+- Create separate environments for your projects
+- Switch between environments
+- Store the environment description in `environment.yml`
+- Consider going through [this quick intro](https://geohackweek.github.io/Introductory/01-conda-tutorial/)  to `conda` environments.
+- Or get the full story in the [conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+
+[Installation](https://www.anaconda.com/docs/getting-started/miniconda/install#quickstart-install-instructions)
+
+
+```{python}
+conda create -n myenv python=3.11
+conda activate myenv
+conda install pandas=1.5.3
+```
+
+:::
+
+## Dependency managers{.smaller}
+
+<br>
+
+::: {style="margin-left: 1em; font-size: 2em;"}
+
+`renv` (for R)
+
+:::
+
+::: {.theme-section}
 
 Install with:
 ```{r}
@@ -186,11 +222,29 @@ renv::restore()
 ```
 [Read more here.](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/)
 
+:::
+
+## Summary
+
 <br>
 
-#### In Python: `pipenv`
+![](../images/dependencytradeoff.svg){.absolute top="200" left="80" height="300"}
 
-[Follow this brief tutorial](https://packaging.python.org/tutorials/managing-dependencies/) to set up `pipenv` for your project.
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+::: {.theme-section}
+
+- Good: Declaring dependencies in a README
+- Better: Declaring dependencies in an environment file
+- Close to fully reproducible: lock files
 
 :::
 
