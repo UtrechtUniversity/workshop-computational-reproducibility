@@ -8,7 +8,7 @@ format:
 ---
 
 
-# Reproducibility {data-background-color="#FFCD00"}
+# Code Quality {data-background-color="#FFCD00"}
 
 ## Aspects of good quality code
 
@@ -18,9 +18,17 @@ format:
 
 ::: {style="text-align: left; margin-top: 2em"}
 
-- Readable
-- Reusable
-- Robust
+- Readable:
+
+	A human being can easily understand the purpose of the code and can maintain the code.
+ 	
+- Reusable:
+
+	Code is written in such a way that it can be reused across multiple contexts with little or no modification required.
+	
+- Robust:
+
+	A computer system is able to cope with errors during execution.
 
 :::
 :::
@@ -33,141 +41,215 @@ format:
 :::
 ::::
 
-## Code readability: white space
+## Code readability
 
 ::: {.theme-section}
 
-::: {.fragment .strike}
-Code is for computer, comments are for humans.
+Code is read more often than it is written.
+— Guido van Rossum (creator of Python)
+
+- At some point someone else or our future us will need to understand the code we write today.
+
 :::
 
-. . .
+## Variable names
 
-- Use whitespace and newlines strategically.
+::: {.theme-section}
 
-. . .
+- Use informative names for functions and variables
 
-<!-- ::: {.fragment .fade-in-then-out} -->
-
-#### Compare:
-
+#### Meaningless variable names:
 :::: {.columns}
+::: {.column width="50%"}
 
-::: {.column width="60%"}
+```python
+import pandas as pd
+x = "Alex"
+y = 42
+z = pd.DataFrame()
+my_favourite_number = "ssh, I'm a string"
+```
 
-<!-- ::: {style="text-align: left; margin-top: 2em"} -->
-```r
-this <- function(arg1,arg2) res<-arg1*arg2;return(res)
-hurts <- mean(c(this(3,4),this(3,1),this(9,9))); print(hurts)
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="45%"}
+
+```python
+import pandas as pd
+
+# Defining variables
+first_name = "Alex"
+number_of_attendees = 42
+empty_dataframe = pd.DataFrame()
+
+
+# Using variables
+print("Hi " + first_name)
+number_of_attendees += 1
 ```
 :::
+::::
+:::
 
-::: {.column width="30%"}
+## Function names
+
+::: {.theme-section}
+
+- Name functions after the task they perform.
+- Use verb-based function names
+
 
 
 ```r
-this <- function(arg1,arg2){
-  res <- arg1 * arg2
-  return(res)
+process_text <- function(data) {
+    ...
 }
 
-hurts <- mean(
-  c(
-    this(3,4),
-    this(3,1),
-    this(9,9)
-    )
-  )
-print(hurts)
+processed_text <- process_text("The following document was handled using...")
 ```
 
-:::
-::::
-:::
+- Name function in form of a question if return value is boolean 
 
-<!-- ::: -->
-
-## Code readability: names
-
-::: {.theme-section}
-
-- use descriptive names for functions and variables
-  - start functions with a verb
-  - make variable names _just_ long enough to be meaningful
-
-. . .
-
-#### Compare:
-:::: {.columns}
-::: {.column width="50%"}
-```python
-for i in my_shopping_basket:
-  if(test(i)) > 10:
-    purch(i)
-  else:
-    disc(i)
-```
-:::
-::: {.column width="50%"}
-```python
-for item in basket:
-  if(testNecessity(item)) > 10:
-    purchase(item)
-  else:
-    discard(item)
-```
-:::
-::::
-:::
-
-## Code readability: consistency
-
-::: {.theme-section}
-- use a consistent style
-  - consistency will make your code easier to understand and maintain
-  - consult a styleguide for your language (keep conventions, and don't reinvent the wheel)
-
-. . .
-
-#### Compare:
-
-:::: {.columns}
-::: {.column width="50%"}
 ```r
-myVar<-original_variable+MOD(new.var)
+are_missing_values_present <- function(data) {
+  if (NA %in% data) {
+      TRUE
+  } else {
+      FALSE
+  }
+}
 ```
-:::
-::: {.column width="50%"}
-```r
-my_var <- original_var + Modified(new_var)
-```
-:::
-::::
+
 :::
 
-## Style guides
+## Data pipeline examples
 
 ::: {.theme-section}
+
+Which one is more readable to you?
+
+- Short version
+ 
+```r
+data_path <- "path/to/data"
+report_data <- generate_report(model(clean(load(data_path))))
+
+```
+
+- More explicit version
+
+```r
+data <- load(data_path)
+clean_data <- clean(data)
+model_results <- model(clean_data)
+report_data <- generate_report(model_results)
+```
+
+:::
+
+## Style matters (Python)
+
+::: {.theme-section}
+- Is the code using everything that language ‘X’ has to offer?
+
+```python
+# Example 1 - very unpythonic
+i = 0
+my_data = []
+while i < 100:
+  my_data += [i * i / 356]
+  i += 1
+
+# Example 2 - more use of Python features, such as `range` and `append`
+my_data = []
+for i in range(100):
+  my_data.append(i**2 / 356)
+```
+Python at its best:
+```python
+# Example 3 - making full use pythonic idioms, `range` with list comprehension
+my_data = [i**2 / 356 for i in range(100)]
+
+```
+:::
+
+## Style matters (R)
+
+::: {.theme-section}
+
+
+```r
+# Example 1 - not idiomatic
+i = 0
+my_data = c()
+while (i < 100) {
+  my_data = c(my_data, i * i / 356)
+  i = i + 1
+}
+
+# Example 2 - more use of R features, e.g. `append` and idiomatic assignment (' <- ')
+my_data = c()
+for (i in 0:100) {
+  my_data <- append(my_data, i^2 / 365)
+}
+```
+
+R at its best:
+```r
+# Example 3 - making  use of R's built-in vectors
+my_data <- (0:100) ^ 2 / 365
+```
+:::
+
+## Consistency and Style Guides
+::: {.theme-section}
+
+
+:::: .columns
+
+::: {.column width="50%"}
+
+- Use a consistent style
+  - Your language of choice will impact how you separate words e.g CamelCase or snake_case
+  - Consistency will make your code easier to understand and maintain
+  - Consult a styleguide for your language 
+
+:::
+
+::: {.column width="50%"}
+
+- Style Guides can help to stay consistent
 
   - Python style manual: [Pep-8](https://www.python.org/dev/peps/pep-0008/)
   - R style manual: [Tidyverse style guide](https://style.tidyverse.org)
-  
-![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/code_quality.png){width=80%}
+
+:::
+::::
+
+![Source: [xkcd](https://xkcd.com/1513/)](https://imgs.xkcd.com/comics/code_quality.png){width=60%}
 
 :::
 
-## Linters
+
+## Linters and Formatters
 
 ::: {.theme-section}
 
-A linter is a **static** code analysis tool. 
 
-It will browse your code and flag/report issues (style, errors, bugs) as output. 
-Then it's up to the programmer to go through the list and fix the issues.
+- Linters
+	- Analyse your code to flag stylistic errors 
+	- Find small bugs
+	- Identify security issues
 
-- **R:** The [`lintr`](https://lintr.r-lib.org/) package 
+- Formatters 
+	- Detect when you have diverged from a style
+	- Automatically correct the formatting of your code
 
-- **Python:** There are several libraries, today we'll use [`flake8`](https://flake8.pycqa.org/en/latest/)
+| Language | Linters | Formatters |
+|---------|:-----|:------|
+| R | lintr | formatR, styler|
+| Python | ruff, pylint | ruff, black |
 
 :::
 
@@ -193,46 +275,35 @@ The [lintr](https://lintr.r-lib.org/) package in R:
 
 ::: {.theme-section}
 
-The [`flake8`](https://flake8.pycqa.org/en/latest/) library in Python:
+The [`ruff`](https://docs.astral.sh/ruff/) library in Python:
 
-_Function_: `flake8 path/to/code/to/check.py`
+_Function_: `ruff check --fix path/to/code/to/check.py`
+
+```python
+ ruff check --fix src-qt5/main.py
+
+src-qt5/main.py:1522:9: E722 Do not use bare `except`
+Found 16 errors (1 fixed, 1 remaining).
+```
 
 :::
 
 ## (Auto)formatters
 
 ::: {.theme-section}
-While linters provide a report of issues, (auto)formatters will browse the code and correct issues automatically/directly.
-
-The corrections will depend on the rules encoded within the package/library.
 
 - **R:** The [`styler`](https://styler.r-lib.org/) package 
+	The [styler](https://styler.r-lib.org/) package in R:
 
-- **Python:** There are several libraries, today we'll use [`black`](https://pypi.org/project/black/)
+	![](https://raw.githubusercontent.com/lorenzwalthert/some_raw_data/master/styler_0.1.gif){width=60%}
 
+	_Function_: `styler::style_file(filepath)`
+
+- **Python:** We will use `ruff` again:
+	_Function_: `ruff format path/to/code/to/check.py`
 :::
 
-## (Auto)formatters: R
 
-::: {.theme-section}
-
-The [styler](https://styler.r-lib.org/) package in R:
-
-![](https://raw.githubusercontent.com/lorenzwalthert/some_raw_data/master/styler_0.1.gif){width=60%}
-
-_Function_: `styler::style_file(filepath)`
-
-:::
-
-## (Auto)formatters: Python
-
-::: {.theme-section}
-
-The [`black`](https://pypi.org/project/black/) library in Python:
-
-_Function::_ `black {source_file_or_directory}`
-
-:::
 
 ## Your turn
 
@@ -241,14 +312,14 @@ _Function::_ `black {source_file_or_directory}`
 * Run a _linter_ through your code and identify style issues:
 
     * **R:** [`lintr`](https://lintr.r-lib.org/)
-    * **Python:** [`flake8`](https://pypi.org/project/flake8/)
+    * **Python:** [`ruff check`](https://docs.astral.sh/ruff/)
 
 * Edit your code to improve the style compatibility, based on the feedback from your linter.
 
 * Run an _autoformatter_ through your code to automatically fix issues instead of simply flagging them: 
 
     * **R:** [`styler`](https://styler.r-lib.org/)
-    * **Python:** [`black`](https://pypi.org/project/black/)
+    * **Python:** [`ruff format`](https://docs.astral.sh/ruff/)
 
 * If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.
 
