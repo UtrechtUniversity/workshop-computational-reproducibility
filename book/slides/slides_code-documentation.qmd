@@ -194,9 +194,18 @@ def multiply(x,y):
   
   This function takes two input numbers and multiplies them.
   It returns the multiplied result.
-  Keyword arguments:
-  x -- the first value
-  y -- the second value
+
+  Parameters
+  ----------
+  x : int or float
+      the first value
+  y : int or float
+      the second value
+
+  Returns
+  -------
+  int or float
+      result of multiplication
   """
   return x*y
 ```

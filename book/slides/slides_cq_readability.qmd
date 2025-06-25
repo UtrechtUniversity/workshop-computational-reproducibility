@@ -303,7 +303,17 @@ Found 16 errors (1 fixed, 1 remaining).
 	_Function_: `ruff format path/to/code/to/check.py`
 :::
 
+## Summary
 
+::: {.theme-section}
+
+- Use descriptive variable names
+- Name functions after the task they perform
+- Readable multiline code is often preferred over condense one-liners
+- Use language specific conventions (style guides)
+- Use linters and formatters to improve your code
+
+:::
 
 ## Your turn
 

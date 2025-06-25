@@ -102,6 +102,38 @@ Small, cohesive units are much better than...
 ::::
 :::
 
+
+## Example
+
+::: {.theme-section}
+
+**`script.py`**
+
+```python 
+
+def main(filename, output_dir):
+    df = read_input(filename)
+    df = preprocess(df)
+    x_train, y_train, x_test, y_test = prepare_data_ml(df)
+    result = train_model(X_train, y_train, X_test, y_test)
+    save_result(result, output_dir)
+
+if __name__ == "__main__":
+    main(args.filename, args.output_dir)
+
+```
+<br>
+<br>
+<br>
+
+```bash
+python script.py --filename data/iris.csv --output_dir results
+```
+
+
+:::
+
+
 ## Your turn: visualize your code!
 
 ::: {.theme-section}

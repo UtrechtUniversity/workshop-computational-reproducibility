@@ -16,7 +16,7 @@ format: "html"
 </iframe>
 ```
 
-[Slides](../slides/slides_cq_reusability.qmd
+[Slides](../slides/slides_cq_reusability.qmd)
 
 ### Exercise
 

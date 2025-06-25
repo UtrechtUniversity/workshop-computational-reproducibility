@@ -20,14 +20,14 @@ format: "html"
 * Run a _linter_ through your code and identify style issues:
 
     * **R:** [`lintr`](https://lintr.r-lib.org/)
-    * **Python:** [`flake8`](https://pypi.org/project/flake8/)
+    * **Python:** [`ruff check`](https://docs.astral.sh/ruff/)
 
 * Edit your code to improve the style compatibility, based on the feedback from your linter.
 
 * Run an _autoformatter_ through your code to automatically fix issues instead of simply flagging them: 
 
     * **R:** [`styler`](https://styler.r-lib.org/)
-    * **Python:** [`black`](https://pypi.org/project/black/)
+    * **Python:** [`ruff format`](https://docs.astral.sh/ruff/)
 
 ::: {.callout-tip}
 ## Tip
