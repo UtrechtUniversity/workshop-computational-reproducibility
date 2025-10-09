@@ -78,13 +78,13 @@ This is called the "annotate" or "blame" view. The name "blame" is very unfortun
 
 ![](../images/github_figures_screenshots/git_browse_blame.png){width=700 fig-align="center"}
 
-### Can you use these recipes yourself? Are you allowed to share modifications?
+### Are you allowed to use these recipes yourself? Are you allowed to publish modifications to these recipes?
 
 - Look at the file LICENSE.
 - It says it is "Creative Commons Zero 1.0", which is equivalent to public domain. You can use them without conditions.
 - Note the GitHub view of the file LICENSE gives a nice summary of what it means. Try it out:
 
-### Browse issues and pull requests in the upstream repository
+### Browse issues and pull requests in the repository
 
 This can only be done through the GitHub view. Issues and Pull requests are different for each GitHub copy.
 
@@ -94,8 +94,8 @@ This can only be done through the GitHub view. Issues and Pull requests are diff
 
 ### Summary
 
-- Git allowed us to understand this simple project much better than we could, if it was just a few files on our own computer.
-- It was easy to share the project with the course.
+- Git allowed us to understand the development of this simple project much better than we could, if it was just a few files on our own computer.
+- It was easy for us to access the project (hence easy to share our work with others).
 
 In the next section we will create our own Git repository!
 

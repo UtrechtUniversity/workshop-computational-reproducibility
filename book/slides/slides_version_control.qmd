@@ -110,13 +110,13 @@ Explore the Web interface!
 1. How many changes did the Guacamole recipe receive?
 2. Which recipes include the ingredient "salt"?
 3. Who modified each line last and when?
-4. Can you use these recipes yourself? Are you allowed to share modifications?
-5. Browse issues and pull requests in the upstream repository
+4. Are you allowed to use these recipes yourself? Are you allowed to publish modifications to these recipes?
+5. Browse issues and pull requests in the repository
 
 **Summary**
 
-- Git allowed us to understand this simple project much better than we could, if it was just a few files on our own computer.
-- It was easy to share the project with the course.
+- Git allowed us to understand the development of this simple project much better than we could, if it was just a few files on our own computer.
+- It was easy for us to access the project (hence easy to share our work with others).
 
 In the next section we will create our own Git repository!
 
@@ -146,6 +146,8 @@ Git knows two ways of creating an own Git repository.
 
 - The commit titles are shown in the history of the repository. 
 - The title and the message will help us later to understand what we updated and why we updated the code base.
+- [Commit message conventions](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Commit messages in practice](https://latenightcommits.com/)
 
 Now that you have started to customise your new GitHub repository, let’s have a look whether we can do that in a bit more convenient way, directly on your computer instead of through the web browser.
 
