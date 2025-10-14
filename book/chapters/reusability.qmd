@@ -8,15 +8,75 @@ format: "html"
 
 {{< video https://vimeo.com/463647105 >}}
 
+## Overview
+| Questions | Objectives |
+|-----------|-------------|
+| What is code reusability and why should I use it? | Understand the concept and benefits of writing reusable, modular code. |
+| What are good practices for writing reusable code? | Learn general guidelines and the role of functions in writing reusable code. |
+| How can I improve reusability in my own code? | Practice visualizing and refactoring your own scripts. |
 
-### Slides
+## Code reusability
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_cq_reusability.html" title="Code Reusability" width="960" height="540">
-</iframe>
+- Less code written, more work done
+- Writing a tool while doing your analysis
+- Stop reinventing the wheel!
+
+## Code reusability: some guidelines
+
+- **Separate code and data**: data is specific, code need not be  
+  - consider using a config file for project-specific (meta)data  
+  - but **do** hard-code unchanging variables, e.g.  
+    `gravity = 9.80665`, **once**.
+
+- **Do One Thing** (and do it well)  
+  - One function for one purpose  
+  - One class for one purpose  
+  - One script for one purpose (no copy-pasting to recycle it!)
+
+- **Don't Repeat Yourself**: use functions  
+  - Write routines in functions, i.e. code you reuse often  
+  - Identify potential functions by action: functions perform tasks (e.g. sorting, plotting, saving a file, transforming data...)
+
+## Code reusability through functions
+
+Functions are smaller code units responsible for one task.
+
+- Functions are meant to be reused
+- Functions accept arguments (though they may also be empty!)
+- What arguments a function accepts is defined by its parameters
+
+Functions do not necessarily make code shorter (at first)!
+
+**Compare:**
+
+```r
+indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
+indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
+```
+```r
+def indexString(inputList, z):
+    zIndex = [n for n,i in enumerate(inputList) if i == z]
+    return zIndex
+
+indexATG = indexString(myList, 'ATG')
+indexAAG = indexString(myList, 'AAG')
 ```
 
-[Slides](../slides/slides_cq_reusability.qmd)
+## Think in building blocks!
+
+<div style="display: flex; justify-content: space-around; align-items: flex-start; text-align: center;">
+
+  <div style="width:45%;">
+    <p>Small, cohesive units are much better than...</p>
+    <img src="../images/tetris.svg" width="80%"/>
+  </div>
+
+  <div style="width:45%;">
+    <p>...a customized behemoth!</p>
+    <img src="../images/tetris_help.svg" width="60%"/>
+  </div>
+
+</div>
 
 ### Exercise
 
