@@ -17,9 +17,18 @@ format: "html"
 
 ## Code reusability
 
-- Less code written, more work done
-- Writing a tool while doing your analysis
-- Stop reinventing the wheel!
+Code reusability means writing code that can be used again, either within the same project or in future work, without needing to rewrite it.
+
+Reusable code is usually modular: it’s built from small, independent pieces that each do one clear job. This makes your scripts easier to understand, maintain, and adapt.
+
+**Less code written, more work done**  
+Reusable code saves time. Once you’ve written and tested a piece of logic, you can call it again instead of repeating or copying it.
+
+**Writing a tool while doing your analysis**  
+When you notice yourself performing the same task more than once (like loading data or generating plots), that’s a great opportunity to turn that code into a reusable tool or function.
+
+**Stop reinventing the wheel!**
+Many coding challenges are shared across projects. Reusing existing, well-tested scripts or functions — whether your own or from trusted sources — saves effort and reduces the likelihood of making mistakes.
 
 ## Code reusability: some guidelines
 
@@ -39,13 +48,26 @@ format: "html"
 
 ## Code reusability through functions
 
-Functions are smaller code units responsible for one task.
+At the beginning of an analysis, code is often copied and pasted to get it working quickly. However, as your project grows, it is time-consuming to change the same code in multiple places and mistakes are easily made. Before long, your code can turn into a mess. 
 
-- Functions are meant to be reused
-- Functions accept arguments (though they may also be empty!)
-- What arguments a function accepts is defined by its parameters
+A better approach is to take repetitive blocks of code and turn them into **functions**.  
 
-Functions do not necessarily make code shorter (at first)!
+- **Functions are smaller code units responsible for one task.**  
+Create functions that are clear and focused. If a function becomes long or needs many arguments, it’s usually a sign that it should be split into smaller pieces. Smaller functions are easier to understand, test, and reuse, and can be combined to build more complex pipeline.
+
+- **Functions are meant to be reused.**  
+Write functions for tasks you expect to repeat, not for one-off calculations.
+
+- **Functions accept arguments (though they may also be empty!).**  
+Arguments are the inputs you pass into a function when you call it. They make your code flexible, because the same function can be used on different data or with different settings.
+
+- **What arguments a function accepts is defined by its parameters.**  
+Parameters are the variable names listed in a function’s definition, they specify what arguments/inputs the function can take.
+
+- **Functions should be self-contained.**  
+A function should only use the data and variables explicitly passed to it as arguments. It shouldn’t rely on, or modify, external objects. Running a function with the same inputs should always produce the same outputs.
+
+> 💡 Functions do not necessarily make code shorter (at first)!
 
 **Compare:**
 
