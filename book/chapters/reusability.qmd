@@ -4,10 +4,6 @@ format: "html"
 
 # Reusability
 
-### Video
-
-{{< video https://vimeo.com/463647105 >}}
-
 ## Overview
 | Questions | Objectives |
 |-----------|-------------|
@@ -15,40 +11,40 @@ format: "html"
 | What are good practices for writing reusable code? | Learn general guidelines and the role of functions in writing reusable code. |
 | How can I improve reusability in my own code? | Practice visualizing and refactoring your own scripts. |
 
-## Code reusability
+## Concept: What is Code Reusability?
 
 Code reusability means writing code that can be used again, either within the same project or in future work, without needing to rewrite it.
 
 Reusable code is usually modular: it’s built from small, independent pieces that each do one clear job. This makes your scripts easier to understand, maintain, and adapt.
 
-**Less code written, more work done**  
+**Benefits of reusable code:**
+- **Less code written, more work done**  
 Reusable code saves time. Once you’ve written and tested a piece of logic, you can call it again instead of repeating or copying it.
-
-**Writing a tool while doing your analysis**  
+- **Writing a tool while doing your analysis**  
 When you notice yourself performing the same task more than once (like loading data or generating plots), that’s a great opportunity to turn that code into a reusable tool or function.
-
-**Stop reinventing the wheel!**
+- **Stop reinventing the wheel!**
 Many coding challenges are shared across projects. Reusing existing, well-tested scripts or functions — whether your own or from trusted sources — saves effort and reduces the likelihood of making mistakes.
 
-## Code reusability: some guidelines
+## Guidelines for Reusable Code
 
-- **Separate code and data**: data is specific, code need not be  
+- **Separate code and data:** 
+  - data is specific, code need not be  
   - consider using a config file for project-specific (meta)data  
   - but **do** hard-code unchanging variables, e.g.  
     `gravity = 9.80665`, **once**.
 
-- **Do One Thing** (and do it well)  
+- **Do One Thing (and do it well):**    
   - One function for one purpose  
   - One class for one purpose  
   - One script for one purpose (no copy-pasting to recycle it!)
 
-- **Don't Repeat Yourself**: use functions  
+- **Don't Repeat Yourself, use functions**: 
   - Write routines in functions, i.e. code you reuse often  
   - Identify potential functions by action: functions perform tasks (e.g. sorting, plotting, saving a file, transforming data...)
 
-## Code reusability through functions
+## Code Reusability Through Functions
 
-At the beginning of an analysis, code is often copied and pasted to get it working quickly. However, as your project grows, it is time-consuming to change the same code in multiple places and mistakes are easily made. Before long, your code can turn into a mess. 
+At the beginning of an analysis, code is often copied and pasted to get it working quickly. However, as your project grows, it is time-consuming to change the same code in multiple places and mistakes are easily made. 
 
 A better approach is to take repetitive blocks of code and turn them into **functions**.  
 
@@ -56,7 +52,7 @@ A better approach is to take repetitive blocks of code and turn them into **func
 Create functions that are clear and focused. If a function becomes long or needs many arguments, it’s usually a sign that it should be split into smaller pieces. Smaller functions are easier to understand, test, and reuse, and can be combined to build more complex pipeline.
 
 - **Functions are meant to be reused.**  
-Write functions for tasks you expect to repeat, not for one-off calculations.
+Write functions for tasks you expect to repeat, not for one-time calculations.
 
 - **Functions accept arguments (though they may also be empty!).**  
 Arguments are the inputs you pass into a function when you call it. They make your code flexible, because the same function can be used on different data or with different settings.
