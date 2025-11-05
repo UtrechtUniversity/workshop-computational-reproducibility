@@ -260,5 +260,5 @@ You can learn more about self-contained components of code in the [tutorial on m
 ## Presenter slides
 - [HTML](../slides/slides_cq_readability.qmd)
 
-### References
+## References
  [Analysis Function](https://best-practice-and-impact.github.io/qa-of-code-guidance/)
