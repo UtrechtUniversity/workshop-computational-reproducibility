@@ -2,20 +2,70 @@
 format: "html"
 ---
 
+# Overview
+
+| Questions                            | Objectives                                                | Key Concepts / Tools       |
+| ------------------------------------ | --------------------------------------------------------- | -------------------------- |
+| What is clean code?                  | Write code that is easy to read and maintain.             | Readability, clean code    |
+| How do good names improve code?      | Use clear, descriptive names for variables and functions. | Naming conventions         |
+| How do I write idiomatic code?       | Apply language-specific best practices.                   | Pythonic style, idioms     |
+| How do I keep code style consistent? | Automate style checks and formatting.                     | Linters, formatters        |
+| Why avoid repeating code?            | Reduce redundancy and improve maintainability.            | DRY principle, refactoring |
+
+
 # Readability
 
-When we write code at some point someone else or our future us will need to understand the code we write today.
-Code with high readability is often referred to as ‘clean code’. Clean code helps us understand a program faster, as it avoids points of confusion and ambiguity.
+When we write code, it’s important to remember that someone else — or even our future selves — will need to understand it later.  
+Code that is easy to read and understand is often called **clean code**. Clean code makes it easier to follow a program’s logic by minimizing confusion and ambiguity.
 
-In this section we will show you some principles and tools that will help you to write clean and maintainable code.
+In this section, we’ll introduce key principles and tools that will help you write code that is both **clean** and **maintainable**.
 
-When you reuse code, what do you expect from the code? What helps you to understand the code? What do yo find annoying?
+Think about your own experience reusing code:
+
+- What do you expect from well-written code?  
+- What helps you understand it quickly?  
+- What makes it frustrating or confusing?
+
+---
+
+## The main aspects of clean code
+
+1. **Readable**  
+   The code clearly communicates its purpose.  
+   Variable, function, and class names are meaningful (`calculateTotal()` is better than `doIt()`).  
+   You should be able to understand what the code does without relying heavily on comments.
+
+2. **Simple and focused**  
+   Each function or class does **one thing** and does it well (the *Single Responsibility Principle*).  
+   Avoid unnecessary complexity or “clever” shortcuts — clarity always wins over cleverness.
+
+3. **DRY (Don’t Repeat Yourself)**  
+   Avoid code duplication.  
+   Extract shared logic into reusable functions or modules.
+
+4. **Well-structured**  
+   Maintain consistent formatting and indentation.  
+   Organize files, classes, and functions logically.  
+   Use clear control flow — avoid “spaghetti code.”
+
+5. **Tested**  
+   Use automated tests (unit, integration, etc.) to verify correctness.  
+   Testing makes it easier to refactor or extend code safely.
+
+6. **Self-documenting**  
+   Structure and naming should make your code understandable without excessive comments.  
+   When comments are used, they should explain **why**, not **what**.
+
+In this tutorial, we’ll explore several of these aspects in detail.
+
+---
 
 ## Meaningful names
-A very important part of readable code is meaningful names for variables, constants, functions, classes and other objects.
-Those names should be *informative* and *concise*.
 
-You may have previously come across code that contains variable names that are meaningless, or that imply an incorrect purpose. 
+A key part of writing readable code is using **meaningful names** for variables, constants, functions, classes, and other objects.  
+Names should be **informative** yet **concise**.
+
+You may have encountered code where variable names are meaningless or misleading:
 
 ```python
 import pandas as pd
@@ -25,33 +75,34 @@ z = pd.DataFrame()
 my_favourite_number = "ssh, I'm a string"
 ```
 
-It is very hard in the code snippet above to infer what those variables should be used for and which values they might contain. It is nearly impossible to correctly interpret what these variable names represent. Therefore, you should try very hard to avoid cryptic or single-letter identifiers.
+It’s nearly impossible to infer what these variables represent or how they’re used. To make code easier to understand, avoid cryptic or single-letter identifiers.
 
-However, there are situations where some seemingly cryptic identifiers make sense. Using single letters to name variables is suitable when implementing methodologies from mathematical notation. However, even in these cases you must make sure that the formulas being implemented are clear, readily available to the reader and are consistent throughout your code. Be sure to cite the source of the mathematical formula in these cases.
+Single-letter names can be acceptable in specific contexts — for example, when implementing mathematical formulas where x, y, or n have clear, conventional meanings. Even then, ensure the mathematical reference is clearly explained or cited, and maintain consistency throughout your code.
 
-In other cases, using variable names that contain a few (3 or so) informative words can drastically improve the readability of your code. Your language of choice will impact how you separate words (be it CamelCase or snake_case).
+In most other cases, using descriptive names composed of a few informative words greatly improves readability. Your programming language’s conventions (e.g. snake_case in Python or CamelCase in Java) will guide how you format them.
 
-
-```python
+```py
 import pandas as pd
 
 # Defining variables
 first_name = "Alex"
 number_of_attendees = 42
 empty_dataframe = pd.DataFrame()
+```
 
-
+```
 # Using variables
-print("Hi " + first_name)
+print(f"Hi {first_name}")
 number_of_attendees += 1
 ```
 
-Ideally, the purpose of variables should be clear from reading their names. In addition, the variable names should make logical sense in the context that they are used later on in the code. This removes the need for explanatory comments, as your intentions can be interpreted from the code itself (‘self-documenting’ code).
 
-## Function names
-It is good practice to name functions after the task they carry out. The reader of your code should be able to infer the purpose of the function.
+Ideally, variable names should make their purpose clear at a glance and make logical sense in the context of their use. This approach leads to self-documenting code — code that communicates intent without requiring additional comments.
+Function names
 
-Below we give some good examples:
+Functions should be named after the task they perform. The reader should be able to infer what a function does simply by reading its name.
+
+Good examples:
 
 ```r
 process_text <- function(data) {
@@ -59,10 +110,9 @@ process_text <- function(data) {
 }
 
 processed_text <- process_text("The following document was handled using...")
-
 ```
 
-You can name the function in form of a question if return value is boolean:
+If a function returns a Boolean value, phrasing it as a question can make its purpose even clearer:
 
 ```r
 are_missing_values_present <- function(data) {
@@ -74,17 +124,16 @@ are_missing_values_present <- function(data) {
 }
 ```
 
-### Which one is more readable to you?
+Which version is more readable?
 
-- Short version
- 
+Short version:
+
 ```r
 data_path <- "path/to/data"
 report_data <- generate_report(model(clean(load(data_path))))
-
 ```
 
-- More explicit version
+More explicit version:
 
 ```r
 data <- load(data_path)
@@ -93,47 +142,79 @@ model_results <- model(clean_data)
 report_data <- generate_report(model_results)
 ```
 
-## Write code that other programmers will find easy to read
+The explicit version is longer, but it’s much easier to follow and debug.
 
-There is perhaps a misconception that following style guidelines and formatting your code accordingly is the fundamental goal of writing good code in a given language.
+## Write code other programmers can easily read
 
-In reality, guidelines may encourage code-reviews to focus on style over more fundamental problems with the code. They have the potential to detract from assessment of whether the code is making the best use of a given language.
+A common misconception is that writing “good code” means strictly following a style guide.
+While style consistency is helpful, it’s not the ultimate goal. Overemphasizing formatting can distract from more important issues, like design quality or clarity.
 
-The notion of style goes beyond simple spacing or capitalisation. In the same way that knowing and using common idioms such as ‘over the moon’ or ‘cold feet’ make you seem like a more fluent speaker of English, a part of being fluent in a programming language is being able to write ‘idiomatic’ code. Idiomatic stands for ‘using, containing, or denoting expressions that are natural to a native speaker’. In Python, idiomatic approaches to writing code are commonly referred to as ‘pythonic’.
+Being fluent in a programming language means writing idiomatic code — code that feels natural and makes good use of the language’s strengths.
+In Python, for instance, idiomatic code is often called “pythonic”.
 
-This might mean simplifying complex and perhaps hard to read patterns into a simpler, but well established alternative. For example, the pieces of code below are equivalent:
+Compare the following examples:
 
-```python
-# Example 1 - very unpythonic
+```py
+# Example 1 – very unpythonic
 i = 0
 my_data = []
 while i < 100:
-  my_data += [i * i / 356]
-  i += 1
+    my_data += [i * i / 356]
+    i += 1
 
-# Example 2 - more use of Python features, such as `range` and `append`
+# Example 2 – better use of Python features
 my_data = []
 for i in range(100):
-  my_data.append(i**2 / 356)
-```
+    my_data.append(i**2 / 356)
 
-Python at its best:
+And the most Pythonic version:
 
-```python
-# Example 3 - making full use pythonic idioms, `range` with list comprehension
+# Example 3 – idiomatic Python using list comprehension
 my_data = [i**2 / 356 for i in range(100)]
-
 ```
+
+The final version is concise, expressive, and easy to read — hallmarks of idiomatic code.
 
 ## Automate style checks
 
-Following a style guide from the beginning of a project is good practice. However, checking that code continues to follow a particular style, or to fix code formatting when it doesn’t can be tedious. Hence, automated support can be sought to speed up this work, either by providing suggestions as the code is written or by reformatting your code to comply with some style.
+Following a style guide from the start of a project is good practice. However, ensuring ongoing compliance manually can be tedious.
+Automated tools can help by detecting style issues as you code or by reformatting your code automatically.
 
-See Linters and formatters for further information on automating these checks.
+See Linters and formatters for details on automating these checks.
 
+| Language |	Linters |	Formatters|
+|----|---|----|
+|R |	lintr |	formatR, styler|
+|Python |	ruff, pylint |	ruff, black|
+
+### Exercise
+
+#### Linters
+
+    Run a linter on your code to identify style issues:
+
+        R: lintr
+        Python: ruff check
+
+	Edit your code to improve its style based on the linter’s feedback.
+
+#### Formatters
+Run an autoformatter to automatically fix formatting issues:
+
+    R: styler
+
+	Python: ruff format
+
+
+If you encounter code that’s hard to read or variables that need better names, mark them for later improvement using # TODO or another consistent label.
 
 ## Don’t repeat yourself
-In the section on modular code, you were encouraged to refactor your code into more self-contained components for ease of testing, reproducibility and reusability. However, it is worth stressing that ‘quick and dirty’ solutions often involve copy-pasted code that is functionally identical. This is expected and is natural in the initial stages of a project. Nonetheless, repetition not only wastes your time, but it also makes your code more difficult to read. Consider a script that contains three copies of a similar piece of code. If the code that is used to perform the repetitive task is found to be incorrect, or if a developer wishes to modify the task being performed by this code, they must implement a similar change in each of the three copies. If only two copies were spotted and amended, there is now a bug sleeping in the code waiting to be triggered… Moreover, anyone reviewing the code would need to check that the right logic is being used three times over.
+
+During early development, it’s common to create “quick and dirty” solutions with repeated code. Over time, duplication wastes effort and makes maintenance harder.
+
+For example, imagine a script that repeats nearly identical logic three times. If you need to fix or modify that logic, you must update each copy — and missing one could introduce a bug.
+
+Repeated code:
 
 ```py
 first_ten_numbers = list(range(1, 11))
@@ -156,50 +237,28 @@ for number in third_ten_numbers:
         odd_third.append(number)
 ```
 
+Refactored version:
+
 ```py
 def get_odd(numbers):
-    """Get only the odd numbers"""
+    """Return only the odd numbers."""
     return [number for number in numbers if number % 2 == 1]
 
 first_ten_numbers = list(range(1, 11))
-second_ten_numbers = list(range(20, 21))
-third_ten_numbers = list(range(20, 21))
+second_ten_numbers = list(range(10, 21))
+third_ten_numbers = list(range(20, 31))
 
 odd_first = get_odd(first_ten_numbers)
 odd_second = get_odd(second_ten_numbers)
 odd_third = get_odd(third_ten_numbers)
 ```
 
-### More information
-https://best-practice-and-impact.github.io/qa-of-code-guidance/readable_code.html
+This refactored code is cleaner, shorter, and easier to maintain.
 
-### Presenter slides
+You can learn more about self-contained components of code in the [tutorial on modular code](https://best-practice-and-impact.github.io/qa-of-code-guidance/readable_code.html#don-t-repeat-yourself).
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_cq_readability.html" title="Code Readability" width="960" height="540">
-</iframe>
-```
+## Presenter slides
+- [HTML](../slides/slides_cq_readability.qmd)
 
-
-
-### Exercise
-
-* Run a _linter_ through your code and identify style issues:
-
-    * **R:** [`lintr`](https://lintr.r-lib.org/)
-    * **Python:** [`ruff check`](https://docs.astral.sh/ruff/)
-
-* Edit your code to improve the style compatibility, based on the feedback from your linter.
-
-* Run an _autoformatter_ through your code to automatically fix issues instead of simply flagging them: 
-
-    * **R:** [`styler`](https://styler.r-lib.org/)
-    * **Python:** [`ruff format`](https://docs.astral.sh/ruff/)
-
-::: {.callout-tip}
-## Tip
-
-You can use git commands to see the changes made by the autoformatter. Try `git diff`.
-:::
-
-* If you find code that is hard to read, or variable names that need adjusting, make a note to work on it. Use #TODO or another consistent label so you can extract these notes later.
+### References
+ [Analysis Function](https://best-practice-and-impact.github.io/qa-of-code-guidance/)
