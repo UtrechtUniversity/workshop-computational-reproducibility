@@ -179,3 +179,10 @@ Code tells you how something works.
 Comments and docstrings tell you why and what it does.
 
 Writing both makes your code understandable, maintainable, and reproducible — the foundation of good scientific and collaborative software.
+
+## Presenter slides
+- [HTML](../slides/sslides_code-documentation.qmd)
+
+### References
+ - [CodeRefinery](https://coderefinery.github.io/documentation),
+ - [Best Practice and Impact](https://best-practice-and-impact.github.io/qa-of-code-guidance/code_documentation.html)
