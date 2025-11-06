@@ -1,27 +1,181 @@
-# Comments & Docstrings
+# Comments and Docstrings
 
-### Video
+## Overview
 
-{{< video https://vimeo.com/463992354 >}}
+| Questions                                    | Objectives                                                                     | Key Concepts / Tools                                   |
+|----------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------|
+| What are comments?                           | Understand how to annotate code for clarity and collaboration.                | Inline comments (`#`), code readability                |
+| When should I use comments?                  | Learn when comments add value and when they are unnecessary.                  | “Why” vs “How” comments, avoiding redundant comments   |
+| What are docstrings?                         | Learn how to document functions, classes, and modules for users.              | Docstrings (`"""..."""`), structured documentation     |
+| How do comments differ from docstrings?      | Distinguish between explanations for developers and documentation for users.  | Purpose, placement, and scope                          |
+| How can I generate documentation from code?  | Use tools that turn docstrings into formatted help pages or manuals.          | `Sphinx` (Python), `roxygen2` (R), `docstring` package |
+| What makes good documentation?               | Write concise, up-to-date, and purpose-driven explanations.                   | Consistency, clarity, relevance                        |
 
-### Slides
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_code-documentation.html" title="Version Control" width="960" height="540">
-</iframe>
+## Writing Effective Comments and Docstrings
+
+Good code is not just about logic — it’s about **communication**.  
+Your future self and your collaborators will thank you for leaving clear explanations in the form of **comments** and **docstrings**.
+
+
+### Comments
+
+Comments are short notes written **directly in your source code**.  
+They explain what’s happening, why it’s done a certain way, or clarify tricky sections.
+
+#### Good comments
+- Explain *why* the code exists, not just *what* it does.
+- Clarify complex logic or unexpected decisions.
+- Are short, relevant, and kept up to date.
+
+#### Bad comments
+- Repeat what the code already says.
+- Describe *how* the code works in plain English.
+- Leave dead (“zombie”) or outdated code commented out.
+- Replace version control (e.g., `# changed 2020-07-03`).
+
+#### Example
+
+```python
+# GOOD: explains reasoning
+# Cap number of retries to prevent infinite loops on network failures
+max_retries = min(requested_retries, 5)
+
+# BAD: restates code
+# Add 5 to x
+x = x + 5
 ```
 
-### Exercise
+**Write comments for people, not for the computer.**
 
-* Add a docstring to a function, preferably the last function you worked on (so it's fresh in your memory).
-  _Keep in mind: what does my user need to know when they are working with this function?_
+### Docstrings
 
-* Grab a limited chunk of code to work on, and look at the existing comments.
-  Can you replace a 'how' comment with a 'why' comment?
-  _Think: what is the purpose of this code? Rather than: this is how this code works._
+While comments explain pieces of code, docstrings describe interfaces: functions, classes, and modules that users interact with.
 
-* Are there elements in your chunk that are currently without comments that would benefit from clarification? 
-  _Try to comment on the thought behind the code rather than simply translating its process in English._
+A docstring is a special multiline string (""" ... """) placed immediately after a definition.
+It is automatically available through help(), IDE tooltips, and documentation generators like Sphinx.
 
-* Can you delete superfluous comments or zombie code?
-    _If the code is clear enough without the comment, it's better to remove it._
+#### Docstrings in Python
+
+```
+def multiply(x, y):
+    """
+    Multiply two numbers.
+
+    Parameters
+    ----------
+    x : int or float
+        The first value.
+    y : int or float
+        The second value.
+
+    Returns
+    -------
+    int or float
+        The product of x and y.
+    """
+    return x * y
+
+```
+
+You can view this documentation in Python with:
+
+```
+help(multiply)
+```
+#### Docstrings in R
+
+Just like in Python, you can attach **documentation directly to functions** in R.  
+However, R does not natively support docstrings — instead, you use packages that interpret special comments and generate documentation automatically.
+
+There are **two main approaches**:
+
+1. The `docstring` Package (for inline documentation)
+
+ If you want a simple way to add docstrings directly inside your script (without creating an R package), you can use the [`docstring`](https://cran.r-project.org/package=docstring) package.
+
+ #### Example
+
+ ```r
+ library(docstring)
+
+ multiply <- function(x, y) {
+ #' @title Multiply two numbers
+ #' @description This function takes two input numbers and multiplies them.
+ #' It returns the multiplied result.
+ #' @param x The first number
+ #' @param y The second number
+ #' @return The product of x and y
+
+  return(x * y)
+ }
+
+ # You can then view the documentation interactively:
+ ?multiply
+ ```
+
+2. The `roxygen2` Package (for R Packages)
+
+ For R packages, the most common and powerful way to use docstrings is through [roxygen2](https://roxygen2.r-lib.org/). It reads structured comments (starting with #') and automatically generates help files in the man/ directory of your package.
+ 
+  #### Example
+  
+  ```
+  #' Multiply two numbers
+  #'
+  #' This function takes two input numbers and multiplies them together.
+  #'
+  #' @param x The first number.
+  #' @param y The second number.
+  #'
+  #' @return The product of \code{x} and \code{y}.
+  #' @examples
+  #' multiply(2, 3)
+  #' multiply(5, 0.5)
+  #'
+  #' @export
+  multiply <- function(x, y) {
+    x * y
+  }
+ ```
+ When you run:
+
+ ```
+ roxygen2::roxygenise()
+ ```
+ Roxygen2 automatically generates a help file (man/multiply.Rd) that can be accessed using:
+ 
+ ```
+ ?multiply
+ ```
+
+#### Why docstrings matter
+
+- They turn your code into self-documenting software.
+- Tools like Sphinx, pdoc, or Doxygen can build HTML or PDF docs automatically.
+- They help IDEs show contextual help as you type.
+- They make functions easier to reuse and test.
+
+### Best Practices Summary
+
+| Type          | Used for                                       | Style                   | Example                        |
+| ------------- | ---------------------------------------------- | ----------------------- | ------------------------------ |
+| **Comment**   | Explaining *why* or clarifying *complex logic* | `# single line`         | `# Prevent division by zero`   |
+| **Docstring** | Documenting functions, classes, or modules     | `""" triple quotes """` | See `multiply()` example above |
+
+### Tips
+
+Write comments as if you’re explaining the code to a new team member.
+
+Keep comments close to the code they explain.
+
+Update docstrings whenever the function changes.
+
+Use consistent formatting.
+
+**Key Takeaway**
+
+Code tells you how something works.
+Comments and docstrings tell you why and what it does.
+
+Writing both makes your code understandable, maintainable, and reproducible — the foundation of good scientific and collaborative software.
