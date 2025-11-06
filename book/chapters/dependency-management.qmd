@@ -1,24 +1,243 @@
 # Dependency Management
 
-### Video
+# Overview
 
-{{< video https://vimeo.com/464028630 >}}
+| Questions                                         | Objectives                                                                         | Key Concepts / Tools                                       |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| What are dependencies?                            | Understand that packages, libraries, and language versions affect reproducibility. | Dependencies, version compatibility                        |
+| Why declare dependencies?                         | Communicate project requirements clearly to users.                                 | README, documentation                                      |
+| How do I make my project reproducible?            | Create reproducible environments and manage versions.                              | `uv`, `conda`, `renv`, environment files, lockfiles        |
+| How far should I go in reproducibility?           | Balance ease of use and full reproducibility.                                      | README, environment files, containers (Docker/Singularity) |
+| How do I keep environments under version control? | Track changes to dependencies and environments in git.                             | `git add`, `commit`, `push`, lockfiles                     |
+   |
 
-### Slides
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_dependencies.html" title="Version Control" width="960" height="540">
-</iframe>
+So now you’ve built a project that meets several key standards of good research software:
+
+-  Your project structure is clear and accessible.
+- Your code is readable and encourages reuse.
+- The project is under version control.
+ It has a GitHub landing page that provides essential information for users.
+
+**But are you done?**
+Well, it depends. Even with a well-organized and documented project, reproducibility can be hindered by a crucial factor: dependencies.
+
+
+## 2. Dependencies
+
+Dependencies—external software packages or libraries your project relies on—are essential for your code to run.
+However, they can also create major obstacles for users trying to reproduce your work.
+
+For example, consider this simple Python 2.7 code:
+
+```python
+print "Hello world!"
 ```
 
-[Slides](../slides/slides_dependencies.qmd)
+This won’t run in Python 3 anymore. The correct syntax is:
 
-### Exercise
-Address dependencies and language versions in your README.
+```python
+print("Hello world!")
+```
 
-* What version of your coding language is required?
+A small version difference can render code unusable. Declaring dependencies (and their versions) is therefore vital for reproducibility.
 
-* Which packages does a user need to install before running your project?
-  What versions?
 
-* Can you provide their installation instructions?
+## 3. The Reproducibility Trade-Off
+
+How far should you go to ensure reproducibility?
+
+![](../images/dependencytradeoff.svg)
+
+Reproducibility is a spectrum. On one end, you simply document what works for you. On the other, you create fully encapsulated environments that anyone can reproduce exactly.
+
+* **Due diligence** starts with declaring your dependencies.
+* You can strengthen this by using a package or environment manager such as **uv** (for Python) or **conda**.
+* For R, use tools like [**renv**](https://rstudio.github.io/renv/).
+
+For even greater reproducibility, consider containerization tools such as **Docker** or **Singularity**—they’re not as intimidating as they sound.
+Alternatively, you can host reproducible environments online with platforms such as [**CodeOcean**](https://codeocean.com) (commercial) or [**Binder**](https://mybinder.org) (free).
+
+
+## 4. Declaring Dependencies
+
+At a minimum, you should declare—ideally in your project’s **README**—how your setup works for you:
+
+* What programming language and version do you use?
+* Which packages or libraries are required?
+* Which operating system are you on, and does your code work elsewhere?
+
+A better approach is to prepare a file that an environment manager can use.
+This is a **single file describing all necessary dependencies**, allowing others to install them in one step.
+
+Common examples include:
+
+* `requirements.txt` (Python)
+* `environment.yml` (Conda)
+* `pyproject.toml` (Python)
+
+Store this file in your repository’s root directory.
+
+## 5. Dependency Managers
+
+### `uv` (for Python)
+
+[`uv`](https://docs.astral.sh/uv/) is a fast, Rust-based package and project manager for Python.
+It allows you to:
+
+* Create isolated environments for your projects
+* Manage dependencies via `pyproject.toml` and lock files
+* Install packages efficiently
+
+Below we give an example how to create a python environment based on python 3.11, we initialize the nevironment and install a certain version of the python package `pandas`.
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv venv --python 3.11
+uv init
+uv add 'pandas==1.5.3'
+```
+
+---
+
+### `conda` (for Python and R)
+
+[`conda`](https://docs.conda.io/) helps you create and switch between isolated environments.
+It can store your setup in an `environment.yml` file for easy sharing and reproducibility.
+
+Below we give the example from above, but with `conda`.
+
+```bash
+conda create -n myenv python=3.11
+conda activate myenv
+conda install pandas=1.5.3
+```
+
+Learn more in the [Conda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) or try a [quick intro tutorial](https://geohackweek.github.io/Introductory/01-conda-tutorial/).
+
+---
+
+### `renv` (for R)
+
+[`renv`](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/) is an R package that manages project environments.
+It allows you to save and restore the exact versions of your R packages.
+
+Basic commands:
+
+```r
+install.packages("renv")  # Install renv
+renv::init()              # Activate renv in your project
+renv::snapshot()          # Save the current state
+renv::restore()           # Restore from the lockfile
+```
+
+## Lock files
+
+A lock file is a snapshot of your project’s exact software environment — it records the specific versions of all dependencies (and their sub-dependencies) that were installed when the project was last configured.
+Its purpose is to make your project fully reproducible:
+anyone can recreate the exact same environment later, even if package versions have changed upstream.
+Think of it as a “frozen recipe” for your software setup.
+
+How to Create a Lock File?
+This depends on your environment manager:
+
+### `uv`
+
+```
+# Create an environment
+uv venv --python 3.11
+uv init
+
+# Add dependencies
+uv add pandas numpy
+
+# Generate a lock file
+uv lock
+```
+
+Restore the environment with:
+
+```
+uv sync
+```
+
+### `conda`
+
+```
+# After creating and activating your environment
+conda create -n myenv python=3.11 pandas=1.5.3 numpy=1.23.5
+conda activate myenv
+
+# Export to a lock file
+conda list --explicit > conda-lock.txt
+```
+
+Restore the environment with:
+
+```
+conda create --name myenv --file conda-lock.yml
+```
+
+### `renv`
+
+```
+# Initialize renv in your project
+renv::init()
+
+# Install your project packages as usual
+install.packages(c("dplyr", "ggplot2"))
+
+# Save the exact state of your environment
+renv::snapshot()
+```
+This creates an `renv.lock` file in your project folder.
+
+You can restore the environment with
+
+```
+renv::restore()
+```
+
+
+## 6. Summary
+
+![](../images/dependencytradeoff.svg)
+
+| Level  | Practice                            | Description                                     |
+| ------ | ----------------------------------- | ----------------------------------------------- |
+| Good   | Declare dependencies in your README | Tell users what your project needs.             |
+| Better | Use an environment file             | Automate dependency installation.               |
+| Best   | Use a lock file                     | Fully reproducible environments across systems. |
+
+
+## 7. Your Turn
+
+Try improving your project’s reproducibility:
+
+1. **Update your README**
+
+   * Specify your programming language and version.
+   * List required packages or libraries.
+   * Include installation instructions if possible.
+
+2. **If using Python:**
+
+   * Generate an environment and store the `environment.yml` (or `pyproject.toml`) in your project root.
+
+3. **If using R:**
+
+   * Install `renv` and initialize it to create a lockfile in your project root.
+
+4. **Update your repository:**
+
+```bash
+git add [your changed files]
+git commit -m "Add dependency information"
+git push
+```
+
+# Presenter slides
+[html](../slides/slides_dependencies.qmd)
+
+# References
+[Analysis Function](https://best-practice-and-impact.github.io/qa-of-code-guidance/)
