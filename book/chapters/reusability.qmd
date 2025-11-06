@@ -105,3 +105,10 @@ Visualize your code.
 * Use any tool that works for you (powerpoint, word, paint, or good old pencils and paper)
 
 * During this exercise, try to identify yellow parts that can be structured and turned into (a) function(s). Label them, or rewrite them if you have time.
+
+## Presenter slides
+- [HTML](../slides/slides_cq_reusability.qmd)
+
+### References
+[Best Practices for Writing Reproducible Code](https://bvreede.github.io/presentations/presentations/2020-09-17_BestPractices-lecture.html#1)  
+[Analysis Function](https://best-practice-and-impact.github.io/qa-of-code-guidance/)
