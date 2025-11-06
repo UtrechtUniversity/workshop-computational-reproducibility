@@ -4,19 +4,97 @@ format: "html"
 
 # Reusability
 
-### Video
+## Overview
+| Questions | Objectives |
+|-----------|-------------|
+| What is code reusability and why should I use it? | Understand the concept and benefits of writing reusable, modular code. |
+| What are good practices for writing reusable code? | Learn general guidelines and the role of functions in writing reusable code. |
+| How can I improve reusability in my own code? | Practice visualizing and refactoring your own scripts. |
 
-{{< video https://vimeo.com/463647105 >}}
+## Concept: What is Code Reusability?
 
+Code reusability means writing code that can be used again, either within the same project or in future work, without needing to rewrite it.
 
-### Slides
+Reusable code is usually modular: it’s built from small, independent pieces that each do one clear job. This makes your scripts easier to understand, maintain, and adapt.
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_cq_reusability.html" title="Code Reusability" width="960" height="540">
-</iframe>
+**Benefits of reusable code:**
+- **Less code written, more work done**  
+Reusable code saves time. Once you’ve written and tested a piece of logic, you can call it again instead of repeating or copying it.
+- **Writing a tool while doing your analysis**  
+When you notice yourself performing the same task more than once (like loading data or generating plots), that’s a great opportunity to turn that code into a reusable tool or function.
+- **Stop reinventing the wheel!**
+Many coding challenges are shared across projects. Reusing existing, well-tested scripts or functions — whether your own or from trusted sources — saves effort and reduces the likelihood of making mistakes.
+
+## Guidelines for Reusable Code
+
+- **Separate code and data:** 
+  - data is specific, code need not be  
+  - consider using a config file for project-specific (meta)data  
+  - but **do** hard-code unchanging variables, e.g.  
+    `gravity = 9.80665`, **once**.
+
+- **Do One Thing (and do it well):**    
+  - One function for one purpose  
+  - One class for one purpose  
+  - One script for one purpose (no copy-pasting to recycle it!)
+
+- **Don't Repeat Yourself, use functions**: 
+  - Write routines in functions, i.e. code you reuse often  
+  - Identify potential functions by action: functions perform tasks (e.g. sorting, plotting, saving a file, transforming data...)
+
+## Code Reusability Through Functions
+
+At the beginning of an analysis, code is often copied and pasted to get it working quickly. However, as your project grows, it is time-consuming to change the same code in multiple places and mistakes are easily made. 
+
+A better approach is to take repetitive blocks of code and turn them into **functions**.  
+
+- **Functions are smaller code units responsible for one task.**  
+Create functions that are clear and focused. If a function becomes long or needs many arguments, it’s usually a sign that it should be split into smaller pieces. Smaller functions are easier to understand, test, and reuse, and can be combined to build more complex pipeline.
+
+- **Functions are meant to be reused.**  
+Write functions for tasks you expect to repeat, not for one-time calculations.
+
+- **Functions accept arguments (though they may also be empty!).**  
+Arguments are the inputs you pass into a function when you call it. They make your code flexible, because the same function can be used on different data or with different settings.
+
+- **What arguments a function accepts is defined by its parameters.**  
+Parameters are the variable names listed in a function’s definition, they specify what arguments/inputs the function can take.
+
+- **Functions should be self-contained.**  
+A function should only use the data and variables explicitly passed to it as arguments. It shouldn’t rely on, or modify, external objects. Running a function with the same inputs should always produce the same outputs.
+
+> 💡 Functions do not necessarily make code shorter (at first)!
+
+**Compare:**
+
+```r
+indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
+indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
+```
+```r
+def indexString(inputList, z):
+    zIndex = [n for n,i in enumerate(inputList) if i == z]
+    return zIndex
+
+indexATG = indexString(myList, 'ATG')
+indexAAG = indexString(myList, 'AAG')
 ```
 
-[Slides](../slides/slides_cq_reusability.qmd)
+## Think in building blocks!
+
+<div style="display: flex; justify-content: space-around; align-items: flex-start; text-align: center;">
+
+  <div style="width:45%;">
+    <p>Small, cohesive units are much better than...</p>
+    <img src="../images/tetris.svg" width="80%"/>
+  </div>
+
+  <div style="width:45%;">
+    <p>...a customized behemoth!</p>
+    <img src="../images/tetris_help.svg" width="60%"/>
+  </div>
+
+</div>
 
 ### Exercise
 
@@ -27,3 +105,10 @@ Visualize your code.
 * Use any tool that works for you (powerpoint, word, paint, or good old pencils and paper)
 
 * During this exercise, try to identify yellow parts that can be structured and turned into (a) function(s). Label them, or rewrite them if you have time.
+
+## Presenter slides
+- [HTML](../slides/slides_cq_reusability.qmd)
+
+### References
+[Best Practices for Writing Reproducible Code](https://bvreede.github.io/presentations/presentations/2020-09-17_BestPractices-lecture.html#1)  
+[Analysis Function](https://best-practice-and-impact.github.io/qa-of-code-guidance/)
