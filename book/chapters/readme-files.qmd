@@ -1,31 +1,150 @@
 # README Files
 
-### Video
+## Overview
 
-{{< video https://vimeo.com/464027978 >}}
+| Questions                  | Objectives                                      | Key Concepts / Tools                     |
+|-----------------------------|-------------------------------------------------|------------------------------------------|
+| What is a README?           | Introduce your project to users.                | `README.md`, Markdown                    |
+| Why include one?            | Explain purpose, setup, and usage clearly.      | Overview, installation, usage            |
+| What should it contain?     | Cover the essentials users need to get started. | Install guide, license, contact, credits |
+| How to write it well?       | Use clear structure and Markdown formatting.    | Headings, code blocks, links, images     |
+| How to share it?            | Display it automatically on GitHub.             | File at repo root, GitHub rendering      |
 
-```{=html}
-<iframe class="slide-deck" src="../slides/slides_project-documentation.html" title="Version Control" width="960" height="540">
-</iframe>
+
+## What Is a README?
+
+A **README** file is the first point of contact between your project and its users.  
+It tells people **what your project does**, **how to use it**, and **why it matters** — before they ever look at your code.
+
+The file is usually called `README.md` (for Markdown format) and lives at the **root** of your repository.  
+Platforms like GitHub automatically display it on your project’s homepage.
+
+---
+
+## Why You Need a README
+
+A clear, well-structured README helps:
+
+- 🧭 **Users** understand what your project is about and how to get started.  
+- 🧑‍💻 **Developers** reproduce your work and contribute to it.  
+- 🧠 **You** remember how your project works months or years later.
+
+In short, your README is your **project’s front door**.
+
+---
+
+## What to Include in a README
+
+There’s no strict formula, but most READMEs include the following sections:
+
+| Section | Purpose |
+|----------|----------|
+| **Project Title & Description** | What the project does and why it exists. |
+| **Installation Instructions** | How to install dependencies and get it running. |
+| **Usage** | How to use the tool or run key scripts. |
+| **Examples / Demos** | Example commands or screenshots. |
+| **License** | Terms under which others can use or modify your code. |
+| **Contributors / Contact** | Who to contact or credit. |
+
+---
+
+### Example Structure
+
+```markdown
+# MyProject: A Tool for Analyzing Cat Photos 🐱
+
+MyProject helps data scientists classify and visualize cat images using deep learning.
+
+## Installation
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/yourname/MyProject.git
+cd MyProject
+pip install -r requirements.txt
+
+Usage
+
+Run the main script on your dataset:
+
+python classify_cats.py --input data/cats/
+
+Example Output
+
+License
+
+MIT License © 2025 Your Name
 ```
 
-### Slides
+> 🪶 Tip: Start small — it’s better to have a short, clear README than none at all.
 
-[Slides](../slides/slides_project-documentation.qmd)
+---
 
-### Exercise
+## How to Write It (and Keep It Useful)
 
-Edit your README file.
-Take your time. This is important!
+### ✅ Do:
+- Use **plain language** — assume the reader doesn’t know your project yet.
+- Include **copy-paste-ready commands** for installation and usage.
+- Keep sections short and **visually structured** with Markdown headers.
+- Add **links** to more detailed docs (if available).
+- Update it whenever your project changes.
 
-Make sure to include the following information:
+### ❌ Don’t:
+- Copy-paste long code blocks without explanation.
+- Assume users know your environment or setup.
+- Leave outdated or incomplete instructions.
 
-* What does your project do?
+---
 
-* How does the user access your project? (E.g. download, or clone with `git clone`...)
+## Markdown Basics for READMEs
 
-* How does the user call the main script(s) that should be executed?
+Markdown makes it easy to format text cleanly:
 
-* And perhaps any other elements you are inspired to add (check out the examples!)
+| Element | Syntax | Example |
+|----------|---------|----------|
+| Heading | `#`, `##`, `###` | `## Installation` |
+| Bold | `**text**` | **important** |
+| Code | `` `code` `` or code blocks | `pip install` |
+| Link | `[name](url)` | [GitHub](https://github.com) |
+| Image | `![alt](path)` | `![logo](logo.png)` |
+| List | `-` or `1.` | `- item` |
 
-_NB: We will have another chance to take a look at dependencies and prerequisites, but if you have opportunity to add these here: please do!_
+---
+
+## Examples
+
+- https://github.com/asreview/asreview
+- https://github.com/sodascience/metasyn
+
+## Best Practices
+
+| Tip | Why It Matters |
+|-----|----------------|
+| Start with **why** | Users want to know what problem it solves. |
+| Be **concise** | Keep it readable — avoid long blocks of text. |
+| Include **working commands** | Ensure examples actually run. |
+| Keep it **updated** | Outdated READMEs cause confusion. |
+| Add **a license** | Clarifies how others can use your work. |
+
+---
+
+## Your Turn 💪
+
+**Edit your project’s `README.md`.**
+
+Make sure to include:
+- A short description of your project.  
+- Installation and usage instructions.  
+- Example commands or screenshots.  
+- License and contact information.
+
+Then:
+1. Commit your changes (`git add README.md && git commit -m "Update README"`).  
+2. Push to GitHub and admire your professional-looking front page!
+
+## Presenter slides
+- [HTML](../slides/slides_project-documentation.qmd)
+
+### References
+ - [CodeRefinery](https://coderefinery.github.io/documentation/writing-readme-files/#),
+ - [Best Practice and Impact](https://best-practice-and-impact.github.io/qa-of-code-guidance/project_documentation.html)
+
