@@ -181,7 +181,7 @@ Comments and docstrings tell you why and what it does.
 Writing both makes your code understandable, maintainable, and reproducible — the foundation of good scientific and collaborative software.
 
 ## Presenter slides
-- [HTML](../slides/sslides_code-documentation.qmd)
+- [HTML](../slides/slides_code-documentation.qmd)
 
 ### References
  - [CodeRefinery](https://coderefinery.github.io/documentation),
