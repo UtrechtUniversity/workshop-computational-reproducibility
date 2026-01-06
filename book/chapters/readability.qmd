@@ -7,7 +7,7 @@ format: "html"
 | Questions                            | Objectives                                                | Key Concepts / Tools       |
 | ------------------------------------ | --------------------------------------------------------- | -------------------------- |
 | What is clean code?                  | Write code that is easy to read and maintain.             | Readability, clean code    |
-| How do good names improve code?      | Use clear, descriptive names for variables and functions. | Naming conventions         |
+| How do good names improve code readability?      | Use clear, descriptive names for variables and functions. | Naming conventions         |
 | How do I write idiomatic code?       | Apply language-specific best practices.                   | Pythonic style, idioms     |
 | How do I keep code style consistent? | Automate style checks and formatting.                     | Linters, formatters        |
 | Why avoid repeating code?            | Reduce redundancy and improve maintainability.            | DRY principle, refactoring |
@@ -16,7 +16,7 @@ format: "html"
 # Readability
 
 When we write code, it’s important to remember that someone else — or even our future selves — will need to understand it later.  
-Code that is easy to read and understand is often called **clean code**. Clean code makes it easier to follow a program’s logic by minimizing confusion and ambiguity.
+Code that is easy to read and understand is often called **clean code**. Clean code helps programmers easily understand what a program is doing by applying principles that make the code more organized, intuitive, and easier to work with over time. This not only helps to inspire trust when publishing clean code with your manuscript, it will also save you (a lot of) time when revisiting code e.g. when you need to run additional analysis or make changes.
 
 In this section, we’ll introduce key principles and tools that will help you write code that is both **clean** and **maintainable**.
 
@@ -31,17 +31,17 @@ Think about your own experience reusing code:
 ## The main aspects of clean code
 
 1. **Readable**  
-   The code clearly communicates its purpose.  
-   Variable, function, and class names are meaningful (`calculateTotal()` is better than `doIt()`).  
+   The code clearly communicates its purpose by using meaningful and descriptive variable and function names;
+   `calculateTotal()` is better than `doIt()`.
    You should be able to understand what the code does without relying heavily on comments.
 
 2. **Simple and focused**  
-   Each function or class does **one thing** and does it well (the *Single Responsibility Principle*).  
+   Each function or class does **one thing** and does it well.  
    Avoid unnecessary complexity or “clever” shortcuts — clarity always wins over cleverness.
 
 3. **DRY (Don’t Repeat Yourself)**  
    Avoid code duplication.  
-   Extract shared logic into reusable functions or modules.
+   Big functions or modules are hard to reuse. Do you have scripts/modules or functions that are doing (partly) similar things? Try to create reusable functions for the shared tasks!
 
 4. **Well-structured**  
    Maintain consistent formatting and indentation.  
