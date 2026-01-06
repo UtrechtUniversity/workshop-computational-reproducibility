@@ -56,7 +56,7 @@ Reproducibility is a spectrum. On one end, you simply document what works for yo
 * For R, use tools like [**renv**](https://rstudio.github.io/renv/).
 
 For even greater reproducibility, consider containerization tools such as **Docker** or **Singularity**—they’re not as intimidating as they sound.
-Alternatively, you can host reproducible environments online with platforms such as [**CodeOcean**](https://codeocean.com) (commercial) or [**Binder**](https://mybinder.org) (free).
+Alternatively, you can host reproducible environments online with platforms such as [**Binder**](https://mybinder.org), [**CodeOcean**](https://codeocean.com) or [**Colab**](https://colab.research.google.com). How far you go is a trade-off between time investment and ease of use, and depends on your goals.
 
 
 ## 4. Declaring Dependencies
@@ -67,8 +67,9 @@ At a minimum, you should declare—ideally in your project’s **README**—how 
 * Which packages or libraries are required?
 * Which operating system are you on, and does your code work elsewhere?
 
-A better approach is to prepare a file that an environment manager can use.
-This is a **single file describing all necessary dependencies**, allowing others to install them in one step.
+This is very little work, and with that information, you give users the required information to try to mimic your setup.
+
+You make it easier for others to mimic your setup if you prepare a file that an environment manager can use to install all the necessary dependencies in one step. This is a **single file describing all necessary dependencies**.
 
 Common examples include:
 
@@ -82,27 +83,34 @@ Store this file in your repository’s root directory.
 
 ### `uv` (for Python)
 
-[`uv`](https://docs.astral.sh/uv/) is a fast, Rust-based package and project manager for Python.
+[`uv`](https://docs.astral.sh/uv/) is a fast, Rust-based package and project manager for Python. It is relatively new, increasingly popular and our recommendation.
+
 It allows you to:
 
 * Create isolated environments for your projects
 * Manage dependencies via `pyproject.toml` and lock files
 * Install packages efficiently
 
-Below we give an example how to create a python environment based on python 3.11, we initialize the nevironment and install a certain version of the python package `pandas`.
+Below we give an example how to create a python environment based on python 3.11, we initialize the environment and install a certain version of the python package `pandas`.
 
 ```bash
+# Install uv in macOS and linux, see below for windows
 curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Create environment
 uv venv --python 3.11
 uv init
 uv add 'pandas==1.5.3'
 ```
+::: {.callout-note}
+If you are working on windows, check the [installation instructions](https://docs.astral.sh/uv/getting-started/installation/)
+:::
 
 ---
 
 ### `conda` (for Python and R)
 
-[`conda`](https://docs.conda.io/) helps you create and switch between isolated environments.
+[`conda`](https://docs.conda.io/) has been around for years and similar to `uv`, it helps you create and switch between isolated environments.
 It can store your setup in an `environment.yml` file for easy sharing and reproducibility.
 
 Below we give the example from above, but with `conda`.
@@ -119,8 +127,7 @@ Learn more in the [Conda documentation](https://docs.conda.io/projects/conda/en/
 
 ### `renv` (for R)
 
-[`renv`](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/) is an R package that manages project environments.
-It allows you to save and restore the exact versions of your R packages.
+[`renv`](https://blog.rstudio.com/2019/11/06/renv-project-environments-for-r/) is an R package that manages environments for R projects. It allows you to save and restore the exact versions of your R packages, and it works well with the [projects feature of RStudio](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects).
 
 Basic commands:
 
@@ -222,7 +229,7 @@ Try improving your project’s reproducibility:
 
 2. **If using Python:**
 
-   * Generate an environment and store the `environment.yml` (or `pyproject.toml`) in your project root.
+   * Generate an environment and store the `pyproject.toml` (or `environment.yml`) in your project root.
 
 3. **If using R:**
 
@@ -237,6 +244,12 @@ git push
 ```
 
 # Presenter slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_dependencies.html" title="Dependencies" width="960" height="540">
+</iframe>
+```
+
 [html](../slides/slides_dependencies.qmd)
 
 # References
