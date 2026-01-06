@@ -29,7 +29,7 @@ A clear, well-structured README helps:
 - 🧑‍💻 **Developers** reproduce your work and contribute to it.  
 - 🧠 **You** remember how your project works months or years later.
 
-In short, your README is your **project’s front door**.
+In short, your README is your **project’s front door**. Don't take this lightly, people will use your readme to decide if they want to explore your project further. Make sure the readme is to the point and that it looks attractive and well maintained!
 
 ---
 
@@ -87,11 +87,14 @@ MIT License © 2025 Your Name
 - Keep sections short and **visually structured** with Markdown headers.
 - Add **links** to more detailed docs (if available).
 - Update it whenever your project changes.
+- Use **visuals** like images or screenshots to **illustrate** your work, but don’t overdo it.
+- Use **badges** e.g. to share information (e.g. build or test status, license) or link to other resources (e.g. a DOI, or contact information) in visual way.
 
 ### ❌ Don’t:
 - Copy-paste long code blocks without explanation.
 - Assume users know your environment or setup.
 - Leave outdated or incomplete instructions.
+- Watch out for jargon!
 
 ---
 
@@ -142,7 +145,15 @@ Then:
 2. Push to GitHub and admire your professional-looking front page!
 
 ## Presenter slides
+
+
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_project-documentation.html" title="Documentation" width="960" height="540">
+</iframe>
+```
+
 - [HTML](../slides/slides_project-documentation.qmd)
+
 
 ### References
  - [CodeRefinery](https://coderefinery.github.io/documentation/writing-readme-files/#),

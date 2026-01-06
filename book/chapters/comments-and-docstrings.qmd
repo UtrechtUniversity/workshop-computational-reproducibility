@@ -50,10 +50,9 @@ x = x + 5
 
 ### Docstrings
 
-While comments explain pieces of code, docstrings describe interfaces: functions, classes, and modules that users interact with.
+While comments explain pieces of code, docstrings describe functions, classes, and modules.
 
-A docstring is a special multiline string (""" ... """) placed immediately after a definition.
-It is automatically available through help(), IDE tooltips, and documentation generators like Sphinx.
+A docstring is a special formatted *comment* placed immediately after the function definition. Docstrings may be used to explain what a function does, how to use it, what input it requires, and what output it returns. Sometimes they also provide examples of usage. Since they are part of the code, people looking at the code will be able to read what the function does, however, tools exist to generate help and documentation pages from docstrings. Which means this information is automatically available through help(), IDE tooltips, and documentation generators like Sphinx.
 
 #### Docstrings in Python
 
@@ -173,14 +172,24 @@ Update docstrings whenever the function changes.
 
 Use consistent formatting.
 
+Writing docstrings can be tedious, however coding assistants are great for these types of tedious and repetitive tasks.
+
 **Key Takeaway**
 
 Code tells you how something works.
-Comments and docstrings tell you why and what it does.
+Comments help to explain sections that are not clear from the code itself.
+Docstrings tell what functions, classes, and modules do and how to use them.
 
 Writing both makes your code understandable, maintainable, and reproducible — the foundation of good scientific and collaborative software.
 
 ## Presenter slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_code-documentation.html" title="Documentation" width="960" height="540">
+</iframe>
+```
+
+
 - [HTML](../slides/slides_code-documentation.qmd)
 
 ### References
