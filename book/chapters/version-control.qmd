@@ -267,16 +267,18 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
 
 ### Exercise
 
-* After moving files into your local repository on your computer, run `git status` to see what Git thinks has changed.
+* Move some files from on of your projects into your local repository on your computer, run `git status` to see what Git thinks has changed.
 
-* Please note: are there (temporary) files you do not wish to track?
-  Add them to the `.gitignore` file.
-  Consider a `.gitignore` template for your language: examples on [this github repo](https://github.com/github/gitignore).
+* Are there (temporary) files you do not wish to track? Add them to the `.gitignore` file.
+  If the file is not already there in your repository, create an empty text file and name it `.gitignore`. Start with a `.gitignore` template for your language and copy the contents to your new file: examples on [this github repo](https://github.com/github/gitignore).
+  Then add the name of one of your files to the `.gitignore` file.
+  Run `git status` again.
 
-
+* Add the files that you want to save in your new snapshot using `git add` and `git commit`
+  
 * Run `git log` to see the history of your project.
 
-* Can you use Git and push to Github from your IDE?
+* Can you use Git and push to Github from your IDE (e.g. Visual Studio Code, RStudio)? Try it!
 
 * Experiment with editing and committing on GitHub itself (e.g. add something to the README file). You can then 'download' your changes to your local repository using `git pull`.
 
@@ -290,6 +292,12 @@ You do not need to upload this file to the remote repository. the ".gitignore" f
 - [GitHub branches and issues](git-advanced-branches.qmd)
 
 ## Presenter slides
+
+```{=html}
+<iframe class="slide-deck" src="../slides/slides_version_control.html" title="Version Control" width="960" height="540">
+</iframe>
+```
+
 - [HTML](../slides/slides_version_control.qmd)
 
 ### References
