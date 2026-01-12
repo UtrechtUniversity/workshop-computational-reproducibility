@@ -239,20 +239,26 @@ git pull
 
 ::: {.theme-section}
 
-- After moving files into your local repository on your computer, run git status to see what Git thinks has changed.
+* Move some files from on of your projects into your local repository on your computer, run `git status` to see what Git thinks has changed.
 
+* Are there (temporary) files you do not wish to track? Add them to the `.gitignore` file.
+  If the file is not already there in your repository, create an empty text file and name it `.gitignore`. Start with a `.gitignore` template for your language and copy the contents to your new file: examples on [this github repo](https://github.com/github/gitignore).
+  Then add the name of one of your files to the `.gitignore` file.
+  Run `git status` again.
 
-Please note: are there (temporary) files you do not wish to track? Add them to the .gitignore file. Consider a .gitignore template for your language: examples on this github repo.
+* Add the files that you want to save in your new snapshot using `git add` and `git commit`
+  
+* Run `git log` to see the history of your project.
 
-- Run git log to see the history of your project.
+* Can you use Git and push to Github from your IDE (e.g. Visual Studio Code, RStudio)? Try it!
 
-- Can you use Git and push to Github from your IDE?
+* Experiment with editing and committing on GitHub itself (e.g. add something to the README file). You can then 'download' your changes to your local repository using `git pull`.
 
-- Experiment with editing and committing on GitHub itself (e.g. add something to the README file). You can then 'download' your changes to your local repository using git pull.
+* Run `git log` again to see the history of your project.
 
-- Run git log again to see the history of your project.
-
-- Optional: What happens if you edit the same file online and locally, and try to push/pull? (Hint: this often causes a 'merge conflict', which is no fun to experience. Going through it today means we can assist you if necessary!)
+* Optional: What happens if you edit the same file online and locally, and try to push/pull?
+  (Hint: this often causes a 'merge conflict', which is no fun to experience.
+  Going through it today means we can assist you if necessary!)
 
 :::
 
