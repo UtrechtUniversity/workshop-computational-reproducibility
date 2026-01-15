@@ -1,6 +1,6 @@
 # Code Quality
 
-Code quality is a broad term that encompasses many aspects of software development. When we focus on reproducibility there are a few key aspects of code quality that are particularly important: readability, reusability, and robustness.
+Code quality is a broad term that encompasses many aspects of software development. When we focus on reproducibility there are a few key aspects of code quality that are particularly important: readability, reusability, and robustness. In the following chapters we will dove into those aspects.
 
 ## Chapters:
 
