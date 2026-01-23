@@ -32,13 +32,15 @@ format:
 
 They:
 
-- are written for users who deal with your source code
+- Explain *why* the code exists.
 
-- explain parts that are not intuitive from the code itself
+- Are written for users who deal with your source code.
 
-- **do not** replace readable or structured code
+- Clarify complex logic or unexpected decisions.
 
-- (in a specific structure) can be used to directly generate documentation for users.
+- **Do not** replace readable or structured code
+
+- (in a specific structure) Can be used to directly generate documentation for users.
 :::
 
 ::: {.column width="5%"}
@@ -54,7 +56,7 @@ Comic source: [Geek & Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/
 ::::
 :::
 
-## When **not** to use comments
+## When **not** to use comments (1)
 
 ::: {.theme-section}
 
@@ -65,6 +67,12 @@ Comic source: [Geek & Poke](https://geekandpoke.typepad.com/geekandpoke/2011/06/
 if(agePatient > 18)
 
 ```
+
+:::
+
+## When **not** to use comments (2)
+
+::: {.theme-section}
 
 - ...to turn old code into zombie code (fine for troubleshooting, but do not leave it in!)
 
