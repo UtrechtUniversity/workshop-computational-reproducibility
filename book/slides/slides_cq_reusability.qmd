@@ -14,11 +14,11 @@ format:
 
 ::: {.theme-section}
 
-- Less code written, more work done
+- **Reusable code**: Code that can be used again in the same project or in other future projects.
 
-- Writing a tool while doing your analysis
+- Code needs to be **modular**.
 
-- Stop reinventing the wheel!
+- Benefit: Less code to write, more work gets done
 
 :::
 
@@ -31,15 +31,11 @@ format:
   - consider using a config file for project-specific (meta)data
   - but DO hard-code unchanging variables, e.g. `gravity = 9.80665`, **once**.
 
-. . .
-
 - **Do One Thing** (and do it well)
 
   - One function for one purpose
   - One class for one purpose
   - One script for one purpose (no copy-pasting to recycle it!)
-
-. . .
 
 - **Don't Repeat Yourself**: use functions
 
@@ -51,7 +47,7 @@ format:
 ## Code reusability through functions
 
 ::: {.theme-section}
-Functions are smaller code units reponsible of one task.
+Functions are smaller code units responsible for one task.
 
 - Functions are meant to be reused
 
@@ -59,18 +55,20 @@ Functions are smaller code units reponsible of one task.
 
 - What arguments a function accept is defined by its parameters
 
-Functions do not necessarily make code shorter (at first)!
 
-#### Compare:
+:::
 
-:::: {.columns}
-::: {.column width="55%"}
+## Example:
+::: {.theme-section}
+
+- Repeated code
+
 ```r
 indexATG = [n for n,i in enumerate(myList) if i == 'ATG']
 indexAAG = [n for n,i in enumerate(myList) if i == 'AAG']
 ```
-:::
-::: {.column width="45%"}
+
+- Reusing a function
 
 ```r
 def indexString(inputList,z):
@@ -80,8 +78,9 @@ def indexString(inputList,z):
 indexATG = indexString(myList,'ATG')
 indexAAG = indexString(myList,'AAG')
 ```
-:::
-::::
+\
+Functions do not necessarily make code shorter (at first)!
+
 :::
 
 ## Think in building blocks!
@@ -89,12 +88,17 @@ indexAAG = indexString(myList,'AAG')
 ::: {.theme-section}
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="30%"}
 Small, cohesive units are much better than...
 
 ![](../images/tetris.svg)
 :::
-::: {.column width="50%"}
+
+::: {.column width="10%"}
+\
+:::
+
+::: {.column width="60%"}
 ... a customized behemoth!
 
 ![](../images/tetris_help.svg)
