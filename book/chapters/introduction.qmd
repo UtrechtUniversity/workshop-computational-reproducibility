@@ -18,7 +18,6 @@ format: "html"
 - [Version control](../slides/slides_version_control.qmd)
 - [Code readability](../slides/slides_cq_readability.qmd)
 - [Code reusability](../slides/slides_cq_reusability.qmd)
-- [Code robustness](../slides/slides_cq_robustness.qmd)
 - [Code documentation](../slides/slides_code-documentation.qmd)
 - [Project documentation](../slides/slides_project-documentation.qmd)
 - [Dependency management](../slides/slides_dependencies.qmd)
