@@ -5,6 +5,7 @@ format:
     theme: ../styles/uu.scss
     logo: ../images/UU_logo_2021_EN_RGB.png
     footer: "Workshop Computational Reproducibility"
+    code-block-height: 650px
 ---
 
 
@@ -198,7 +199,6 @@ my_data = [i**2 / 356 for i in range(100)]
 ## Style matters (R)
 
 ::: {.theme-section}
-
 
 ```r
 # Example 1 - not idiomatic
