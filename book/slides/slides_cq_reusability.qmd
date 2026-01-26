@@ -18,7 +18,7 @@ format:
 
 - Code needs to be **modular**.
 
-- Benefit: Less code to write, more work gets done
+- Benefit: Less code to write means less code to update and lower chance of human errors
 
 :::
 
