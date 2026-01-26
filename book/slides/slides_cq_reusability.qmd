@@ -44,6 +44,22 @@ format:
  
 :::
 
+## Absolute vs. Relative Paths
+
+::: {.theme-section}
+
+* Your project should be transportable between computers.
+
+* For this reason, you should use **relative paths** only: compare
+    + `/Users/barbara/Dropbox/proteindomains/data/zincfinger.json`
+    + `./data/zincfinger.json`
+
+* `./` means: in this folder
+
+* `../` means: one folder up
+
+:::
+
 ## Code reusability through functions
 
 ::: {.theme-section}
