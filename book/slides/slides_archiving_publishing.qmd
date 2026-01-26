@@ -34,22 +34,22 @@ format:
 :::::::::::::: {.columns}
 
 ::: {.column width="80%"}
-Zenodo has a sandbox environment!
 
-- Not the main data repository, but still functional.
+- Frozen version of the current state of your code repository.
 
 - You will get an *actual* DOI, and your project will (probably?) not be deleted!
 
-- Only do this following exercise if you are OK with your code staying online!
+- You can only publish public repositories with Zenodo.
 
-- You will not be able to do this with a private repository.
+- Only do this following exercise if you are OK with your code staying online!
 
 
 Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo)._)
 
 
-#### Your turn:
+#### Demo or follow along:
 
+- Make sure you have a test repository on GitHub!
 
 - Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
 - GitHub will then ask permission to give Zenodo access; click "Authorize application".
@@ -67,9 +67,11 @@ Zenodo and Github have a pipeline that makes your life easier! (_Check the full 
 
 ::: {.theme-section}
 
+- On Zenodo, click on your user name and select "GitHub".
+
 ![](https://web.archive.org/web/20211021121037if_/https://guides.github.com/activities/citable-code/zenodo-toggle-on.png){ width="90%" height="600" fig-align="center"}
 
-Click on your enabled repository. This will take you to a page with a green GitHub button. With this button you can create a realease for your publication.
+Click on your enabled repository. This will take you to a page with a green GitHub button. With this button you can create a release for your publication.
 
 :::
 
