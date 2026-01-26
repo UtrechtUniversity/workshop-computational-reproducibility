@@ -49,8 +49,6 @@ website:
             text: Readability
           - href: chapters/reusability.qmd
             text: Reusability
-          - href: chapters/robustness.qmd
-            text: Robustness
       - section: "Documentation"
         href: chapters/documentation.qmd
         contents:
@@ -63,8 +61,6 @@ website:
         contents:
             - href: chapters/dependency-management.qmd
               text: Dependency Management
-            - href: chapters/binder.qmd
-              text: Binder
       - section: "Publishing"
         href: chapters/publishing.qmd
         contents:

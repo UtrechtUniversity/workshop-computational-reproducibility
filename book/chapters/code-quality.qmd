@@ -8,7 +8,4 @@ Code quality is a broad term that encompasses many aspects of software developme
 
 * [Reusable code](reusability.qmd)
 
-* [Code robustness](robustness.qmd)
-
-
 

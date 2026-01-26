@@ -5,10 +5,11 @@ format:
     theme: ../styles/uu.scss
     logo: ../images/UU_logo_2021_EN_RGB.png
     footer: "Workshop Computational Reproducibility"
+    code-block-height: 650px
 ---
 
 
-# Code Quality {data-background-color="#FFCD00"}
+# Code Readibility {data-background-color="#FFCD00"}
 
 ## Aspects of good quality code
 
@@ -48,8 +49,29 @@ format:
 Code is read more often than it is written.
 — Guido van Rossum (creator of Python)
 
-- At some point someone else or our future us will need to understand the code we write today.
+At some point someone else or our future us will need to understand the code we write today.
 
+### Your turn
+
+- What do you expect from well-written code?
+- What helps you understand it quickly?
+- What makes it frustrating or confusing?
+
+:::
+
+## Clean Code
+
+::: {.theme-section}
+
+- **Readable**: The code clearly communicates its purpose and is descriptive.
+
+	**You should be able to understand without heavily relying on comments.**
+- **Focused**: Each function does ***one*** thing.
+- **DRY**: Don't Repeat Yourself. Create small snippets that can be used over and over, avoid large functions.
+- **Well-structured**: Consistent formatting, avoid spaghetti code
+- **Self-documenting**: Structure and naming should be understandable without comments.
+
+	Use comments to explain *why* not *what*.
 :::
 
 ## Variable names
@@ -73,7 +95,7 @@ my_favourite_number = "ssh, I'm a string"
 :::
 ::: {.column width="5%"}
 :::
-::: {.column width="45%"}
+::: {.column width="43%"}
 
 ```python
 import pandas as pd
@@ -100,7 +122,6 @@ number_of_attendees += 1
 - Use verb-based function names
 
 
-
 ```r
 process_text <- function(data) {
     ...
@@ -108,6 +129,7 @@ process_text <- function(data) {
 
 processed_text <- process_text("The following document was handled using...")
 ```
+
 
 - Name function in form of a question if return value is boolean 
 
@@ -123,7 +145,7 @@ are_missing_values_present <- function(data) {
 
 :::
 
-## Data pipeline examples
+## Conventions
 
 ::: {.theme-section}
 
@@ -178,7 +200,6 @@ my_data = [i**2 / 356 for i in range(100)]
 
 ::: {.theme-section}
 
-
 ```r
 # Example 1 - not idiomatic
 i = 0
@@ -187,7 +208,6 @@ while (i < 100) {
   my_data = c(my_data, i * i / 356)
   i = i + 1
 }
-
 # Example 2 - more use of R features, e.g. `append` and idiomatic assignment (' <- ')
 my_data = c()
 for (i in 0:100) {

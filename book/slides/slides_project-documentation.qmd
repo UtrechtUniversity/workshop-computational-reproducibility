@@ -22,10 +22,9 @@ The contents typically include one or more of the following:
 :::: {.columns}
 ::: {.column width="40%"}
 ::: {style="text-align: left; margin-top: 0.5em"}
-- __Configuration instructions__
 - __Installation instructions__
-- __Operating instructions__
-- A file manifest (list of files included)
+- __Configuration instructions__
+- __Examples / Demos__
 :::
 :::
 
