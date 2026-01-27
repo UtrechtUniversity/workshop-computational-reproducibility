@@ -27,7 +27,7 @@ format:
 :::
 :::
 
-## Archiving the project
+## Publishing and archiving
 
 ::: {.theme-section}
 
@@ -103,7 +103,7 @@ A version has three numbers: MAJOR.MINOR.PATCH
 **You can release today with v0.1.0**
 :::
 
-## Check zenodo
+## Check Zenodo
 
 ::: {.theme-section}
 

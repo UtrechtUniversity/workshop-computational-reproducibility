@@ -13,106 +13,27 @@ format:
 
 ::: {.theme-section}
 
-- Copyright is implicit; others cannot use your code without your permission.
-
-- Licensing gives that permission, and its boundaries and conditions.
-
-- Choosing a license early on means being aware of your license as the project proceeds (and not creating conflicts).
-
 - There are over [80 OSI-approved licenses](https://opensource.org/licenses/alphabetical) (and [many](http://dbad-license.org), [many](http://www.wtfpl.net) others) to choose from.
 
-This is one I like to use:
+The MIT license is recommended by Utrecht University:
 
 ![](../images/screenshots/license.png){  width="60%" fig-align="center"}
 
-What is important to you? What does your lab use? [Choose your own license!](http://choosealicense.com)
+What is important to you? What does your lab use?
+
+Let's take a look at a [license selector](https://ufal.github.io/public-license-selector/).
 
 :::
 
-## Publishing your project?
+## Data and Software
 
 ::: {.theme-section}
 
-::: {.fragment fragment-index=1}
-Uh... Isn't 'publication' the thing you do... _at the end_ ?
-<br><br>
+- There are different licenses for software and data.
+- Separate code and software publications from data publications.
+- Link software and data through their DOIs
+- Create manuals in your README how to get and run your software on the published data.
+
+Please read the guide about [Data Licenses and Licenses for AI Models](https://book.the-turing-way.org/reproducible-research/licensing/licensing-data/).
 
 :::
-
-::: {.fragment fragment-index=2}
-
-No! Publishing your project at an early stage
-
-  - forces you to consider readability throughout
-  - minimizes the mess you have to deal with when you (finally) decide to publish
-  - allows collaboration and support
-  - facilitates sharing and re-use.
-<br><br>
-
-:::
-
-::: {.fragment fragment-index=3}
-
-_But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
-
-  - If you are super paranoid, you can always opt for a private repository. It is your work & up to you. But consider the advantages!
-
-:::
-:::
-
-## Publishing unpublished data
-
-::: {.theme-section}
-
-- If you have sensitive data...
-
-  - Don't include your data in your software repository (that's not what they are for anyway).
-  - Consider generating simulated data so your code can run regardless.
-
-- And for all data:
-
-  - Your data should be separate from your code!
-  - If your code references your data, consider a config or metadata file for these references.
-
-:::
-
-## Where do I publish?
-
-::: {.theme-section}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-### Living project: github
-
-_(or other social coding platform):_
-
-- synergistic with version control software git
-
-- makes history public and accessible _(eek!)_
-
-- allows publication of different releases
-
-- provides a platform for interaction and collaboration
-
-<br>
-
-### Archiving a release: zenodo
-_(or other stable repository, like the [OSF](https://vickysteeves.gitlab.io/2018-uutah-repro/the-open-science-framework.html))_
-
-
-- [direct archiving supported](https://guides.github.com/activities/citable-code/) from github to zenodo
-
-- this gives you a **doi** (digital object identifier): your code is citeable!
-
-:::
-::: {.column width="40%"}
-
-![](../images/github-mark.png){fig-align="right" width="300"}
-
-![](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png){fig-align="right" width="300"}
-:::
-::::
-:::
-
