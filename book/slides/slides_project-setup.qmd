@@ -144,7 +144,7 @@ You can always opt for a private repository.
 
     + Your data should be separate from your code!
     + Provide instructions where to store the data with respect to the software
-    + Privide a configuration file where users define where data is stored.
+    + Provide a configuration file where users define where data is stored.
     + Make software callable with different data paths. (No absolute paths!)
 
 :::
