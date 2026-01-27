@@ -161,6 +161,7 @@ Now that you have started to customise your new GitHub repository, let’s have 
 - **Type of Commit**: Specify the type of commit and be consistent. Example: Bugfix, Update, Refactor, Bump, and so on. 
 - **Length**: The first line should ideally be no longer than 50 characters, and the body should be restricted to 72 characters.
 - **Content**: Be direct, try to eliminate filler words and phrases in these sentences (examples: though, maybe, I think, kind of). Think like a journalist.
+- **One commit for one problem**: If you find yourself typing the word "and" in your commit message, you might be fixing 2 problems in a single commit. 
 :::
 
 
