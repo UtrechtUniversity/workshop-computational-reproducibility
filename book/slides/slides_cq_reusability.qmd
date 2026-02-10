@@ -123,7 +123,7 @@ Small, cohesive units are much better than...
 :::
 
 
-## Example
+## Example Python
 
 ::: {.theme-section}
 
@@ -151,6 +151,47 @@ python script.py --filename data/iris.csv --output_dir results
 ```
 
 
+:::
+
+## Example R
+
+::: {.theme-section}
+
+**`script.R`**
+
+```r
+main <- function(filename, output_dir) {
+  df <- read_input(filename)
+  df <- preprocess(df)
+
+  data <- prepare_data_ml(df)
+
+  result <- train_model(
+    data$x_train,
+    data$y_train,
+    data$x_test,
+    data$y_test
+  )
+
+  save_result(result, output_dir)
+}
+
+# ---- command line interface ----
+args <- commandArgs(trailingOnly = TRUE)
+
+if (length(args) < 2) {
+  stop("Usage: Rscript script.R <filename> <output_dir>")
+}
+
+filename <- args[1]
+output_dir <- args[2]
+
+main(filename, output_dir)
+```
+
+```bash
+Rscript script.R data/iris.csv results
+```
 :::
 
 
@@ -202,3 +243,6 @@ def my_function(param_a, param_b):
     do_something_else(param_a)
 ```
 :::
+
+
+
