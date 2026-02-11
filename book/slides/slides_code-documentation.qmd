@@ -12,7 +12,7 @@ format:
 
 ## Why do you need documentation?
 ::: {.theme-section}
-:::
+
 
 - You want yourself to understand how code written some time ago works
 - You want others to understand how to (re-)use your code
@@ -22,6 +22,8 @@ format:
 - Explain parts of your code with __comments__
 - Explain what to install and how to get started in your __readme__
 - Explain in-depth use of your code in a __notebook__
+
+:::
 
 ## Comments
 ::: {.theme-section}
