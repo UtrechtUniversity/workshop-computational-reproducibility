@@ -99,7 +99,7 @@ Some examples from projects with high quality documentation:
 
 - Github will show the content of your README file at the root of the repository.
 
-- Your cookiecutter template included a README, so you are all set!
+- Your template repository included a README, so you are all set!
 
 :::
 
