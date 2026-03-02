@@ -90,11 +90,9 @@ Those "units" can be:
 - modules
 - libraries/packagaes
 
-Small, cohesive units are much better than...
-![](../images/tetris.svg){width=50%}
-
-...a customized behemoth!
-![](../images/tetris_help.svg){width=50%}
+ Small, cohesive units are much better than...|...a customized behemoth!
+ ---------------------------------------------|-----------------------
+![](../images/tetris.svg){width=50%} | ![](../images/tetris_help.svg){width=90%}
 
 ### Exercise
 
