@@ -92,9 +92,8 @@ There are **two main approaches**:
 1. The `docstring` Package (for inline documentation)
 
  If you want a simple way to add docstrings directly inside your script (without creating an R package), you can use the [`docstring`](https://cran.r-project.org/package=docstring) package.
-
- #### Example
-
+ 
+ **Example**
  ```r
  library(docstring)
 
@@ -117,7 +116,7 @@ There are **two main approaches**:
 
  For R packages, the most common and powerful way to use docstrings is through [roxygen2](https://roxygen2.r-lib.org/). It reads structured comments (starting with #') and automatically generates help files in the man/ directory of your package.
  
-  #### Example
+  **Example**
   
   ```
   #' Multiply two numbers
