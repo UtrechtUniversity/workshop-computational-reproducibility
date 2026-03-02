@@ -8,9 +8,9 @@ Please make sure to follow the [preparation instructions] carefully well before 
 
 | Time  | Activity |
 |-------:|----------|
-| 8:45 | Walk-in and Installation Support |
-| 9:15 | [Welcome & introduction](introduction.qmd))| 
-| 9:30 | [Project setup & version control with git](project-management.qmd) |
+| 9:00 | Walk-in and Installation Support |
+| 9:30 | [Welcome & introduction](introduction.qmd))| 
+| 9:40 | [Project setup & version control with git](project-management.qmd) |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
 | 11:15 | [Code quality](code-quality.qmd)  |
@@ -22,8 +22,8 @@ Please make sure to follow the [preparation instructions] carefully well before 
 
 | Time  | Activity |
 |-------:|----------|
-| 9:00 | Code quality discussion | 
-| 9:15 | [Documentation](documentation.qmd)  |
+| 9:00 | Walk-in and Hands-on support | 
+| 9:30 | [Documentation](documentation.qmd)  |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
 | 11:15 | [Reproducibility](reproducibility.qmd)  |
