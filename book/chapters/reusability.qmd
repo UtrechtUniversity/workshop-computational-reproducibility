@@ -82,19 +82,17 @@ indexAAG = indexString(myList, 'AAG')
 
 ## Think in building blocks!
 
-<div style="display: flex; justify-content: space-around; align-items: flex-start; text-align: center;">
+Rather than writing long sequences of code, try to break your pipelines and workflows down into smaller reusable units.
+Those "units" can be:
 
-  <div style="width:45%;">
-    <p>Small, cohesive units are much better than...</p>
-    <img src="../images/tetris.svg" width="80%"/>
-  </div>
+- functions
+- classes
+- modules
+- libraries/packagaes
 
-  <div style="width:45%;">
-    <p>...a customized behemoth!</p>
-    <img src="../images/tetris_help.svg" width="60%"/>
-  </div>
-
-</div>
+ Small, cohesive units are much better than...|...a customized behemoth!
+ ---------------------------------------------|-----------------------
+![](../images/tetris.svg){width=50%} | ![](../images/tetris_help.svg){width=90%}
 
 ### Exercise
 
