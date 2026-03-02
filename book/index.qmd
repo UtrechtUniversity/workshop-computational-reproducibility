@@ -2,8 +2,18 @@
 format: "html"
 ---
 
-# Welcome! 
+# Welcome!
 
-Ensuring your research is reproducible can be a difficult task. Scripting your analysis is a start, but this in and of itself is no guarantee that you, or someone else, can faithfully repeat your work at a later stage. In this workshop, we will help you not only to make your work reproducible, but also to increase the efficiency of your workflow. We do this by teaching you a few good programming habits: how to set up a good project structure, how to code and comment well, and how to document your code so that it can be used by others. We will furthermore introduce you to Git and GitHub, which are essential tools in managing and publishing code. Reproducibility requires extra effort, but we will focus on teaching you skills that will save you much more time in the long run than they cost to implement.
+Writing code that works is one thing. Writing code that is clear, reusable, and easy to maintain is another.
+
+In research and data analysis, it’s not enough to get results once. Your code should be structured in a way that allows you—and others—to understand it, reuse it, and confidently run it again in the future. Good coding practices are what make the difference.
+
+In this workshop, you’ll learn how to write clean, readable, and reusable code. We’ll cover practical best practices such as organizing your projects effectively, structuring scripts and functions logically, writing meaningful comments, and documenting your work so it remains understandable over time.
+
+We’ll also introduce tools like Git and GitHub to help you manage changes, collaborate efficiently, and keep your code under control.
+
+Developing good habits may take a little extra effort at first—but it will save you time, reduce errors, and make your work more professional and sustainable in the long run.
+
+Let’s move from code that just works to code that works well.
 
 Our workshop material is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/). You can [view the license here](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/main/LICENSE.md).
