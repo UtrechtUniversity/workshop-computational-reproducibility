@@ -156,9 +156,23 @@ The key's randomart image is:
 
 ### Add the private key to the ssh-agent
 
-We will now 'activate' your private key. To add your private key to the ssh-agent on your local computer, please follow the steps under [Adding your SSH key to the SSH agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). 
+We will now 'activate' your private key. To add your private key to the ssh-agent on your local computer, type the following in your Terminal:
 
-At the top of the page, be sure to **select Linux as the operating system, even if you use Windows or MacOS** and type the commands provided in your terminal. We've had issues with the instructions for the other operating systems.
+First, activate the ssh-agent in the background:
+
+```{r eval=FALSE}
+eval "$(ssh-agent -s)"
+```
+
+Then, add your private key to the ssh-agent. 
+
+```{r eval=FALSE}
+ssh-add ~/.ssh/id_ed25519
+```
+
+Note that if you created a key with a different name, you will have to replace _id_ed25519_ accordingly.
+
+The above steps are from [Adding your SSH key to the SSH agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent). At the top of the guide, we have **selected Linux as the operating system, even if Windows or MacOS are used**. We've had issues with the instructions for the other operating systems, likely because we're using a BASH terminal for Git.
 
 ### Add public key to your GitHub/GitLab/BitBucket account
 
