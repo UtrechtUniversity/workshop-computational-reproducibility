@@ -1,5 +1,98 @@
 ## Archiving & Publication
 
+### Overview
+
+| Questions | Objectives | Concepts
+| - | - | - |
+| Why would I want to archive my code? | Understand the difference between platforms such as GitHub (distributd version control) & Zenodo (long-term archive) 
+| How does my code become citable? | Understand how to provide citation metadata | CITATION.cff files |
+| How do I make releases of my code? | Understand how to make releases on GitHub | SemVer, CalVer, GitHub Releases |
+| How do I archive my code ? | Enable the GitHub x Zenodo integration and bring the various components together into a workflow | GitHub x Zenodo integration | 
+
+
+### Archiving
+
+Platforms like GitHub, GitLab, Codeberg allow you to make your code findable and accesssible to the public. However, these platforms do not function as long-term archives - there is no guarantee these platforms will still be around in 10 years. 
+
+Archiving your code involves creating a snapshot (in other words, a frozen copy) of your repository at a given point in time and uploading that to an archiving platform such as Zenodo. This process makes your code persistent and citable, particularly because a persistent identifier (PID) will be issued to your code.
+
+### Workflow
+
+#### Enable GitHub x Zenodo Integration
+
+For the workshop, we will use the Zenodo Sandbox - so you can play around with the workflow without actually archiving your sofware.
+
+- Navigate to the Zenodo login page (for today, the Sandbox login)
+- Choose Log In with GitHub -> Authorize Zenodo
+- Once logged in, navigate to your Zenodo x GitHub page (click the profile menu in the header and click GitHub)
+- You will see a list of your repositories (click Sync Now if they haven't appeared)
+- Find the respository you want to archive and toggle the slider to On.
+
+#### CITATION.cff File
+
+The next step in the archiving workflow is to create and/or update your CITATION.cff file.
+
+A CITATION.cff (Citation File Format) file allows you to provide citation metadata about your software that is both human- and machine-readable. GitHub and Zenodo can use the CITATION.cff file to provide (pre-formatted) citation suggestions.
+
+Zenodo implements a subset of the CITATION.cff schema as described in the example below.
+
+```
+cff-version: 1.2.0
+title: "Memory bus simulation scripts"
+version: 1.8.0
+license: "MIT"
+type: software
+abstract: "These are the scripts used to simulate a memory bus"
+message: "If you use this software, please cite it as below."
+authors:
+  - given-names: Josiah
+    family-names: Carberry
+    affiliation: Brown University
+    orcid: "https://orcid.org/0000-0002-1825-0097"
+keywords:
+  - computer science
+  - psychoceramics
+  - journaling filesystems
+```
+
+You can validate your CFF files using the following (web)tools:
+- cffinit
+- CFF generator
+
+Don't forget to commit and push your updates to the CITATION.cff file!
+
+#### GitHub Releases
+
+A GitHub Release is a snapshot of your code that you will create at specific points in your repository's development. 
+
+##### Tagging Releases
+
+You can tag (define) your releases using version numbers. Two popular conventions for version numbers are Semantic Versioning (SemVer) and Calendar Versioning (CalVer).
+  - SemVer follows the MAJOR.MINOR.PATCH scheme, with numbers of your choosing. Example: v1.2.3
+  - CalVer follows the MAJOR.MINOR.MICRO scheme, with calendar-based semantics (YYYY/YY, MM/0M, DD/0D). Example: Ubuntu uses year & month for release numbers (YY.0M.MICRO; v24.04.4)
+  
+Check out the websites of SemVer & CalVer and decide which scheme you want to follow.  
+  
+##### Release Workflow
+
+- Go to your repository page on GitHub
+- Click Releases (to the right of the list of files, the right-hand sidebar)
+- Click Draft a new release
+- At this point, you will have to choose a tag. You can create a new tag or use an existing one. Since this is your first release, create a new tag following the SemVer or CalVer schema.
+- The target branch should be main for today's workflow.
+- You can provide a title for your release.
+- Type a description of your release. It is also possible to automatically generate some release notes based on your commits.
+- Publish release.
+- A binary (.zip) file of your code/repository will become available.
+
+#### Finalize Publication Via Zenodo
+
+Only after a repository is enabled through the integration, will Zenodo monitor your repository for releases and assign a DOI. If you created a release before you activated the connection for your repository - it will not be detected and you'll have to make another release.
+
+- Wait for the release to be detected, this might take some time.
+- When details of the release pop up, click the DOI to go to the record.
+- You may need to double-check the citation metadata and make sure Zenodo picked up the right information. Sometimes errors pop up for releases and these are often due to the metadata.
+
 ### Video
 
 {{< video https://vimeo.com/463947879 >}}
