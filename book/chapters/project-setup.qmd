@@ -13,7 +13,7 @@ format: "html"
 
 ## The Project Directory
 
-The first step in making your code reproducible is setting up your project in a self-contained directory. This directory - which can also be described as a _research compendium_ - should contain all the (digital) components of the project. These componenents should be structured in such a way that reproducing all results is straightforward.
+The first step in making your code reproducible is setting up your project in a self-contained directory. This directory - which can also be described as a [_research compendium_](https://book.the-turing-way.org/reproducible-research/compendia/) - should contain all the (digital) components of the project. These componenents should be structured in such a way that reproducing all results is straightforward.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ The first step in making your code reproducible is setting up your project in a 
 
   - `data` (RO)
   - `src` / `scripts` / `R` (HW)
-  - `results` (PG)
+  - `output` (PG)
 
   Where:
   
@@ -39,6 +39,8 @@ The first step in making your code reproducible is setting up your project in a 
 - Initialize version control (if not done earlier)
 
 ## A Good Enough Project
+
+The tabset below outlines examples of a 'good enough project' in R & Python. These projects are available as [templates](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/version-control.html#simple-repository-templates-provided-by-utrecht-university) which you will (re)use in the next sections.
 
 ::: {.panel-tabset}
 
@@ -112,7 +114,53 @@ When linking files, directories, or scripts in your project, use _relative paths
 
 - **Relative paths** specify the location of a file or directory relative to the current working directory (e.g., `./data/file.csv`). If you’ve structured your project as a self-contained directory, the root of that directory should be your working directory. Relative paths are portable and reproducible, provided the working directory remains consistent.
 
-In R, you can further ensure a consistent working directory by using an R Project File (.Rproj), which automatically sets the working directory to the project root.
+### Example
+
+Let's inspect the following example file structure and some best parctices for Python, R, Matlab:
+
+```
+my_project/
+│
+├ data/
+│   file.csv
+│
+└ script.py
+````
+
+#### Python
+
+Open the folder `my_project` in your integrated development environment (IDE), e.g. Jupyter Notebooks or PyCharm (see some suggestions below.). You can address the csv file like this:
+
+```py
+import pandas as pd
+
+df = pd.read_csv("data/file.csv")
+```
+Since the working directory of your IDE is your project folder, the compiler will find the data automatically.
+
+#### R
+
+In R you can use `RStudio` as IDE, simply create `File → New Project → New Directory` _or_ `File → New Project → Existing Directory` depending on whether you creating a new project or working with an existing project.
+
+```r
+data <- read.csv("data/file.csv")
+```
+
+#### Matlab
+
+Similar as in R you can set up a project folder in Matlab and use:
+
+```
+data = readtable("data/file.csv");
+```
+
+In general, IDEs help you to make use of relative paths:
+
+Language | Beginner IDE | Feature
+-- | -- | --
+Python | Visual Studio Code | workspace folder
+R | RStudio | built-in projects
+MATLAB | MATLAB | current folder
 
 ### Video
 
