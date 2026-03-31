@@ -2,7 +2,165 @@
 format: "html"
 ---
 
-# Project setup
+# Overview
+
+| Questions | Objectives | Key Concepts / Tools |
+| - | - | - |
+| How do I set up my project to be reproducible? | Create a project directory and subdirectories following best practices | Research Compendium |
+| How should I name my files? | Update file names as necessary. | Naming Conventions |
+| How do I link the different components of my project? | Update folder & file paths as necessary | Absolute vs. Relative Paths |
+
+
+## The Project Directory
+
+The first step in making your code reproducible is setting up your project in a self-contained directory. This directory - which can also be described as a [_research compendium_](https://book.the-turing-way.org/reproducible-research/compendia/) - should contain all the (digital) components of the project. These componenents should be structured in such a way that reproducing all results is straightforward.
+
+## Getting Started
+
+- Begin by creating a single, recognizable folder (directory) named after your project. 
+
+- Creating subfolders (subdirectories) that distinguish the _type_ of files depending on their content or nature. For example:
+
+  - `data` (RO)
+  - `src` / `scripts` / `R` (HW)
+  - `output` (PG)
+
+  Where:
+  
+  - _read-only (RO)_: not edited by either code or researcher
+  - _human-writeable (HW)_: edited by the researcher only.
+  - _project-generated (PG)_: folders generated when running the code; these folders can be deleted or emptied and will be completely reconstituted as the project is run.
+
+- Initialize the following files:
+  - README.md
+  - LICENSE.md
+  - CITATION.cff
+
+- Initialize version control (if not done earlier)
+
+## A Good Enough Project
+
+The tabset below outlines examples of a 'good enough project' in R & Python. These projects are available as [templates](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/version-control.html#simple-repository-templates-provided-by-utrecht-university) which you will (re)use in the next sections.
+
+::: {.panel-tabset}
+
+### R
+
+```
+.
+├── .gitignore
+├── CITATION.cff
+├── LICENSE.md
+├── README.md
+├── data               <- All project data, ignored by git
+│   ├── processed      <- The final, canonical data sets for modeling. (PG)
+│   ├── raw            <- The original, immutable data dump. (RO)
+│   └── temp           <- Intermediate data that has been transformed. (PG)
+├── docs               <- Documentation notebook for users (HW)
+│   ├── manuscript     <- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
+│   └── reports        <- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
+├── results
+│   ├── figures        <- Figures for the manuscript or reports (PG)
+│   └── output         <- Other output for the manuscript or reports (PG)
+├── R                  <- Source code for this project (HW)  
+└── MyProject.Rproj    <- R Project File (PG)
+```
+
+### Python
+
+```
+.
+├── .gitignore
+├── CITATION.cff
+├── LICENSE.md
+├── README.md
+├── requirements.txt
+├── data               <- All project data, ignored by git
+│   ├── processed      <- The final, canonical data sets for modeling. (PG)
+│   ├── raw            <- The original, immutable data dump. (RO)
+│   └── temp           <- Intermediate data that has been transformed. (PG)
+├── docs               <- Documentation notebook for users (HW)
+│   ├── manuscript     <- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
+│   └── reports        <- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
+├── results
+│   ├── figures        <- Figures for the manuscript or reports (PG)
+│   └── output         <- Other output for the manuscript or reports (PG)
+└── src                <- Source code for this project (HW)
+```
+
+:::
+
+## Names & Naming Conventions
+
+All files (and folders) should be named to reflect their content or function. These names should be immediately understandable to you and others.
+
+A naming convention is a set of rules for naming things, particularly so that they're machine-readable. You can apply it to things like folders, files, and variables. Here are some popular naming conventions:
+
+| Naming Covention | Example           | Description |
+| ---------------- | ----------------- | ----------- |
+| original name    | `an awesome name` | N/A
+| snake_case       | `an_awesome_name` | All words are lowercase and separated by an underscore ( `_` ) |
+| kebab-case       | `an-awesome-name` | All words are lowercase and separated by a hyphen ( `-` ) |
+| PascalCase       | `AnAwesomeName`   | All words are capitalized. Spaces are not used. |
+| camelCase        | `anAwesomeName`   | The first word is lowercase, the remaining words are capitalized. Spaces are not used. |
+
+If you want to retroactively apply a naming convention, you can use your programming language of choice or the command line.
+
+## Absolute vs. Relative Paths
+
+When linking files, directories, or scripts in your project, use _relative paths_ to ensure your project remains reproducible and portable.
+
+- **Absolute paths** specify the full location of a file or directory from the root of the filesystem (e.g., `C:/Users/name/project/data/file.csv`). While absolute paths always point to the exact location, they are not portable — these paths will break if the project is moved or shared across different machines. This can also happen on your own computer if you rename or change any part of the path before your project directory.
+
+- **Relative paths** specify the location of a file or directory relative to the current working directory (e.g., `./data/file.csv`). If you’ve structured your project as a self-contained directory, the root of that directory should be your working directory. Relative paths are portable and reproducible, provided the working directory remains consistent.
+
+### Example
+
+Let's inspect the following example file structure and some best parctices for Python, R, Matlab:
+
+```
+my_project/
+│
+├ data/
+│   file.csv
+│
+└ script.py
+````
+
+#### Python
+
+Open the folder `my_project` in your integrated development environment (IDE), e.g. Jupyter Notebooks or PyCharm (see some suggestions below.). You can address the csv file like this:
+
+```py
+import pandas as pd
+
+df = pd.read_csv("data/file.csv")
+```
+Since the working directory of your IDE is your project folder, the compiler will find the data automatically.
+
+#### R
+
+In R you can use `RStudio` as IDE, simply create `File → New Project → New Directory` _or_ `File → New Project → Existing Directory` depending on whether you creating a new project or working with an existing project.
+
+```r
+data <- read.csv("data/file.csv")
+```
+
+#### Matlab
+
+Similar as in R you can set up a project folder in Matlab and use:
+
+```
+data = readtable("data/file.csv");
+```
+
+In general, IDEs help you to make use of relative paths:
+
+Language | Beginner IDE | Feature
+-- | -- | --
+Python | Visual Studio Code | workspace folder
+R | RStudio | built-in projects
+MATLAB | MATLAB | current folder
 
 ### Video
 
