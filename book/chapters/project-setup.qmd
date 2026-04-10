@@ -162,10 +162,6 @@ Python | Visual Studio Code | workspace folder
 R | RStudio | built-in projects
 MATLAB | MATLAB | current folder
 
-### Video
-
-{{< video https://vimeo.com/462773031 >}}
-
 ### Slides
 
 ```{=html}
