@@ -1,5 +1,25 @@
 # Licensing
 
+## Overview
+
+| Questions | Objectives | Concepts
+| - | - | - |
+| Why do I need to apply a license to my code? | Understand why licenses are necessary for code | Copyright, License |
+| When do I apply a license to my code? | Understand when to apply a license and why | NA |
+| What licenses available for my code? | Awareness of the licenses available | Permissive, Restrictive, Copyleft Licenses |
+
+### Software Licenses
+
+With sofware, copyright is implicit - in other words, your code cannot be (re)used by others without your permission. Applying a license gives that permission, while outlining boundaries and conditions.
+
+You should choose a license early in the project. This compels you to be aware of the terms and conditions of your license as the project proceeds and work accordingly. 
+
+There are numerous licenses available for software. You can use the following license selectors to explore them:
+- <https://ufal.github.io/public-license-selector/>
+- <https://choosealicense.com>
+
+Licenses for software range from restrictive to permissive. There are also copyleft (reciprocal) licenses among these. 
+
 ### Video
 
 {{< video https://vimeo.com/463659936 >}}
