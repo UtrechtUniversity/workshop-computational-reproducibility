@@ -122,3 +122,41 @@ section.has-dark-background a, section.has-dark-background a:hover {
   top: unset !important;
   color: #000000 !important;
 }
+
+/* Expand Quarto code wrapper only on the fullcode slide */
+.reveal section.fullcode .sourceCode,
+.reveal section.fullcode .code-with-copy {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Expand Quarto code wrapper only on the fullcode slide */
+.reveal section.fullcode .code-with-copy {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* And expand the <pre> inside it */
+.reveal section.fullcode .code-with-copy pre {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Disable Reveal.js auto-scaling only on fullcode slide */
+.reveal section.fullcode {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  transform: none !important;
+}
+
+/* Disable Reveal.js auto-scaling only on fullcode slide */
+.reveal section.fullcode {
+  transform: none !important;
+}
+
+
+
