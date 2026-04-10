@@ -5,6 +5,7 @@ format:
     theme: ../styles/uu.scss
     logo: ../images/UU_logo_2021_EN_RGB.png
     footer: "Workshop Computational Reproducibility"
+    disableScaling: true
 ---
 
 # Setting up a project {data-background-color="#FFCD00"}
@@ -57,9 +58,11 @@ format:
 ::::
 :::
 
-## A Good Enough Project
+---
 
-```
+## A Good Enough Project {.fullcode}
+
+```sh
 .
 ├── .gitignore
 ├── CITATION.md

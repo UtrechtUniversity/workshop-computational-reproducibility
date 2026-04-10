@@ -8,38 +8,20 @@ format:
 ---
 
 
-# Welcome!{data-background-color="#FFCD00"}
+## Welcome! Who are you? 
 
+- What is your role/position?
 
-## Thanks:
+- What is your faculty/background? 
 
-::: {.theme-section}
+- What brought you to this workshop??
 
-- To you for being here!
-
-- To the [Open Science Community Utrecht (OSCU)](https://openscience-utrecht.com) and [Research Data Management Support (RDM Support)](https://www.uu.nl/en/research/research-data-management) for supporting the development of this workshop
-
-- To Armel Lefebvre, Bianca Kramer, Cedric Thieulot, Erik van Sebille, Jeroen Bosman, Jeroen Ooms, Jonathan de Bruin, Lukas van de Wiel, Mateusz Kuzak, Menno Fraters, Neha Moopen, Philippe Delandmeter, and Renato Alves, for helping develop this workshop
-
-- To your teachers and helpers today!
-
-<br>
-
-#### Who are you? What brings you here?
-
-- E.g. your name, pronouns, background, and motivation for this workshop.
-
-:::
-
-## General guidelines (and advice!)
+## Before We Start...
 
 ::: {.theme-section}
 
 * Ask for help when you need it! 
-    + Raise your hand
-    + Use a sticky note
-* Our helpers can help you with technical issues
-
+* Our helpers can help you with technical issues.
 * Take a computer break when we take a break!
 
 <br>
@@ -49,7 +31,9 @@ You can find all workshop information at [tinyurl.com/repcopilot](https://utrech
 
 :::
 
-## Being reproducible
+## Let's Git Started!
+
+## Being Reproducible
 
 ![](../images/screenshots/badexample.png){width=75%}
 
@@ -111,7 +95,7 @@ Automated analyses trace your steps, and prevent human error (or at the very lea
 ::: {.column width="40%"}
 ![](https://imgs.xkcd.com/comics/future_self.png){width=60%}
 :::
-::::
+:::
 
 ## What will we do in this workshop?
 
@@ -131,21 +115,12 @@ We will take you through a workflow (in a broad sense!)
 
 :::
 
-## What do we expect from you?
-
-::: {.theme-section}
-
-- Our group has many different abilities and experiences. We hope you will value this as much as we do!
-- We have done our best to make the workshop asynchronous so you can work at your own pace.
-- However, we have incorporated several moments for shared discussion and questions. Use them!
-- Feel free and safe to share your expertise and experiences.
-
-#### Our objectives for you
-<br>
-We want to teach you **good habits** that will make your work more accessible, trustworthy, and reproducible by others. In doing so, we have tried to identify those habits that are a **good return on investment**: meaning, they save you time in the not-so-long run.
+## What do we want to achieve?
 
 <br>
+We want develop **good habits** that will make our code more accessible, trustworthy, and reproducible by others. We try to focus on habits that are a **good return on investment**: meaning, they save you time in the not-so-long run.
 
-#### And finally: we hope you enjoy the workshop
+<br>
+<br>
 
-:::
+### Enjoy the workshop!
