@@ -1,101 +1,232 @@
-## Archiving & Publication
+# Archiving & Publishing: Releases vs. Software Publications
 
-### Overview
+## Overview
 
-| Questions | Objectives | Concepts
-| - | - | - |
-| Why would I want to archive my code? | Understand the difference between platforms such as GitHub (distributd version control) & Zenodo (long-term archive) 
-| How does my code become citable? | Understand how to provide citation metadata | CITATION.cff files |
-| How do I make releases of my code? | Understand how to make releases on GitHub | SemVer, CalVer, GitHub Releases |
-| How do I archive my code ? | Enable the GitHub x Zenodo integration and bring the various components together into a workflow | GitHub x Zenodo integration | 
+| Questions | Objectives | Concepts |
+| --- | --- | --- |
+| Why distinguish between a release and a publication? | Understand the roles of GitHub releases vs. Zenodo archives | Software release, Software publication |
+| How do I create a stable version of my software? | Learn how and when to make a release on GitHub | Version numbers, SemVer, CalVer |
+| How does my code become citable? | Provide citation metadata and archive a release | CITATION.cff, DOI for software |
+| How do I archive my software? | Enable GitHub - Zenodo integration and publish a permanent record | Zenodo integration, Software archiving |
+
+## Why This Matters
+
+In reproducible research, it is not enough to *share* your code. You must also make it:
+
+- **stable** (a version that won’t change)
+- **citable** (with a DOI)
+- **findable** (in a long‑term archive)
+- **reproducible** (others can retrieve the exact version you used)
+
+To achieve this, we distinguish between:
+
+- a **software release** (created on GitHub)  
+- a **software publication** (archived on Zenodo)
+
+These two concepts are related but serve different purposes.
+
+## What Is a Software Release?
+
+A software release is a *snapshot* of your repository at a specific moment in time.  
+It is created on GitHub and is intended for users, collaborators, and developers.
+
+### Characteristics of a Release
+
+- Represents a **stable**, tested version of your software  
+- Uses a version number  
+- Includes release notes describing changes  
+- Can be downloaded as a `.zip` or `.tar.gz`  
+- May still evolve, future releases can follow
+
+### When to Create a Release
+
+A release is appropriate when:
+
+- Your software reaches a **reliable milestone**  
+- You want to communicate a **stable version** to users  
+- You fix major bugs or add significant features  
+- You prepare for a publication or workshop  
+- You want to freeze a version before major refactoring
+
+### Why Releases Matter
+
+Releases help users know:
+
+- which version is stable  
+- which version they should cite  
+- which version matches your documentation  
+- which version is used in a paper or analysis
+
+A release is **not** a long‑term archive.  
+It is a versioned snapshot, but GitHub does not guarantee long‑term preservation.
+
+## A word on Version Numbers
+
+A version number communicates the state, stability, and evolution of your software. It helps users know which version to install, and it supports reproducibility when linking code to publications.
+
+### Two Common Conventions
+
+1. Semantic Versioning (SemVer)
+	Structure:  
+	```
+	MAJOR.MINOR.PATCH
+	```
+
+	- **MAJOR** — breaking changes  
+	- **MINOR** — new features, backwards‑compatible  
+	- **PATCH** — bug fixes only  
+
+	Use SemVer when you want to communicate how safe it is for others to upgrade and when your software is used by others in a stable, predictable way.
+
+2. Calendar Versioning (CalVer)	
+	Structure (common form):  	
+	```
+	YY.MM.MICRO
+	```
+
+	- Based on the **release date**  
+	- Communicates freshness rather than compatibility  
+
+	Use CalVer when your project follows time‑based releases or evolves quickly (e.g., research code, teaching materials).
 
 
-### Archiving
+### When to Use Which
 
-Platforms like GitHub, GitLab, Codeberg allow you to make your code findable and accesssible to the public. However, these platforms do not function as long-term archives - there is no guarantee these platforms will still be around in 10 years. 
+| Situation | Recommended |
+|----------|-------------|
+| Stable library, public API | SemVer |
+| Fast‑moving research code | CalVer |
+| Teaching templates | CalVer |
+| Long‑term maintained package | SemVer |
 
-Archiving your code involves creating a snapshot (in other words, a frozen copy) of your repository at a given point in time and uploading that to an archiving platform such as Zenodo. This process makes your code persistent and citable, particularly because a persistent identifier (PID) will be issued to your code.
+## What Is a Software Publication (Zenodo Archive)?
 
-### Workflow
+A software publication is a *permanent, citable* archived copy of a release.  
+It is stored in a long‑term repository such as **Zenodo**, which issues a **DOI**.
 
-#### Enable GitHub x Zenodo Integration
+### Characteristics of a Software Publication
 
-For the workshop, we will use the Zenodo Sandbox - so you can play around with the workflow without actually archiving your sofware.
+- A frozen, immutable copy of a specific release  
+- Stored in a long‑term archive (Zenodo)  
+- Assigned a persistent identifier (DOI)  
+- Includes citation metadata (from `CITATION.cff`)  
+- Guaranteed to remain accessible for decades
 
-- Navigate to the Zenodo login page (for today, the Sandbox login)
-- Choose Log In with GitHub -> Authorize Zenodo
-- Once logged in, navigate to your Zenodo x GitHub page (click the profile menu in the header and click GitHub)
-- You will see a list of your repositories (click Sync Now if they haven't appeared)
-- Find the respository you want to archive and toggle the slider to On.
+### When to Archive a Release
 
-#### CITATION.cff File
+Archiving is appropriate when:
 
-The next step in the archiving workflow is to create and/or update your CITATION.cff file.
+- You publish a paper, report, or dataset  
+- You need a citable version of your software  
+- Your project is finished or becomes inactive  
+- You want to ensure long‑term preservation 
+- A journal or funder requires a DOI  
+- You want to support reproducibility:  
+  others must retrieve the *exact* version you used
 
-A CITATION.cff (Citation File Format) file allows you to provide citation metadata about your software that is both human- and machine-readable. GitHub and Zenodo can use the CITATION.cff file to provide (pre-formatted) citation suggestions.
+### Why Archiving Matters
 
-Zenodo implements a subset of the CITATION.cff schema as described in the example below.
+Archiving ensures:
 
-```
-cff-version: 1.2.0
-title: "Memory bus simulation scripts"
-version: 1.8.0
-license: "MIT"
-type: software
-abstract: "These are the scripts used to simulate a memory bus"
-message: "If you use this software, please cite it as below."
-authors:
-  - given-names: Josiah
-    family-names: Carberry
-    affiliation: Brown University
-    orcid: "https://orcid.org/0000-0002-1825-0097"
-keywords:
-  - computer science
-  - psychoceramics
-  - journaling filesystems
-```
+- **Permanence**: the version will not disappear  
+- **Citeability**: DOIs are standard in scholarly communication  
+- **Reproducibility**: others can retrieve the exact version  
+- **Compliance**: many journals require archived software
 
-You can validate your CFF files using the following (web)tools:
-- cffinit
-- CFF generator
+## How Releases and Publications Work Together
 
-Don't forget to commit and push your updates to the CITATION.cff file!
+A release and a publication are two steps in one workflow:
 
-#### GitHub Releases
+1. **Create a release on GitHub**  
+   → defines a stable version of your software
 
-A GitHub Release is a snapshot of your code that you will create at specific points in your repository's development. 
+2. **Archive that release on Zenodo**  
+   → makes it permanent and citable
 
-##### Tagging Releases
+This workflow ensures that:
 
-You can tag (define) your releases using version numbers. Two popular conventions for version numbers are Semantic Versioning (SemVer) and Calendar Versioning (CalVer).
-  - SemVer follows the MAJOR.MINOR.PATCH scheme, with numbers of your choosing. Example: v1.2.3
-  - CalVer follows the MAJOR.MINOR.MICRO scheme, with calendar-based semantics (YYYY/YY, MM/0M, DD/0D). Example: Ubuntu uses year & month for release numbers (YY.0M.MICRO; v24.04.4)
+- GitHub handles **development**, **versioning**, **collaboration**  
+- Zenodo handles **preservation**, **metadata**, **DOIs**
+
+They complement each other.
+
+
+## Workflow Summary
+
+To practice follow the steps of the [GitHub Documentation](https://rue-a.github.io/github-zenodo-integration/documentation/).
   
-Check out the websites of SemVer & CalVer and decide which scheme you want to follow.  
-  
-##### Release Workflow
+### 1. Prepare Your Repository
+- Ensure your repository contains:
+  - a clear README
+  - a LICENSE
+  - a CITATION.cff file with correct metadata  
+- Commit and push all changes before creating a release.
 
-- Go to your repository page on GitHub
-- Click Releases (to the right of the list of files, the right-hand sidebar)
-- Click Draft a new release
-- At this point, you will have to choose a tag. You can create a new tag or use an existing one. Since this is your first release, create a new tag following the SemVer or CalVer schema.
-- The target branch should be main for today's workflow.
-- You can provide a title for your release.
-- Type a description of your release. It is also possible to automatically generate some release notes based on your commits.
-- Publish release.
-- A binary (.zip) file of your code/repository will become available.
+### 2. Enable GitHub - Zenodo Integration
+- Log in to Zenodo (or the Zenodo Sandbox for testing).
+- Authorize Zenodo to access your GitHub account.
+- Go to your *GitHub → Zenodo* settings page.
+- Locate your repository and toggle it on.
+- Zenodo will now monitor this repository for new releases.
 
-#### Finalize Publication Via Zenodo
+### 3. Create a Release on GitHub
+- Navigate to *Releases* in your repository.
+- Click *Draft a new release*.
+- Choose a version number (SemVer or CalVer).
+- Add a tag, title and release notes.
+- Publish the release.
 
-Only after a repository is enabled through the integration, will Zenodo monitor your repository for releases and assign a DOI. If you created a release before you activated the connection for your repository - it will not be detected and you'll have to make another release.
+> Zenodo only archives **published releases**, not tags alone.
 
-- Wait for the release to be detected, this might take some time.
-- When details of the release pop up, click the DOI to go to the record.
-- You may need to double-check the citation metadata and make sure Zenodo picked up the right information. Sometimes errors pop up for releases and these are often due to the metadata.
+### 4. Zenodo Detects the Release
+- After publishing, Zenodo automatically:
+  - retrieves the release
+  - creates a new record
+  - assigns a DOI
+- This may take a few minutes.
 
-### Video
+### 5. Review and Finalize the Zenodo Record
+- Open the Zenodo record linked from your release.
+- Check:
+  - title  
+  - authors  
+  - version  
+  - license  
+  - description  
+  - related identifiers (e.g., GitHub URL)
+- Correct any metadata issues.
+- Publish the record.
 
-{{< video https://vimeo.com/463947879 >}}
+> Once published, the archived version becomes **immutable**.
+
+
+### 6. Cite the Software
+- Use the DOI provided by Zenodo.
+- GitHub and Zenodo both read your CITATION.cff file to generate citation text.
+- Include the DOI in:
+  - papers  
+  - reports  
+  - datasets  
+  - documentation 
+
+
+## When to Use What
+
+| Situation | Use a Release | Use a Zenodo Publication |
+|----------|----------------|---------------------------|
+| You want to mark a stable version | ✔️ | |
+| You want users to download a tested version | ✔️ | |
+| You are preparing a workshop or teaching | ✔️ | |
+| You are submitting a paper | | ✔️ |
+| You need a DOI | | ✔️ |
+| You want long‑term preservation | | ✔️ |
+| Your project is finished or inactive | | ✔️ |
+| You want reproducibility for others | ✔️ | ✔️ |
+
+Rule of thumb:
+- A release is for users.  
+- A Zenodo publication is for scholarly citation and preservation.
+
 
 
 ### Slides

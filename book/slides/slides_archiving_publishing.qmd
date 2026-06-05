@@ -1,5 +1,5 @@
---- 
-format: 
+---
+format:
   revealjs:
     margin: 0
     theme: ../styles/uu.scss
@@ -7,164 +7,205 @@ format:
     footer: "Workshop Computational Reproducibility"
 ---
 
-# Archiving and Publication {data-background-color="#FFCD00"}
+# Archiving & Publishing  {data-background-color="#FFCD00"}
 
-## Let's think about the future... {.scrollable }
-::: {.theme-section}
 
-::: {.fragment fragment-index=1}
-
-
-- Will this repository still be here in five years? 
-
-
-
-- #### Will my account? 
-
-
-
-- ### Will GitHub?
-:::
-:::
-
-## Publishing and archiving
-
-::: {.theme-section}
-
-:::::::::::::: {.columns}
-
-::: {.column width="80%"}
-
-- Frozen version of the current state of your code repository.
-
-- You will get an *actual* DOI, and your project will (probably?) not be deleted!
-
-- You can only publish public repositories with Zenodo.
-
-- Only do this following exercise if you are OK with your code staying online!
-
-
-Zenodo and Github have a pipeline that makes your life easier! (_Check the full how-to [on GitHub](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo)._)
-
-
-#### Demo or follow along:
-
-- Make sure you have a test repository on GitHub!
-
-- Go to: [sandbox.zenodo.org](https://sandbox.zenodo.org/), and log in with GitHub. (If you do not have GitHub, simply sign up for a zenodo account; some of the coming steps you will need to do manually...)
-- GitHub will then ask permission to give Zenodo access; click "Authorize application".
-
-:::
-::: {.column width="20%"}
-![](https://blog.zenodo.org/static/img/logos/zenodo-gradient-1000.png){ width="300" fig-align="center"}
-
-
-:::
-::::::::::::::
-:::
-
-## Select your repository
-
-::: {.theme-section}
-
-- On Zenodo, click on your user name and select "GitHub".
-
-![](https://web.archive.org/web/20211021121037if_/https://guides.github.com/activities/citable-code/zenodo-toggle-on.png){ width="90%" height="600" fig-align="center"}
-
-Click on your enabled repository. This will take you to a page with a green GitHub button. With this button you can create a release for your publication.
-
-:::
-
-## Release your project!
-
-::: {.theme-section}
-
-![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/repo-view.png){ width="60%" fig-align="center" height="500"}
-
-... and follow the workflow!
-
-(Unsure about version number? Wait a slide! :-)
-
-:::
-
-## Semantic versioning
-
-::: {.theme-section}
-
-A version has three numbers: MAJOR.MINOR.PATCH
-
-- MAJOR version denotes changes that alter the compatibility (i.e. someone using your functions may need to change their use for their code to still work),
-- MINOR version adds functionality, but remains compatible
-- PATCH version makes (compatible) bug fixes.
-
-(If your bug fix changes compatibility, it is therefore a MAJOR version change!)
-
-
-**You can release today with v0.1.0**
-:::
-
-## Check Zenodo
-
-::: {.theme-section}
-
-Your code is now uploading to Zenodo: you can check it under the 'upload' tab:
-
-![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/upload-tab.png){ width="70%" height="600" fig-align="center"}
-
-:::
-
-## Getting your DOI
-
-::: {.theme-section}
-
-- Add some final descriptions
-- Click 'publish'
-- Voilá!
-
-![](https://web.archive.org/web/20211026201828if_/https://guides.github.com/activities/citable-code/zenodo-form.png){ width="70%" height="500" fig-align="center"}
-
-:::
-
-## Getting your DOI
-
-::: {.theme-section}
-
-Do you know your DOI?
-<br><br>
-
-As a final touch (only with real Zenodo!): you can take your DOI and place it as a badge at the top of your README.
-<br><br>
-
-
-```bash
-[![DOI](https://zenodo.org/badge/doi/YOUR.DOI.svg)](http://dx.doi.org/YOUR.DOI)
-```
-
-<br><br>
-
-
-
-__This is not recommended with a Sandbox DOI, because sandbox projects are not permanent.__
-__The Sandbox DOI will not work like a normal one does!__
-
-:::
-
-## Are you ready? {.scrollable }
+## Let's think about the future… {.scrollable}
 
 ::: {.theme-section}
 
 ::: {.fragment fragment-index=1}
-**Let's exchange projects!**
+- Will this repository still be here in five years?
+:::
 
-Find one of your neighbours and exchange the URLs to your GitHub repository.
-
+::: {.fragment fragment-index=2}
+- Will *my account* still be here?
 :::
 
 ::: {.fragment fragment-index=3}
-
-**As you reproduce, please give your colleague feedback!**
-
-Open an issue in your colleague's GitHub repository and copy/paste this [feedback template](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/main/feedback-on-reproducing-projects.txt)
+- Will GitHub still exist in its current form?
+:::
 
 :::
+
+## Why Archiving Matters
+
+::: {.theme-section}
+
+- GitHub is **not** a long‑term archive.  
+- Repositories can be deleted, accounts can disappear, platforms can change.
+- For reproducible research, we need:
+  - **stability** (a version that won’t change)
+  - **citeability** (a DOI)
+  - **findability** (persistent identifier)
+  - **reproducibility** (retrieve the exact version used)
+
+To achieve this, we distinguish between:
+
+- a **software release** (GitHub)  
+- a **software publication** (Zenodo)
+
+:::
+
+
+## What Is a Software Release?
+
+::: {.theme-section}
+
+A software release is a *snapshot* of your repository at a specific moment in time.
+<div style="margin-bottom: 50px;"></div>
+:::: {.columns}
+
+::: {.column width="50%"}
+
+**Characteristics**
+
+- Stable, tested version  
+- Has a **version number**  
+- Includes release notes  
+- Downloadable as `.zip` or `.tar.gz`  
+- May evolve, future releases can follow  
+:::
+
+::: {.column width="50%"}
+**When to create a release**
+
+- Reaching a reliable milestone  
+- Preparing a workshop or teaching  
+- Fixing major bugs or adding features  
+- Freezing a version before refactoring 
+:::
+
+::::
+
+<div style="margin-bottom: 50px;"></div>
+
+A release is **not** a long‑term archive.
+
+:::
+
+## A Word on Version Numbers
+
+::: {.theme-section}
+
+- A version number communicates the **state**, **stability**, and **evolution** of your software.
+
+- Two common conventions
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Semantic Versioning (SemVer)** 
+```
+MAJOR.MINOR.PATCH
+```
+- MAJOR — breaking changes  
+- MINOR — new features, compatible  
+- PATCH — bug fixes  
+
+Use when you want to signal how safe it is for others to upgrade.
+:::
+
+::: {.column width="50%"}
+**Calendar Versioning (CalVer)**
+```
+YY.MM.MICRO
+```
+- Based on release date  
+- Emphasises freshness  
+
+Use for fast‑moving research code or teaching materials.
+
+:::
+
+::::
+:::
+
+
+## What Is a Software Publication?
+
+::: {.theme-section}
+
+A software publication is a *permanent, citable* archived copy of a release.
+<div style="margin-bottom: 100px;"></div>
+:::: {.columns}
+
+::: {.column width="50%"}
+**Characteristics**
+
+- Frozen, immutable version  
+- Stored in a long‑term archive (Zenodo)  
+- Assigned a **DOI**  
+- Includes citation metadata (`CITATION.cff`)  
+- Guaranteed long‑term accessibility 
+:::
+
+::: {.column width="50%"}
+**When to archive a release**
+
+- Publishing a paper or report  
+- Project is finished or inactive  
+- Reproducibility is required  
+- A journal or funder requires a DOI 
+:::
+
+::::
+
+
+
+:::
+
+## Workflow Overview
+
+::: {.theme-section}
+<div style="transform: scale(1.4); transform-origin: top center;">
+```{mermaid}
+%%| fig-align: center
+%%{init: {
+  "theme": "forest",
+  "look": "handDrawn",
+  "flowchart": { "htmlLabels": false }
+}}%%
+flowchart LR
+    A[Prepare repo] --> B[Enable integration]
+    B --> C[Create release]
+    C --> D[Zenodo detects]
+    D --> E[Review record]
+    E --> F[Cite software]
+```
+</div>
+
+<div style="margin-bottom: 100px;"></div>
+**Prepare repo:** README, LICENSE, CITATION.cff  
+**Enable integration:** Log in to Zenodo · Authorize GitHub · Toggle repo ON  
+**Create release:** Choose version number · Add notes · Publish  
+**Zenodo detects:** Creates record · Assigns DOI  
+**Review record:** Check metadata · Publish archive  
+**Cite software:** Use DOI · CITATION.cff provides citation text
+
+**Exercise (optional)**
+
+Follow the workflow outlined in this guide to archive your code to Zenodo. Use the Sandbox version of Zenodo to make sure your repository is not actually archived permanently!
+
+:::
+
+
+## Are you ready? {.scrollable}
+
+::: {.theme-section}
+
+::: {.fragment fragment-index=1}
+**Exchange projects!**  
+Share your GitHub repository with a neighbour.
+:::
+
+::: {.fragment fragment-index=2}
+Try to reproduce each other’s project.
+:::
+
+::: {.fragment fragment-index=3}
+Open an issue in their repository using the  
+[feedback template](https://github.com/UtrechtUniversity/workshop-computational-reproducibility/blob/main/feedback-on-reproducing-projects.txt)
+:::
+
 :::
