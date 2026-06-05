@@ -6,6 +6,7 @@ format:
     logo: ../images/UU_logo_2021_EN_RGB.png
     footer: "Workshop Computational Reproducibility"
     disableScaling: true
+    auto-stretch: false
 ---
 
 # Setting up a project {data-background-color="#FFCD00"}
@@ -36,118 +37,157 @@ format:
 ::: {.column width=50%}
 
 - Contain your project in a single recognizable folder
+- Add subdirectories based on **file type**:
+  - `data` (Read Only)
+  - `src` / `scripts` / `R` (Human Writeable)
+  - `output` (Project Generated)
 
-* Distinguish folder _types_, name them accordingly:
-    + **Read-only**: data, metadata
-    + **Human-generated**: code, paper, documentation
-    + **Project-generated**: clean data, figures, models...
+- Initialize:
+  - `README.md`
+  - `LICENSE.md`
+  - `CITATION.cff`
+- Initialize **version control**
 
-* Initialize a **README** file, document your project
-
-* Choose a **license**
-
-* Publish your project.
 
 :::
 ::: {.column width=50%}
 
-![](../images/screenshots/exampleproject.png)
-[Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)
+
+
+![[Wilson _et al._ (2017)](https://doi.org/10.1371/journal.pcbi.1005510)](../images/screenshots/exampleproject.png){width="80%"}
 
 :::
 ::::
 :::
 
----
-
-## A Good Enough Project {.fullcode}
+## A Good Enough Project (R) {.fullcode}
 
 ```sh
 .
 ├── .gitignore
-├── CITATION.md
+├── CITATION.cff
+├── LICENSE.md
+├── README.md
+├── data               <- All project data, ignored by git
+│   ├── processed      <- Final, canonical data sets (PG)
+│   ├── raw            <- Original, immutable data dump (RO)
+│   └── temp           <- Intermediate transformed data (PG)
+├── docs               <- Documentation for users (HW)
+│   ├── manuscript     <- Manuscript source (HW)
+│   └── reports        <- Reports, notebooks (HW)
+├── results
+│   ├── figures        <- Figures (PG)
+│   └── output         <- Other output (PG)
+├── R                  <- Source code (HW)
+└── MyProject.Rproj    <- R Project File (PG)
+```
+
+## A Good Enough Project (Python) {.theme-section .fullcode}
+
+```sh
+.
+├── .gitignore
+├── CITATION.cff
 ├── LICENSE.md
 ├── README.md
 ├── requirements.txt
-├── bin                <- Compiled and external code, ignored by git (PG)
-│   └── external       <- Any external source code, ignored by git (RO)
-├── config             <- Configuration files (HW)
 ├── data               <- All project data, ignored by git
-│   ├── processed      <- The final, canonical data sets for modeling. (PG)
-│   ├── raw            <- The original, immutable data dump. (RO)
-│   └── temp           <- Intermediate data that has been transformed. (PG)
-├── docs               <- Documentation notebook for users (HW)
-│   ├── manuscript     <- Manuscript source, e.g., LaTeX, Markdown, etc. (HW)
-│   └── reports        <- Other project reports and notebooks (e.g. Jupyter, .Rmd) (HW)
+│   ├── processed      <- Final, canonical data sets (PG)
+│   ├── raw            <- Original, immutable data dump (RO)
+│   └── temp           <- Intermediate transformed data (PG)
+├── docs               <- Documentation for users (HW)
+│   ├── manuscript     <- Manuscript source (HW)
+│   └── reports        <- Reports, notebooks (HW)
 ├── results
-│   ├── figures        <- Figures for the manuscript or reports (PG)
-│   └── output         <- Other output for the manuscript or reports (PG)
-└── src                <- Source code for this project (HW)
+│   ├── figures        <- Figures (PG)
+│   └── output         <- Other output (PG)
+└── src                <- Source code (HW)
 ```
 
-## Licenses
+## Names & Naming Conventions
 
 ::: {.theme-section}
 
-- Copyright is implicit; others cannot use your code without your permission.
+- All files and folders should be named to reflect their content or function.
+- All names should adhere to the same convention
 
-- Licensing gives that permission, and its boundaries and conditions.
+<div style="margin-bottom: 50px;"></div>
 
-- Choosing a license early on means being aware of your license as the project proceeds (and not creating conflicts).
-
-- There are over [80 OSI-approved licenses](https://opensource.org/licenses/alphabetical) (and [many](http://dbad-license.org), [many](http://www.wtfpl.net) others) to choose from.
-
-![](../images/screenshots/license.png)
-
-We will dive into licenses in the Software Publication chapter.
+| Naming Convention | Example | Description |
+| --- | --- | --- |
+| original name | `an awesome name` | N/A |
+| snake_case | `an_awesome_name` | lowercase, underscores |
+| kebab-case | `an-awesome-name` | lowercase, hyphens |
+| PascalCase | `AnAwesomeName` | capitalized words |
+| camelCase | `anAwesomeName` | first word lowercase |
 
 :::
 
-## Public or Private?
+## Absolute vs. Relative Paths
+
+::: {.theme-section}
+:::: {.columns}
+::: {.column width=50%}
+**Absolute paths**  
+- Full location from filesystem root  
+- Not portable  
+- Break when moving or sharing a project  
+:::
+
+::: {.column width=50%}
+**Relative paths**  
+- Location relative to working directory  
+- Portable and reproducible  
+- IDEs help maintain correct working directories  
+:::
+::::
+
+<div style="margin-bottom: 50px;"></div>
+
+:::: {.columns}
+::: {.column width=50%}
+**Example File Structure**
+```
+my_project/
+│
+├ data/
+│   file.csv
+│
+└ script.py
+```  
+:::
+
+::: {.column width=50%}
+**Python Example**  
+```py
+import pandas as pd
+df = pd.read_csv("data/file.csv")
+```
+
+<div style="margin-bottom: 50px;"></div>
+
+**R Example**
+```r
+data <- read.csv("data/file.csv")
+```
+
+Use RStudio Projects to ensure correct working directory.
+
+:::
+::::
+
+:::
+
+## IDEs help with Relative Paths
 
 ::: {.theme-section}
 
-When creating a GitHub repository for your code you need to decide to make it publicly accessible or to keep it private.
+<div style="margin-bottom: 300px;"></div>
 
-::: {.fragment}
-
-Publishing your project at an early stage
-- Consider readability throughout
-- Get feedback during development from your community
-- May generate collaborations
-- Makes it easier to create a Publication or a software package
-
---> Open Science
-
-:::
-
-::: {.fragment}
-
-_But what if someone scoops my code! I'm a revolutionary, they will steal my ideas!_
-
-:::
-
-::: {.fragment}
-
-You can always opt for a private repository.
-
-:::
-:::
-
-## Data
-
-::: {.theme-section}
-
-**How to include large, sensitive data or unpublished data?**
-
-* Don't include your data in your software repository.
-* Include simulated data or a small example dataset to test your code.
-
-* Research Data and full datasets:
-
-    + Your data should be separate from your code!
-    + Provide instructions where to store the data with respect to the software
-    + Provide a configuration file where users define where data is stored.
-    + Make software callable with different data paths. (No absolute paths!)
+| Language | Beginner IDE | Feature |
+| --- | --- | --- |
+| Python | Visual Studio Code | workspace folder |
+| R | RStudio | built‑in projects |
+| MATLAB | MATLAB | current folder |
 
 :::
