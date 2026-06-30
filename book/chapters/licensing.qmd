@@ -1,12 +1,129 @@
 # Licensing
 
-### Video
+## Overview
 
-{{< video https://vimeo.com/463659936 >}}
+| Questions | Objectives | Concepts |
+| - | - | - |
+| Why do I need to apply a license to my code? | Understand why licenses are necessary for code | Copyright, License |
+| When do I apply a license to my code? | Understand when to apply a license and why | — |
+| What licenses are available for my code? | Awareness of the licenses available | Permissive, Restrictive, Copyleft |
 
 
-### Slides
+## Why Licenses Matter for Research Software
 
+Software is automatically protected by copyright the moment you create it.  
+This means:
+
+- **No one is legally allowed to use, modify, or share your code** unless you explicitly grant permission.
+- Even well‑intentioned collaborators, students, or other researchers cannot reuse your work without a license.
+- Journals, research institutes, and open‑science platforms increasingly require a clear license before accepting software.
+
+A license is therefore not just a legal formality, it is a **prerequisite for reproducibility**.  
+Without a license, your code cannot be reused, validated, or extended by others, which undermines the entire purpose of sharing research software.
+
+Licensing also protects *you*:
+
+- It clarifies what others may do with your work.
+- It shields you from liability.
+- It prevents misunderstandings about ownership and reuse.
+- It ensures your contributions are acknowledged.
+
+## Why You Should Choose a License Early
+
+Choosing a license at the beginning of a project is important because:
+
+- It sets expectations for collaborators from day one.
+- It avoids conflicts when contributions accumulate under unclear terms.
+- It prevents incompatible dependencies (e.g., mixing GPL and non‑GPL code).
+- It ensures compliance with institutional or funder requirements.
+- It avoids painful retroactive decisions, such as needing permission from every contributor to change the license later.
+
+Early licensing is part of good research hygiene, just like version control, documentation, and folder structure.
+
+
+## Data and Software Licenses
+
+Software and data serve different purposes and therefore require **different types of licenses**:
+
+- **Software licenses** (MIT, GPL, Apache 2.0)  
+  - Govern *use, modification, and redistribution* of code  
+  - Often include clauses about derivative works, attribution, and liability  
+  - May impose “[copyleft](https://en.wikipedia.org/wiki/Copyleft)” requirements (e.g., GPL)
+
+- **Data licenses** (CC‑BY, CC0, ODbL)  
+  - Govern *access, reuse, and sharing* of datasets  
+  - Focus on attribution, privacy, and ethical reuse  
+  - Do **not** impose copyleft on software using the data
+
+Key differences:
+
+- Software licenses regulate **functional artifacts** (code that executes).  
+- Data licenses regulate **informational artifacts** (facts, measurements, text, images).  
+- Software licenses may require derivative works to adopt the same license;  
+  data licenses generally do not.  
+- Data may contain **sensitive or personal information**, requiring additional restrictions.
+
+For more detail, see:  
+<https://book.the-turing-way.org/reproducible-research/licensing/licensing-data/>
+
+## Types of Software Licenses
+
+There are many software licenses, but they generally fall into three categories:
+
+- **Permissive licenses** (MIT, BSD, Apache 2.0)  
+  Allow reuse with minimal restrictions.
+
+- **Copyleft licenses** (GPL, AGPL, LGPL)  
+  Require derivative works to use the same license.
+
+- **Restrictive / proprietary licenses**  
+  Limit reuse and redistribution.
+
+To explore options, use:
+
+- [https://ufal.github.io/public-license-selector/](https://ufal.github.io/public-license-selector/)  
+- [https://choosealicense.com](https://choosealicense.com)
+
+
+## Changing a License Later: What to Consider
+
+Changing a license is possible, but not always straightforward.  
+Before doing so, you must consider:
+
+### 1. Who owns the copyright?
+If your project has multiple contributors, **you must obtain permission from all of them** to change the license.  
+Every contributor owns the copyright to their contributions unless they have signed a Contributor License Agreement (CLA).
+
+If you cannot reach all contributors, you may be unable to relicense the project.
+
+### 2. Are there external dependencies?
+Some licenses are **incompatible** with others.  
+For example:
+
+- GPL code cannot be relicensed under MIT without removing or replacing the GPL components.
+- Apache 2.0 and GPLv2 are incompatible.
+
+Changing your license may require restructuring your codebase.
+
+### 3. What about downstream users?
+If others have already used or forked your code:
+
+- They may continue using it under the **old license**.
+- Your new license applies only to **future versions**.
+
+### 4. Institutional or funder requirements
+Some institutions mandate specific licenses (e.g., Apache 2.0 for government-funded work).  
+Changing the license may require approval.
+
+### 5. Documentation and communication
+If you decide to change the license:
+
+- Update `LICENSE.md`
+- Update `README.md`
+- Add a note in the changelog or release notes
+- Communicate the change clearly to users and contributors
+
+## Slides
 
 ```{=html}
 <iframe class="slide-deck" src="../slides/slides_licensing.html" title="Licensing" width="960" height="540">
@@ -14,10 +131,11 @@
 ```
 
 
-### Exercise
+## Exercise
 
-* Check the license in your project
-
-* Take a look at other license options via [choosealicense.com](https://choosealicense.com/).
-
-* Do you want to change your license? Go into your Github and change the LICENSE.md file. Don't forget to pull your remote changes!
+- Check the license in your project.
+- Explore alternatives via [choosealicense.com](https://choosealicense.com/).
+- If you want to change your license:
+  - Update the `LICENSE.md` file in your GitHub repository.
+  - Commit and push the change.
+  - Make sure the new license is compatible with your dependencies and contributions.
