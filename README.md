@@ -38,7 +38,8 @@ We have [more details on this page](https://utrechtuniversity.github.io/workshop
 | 9:15 | [Documentation](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/documentation.html)  |
 | 10:45 | Questions & discussion |
 | _11:00_ | _Break_ |
-| 11:15 | [Accessibility & reproducibility](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/accessibility-and-reproducibility.html)  |
+| 11:15 | [Reproducibility](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/reproducibility.html)  |
+| 11:45 | [Publishing](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/publishing.html) |
 | 12:15 | [Reproduction of projects](https://utrechtuniversity.github.io/workshop-computational-reproducibility/chapters/reproducibility-check.html) |
 | _13:00_ | _End_ |
 
