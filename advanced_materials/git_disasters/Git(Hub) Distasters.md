@@ -377,7 +377,10 @@ The merge commit joins the feature branch to `main`, so the individual feature-b
 - GitHub features: secret scanning and push protection
 - Prevention: `.gitignore`, environment variables, pre-commit hooks
 
-**Prerequisite:** your fork of the recipe book. Use only the clearly fake value below; never put real credentials in a workshop repository.
+**Prerequisites:** 
+
+- Your fork of the recipe book. Use only the clearly fake value below; never put real credentials in a workshop repository.
+- Install [`git-filter-repo`](https://github.com/newren/git-filter-repo)
 
 ### Scenario
 
@@ -517,13 +520,35 @@ git switch --track origin/upload-retry
 git switch add-pesto-blog
 ```
 
-Install [`git-filter-repo`](https://github.com/newren/git-filter-repo) if needed. Run this from the root of `recipe-book-cleanup`:
+Install [`git-filter-repo`](https://github.com/newren/git-filter-repo) if needed. First try a dry run from the root of `recipe-book-cleanup`:
 
 ```
-git filter-repo --path foodblog.env --invert-paths
+git filter-repo --dry-run --path foodblog.env --invert-paths
 ```
 
-The command may take a little while, but it does the same path removal consistently across the local branches in one operation.
+You may see an error like this:
+
+```
+Aborting: Refusing to destructively overwrite repo history since
+this does not look like a fresh clone.
+  (expected at most one entry in the reflog for HEAD)
+```
+
+This is a safety check, not a problem with the filter. Although you started with a fresh clone, switching to the two branches above added entries to the `HEAD` reflog. `git-filter-repo` uses that reflog to decide whether a repository looks fresh enough to rewrite. Even `--dry-run` checks this before it previews the filtering.
+
+Because this is a disposable clone made just for this cleanup, you can explicitly bypass that check with `--force`. First preview the rewrite:
+
+```
+git filter-repo --dry-run --force --path foodblog.env --invert-paths
+```
+
+The dry run does not rewrite the branches. If the preview looks right, run the same filter for real:
+
+```
+git filter-repo --force --path foodblog.env --invert-paths
+```
+
+Use `--force` only after confirming that you are in the disposable cleanup clone and are willing to rewrite its history. It bypasses `git-filter-repo`'s fresh-clone safeguard; it does not force-push anything to GitHub. The command removes the path from the histories of all affected local branches in one operation.
 
 Verify that the path no longer appears in the rewritten local branches:
 
@@ -571,27 +596,174 @@ Keep credentials outside the repository, such as in environment variables or an 
 - Why rebasing a long-lived branch can cause the same conflict many times
 - Resolving conflicts (`git status`, `git diff`, `git add`, `git rebase --continue`)
 - Escaping a rebase (`git rebase --abort`, `git reflog`, `git reset`)
-- Reducing the pain: squashing first (`git rebase -i`), merging instead, `git rerere`
+- Recording and reusing conflict resolutions with `git rerere`
+- Preventing repeated conflicts by squashing before rebasing or merging instead
 - Why you should not rebase shared branches
 
 **Prerequisite:** your fork of the recipe book.
 
 ### Scenario
 
-TODO: Describe the scenario (e.g. a feature branch that edits the same recipe files as several commits on `main`).
+We will create a long-lived feature branch with three commits that each change the same line, while `main` changes that line twice. Rebasing replays the feature commits one at a time, so resolving one conflict does not necessarily resolve the next.
+
+Start with a clean working tree on `main`, and create a small file to make the conflicting edits easy to see:
+
+```
+git switch main
+git pull
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Base ingredient
+EOF
+git add rebase-demo.md
+git commit -m "Add rebase practice file"
+git switch -c long-lived-feature
+```
+
+Replace the ingredient and commit it three times on the feature branch. Then save a second branch pointing to the same commit, so you can return to the original, unsquashed history after rebasing `long-lived-feature`:
+
+```
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Feature version 1
+EOF
+git commit -am "Feature change 1"
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Feature version 2
+EOF
+git commit -am "Feature change 2"
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Feature version 3
+EOF
+git commit -am "Feature change 3"
+git branch long-lived-feature-unsquashed
+git merge-base long-lived-feature main
+```
+
+::: {.callout-note}
+
+`git merge-base long-lived-feature main` prints the hash of the best common ancestor of the two branches. Here it identifies the commit where the feature work started. You can use this hash to inspect or rewrite the feature commits, but you do not need to record it for the rest of this exercise.
+
+:::
+
+Now make two independent changes to the same line on `main`:
+
+```
+git switch main
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 1
+EOF
+git commit -am "Main change 1"
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 2
+EOF
+git commit -am "Main change 2"
+```
 
 ### Step 1: Start the rebase and meet the conflicts
 
-TODO: `git rebase main`, reading conflict markers.
+Switch back to the feature branch and start the rebase:
+
+```
+git switch long-lived-feature
+git rebase main
+```
+
+Git stops at the first feature commit. Inspect the conflict with `git status` and `git diff`; `rebase-demo.md` contains conflict markers because the first feature change and the latest `main` change both replaced the same line.
 
 ### Step 2: Resolve conflicts and continue
 
-TODO: edit, `git add`, `git rebase --continue`.
+First, abort this attempt so you can practice recovering from a stopped rebase:
+
+```
+git rebase --abort
+git status
+git reflog --oneline
+```
+
+The feature branch is back at its original tip, and `main` is unchanged.
+
+::: {.callout-note}
+
+`git reflog` is a local record of recent movements of `HEAD` and branch tips. It can help you find an earlier commit even when it no longer appears in the current branch history. If a commit seems to have gone missing, use its reflog hash to create a rescue branch before doing anything destructive:
+
+```
+git branch rescue-feature <commit-hash-from-reflog>
+```
+
+:::
+
+Now retry the rebase and resolve each conflict. For the first conflict, edit the file to keep both the current `main` work and the feature change being replayed:
+
+```
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 2 plus feature version 1
+EOF
+git add rebase-demo.md
+git rebase --continue
+```
+
+The next feature commit conflicts too: its patch expects the line `Feature version 1`, which you just replaced with a combined line. Resolve it in the same way, using `Main version 2 plus feature version 2`, then add the file and run `git rebase --continue`. Repeat once more with `Main version 2 plus feature version 3`. Git may open an editor for each replayed commit message; save and close it to continue.
+
+When the rebase finishes, inspect the rewritten history:
+
+```
+git status
+git log --oneline --graph --all
+```
 
 ### Step 3: Abort and recover
 
-TODO: `git rebase --abort`, `git reflog`.
+`git rebase --abort` is available only while a rebase is in progress. It restores the branch and working tree to their pre-rebase state; `git reflog` helps locate earlier branch tips if you need to recover work after an operation has already completed. Do not use `git reset --hard` unless you have checked the target commit and confirmed that you do not need any uncommitted changes.
 
-### Step 4: A smarter strategy
+### Step 4: Remember resolutions with `git rerere`
 
-TODO: Squash commits first, or use `git merge`, or enable `git rerere`.
+`rerere` stands for "reuse recorded resolution". When enabled, Git remembers how you resolved a conflict and can apply that resolution if it encounters the same conflict again. This saves you from editing the same conflict repeatedly, for example when you abort and retry a rebase. It does not automatically solve every similar-looking conflict: the conflict must match one Git has recorded.
+
+Enable it for this repository and start a fresh rebase from the saved original feature history:
+
+```
+git config rerere.enabled true
+git switch -c rerere-practice long-lived-feature-unsquashed
+git rebase main
+```
+
+Resolve the first conflict just as in Step 2, then continue:
+
+```
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 2 plus feature version 1
+EOF
+git add rebase-demo.md
+git rebase --continue
+```
+
+Git records the resolution and stops at the second conflict. To see the saved resolution in action, abort the rebase and start it again:
+
+```
+git rebase --abort
+git rebase main
+```
+
+Git reports that it used the previous resolution for `rebase-demo.md`. Inspect the file and `git diff` to check the result: Git leaves the conflict for you to review and stage. Once satisfied, continue:
+
+```
+git add rebase-demo.md
+git rebase --continue
+```
+
+Resolve the remaining conflicts as in Step 2, adding the file and continuing after each one. These are different conflicts, so the first recorded resolution does not necessarily apply to them. Always review a reused resolution: even when it matches, the surrounding work may have changed.
+
+The `git config` command enables `rerere` for this repository beyond this exercise. If it was already enabled, Git may also reuse resolutions recorded earlier.
+
+### Prevention: squash before merging
+
+If a feature branch has many small commits changing the same lines, you can combine them into fewer commits *before rebasing* it onto the target branch. For example, an interactive rebase (`git rebase -i`) can squash the feature commits into one. Git then replays fewer commits, giving it fewer opportunities to stop on repeated conflicts. Squashing rewrites commit history and loses the separate commit boundaries, so coordinate with others and avoid rewriting a branch they use.
+
+A squash merge combines a branch's changes into one commit on the target branch; it is not the same as squashing the feature commits before a rebase and does not prevent conflicts in a rebase you already performed. Another option is to merge `main` into the feature branch periodically instead of rebasing: Git resolves conflicts in the merge without rewriting the existing commits.
