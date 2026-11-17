@@ -1,25 +1,31 @@
-# Git(Hub) Distasters
+# Git(Hub) Disasters
 
-We are walking you through some common disasters that can happen with Git and on GitHub and we show you how to solve them.
+This tutorial walks you through common Git and GitHub mishaps and shows you how to recover from them.
 
-Please created a fork of <https://github.com/dianaiusan/recipe-book-2024> and clone it also locally to your computer.
+Fork <https://github.com/dianaiusan/recipe-book-2024> to your GitHub account, then clone your fork to your computer. Run the commands below from the root of your local clone.
 
 ## Help, I accidentally committed my changes to the wrong branch!
 
 ### Local Branch
 
-Check with git status that you are on the `main` branch. It is good practice to work on feature branches and not directly on `main`.
+Check with `git status` that you are on the `main` branch and that your working tree is clean. It is good practice to work on feature branches, not directly on `main`.
 
-Create a feature branch `new_recipe` locally on your computer.
+Create a feature branch named `new_recipe`:
 
 ```
 git branch new_recipe
 ```
 
-Git unfortunately does not switch automatically to this new branch. But you forgot that and now you added a new recipe and committed it to `main`:
+This creates the branch but does not switch to it. You forget to switch branches, add a new recipe, and commit it to `main` instead:
+
+::: {.callout-tip}
+
+Use `git status` to check your current branch before editing or committing. Creating a branch with `git branch` does not check it out.
+
+:::
 
 ```
-% cat recipe-book-2024/soups/snert.md
+% cat soups/snert.md
 # Snert
 
 - Peas
@@ -33,12 +39,12 @@ git add soups/snert.md
 git commit -m "new soup"
 ```
 
-Oh noooooooooo!!!!!! 
+Oh noooooooo!!!!!
 
-Don't panic. What we need to do is to transfer those commits to our newly created branch.
+Don't panic. We need to move the commit to our newly created feature branch.
 
 **Solution 1**
-First, look at what happened:
+First, inspect the current history:
 
 ```
 git status
@@ -52,26 +58,37 @@ git log --oneline --all --graph
 |/
 ```
 
-We see, in contrast to other changes on the main branch, the "new soup" went directly to main. The "carrot cake" has not been merged yet.
-The part of the graph "Apple pie" shows how a neatly merged feature branch looks like.
+The `new soup` commit went directly onto `main`, while `carrot cake` is still on its feature branch. The `Apple Pie` commits show a feature branch that was merged into `main`.
 
-1. `new_recipe` needs to catch up with main
+1. Bring `new_recipe` up to date with `main`:
 
 ```
 git switch new_recipe
 git merge main
 ```
 
-This will also work if you completely forgot to create a new feature branch. Simply create the branch from main and then continue with step 2.
+Because `new_recipe` was created at the previous `main` commit, this merge brings the new commit onto `new_recipe` (normally as a fast-forward). If you forgot to create a feature branch before committing, create one now from `main`, then continue with step 2.
 
-2. Clean up main
+::: {.callout-note}
+
+'fast-forward' means that Git does not create a merge commit, but instead just adds the new commit on top of the branch. This is only possible if the branch containing your new commit and the branch you want to merge into do not have divergent histories. Otherwise, git will have to create a merge commit.
+
+:::
+
+2. Move `main` back to its previous commit:
+
+::: {.callout-warning}
+
+`git reset --hard` discards uncommitted changes. Before running it, verify that you are on `main`, that the commit is safely reachable from `new_recipe`, and that your working tree is clean.
+
+:::
 
 ```
 git switch main
 git reset --hard HEAD~1
 ```
 
-Now the log shows us
+Check the result:
 
 ```
 git log --oneline --all --graph
@@ -84,13 +101,21 @@ git log --oneline --all --graph
 |/
 ```
 
-The soup has moved to `new_recipe` and the main branch HEAD is again where it should be, at the last pull request.
+The `new soup` commit is now on `new_recipe`, and `main` points to its previous commit.
 
 ### Remote Branch
 
-Now we extend the disaster above. We did not only update `main` locally by accident but also pushed the new recipe to main to the remote repository.
+Suppose the disaster is worse: we did not only update `main` locally by accident but also pushed the new recipe to main to the remote repository. In this part of the exercise, we will simulate this scenario.
 
-The log again shows us what happened locally:
+Let's recreate the same mistake on `main` and push it, so the commit is on the shared remote branch too. This simulates the accidental push:
+
+```
+git switch main
+git cherry-pick new_recipe
+git push origin main
+```
+
+The log now shows the pushed commit locally:
 
 ```
 git log --oneline --all --graph
@@ -103,22 +128,20 @@ git log --oneline --all --graph
 |/
 ```
 
-Some AI might tell you now that you need to `reset` main. 
-But this is not the save solution!
+You might think you should reset `main`, but that is not the safe solution for a commit that has already been pushed.
 
-Other people may already have pulled the current version of `main` (at hash 8e5dcdc). If you reset main locally, it differs from origin/main, and you would have to force-push (`git push --force`) to make GitHub match. That rewrites shared history and causes problems for everyone who already has the commit. 
+Other people may already have pulled the current version of `main` (shown here with the example hash `8e5dcdc`). Resetting `main` locally would make it differ from `origin/main`; making GitHub match would then require a force-push. That rewrites shared history and causes problems for people who already have the commit.
 
-So we undo the commit with a new commit (git revert) instead of deleting it.
+Instead, undo the change with a new commit using `git revert`; do not delete the already-published commit.
 
-As you might have the old feature branch `new_recipe` with the commits. Let's use a new feature branch for this exercise.
-
-Create
+The earlier `new_recipe` branch already contains the recipe, but we will use a new feature branch for this exercise. Fetch the remote branch, then create `new_recipe_2` from the commit immediately before the accidental push:
 
 ```
-git branch new_recipe_2
+git fetch origin
+git switch -c new_recipe_2 origin/main~1
 ```
 
-and take a look at the history:
+Now inspect the history:
 
 ```
 git log --oneline --all --graph
@@ -134,22 +157,28 @@ git log --oneline --all --graph
 |/
 ```
 
-The last changes on `main` have the hash `8e5dcdc` which is indicated by our commit message "new soup". We also see our "new soup" with a different hash in the feature branch.
+In this example, `8e5dcdc` is the accidental commit on `main`. The same recipe is on `new_recipe` under a different hash.
+
+::: {.callout-note}
+
+Hashes and pull-request numbers in this tutorial are examples. Use the values from your own history.
+
+:::
 
 **Step 1**
 
-Now we want to transfer the hash 8e5dcdc to our feature branch `new_recipe_2`.
+Now apply the pushed commit to `new_recipe_2`:
 
 ```
 git switch new_recipe_2
 git cherry-pick 8e5dcdc
 ```
 
-`git cherry-pick` takes the changes of one commit and re-applies them as a new commit on the current branch. Check with `git log --oneline` and `ls soups/` that the new recipe is now on `new_recipe_2`.
+`git cherry-pick` reapplies the changes from one commit as a new commit on the current branch. Check with `git log --oneline` and `ls soups/` that the recipe is now on `new_recipe_2`.
 
 **Step 2**
 
-Now we remove the commit from `main`.
+Now undo the commit on `main`. Make sure the commit hash matches the accidental commit in your own log:
 
 ```
 git switch main
@@ -159,14 +188,14 @@ git push
 
 **Step 3**
 
-Push your new feature to the repository in its own branch:
+Push the feature branch to your fork:
 
 ```
 git switch new_recipe_2
 git push -u origin new_recipe_2
 ```
 
-And create a pull request.
+Then open a pull request from `new_recipe_2` into `main`.
 
 Verify your history:
 
@@ -174,19 +203,19 @@ Verify your history:
 git log --oneline --all --graph
 ```
 
-## Git commit merge versus squash and merge
+## Merge commit versus squash merge
 
-What is the difference between `commit merge` or a pull request and `squash and merge`.
+What is the difference between merging a pull request with a merge commit and using squash merge?
 
-Both options bring the changes of a pull request into `main`. The difference is what ends up in the history of `main`.
+Both options bring the changes from a pull request into `main`. The difference is how those changes appear in `main`'s history.
 
-With `Create a merge commit`, all commits of the feature branch are kept in the history of main, and Git adds one extra commit (the merge commit) that joins the two lines of history. You can see exactly where the feature branch started and when it was merged. Git also recognises the branch as merged.
+With **Create a merge commit**, the feature branch's commits remain in `main`'s history, and Git adds a merge commit that joins the two lines of history. You can see where the feature branch started and when it was merged. Git recognizes the branch as merged because its commits are ancestors of `main`.
 
-With `Squash and merge`, GitHub combines all commits of the pull request into one new commit on main. The history stays short and linear, but the individual commit messages are lost, and Git no longer sees any connection between main and the feature branch. Even though the content is in main, the branch is not listed as merged.
+With **Squash and merge**, GitHub combines the pull request's changes into one new commit on `main`. This keeps `main`'s history short and linear, but the feature branch's individual commits are not part of `main`'s history (they remain on the feature branch unless it is deleted). Because the squash commit does not record merge ancestry, Git does not report the feature branch as merged, even though its changes are in `main`.
 
 ### Try it with your existing pull request
 
-Use the open pull request from the previous exercise. Add one or two extra commits to the branch first, so the difference becomes visible:
+Use the open pull request from the previous exercise. Make sure `new_recipe_2` is checked out, then add two commits so the difference becomes visible:
 
 ```
 git switch new_recipe_2
@@ -197,7 +226,7 @@ git commit -am "Add celery"
 git push
 ```
 
-On GitHub, merge the pull request with "Squash and merge" and give it a clear title "Merge with Squash". Then look at the result locally:
+On GitHub, merge the pull request with **Squash and merge** and use the title `Merge with Squash`. Then inspect the result locally:
 
 ```
 git switch main
@@ -224,16 +253,16 @@ git branch -a --merged main
 |/
 ```
 
-- `8e5dcdc new soup` is the commit that was accidentally pushed to main in the previous exercise.
-- `e74f032 Revert "new soup"` is the revert that removed it again.
-- `f362a0a Merge with Squash (#2)` is the squash commit created by GitHub. The (#2) is the pull request number, added automatically. This single commit contains the combined changes of all three commits from the pull request: the new soup, the leek, and the celery.
+- `8e5dcdc new soup` is the commit that was accidentally pushed to `main` in the previous exercise.
+- `e74f032 Revert "new soup"` is the commit that undid that change.
+- `f362a0a Merge with Squash (#2)` is the squash commit created by GitHub. The `(#2)` is an example pull-request number, added automatically. This one commit contains the combined changes from all three pull-request commits: the new soup, the leek, and the celery.
 
 
 ### Undo the "Squash and merge"
 
-To get back to the original state of the Pull Request we will now undo the changes on `main`. Make sure you did not delete your feature branch.
+To restore `main` to its state before the squash merge, undo the squash commit. Make sure you have not deleted your feature branch.
 
-The squash commit `f362a0a` is already pushed to `origin/main`, so the same rule applies as in the “already pushed” exercise: undo it with a new commit instead of rewriting history.
+The squash commit (shown here with the example hash `f362a0a`) is already pushed to `origin/main`, so undo it with a new commit instead of rewriting shared history. Use the actual hash from your log.
 
 ```
 git switch main
@@ -244,9 +273,9 @@ git push
 
 ### Merge commit
 
-Create a new Pull request into main with your feature branch.
+Open a new pull request from `new_recipe_2` into `main`. Because squash merge did not add the feature-branch commits as ancestors of `main`, the branch can be proposed again after the squash commit has been reverted.
 
-On GitHub, merge the pull request with "Create a merge commit" and give it a clear title "Merge with Commit". Then look at the result locally:
+On GitHub, merge the pull request with **Create a merge commit** and use the title `Merge with Commit`. Then inspect the result locally:
 
 ```
 git switch main
@@ -254,7 +283,7 @@ git pull
 git log --oneline --graph --all
 ```
 
-We now see all of our single commits showing up in the `main` branch history:
+The merge commit joins the feature branch to `main`, so the individual feature-branch commits are visible in the history:
 
 ```
 *   50b73bf (HEAD -> main, origin/main, origin/HEAD) Merge pull request #3 from chStaiger/new_recipe_2
@@ -262,8 +291,8 @@ We now see all of our single commits showing up in the `main` branch history:
 | * 5ad67bb (origin/new_recipe_2, new_recipe_2) Add celery
 | * 9ad569f Add leek
 | * 4fd4c73 new soup
-* | eb7c1d2 Revert "new soup (#2)"
-* | f362a0a new soup (#2)
+* | eb7c1d2 Revert "Merge with Squash (#2)"
+* | f362a0a Merge with Squash (#2)
 * | e74f032 Revert "new soup"
 * | 8e5dcdc new soup
 |/
