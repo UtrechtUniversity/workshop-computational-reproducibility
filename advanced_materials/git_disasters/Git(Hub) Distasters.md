@@ -14,12 +14,12 @@ This tutorial walks you through common Git and GitHub mishaps and shows you how 
 - [Exercise 3: Help, I accidentally committed secrets to GitHub!](#exercise-3-secrets)
 - [Exercise 4: Help, I need to rebase but there are so many merge conflicts!](#exercise-4-rebase-conflicts)
 
-| Exercise | Level |
-|----------|-------|
-| 1. Committed to the wrong branch | 🟡 Intermediate |
-| 2. Merge commit versus squash merge | 🟡 Intermediate |
-| 3. Committed secrets to GitHub | 🔴 Advanced |
-| 4. Rebase with many merge conflicts | 🔴 Advanced |
+| Exercise | Level | You will learn |
+|----------|-------|----------------|
+| 1. Committed to the wrong branch | 🟡 Intermediate | Move a commit between branches; use `git merge`, `git reset`, `git cherry-pick`, and `git revert`; understand fast-forward merges and shared history |
+| 2. Merge commit versus squash merge | 🟡 Intermediate | Compare merge commits and squash merges; inspect merged branches with `git branch --merged`; undo a shared merge with `git revert` |
+| 3. Committed secrets to GitHub | 🔴 Advanced | Remove secrets from history with `git-filter-repo`; safely force-push rewritten history |
+| 4. Rebase with many merge conflicts | 🔴 Advanced | Rebase and resolve conflicts; continue or abort a rebase; recover with `git reflog`; reuse resolutions with `git rerere` |
 
 ## Setup
 
