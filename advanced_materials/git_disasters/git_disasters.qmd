@@ -89,6 +89,14 @@ git log --oneline --all --graph
 |/
 ```
 
+::: {.callout-note}
+
+# Branch and remote names
+
+In the labels beside commits, `main` and `new_recipe` are local branch names. `origin` is the nickname Git uses for the remote repository you cloned from, and `origin/main` is your local record of that remote's `main` branch as of the last fetch. `origin/HEAD` points to the remote's default branch (here, `origin/main`). These labels are pointers to commits, not separate copies of the commits.
+
+:::
+
 The `new soup` commit went directly onto `main`, while `carrot cake` is still on its feature branch. The `Apple Pie` commits show a feature branch that was merged into `main`.
 
 1. Bring `new_recipe` up to date with `main`:
@@ -111,6 +119,12 @@ Because `new_recipe` was created at the previous `main` commit, this merge bring
 ::: {.callout-warning}
 
 `git reset --hard` discards uncommitted changes. Before running it, verify that you are on `main`, that the commit is safely reachable from `new_recipe`, and that your working tree is clean.
+
+:::
+
+::: {.callout-note}
+
+In Git, `HEAD` means the commit you are currently on. The `~n` suffix means to go back `n` commits along the current branch: `HEAD~1` is one commit before `HEAD`, and `HEAD~3` is three commits before it. For example, `git rebase -i HEAD~3` opens the last three commits for editing.
 
 :::
 
@@ -178,6 +192,12 @@ This is dangerous on shared branches:
 - The removed commit is hard to recover for anyone who does not have a copy.
 
 Force-pushing is fine on a private feature branch that only you use. If you must force-push, prefer `git push --force-with-lease`, which refuses to overwrite commits you have not seen yet.
+
+:::
+
+::: {.callout-note}
+
+`git reset` moves the current branch to a different commit; with `--hard`, it also resets the working tree and discards uncommitted changes. `git revert` instead makes a new commit that reverses the selected commit's changes, leaving the published commit in history. That is why this exercise uses `reset` before the change is shared, but `revert` after it has been pushed.
 
 :::
 
@@ -294,6 +314,12 @@ git pull
 git log --oneline --graph --all
 git branch -a --merged main
 ```
+
+::: {.callout-note}
+
+`git branch -a --merged main` lists local and remote-tracking branches whose current commit is already part of `main`'s history. A squash-merged feature branch may not be listed: its changes are in `main`, but its original commits are not ancestors of `main`.
+
+:::
 
 ```
 * f362a0a (HEAD -> main, origin/main, origin/HEAD) Merge with Squash (#2)
@@ -525,6 +551,8 @@ Install [`git-filter-repo`](https://github.com/newren/git-filter-repo) if needed
 ```
 git filter-repo --dry-run --path foodblog.env --invert-paths
 ```
+
+`--path foodblog.env` selects that repository-relative file, and `--invert-paths` tells the tool to remove the selected path rather than keep it. Together, they preview removing `foodblog.env` from the rewritten history.
 
 You may see an error like this:
 
@@ -818,7 +846,7 @@ A squash merge combines a branch's changes into one commit on the target branch;
 The saved `long-lived-feature-unsquashed` branch still has the original three feature commits. Use a new local branch so you can practice rewriting them without changing that saved history:
 
 ```
-git switch -c interactive-rebase-practice long-lived-feature-unsquashed
+git switch -c interactive-rebase-practice long-lived-feature-unsquashed # create a new branch from the long-lived-feature-unsquashed branch
 git log --oneline -3
 ```
 
