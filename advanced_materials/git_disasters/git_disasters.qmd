@@ -152,7 +152,7 @@ The `new soup` commit is now on `new_recipe`, and `main` points to its previous 
 
 Suppose the disaster is worse: we did not only update `main` locally by accident but also pushed the new recipe to main to the remote repository. In this part of the exercise, we will simulate this scenario.
 
-Let's recreate the same mistake on `main` and push it, so the commit is on the shared remote branch too. This simulates the accidental push:
+Let's recreate the same mistake on `main` and push it, so the commit is on the shared remote branch too. The following commands simulate the accidental push:
 
 ```
 git switch main
