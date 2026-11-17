@@ -163,6 +163,24 @@ You might think you should reset `main`, but that is not the safe solution for a
 
 Other people may already have pulled the current version of `main` (shown here with the example hash `8e5dcdc`). Resetting `main` locally would make it differ from `origin/main`; making GitHub match would then require a force-push. That rewrites shared history and causes problems for people who already have the commit.
 
+::: {.callout-note}
+
+## What is a force-push?
+
+Normally `git push` only adds new commits on top of what is already on GitHub. If your local branch and the remote branch have diverged (for example, after `git reset --hard HEAD~1` removed a commit that is already on GitHub), Git refuses the push, because it would throw away commits on the remote.
+
+A **force-push** (`git push --force`) tells GitHub: "Make this branch look exactly like mine, even if that deletes commits." The commit disappears from the remote branch's history.
+
+This is dangerous on shared branches:
+
+- Collaborators who already pulled the commit still have it locally. Their history no longer matches `origin/main`, and the next pull can produce confusing conflicts, or they may accidentally push the "deleted" commit back.
+- Work that was based on the deleted commit becomes orphaned.
+- The removed commit is hard to recover for anyone who does not have a copy.
+
+Force-pushing is fine on a private feature branch that only you use. If you must force-push, prefer `git push --force-with-lease`, which refuses to overwrite commits you have not seen yet.
+
+:::
+
 Instead, undo the change with a new commit using `git revert`; do not delete the already-published commit.
 
 The earlier `new_recipe` branch already contains the recipe, but we will use a new feature branch for this exercise. Fetch the remote branch, then create `new_recipe_2` from the commit immediately before the accidental push:
