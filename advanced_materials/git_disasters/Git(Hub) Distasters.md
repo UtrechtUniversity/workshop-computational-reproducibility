@@ -372,36 +372,194 @@ The merge commit joins the feature branch to `main`, so the individual feature-b
 
 - Why deleting a secret in a new commit does not remove it from history
 - First response: revoke and rotate the exposed credential
-- Removing a secret from history (`git commit --amend`, `git rebase -i`, `git filter-repo` or BFG Repo-Cleaner)
-- Force-pushing safely (`git push --force-with-lease`) and what collaborators must do afterwards
+- Removing a secret from history with `git-filter-repo`
+- Force-pushing rewritten branches safely and what collaborators must do afterwards
 - GitHub features: secret scanning and push protection
 - Prevention: `.gitignore`, environment variables, pre-commit hooks
 
-**Prerequisite:** your fork of the recipe book. Use a fake secret only (for example `API_KEY=not-a-real-key`); never use real credentials in this exercise.
+**Prerequisite:** your fork of the recipe book. Use only the clearly fake value below; never put real credentials in a workshop repository.
 
 ### Scenario
 
-TODO: Describe the scenario (e.g. adding a `config.env` file with an API key and pushing it to a branch on your fork).
+Suppose you have a script that uploads recipes from your recipe-book repo to a fictional *FoodBlog* website. This script requires a `foodblog.env` config file containing settings for your blog, including a username and API key needed to upload to the blog. Suppose the script is run on GitHub using GitHub Actions when you push changes -- there, it uses [GitHub Secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets), so your API key does not need to be in the config file. But you sometimes also want to run the upload script locally -- for this, you sometimes add the API key to your `foodblog.env`.
+
+It is easy to see how in this scenario you might end up accidentally committing and pushing the secret API key to GitHub. This kind of thing, unfortunately, happens often!
+
+In this exercise, you will learn how to address this scenario---and how to prevent it!
+
+#### Create the disaster
+
+Work in your clone of your fork. The repository has no `.gitignore`, which is part of how this happens. To make the config file tracked before you add the key, create a harmless starter version on `main`:
+
+```
+git switch main
+git pull
+cat > foodblog.env << 'EOF'
+FOODBLOG_TITLE=my-recipe-book
+EOF
+git add foodblog.env
+git commit -m "Add FoodBlog config with title"
+```
+
+1. Create a feature branch:
+
+```
+git switch main
+git pull
+git switch -c add-pesto-blog
+```
+
+2. Create a new recipe:
+
+```
+cat > sides/pesto.md << 'EOF'
+# Pesto
+
+- Basil
+- Pine nuts
+- Parmesan
+- Olive oil
+- Garlic
+EOF
+```
+
+3. After creating this recipe, you want to manually run the upload script, so you add your API key to the config file:
+
+```
+echo "FOODBLOG_API_KEY=not-a-real-key" >> foodblog.env
+# imagine you now run the fictional upload script: $ upload_foodblog.py
+```
+
+4. You now want to commit the new recipe. You stage that file, then use `git commit -am`:
+
+```
+git add sides/pesto.md
+git commit -am "Add pesto recipe"
+```
+
+::: {.callout-note}
+
+In `git commit -am "message"`, `-a` stages modifications and deletions to tracked files (similar to `git add -u`), and `-m` supplies the commit message. It does **not** add untracked files. Here, the recipe is staged explicitly, but `-a` also stages the unintended API-key change in the already tracked config file. A safer option is to stage only the intended file with `git add <file>` and commit without `-a`. For finer control over parts of a file, use `git add -p` to interactively choose changes to stage, then review with `git diff --cached` before committing.
+
+:::
+
+5. Now you realize you also need salt:
+
+```
+echo "- Salt" >> sides/pesto.md
+git commit -am "Add salt to pesto"
+```
+
+6. Push the branch to your fork and open a pull request:
+
+```
+git push -u origin add-pesto-blog
+```
+
+Look at your branch on GitHub and open `foodblog.env`: the fake key is visible in the file and in the commit history.
+
+::: {.callout-note}
+
+GitHub *push protection* may block a push when a value matches a known secret pattern. This exercise uses a clearly fake value and does not guarantee that push protection will trigger.
+
+:::
+
+7. To simulate a second branch that independently adds the same key to the tracked config, start from `main` and change the file there too:
+
+```
+git switch main
+git pull
+git switch -c upload-retry
+echo "FOODBLOG_API_KEY=not-a-real-key" >> foodblog.env
+git commit -am "Configure upload retry"
+git push -u origin upload-retry
+git switch add-pesto-blog
+```
+
+Now the key appears in separate commits on both `add-pesto-blog` and `upload-retry`. The branches may each have more than one commit containing or descending from the exposed key.
+
+8. Oh noooooooo!!! Your colleague points out that you leaked a key. You quickly delete the file from `add-pesto-blog` and push again:
+
+```
+git rm foodblog.env
+git commit -m "Remove config file"
+git push
+```
+
+Is the secret gone from the repository? Check all local branches and the other remote branch:
+
+```
+git log --all --oneline -- foodblog.env
+git show origin/upload-retry:foodblog.env
+```
+
+The key is still in the history, and the `upload-retry` branch still contains it in its latest version. Deleting the file on one branch only adds a new commit; it does not erase the earlier commits or the copy on the other branch.
 
 ### Step 1: Revoke the secret
 
-TODO: Explain why this comes first, and how to rotate a credential.
+If this had been a real credential, **immediately revoke or disable it at the service that issued it**. Then create a replacement and store it in an approved secrets manager or environment variable, not in the repository. Revocation is the urgent step because it stops the leaked credential from being used; **history cleanup cannot make an exposed credential secret again or guarantee that every copy is erased**.
 
-### Step 2: Remove the secret from the latest commit (not yet pushed)
+Purging it from repository history is probably still worthwhile: for instance, there might be a delay in revoking the credential. And as long as it's there, you may keep receiving alerts from GitHub about secret exposure. Or imagine that instead of leaking a credential, you have accidentally pushed some non-revokable personal information. For all these reasons, knowing how to remove something from the git history is invaluable!
 
-TODO: `git commit --amend` / `git reset`.
+### Step 2: Remove the secret from history
 
-### Step 3: Remove the secret from history (already pushed)
+Because the key was committed on multiple branches, we need to remove the config file from every affected branch history rather than fixing only the current branch. This is because every commit records a snapshot of the files at that point. A later commit that deletes `foodblog.env` changes the current snapshot, but the earlier snapshots—and the secret in them—remain reachable in history, and therefore on GitHub on the web.
 
-TODO: `git filter-repo` or BFG, then force-push.
+We will use the `git-filter-repo` tool to rewrite that history, purging the secret from it. It removes the named path from each commit it processes, then updates the affected local branch refs to point to rewritten commits. Doing this manually would mean finding every commit on every affected branch that contains the file, editing or recreating those commits, then recreating all their descendant commits because their parent commit IDs changed. The work grows quickly with the number of commits and branches, and it is easy to miss a copy. That is why a history-rewriting tool is useful here.
 
-### Step 4: Prevent it from happening again
+Use a fresh clone for the cleanup. `git-filter-repo` checks that it is operating on a fresh clone and may refuse to rewrite an existing working repository. A fresh clone also gives you a clean working tree and the latest pushed branches:
 
-TODO: `.gitignore`, secret scanning, push protection, pre-commit hooks.
+```
+git clone https://github.com/YOUR-USERNAME/recipe-book-2024.git recipe-book-cleanup
+cd recipe-book-cleanup
+git switch --track origin/add-pesto-blog
+git switch --track origin/upload-retry
+git switch add-pesto-blog
+```
 
-**Quiz**
+Install [`git-filter-repo`](https://github.com/newren/git-filter-repo) if needed. Run this from the root of `recipe-book-cleanup`:
 
-- TODO
+```
+git filter-repo --path foodblog.env --invert-paths
+```
+
+The command may take a little while, but it does the same path removal consistently across the local branches in one operation.
+
+Verify that the path no longer appears in the rewritten local branches:
+
+```
+git log --branches --oneline -- foodblog.env
+git ls-tree -r --name-only add-pesto-blog -- foodblog.env
+git ls-tree -r --name-only upload-retry -- foodblog.env
+```
+
+All three commands should print nothing: there should be no commit in the local branches that touched the path, and neither branch tip should contain it.
+
+`git-filter-repo` may remove the `origin` remote as a safety measure. Check it with `git remote -v`; if it is missing, add your fork again (replace the username with yours):
+
+```
+git remote add origin https://github.com/YOUR-USERNAME/recipe-book-2024.git
+```
+
+Then update only the affected branch tips with the cleaned histories:
+
+```
+git push --force origin add-pesto-blog upload-retry
+```
+
+This (`--force`) intentionally rewrites the published branches. See [What is a force-push?](#what-is-a-force-push) for why force-pushes can be risky and why `--force-with-lease` is generally preferred. Before proceeding, confirm that `origin` is your fork, verify that nobody has pushed new commits since you last fetched, and coordinate with collaborators. In this cleanup, `git-filter-repo` may remove the remote-tracking refs that `--force-with-lease` relies on. Tell collaborators not to push old clones; they should re-clone the cleaned repository or carefully reset their local branches. A clone or fork made before cleanup can still contain the old commits.
+
+*For real credentials, contact GitHub Support if sensitive data remains accessible through cached views or pull-request references.*
+
+### Step 3: Prevent it from happening again
+
+Add files that may contain local credentials to `.gitignore` **before** creating them:
+
+```
+echo "foodblog.env" >> .gitignore
+```
+
+Keep credentials outside the repository, such as in environment variables or an approved secrets manager. Enable GitHub secret scanning and push protection where available, and consider a pre-commit secret scanner for local checks. These are additional safeguards, not a substitute for rotating a credential that was exposed.
 
 ## Exercise 4: Help, I need to rebase but there are so many merge conflicts! {#exercise-4-rebase-conflicts}
 
@@ -437,7 +595,3 @@ TODO: `git rebase --abort`, `git reflog`.
 ### Step 4: A smarter strategy
 
 TODO: Squash commits first, or use `git merge`, or enable `git rerere`.
-
-**Quiz**
-
-- TODO
