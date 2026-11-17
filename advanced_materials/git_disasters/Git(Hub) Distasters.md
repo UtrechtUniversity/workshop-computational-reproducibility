@@ -5,20 +5,20 @@ This tutorial walks you through common Git and GitHub mishaps and shows you how 
 ## Table of contents
 
 - [Setup](#setup)
-- [Exercise 1: Help, I accidentally committed my changes to the wrong branch!](#exercise-1-wrong-branch) (🟢 Beginner → 🟡 Intermediate)
+- [Exercise 1: Help, I accidentally committed my changes to the wrong branch!](#exercise-1-wrong-branch)
   - [Local branch](#local-branch)
   - [Remote branch](#remote-branch)
-- [Exercise 2: Merge commit versus squash merge](#exercise-2-merge-versus-squash) (🟡 Intermediate)
+- [Exercise 2: Merge commit versus squash merge](#exercise-2-merge-versus-squash)
   - [Undo the "Squash and merge"](#undo-the-squash-and-merge)
   - [Merge commit](#merge-commit)
-- [Exercise 3: Help, I accidentally committed secrets to GitHub!](#exercise-3-secrets) (🟡 Intermediate → 🔴 Advanced)
-- [Exercise 4: Help, I need to rebase but there are so many merge conflicts!](#exercise-4-rebase-conflicts) (🔴 Advanced)
+- [Exercise 3: Help, I accidentally committed secrets to GitHub!](#exercise-3-secrets)
+- [Exercise 4: Help, I need to rebase but there are so many merge conflicts!](#exercise-4-rebase-conflicts)
 
 | Exercise | Level |
 |----------|-------|
-| 1. Committed to the wrong branch | 🟢 Beginner (local) / 🟡 Intermediate (remote) |
+| 1. Committed to the wrong branch | 🟡 Intermediate |
 | 2. Merge commit versus squash merge | 🟡 Intermediate |
-| 3. Committed secrets to GitHub | 🟡 Intermediate / 🔴 Advanced |
+| 3. Committed secrets to GitHub | 🔴 Advanced |
 | 4. Rebase with many merge conflicts | 🔴 Advanced |
 
 ## Setup
@@ -27,7 +27,7 @@ Fork <https://github.com/dianaiusan/recipe-book-2024> to your GitHub account, th
 
 ## Exercise 1: Help, I accidentally committed my changes to the wrong branch! {#exercise-1-wrong-branch}
 
-**Level:** 🟢 Beginner (local branch) → 🟡 Intermediate (remote branch)
+**Level:** 🟡 Intermediate
 
 **You will learn:**
 
@@ -366,7 +366,7 @@ The merge commit joins the feature branch to `main`, so the individual feature-b
 
 ## Exercise 3: Help, I accidentally committed secrets to GitHub! {#exercise-3-secrets}
 
-**Level:** 🟡 Intermediate → 🔴 Advanced
+**Level:** 🔴 Advanced
 
 **You will learn:**
 
