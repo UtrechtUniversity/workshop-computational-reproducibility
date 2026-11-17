@@ -19,7 +19,7 @@ This tutorial walks you through common Git and GitHub mishaps and shows you how 
 | 1. Committed to the wrong branch | 🟡 Intermediate | Move a commit between branches; use `git merge`, `git reset`, `git cherry-pick`, and `git revert`; understand fast-forward merges and shared history |
 | 2. Merge commit versus squash merge | 🟡 Intermediate | Compare merge commits and squash merges; inspect merged branches with `git branch --merged`; undo a shared merge with `git revert` |
 | 3. Committed secrets to GitHub | 🔴 Advanced | Remove secrets from history with `git-filter-repo`; safely force-push rewritten history |
-| 4. Rebase with many merge conflicts | 🔴 Advanced | Rebase and resolve conflicts; continue or abort a rebase; recover with `git reflog`; reuse resolutions with `git rerere` |
+| 4. Rebase with many merge conflicts | 🔴 Advanced | Rebase and resolve conflicts; continue or abort a rebase; recover with `git reflog`; reuse resolutions with `git rerere`; rewrite local commits with interactive rebase |
 
 ## Setup
 
@@ -598,6 +598,7 @@ Keep credentials outside the repository, such as in environment variables or an 
 - Escaping a rebase (`git rebase --abort`, `git reflog`, `git reset`)
 - Recording and reusing conflict resolutions with `git rerere`
 - Preventing repeated conflicts by squashing before rebasing or merging instead
+- Rewriting local commit messages and combining commits with `git rebase -i`
 - Why you should not rebase shared branches
 
 **Prerequisite:** your fork of the recipe book.
@@ -605,6 +606,34 @@ Keep credentials outside the repository, such as in environment variables or an 
 ### Scenario
 
 We will create a long-lived feature branch with three commits that each change the same line, while `main` changes that line twice. Rebasing replays the feature commits one at a time, so resolving one conflict does not necessarily resolve the next.
+
+### What does rebasing mean?
+
+Think of a branch as a bookmark pointing to a line of commits. A commit records a change relative to its parent commit. When you rebase a feature branch onto `main`, Git takes the feature commits that are not on `main` and tries to apply them again, one by one, starting from the latest commit on `main`.
+
+The goal is to make it look as though your feature work started from the newer `main`. Git does not move the old commits: it creates new commits with the same changes, but with different parents (and therefore different commit IDs). This is different from a merge, which joins the two existing lines of history and does not rewrite the feature commits.
+
+Why choose to rebase? While you work, `main` may gain changes from other people. Rebasing your feature branch onto the latest `main` lets you test your work against those changes and deal without having to merge main into your feature branch. It also keeps the history in a straight line, which some teams find easier to read. Rebasing is not required to combine branches: a regular merge works too and preserves the original commits. Follow your team's workflow, and only rebase commits that you have not shared with others, because rebasing replaces them with new commits.
+
+Rebasing is a powerful tool and useful skill: you can also use it *within* your feature branch to rewrite commits. This can e.g. help you to achieve [atomic commits](https://blog.esciencecenter.nl/posts/2023-10-25---the-utopic-git-history/).
+
+Here is the shape of the history we are about to make. The feature work and the `main` work both start from the same base:
+
+```
+                 F1 -- F2 -- F3   long-lived-feature
+                /
+Base ----------------------------- main (before its changes)
+```
+
+After the two commits on `main`, rebasing means Git tries to replay `F1`, then `F2`, then `F3` on top of `main`:
+
+```
+Base -- M1 -- M2 -- F1' -- F2' -- F3'   rebased feature
+```
+
+The prime marks (`F1'`, `F2'`, `F3'`) mean these are new commits, not the original feature commits.
+
+### Create the disaster
 
 Start with a clean working tree on `main`, and create a small file to make the conflicting edits easy to see:
 
@@ -620,8 +649,7 @@ git commit -m "Add rebase practice file"
 git switch -c long-lived-feature
 ```
 
-Replace the ingredient and commit it three times on the feature branch. Then save a second branch pointing to the same commit, so you can return to the original, unsquashed history after rebasing `long-lived-feature`:
-
+Replace the ingredient and commit it three times on the feature branch:
 ```
 cat > rebase-demo.md << 'EOF'
 # Rebase practice
@@ -637,6 +665,11 @@ cat > rebase-demo.md << 'EOF'
 # Rebase practice
 - Feature version 3
 EOF
+```
+
+Then save a second branch pointing to the same commit, so you can return to the original history after performing steps in this exercise:
+
+```
 git commit -am "Feature change 3"
 git branch long-lived-feature-unsquashed
 git merge-base long-lived-feature main
@@ -673,7 +706,9 @@ git switch long-lived-feature
 git rebase main
 ```
 
-Git stops at the first feature commit. Inspect the conflict with `git status` and `git diff`; `rebase-demo.md` contains conflict markers because the first feature change and the latest `main` change both replaced the same line.
+Git compares the first feature commit's change with the latest version on `main`. Both changed the ingredient line, so Git cannot safely guess which version you want and stops for you to decide. A conflict is not a failure or lost work; Git pauses the rebase and marks the places that need your choice.
+
+Inspect the conflict with `git status` and `git diff`. The conflict markers in `rebase-demo.md` show the two competing versions. In a rebase, the current version is the new base (`main` and any feature commits already replayed), and the incoming version is the feature commit Git is trying to replay.
 
 ### Step 2: Resolve conflicts and continue
 
@@ -708,7 +743,17 @@ git add rebase-demo.md
 git rebase --continue
 ```
 
-The next feature commit conflicts too: its patch expects the line `Feature version 1`, which you just replaced with a combined line. Resolve it in the same way, using `Main version 2 plus feature version 2`, then add the file and run `git rebase --continue`. Repeat once more with `Main version 2 plus feature version 3`. Git may open an editor for each replayed commit message; save and close it to continue.
+Why does Git stop again on what seems like the same line? Each feature commit was made on top of the previous one:
+
+- The first commit changes `Base ingredient` to `Feature version 1`.
+- The second changes `Feature version 1` to `Feature version 2`.
+- The third changes `Feature version 2` to `Feature version 3`.
+
+When Git replays the first commit, you resolve the conflict by writing a combined line: `Main version 2 plus feature version 1`. But the second commit was recorded expecting to find the exact line `Feature version 1`; your combined line is different. Git cannot know how to turn that combined text into the intended next version, so it pauses again. The third commit has the same problem: it expects `Feature version 2`, not the combined result from the previous resolution.
+
+This is why a long-lived branch with several commits editing the same lines can make you resolve conflicts repeatedly. Git is not asking the identical question by accident: it is applying a sequence of separate changes, and each change depends on the version produced by the previous one. Real conflicts depend on the exact edits and may not repeat at every commit, but this exercise is designed to make the pattern visible.
+
+Resolve the second conflict in the same way, using `Main version 2 plus feature version 2`, then add the file and run `git rebase --continue`. Repeat once more with `Main version 2 plus feature version 3`. Git may open an editor for each replayed commit message; save and close it to continue.
 
 When the rebase finishes, inspect the rewritten history:
 
@@ -767,3 +812,29 @@ The `git config` command enables `rerere` for this repository beyond this exerci
 If a feature branch has many small commits changing the same lines, you can combine them into fewer commits *before rebasing* it onto the target branch. For example, an interactive rebase (`git rebase -i`) can squash the feature commits into one. Git then replays fewer commits, giving it fewer opportunities to stop on repeated conflicts. Squashing rewrites commit history and loses the separate commit boundaries, so coordinate with others and avoid rewriting a branch they use.
 
 A squash merge combines a branch's changes into one commit on the target branch; it is not the same as squashing the feature commits before a rebase and does not prevent conflicts in a rebase you already performed. Another option is to merge `main` into the feature branch periodically instead of rebasing: Git resolves conflicts in the merge without rewriting the existing commits.
+
+### Mini-exercise: clean up feature history with interactive rebase
+
+The saved `long-lived-feature-unsquashed` branch still has the original three feature commits. Use a new local branch so you can practice rewriting them without changing that saved history:
+
+```
+git switch -c interactive-rebase-practice long-lived-feature-unsquashed
+git log --oneline -3
+```
+
+Start an interactive rebase covering those three commits:
+
+```
+git rebase -i HEAD~3
+```
+
+In the todo list that opens, change the command for the first commit from `pick` to `reword`, and change the commands for the second and third commits from `pick` to `squash`. Save and close the list. Git will ask you to edit the first commit's message; give it a clear summary. It will then open another message editor for the combined commit; keep or edit that message so it describes the final result, then save and close it.
+
+Inspect the rewritten history and file:
+
+```
+git log --oneline -3
+cat rebase-demo.md
+```
+
+There should now be one feature commit above the base commit, with your new message, and the file should still contain `Feature version 3`. The `reword` command changes a commit message; `squash` combines a commit with the one before it and lets you edit the combined message. Interactive rebase changes commit IDs, so only do this to commits that you have not shared with others.
