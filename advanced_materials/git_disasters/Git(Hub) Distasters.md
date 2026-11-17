@@ -2,11 +2,42 @@
 
 This tutorial walks you through common Git and GitHub mishaps and shows you how to recover from them.
 
+## Table of contents
+
+- [Setup](#setup)
+- [Exercise 1: Help, I accidentally committed my changes to the wrong branch!](#exercise-1-wrong-branch) (🟢 Beginner → 🟡 Intermediate)
+  - [Local branch](#local-branch)
+  - [Remote branch](#remote-branch)
+- [Exercise 2: Merge commit versus squash merge](#exercise-2-merge-versus-squash) (🟡 Intermediate)
+  - [Undo the "Squash and merge"](#undo-the-squash-and-merge)
+  - [Merge commit](#merge-commit)
+- [Exercise 3: Help, I accidentally committed secrets to GitHub!](#exercise-3-secrets) (🟡 Intermediate → 🔴 Advanced)
+- [Exercise 4: Help, I need to rebase but there are so many merge conflicts!](#exercise-4-rebase-conflicts) (🔴 Advanced)
+
+| Exercise | Level |
+|----------|-------|
+| 1. Committed to the wrong branch | 🟢 Beginner (local) / 🟡 Intermediate (remote) |
+| 2. Merge commit versus squash merge | 🟡 Intermediate |
+| 3. Committed secrets to GitHub | 🟡 Intermediate / 🔴 Advanced |
+| 4. Rebase with many merge conflicts | 🔴 Advanced |
+
+## Setup
+
 Fork <https://github.com/dianaiusan/recipe-book-2024> to your GitHub account, then clone your fork to your computer. Run the commands below from the root of your local clone.
 
-## Help, I accidentally committed my changes to the wrong branch!
+## Exercise 1: Help, I accidentally committed my changes to the wrong branch! {#exercise-1-wrong-branch}
 
-### Local Branch
+**Level:** 🟢 Beginner (local branch) → 🟡 Intermediate (remote branch)
+
+**You will learn:**
+
+- How to check which branch you are on (`git status`, `git branch`, `git switch`)
+- How to read history with `git log --oneline --all --graph`
+- How to move a commit to another branch (`git merge`, `git reset --hard`, `git cherry-pick`)
+- What a fast-forward merge is
+- Why you should not rewrite shared history, and how to undo a pushed commit with `git revert`
+
+### Local branch
 
 Check with `git status` that you are on the `main` branch and that your working tree is clean. It is good practice to work on feature branches, not directly on `main`.
 
@@ -103,7 +134,7 @@ git log --oneline --all --graph
 
 The `new soup` commit is now on `new_recipe`, and `main` points to its previous commit.
 
-### Remote Branch
+### Remote branch
 
 Suppose the disaster is worse: we did not only update `main` locally by accident but also pushed the new recipe to main to the remote repository. In this part of the exercise, we will simulate this scenario.
 
@@ -203,7 +234,18 @@ Verify your history:
 git log --oneline --all --graph
 ```
 
-## Merge commit versus squash merge
+## Exercise 2: Merge commit versus squash merge {#exercise-2-merge-versus-squash}
+
+**Level:** 🟡 Intermediate
+
+**You will learn:**
+
+- The difference between *Create a merge commit* and *Squash and merge* on GitHub
+- How each option shapes the history of `main`
+- Why Git does not recognize a squash-merged branch as merged (`git branch --merged`)
+- How to undo a merge on a shared branch with `git revert`
+
+**Prerequisite:** the open pull request from Exercise 1.
 
 What is the difference between merging a pull request with a merge commit and using squash merge?
 
@@ -303,3 +345,81 @@ The merge commit joins the feature branch to `main`, so the individual feature-b
 - Which option lets you still see every individual commit?
 - Why does Git not recognize a squashed branch as merged?
 - When would you choose which option?
+
+## Exercise 3: Help, I accidentally committed secrets to GitHub! {#exercise-3-secrets}
+
+**Level:** 🟡 Intermediate → 🔴 Advanced
+
+**You will learn:**
+
+- Why deleting a secret in a new commit does not remove it from history
+- First response: revoke and rotate the exposed credential
+- Removing a secret from history (`git commit --amend`, `git rebase -i`, `git filter-repo` or BFG Repo-Cleaner)
+- Force-pushing safely (`git push --force-with-lease`) and what collaborators must do afterwards
+- GitHub features: secret scanning and push protection
+- Prevention: `.gitignore`, environment variables, pre-commit hooks
+
+**Prerequisite:** your fork of the recipe book. Use a fake secret only (for example `API_KEY=not-a-real-key`); never use real credentials in this exercise.
+
+### Scenario
+
+TODO: Describe the scenario (e.g. adding a `config.env` file with an API key and pushing it to a branch on your fork).
+
+### Step 1: Revoke the secret
+
+TODO: Explain why this comes first, and how to rotate a credential.
+
+### Step 2: Remove the secret from the latest commit (not yet pushed)
+
+TODO: `git commit --amend` / `git reset`.
+
+### Step 3: Remove the secret from history (already pushed)
+
+TODO: `git filter-repo` or BFG, then force-push.
+
+### Step 4: Prevent it from happening again
+
+TODO: `.gitignore`, secret scanning, push protection, pre-commit hooks.
+
+**Quiz**
+
+- TODO
+
+## Exercise 4: Help, I need to rebase but there are so many merge conflicts! {#exercise-4-rebase-conflicts}
+
+**Level:** 🔴 Advanced
+
+**You will learn:**
+
+- What `git rebase` does and how it differs from `git merge`
+- Why rebasing a long-lived branch can cause the same conflict many times
+- Resolving conflicts (`git status`, `git diff`, `git add`, `git rebase --continue`)
+- Escaping a rebase (`git rebase --abort`, `git reflog`, `git reset`)
+- Reducing the pain: squashing first (`git rebase -i`), merging instead, `git rerere`
+- Why you should not rebase shared branches
+
+**Prerequisite:** your fork of the recipe book.
+
+### Scenario
+
+TODO: Describe the scenario (e.g. a feature branch that edits the same recipe files as several commits on `main`).
+
+### Step 1: Start the rebase and meet the conflicts
+
+TODO: `git rebase main`, reading conflict markers.
+
+### Step 2: Resolve conflicts and continue
+
+TODO: edit, `git add`, `git rebase --continue`.
+
+### Step 3: Abort and recover
+
+TODO: `git rebase --abort`, `git reflog`.
+
+### Step 4: A smarter strategy
+
+TODO: Squash commits first, or use `git merge`, or enable `git rerere`.
+
+**Quiz**
+
+- TODO
