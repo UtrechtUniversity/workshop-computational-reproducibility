@@ -1,0 +1,1045 @@
+# Git(Hub) Disasters
+
+This tutorial walks you through common Git and GitHub mishaps and shows you how to recover from them.
+
+## Table of contents
+
+- [Setup](#setup)
+- [Exercise 1: Help, I accidentally committed my changes to the wrong branch!](#exercise-1-wrong-branch)
+- [Exercise 2: Help, I accidentally pushed my changes to the wrong branch!](#exercise-2-wrong-branch)
+- [Exercise 3: GitHub merge commit versus squash merge](#exercise-3-merge-versus-squash)
+  - [Undo the "Squash and merge"](#undo-the-squash-and-merge)
+  - [Merge commit](#merge-commit)
+- [Exercise 4: Help, I accidentally committed secrets to GitHub!](#exercise-4-secrets)
+- [Exercise 5: Help, I need to rebase but there are so many merge conflicts!](#exercise-5-rebase-conflicts)
+
+| Exercise | Level | You will learn |
+|----------|-------|----------------|
+| 1. Committed to the wrong branch | 🟡 Intermediate | Move a commit between branches; use `git merge`, `git reset`, `git cherry-pick`, and `git revert`; understand fast-forward merges and shared history |
+| 2. Pushed changes to the wrong branch. | 🟡 Intermediate | Compare merge commits and squash merges; inspect merged branches with `git branch --merged`; undo a shared merge with `git revert` |
+| 3. Merging vs. Squash-and-merge on GitHub | 🟡 Intermediate | Difference between PR merge strategies, reverting merges on a shared branch, the revert-of-a-revert trap |
+| 4. Committed secrets to GitHub | 🔴 Advanced | Remove secrets from history with `git-filter-repo`; safely force-push rewritten history |
+| 5. Rebase with many merge conflicts | 🔴 Advanced | Rebase and resolve conflicts; continue or abort a rebase; recover with `git reflog`; reuse resolutions with `git rerere`; rewrite local commits with interactive rebase |
+
+## Setup
+
+Fork <https://github.com/dianaiusan/recipe-book-2024> to your GitHub account, then clone your fork to your computer. Run the commands below from the root of your local clone.
+
+## Exercise 1: Help, I accidentally committed my changes to the wrong branch! {#exercise-1-wrong-branch}
+
+**Level:** 🟡 Intermediate
+
+**You will learn:**
+
+- How to check which branch you are on (`git status`, `git branch`, `git switch`)
+- How to read history with `git log --oneline --all --graph`
+- How to move a commit to another branch (`git merge`, `git reset --hard`, `git cherry-pick`)
+- What a fast-forward merge is
+- Why you should not rewrite shared history, and how to undo a pushed commit with `git revert`
+
+### Setup: a local branch
+
+Check with `git status` that you are on the `main` branch and that your working tree is clean. It is good practice to work on feature branches, not directly on `main`.
+
+Create a feature branch named `new_recipe`:
+
+```bash
+git branch new_recipe
+```
+
+This creates the branch but does **not** switch to it. You forget to switch, add a new recipe, and commit it to `main` instead:
+
+::: {.callout-tip}
+Use `git status` to check your current branch before editing or committing. Creating a branch with `git branch` does not check it out. (`git switch -c new_recipe` creates *and* switches in one step.)
+:::
+
+```bash
+cat soups/snert.md
+```
+
+```text
+# Snert
+
+- Peas
+- Carrots
+- Onions
+- Hema rookworst
+```
+
+```bash
+git add soups/snert.md
+git commit -m "new soup"
+```
+
+Oh no! The commit is on `main`, but it belongs on `new_recipe`.
+
+Don't panic. Nothing is lost, and we can move the commit to the branch where it belongs.
+
+### Step 0: Inspect the history
+
+Before changing anything, look at what Git currently knows:
+
+```bash
+git status
+git log --oneline --all --graph
+```
+
+`git status` now tells you that your branch is ahead of `origin/main` by 1 commit. The log shows the details:
+
+- `--oneline` shows one line per commit
+- `--all` shows all branches, not just the current one
+- `--graph` draws the branching structure with lines
+
+```text
+* d8352b8 (HEAD -> main) new soup
+* 9ce4dce (origin/main, origin/HEAD, new_recipe) clarify
+* 0241b03 restore tests
+* 4706ecb simplify
+* 155ef83 add note about where to direct PRs to
+* a8b1aff more robust automatic test
+* 9c5559a Add basic recipe checks
+* 990cea4 sides/poke: Add instructions to recipe
+*   554c187 Merge branch 'alex/fruit-salad'
+|\
+| * 89d5ef9 fruit salad: instructions
+| * 3bd2468 fruit salad: ingredients
+* | 8bcb766 a todo note to not forget the instructions
+|/
+```
+
+The newest commit is at the top and the oldest at the bottom.
+
+::: {.callout-note title="How to read the labels in parentheses" collapse="true"}
+
+Each line is a **commit**, a saved snapshot of your project. The names in parentheses are **labels** attached to a commit. They work like sticky notes that mark "this is where something currently is". They are not copies of your files or of the commit.
+
+- **`main` and `new_recipe`** are *branches* on your own computer. A branch is a named bookmark that points to a commit.
+- **`HEAD -> main`** means "you are currently working on `main`". `HEAD` is Git's "you are here" marker: it points to the branch you have checked out, so your next commit will be added to `main`.
+- **`origin`** is the nickname Git gives to the online repository you cloned your project from, for example the one on GitHub.
+- **`origin/main`** is your computer's *memory* of where `main` was in that online repository the last time you checked (with `git fetch` or `git pull`). It may be out of date if others have pushed changes since.
+- **`origin/HEAD`** is a note about which branch is the online repository's default. Here, it is `origin/main`.
+
+**What does this example show?**
+
+Look at the top two lines:
+
+```text
+* d8352b8 (HEAD -> main) new soup
+* 9ce4dce (origin/main, origin/HEAD, new_recipe) clarify
+```
+
+Your local `main` is **one commit ahead** of `origin/main`: the commit `new soup` exists only on your computer, and nobody else can see it yet.
+
+Also notice that `origin/main`, `origin/HEAD` and `new_recipe` all sit on the same commit (`9ce4dce`). That is fine: **several labels can point to the same commit**, just as several sticky notes can be stuck on the same page.
+:::
+
+::: {.callout-note title="What does a merge look like in the graph?"}
+Further down in the log you can see a merge:
+
+```text
+*   554c187 Merge branch 'alex/fruit-salad'
+|\
+| * 89d5ef9 fruit salad: instructions
+| * 3bd2468 fruit salad: ingredients
+* | 8bcb766 a todo note to not forget the instructions
+|/
+```
+
+The lines `|\` and `|/` show the history splitting into two parallel lines of work (one on `main`, one on the `alex/fruit-salad` branch) and joining again in the merge commit `554c187`.
+:::
+
+### Solution 1: merge, then reset
+
+**Step 1: Bring `new_recipe` up to date with `main`.**
+
+```bash
+git switch new_recipe
+git merge main
+```
+
+`new_recipe` was created at the previous `main` commit, so it has not moved since. The merge therefore just brings the `new soup` commit onto `new_recipe`, as a fast-forward.
+
+::: {.callout-note title="What is a fast-forward?"}
+A **fast-forward** merge happens when the branch you are merging into has no commits of its own that the other branch lacks. Git does not need to combine two lines of work, so it creates no merge commit. It simply moves the branch label forward to the newer commit.
+
+If both branches had received different commits, their histories would have *diverged*, and Git would have to create a merge commit.
+:::
+
+::: {.callout-tip}
+If you had forgotten to create a feature branch before committing, create it now while you are still on `main` (`git branch new_recipe`). It will point at your new commit right away, so no merge is needed, and you can continue with step 2.
+:::
+
+**Step 2: Move `main` back to its previous commit.**
+
+::: {.callout-warning}
+`git reset --hard` discards uncommitted changes and moves the current branch label. Before running it, verify that you are on `main`, that the commit is safely reachable from `new_recipe` (see the log), and that your working tree is clean.
+:::
+
+::: {.callout-note title="Counting back with `~`"}
+`HEAD` points to your current position, and the suffix `~n` means "go back `n` commits along the current branch". So `HEAD~1` is the commit before the current one, and `HEAD~3` is three commits before it.
+:::
+
+```bash
+git switch main
+git reset --hard HEAD~1
+```
+
+**Step 3: Check the result.**
+
+```bash
+git log --oneline --all --graph
+```
+
+```text
+* d8352b8 (new_recipe) new soup
+* 9ce4dce (HEAD -> main, origin/main, origin/HEAD) clarify
+* 0241b03 restore tests
+* 4706ecb simplify
+* 155ef83 add note about where to direct PRs to
+* a8b1aff more robust automatic test
+* 9c5559a Add basic recipe checks
+* 990cea4 sides/poke: Add instructions to recipe
+*   554c187 Merge branch 'alex/fruit-salad'
+|\
+| * 89d5ef9 fruit salad: instructions
+| * 3bd2468 fruit salad: ingredients
+* | 8bcb766 a todo note to not forget the instructions
+|/
+```
+
+The `new soup` commit is now on `new_recipe`, and `main` is back at `9ce4dce`, level with `origin/main`. Only the sticky notes moved; the commit itself was never deleted.
+
+### Solution 2: cherry-pick, then reset
+
+Instead of merging, you can *copy* the commit onto `new_recipe` with `git cherry-pick`:
+
+```bash
+git switch new_recipe
+git cherry-pick main
+git switch main
+git reset --hard origin/main
+```
+
+`git cherry-pick main` takes the latest commit of `main` and re-applies it on top of the current branch. Resetting to `origin/main` puts `main` back to the state of the remote.
+
+::: {.callout-note}
+A cherry-picked commit is a *new* commit with a different hash, even though it has the same content and message. This is a useful approach when `new_recipe` has already moved on and a fast-forward is no longer possible. See next section.
+:::
+
+
+## Exercise 2: Help, I accidentally pushed my changes to the wrong branch! {#exercise-2-wrong-branch}
+
+Suppose the disaster is worse: we did not only update `main` locally by accident but also pushed the new recipe to main to the remote repository. In this part of the exercise, we will simulate this scenario.
+
+Let's recreate the same mistake on `main` and push it, so the commit is on the shared remote branch too. This simulates the accidental push:
+
+```bash
+git switch main
+git cherry-pick new_recipe
+git push origin main
+```
+
+The log now shows the pushed commit locally:
+
+```text
+git log --oneline --all --graph
+* 58710bb (HEAD -> main) new soup commit and push
+| * d8352b8 (new_recipe) new soup
+|/
+* 9ce4dce (origin/main, origin/HEAD) clarify
+* 0241b03 restore tests
+* 4706ecb simplify
+* 155ef83 add note about where to direct PRs to
+* a8b1aff more robust automatic test
+* 9c5559a Add basic recipe checks
+* 990cea4 sides/poke: Add instructions to recipe
+*   554c187 Merge branch 'alex/fruit-salad'
+|\
+| * 89d5ef9 fruit salad: instructions
+| * 3bd2468 fruit salad: ingredients
+* | 8bcb766 a todo note to not forget the instructions
+|/
+```
+
+You might think you should reset `main`, but that is not the safe solution for a commit that has already been pushed.
+
+Other people may already have pulled the current version of `main` (shown here with the example hash `8e5dcdc`). Resetting `main` locally would make it differ from `origin/main`; making GitHub match would then require a force-push. That rewrites shared history and causes problems for people who already have the commit.
+
+::: {.callout-note title="What is a force-push?" collapse="true"}
+
+Normally `git push` only adds new commits on top of what is already on GitHub. If your local branch and the remote branch have diverged (for example, after `git reset --hard HEAD~1` removed a commit that is already on GitHub), Git refuses the push, because it would throw away commits on the remote.
+
+A **force-push** (`git push --force`) tells GitHub: "Make this branch look exactly like mine, even if that deletes commits." The commit disappears from the remote branch's history.
+
+This is dangerous on shared branches:
+
+- Collaborators who already pulled the commit still have it locally. Their history no longer matches `origin/main`, and the next pull can produce confusing conflicts, or they may accidentally push the "deleted" commit back.
+- Work that was based on the deleted commit becomes orphaned.
+- The removed commit is hard to recover for anyone who does not have a copy.
+
+Force-pushing is fine on a private feature branch that only you use. If you must force-push, prefer `git push --force-with-lease`, which refuses to overwrite commits you have not seen yet.
+
+:::
+
+::: {.callout-note}
+
+`git reset` moves the current branch to a different commit; with `--hard`, it also resets the working tree and discards uncommitted changes. `git revert` instead makes a new commit that reverses the selected commit's changes, leaving the published commit in history. That is why this exercise uses `reset` before the change is shared, but `revert` after it has been pushed.
+
+:::
+
+Instead, undo the change with a new commit using `git revert`; do not delete the already-published commit.
+
+The earlier `new_recipe` branch already contains the recipe, but we will use a new feature branch for this exercise. Fetch the remote branch, then create `new_recipe_2` from the commit immediately before the accidental push:
+
+```bash
+git fetch origin
+git switch -c new_recipe_2 origin/main~1
+```
+
+Now inspect the history:
+
+```
+git log --oneline --all --graph
+
+* 58710bb (main) new soup commit and push
+| * d8352b8 (new_recipe) new soup
+|/
+* 9ce4dce (origin/main, origin/HEAD) clarify
+* 0241b03 (HEAD -> new_recipe_2) restore tests
+* 4706ecb simplify
+* 155ef83 add note about where to direct PRs to
+* a8b1aff more robust automatic test
+* 9c5559a Add basic recipe checks
+* 990cea4 sides/poke: Add instructions to recipe
+*   554c187 Merge branch 'alex/fruit-salad'
+|\
+| * 89d5ef9 fruit salad: instructions
+| * 3bd2468 fruit salad: ingredients
+* | 8bcb766 a todo note to not forget the instructions
+|/
+```
+
+In this example, `58710bb` is the accidental commit on `main`. The same recipe is on `new_recipe` under a different hash.
+
+::: {.callout-note}
+
+Hashes and pull-request numbers in this tutorial are examples. Use the values from your own history.
+
+:::
+
+**Step 1**
+
+Now apply the pushed commit to `new_recipe_2`:
+
+```bash
+git switch new_recipe_2
+git cherry-pick 58710bb
+```
+
+`git cherry-pick` reapplies the changes from one commit as a new commit on the current branch. Check with `git log --oneline` and `ls soups/` that the recipe is now on `new_recipe_2`.
+
+**Step 2**
+
+Now undo the commit on `main`. Make sure the commit hash matches the accidental commit in your own log:
+
+```bash
+git switch main
+git revert 58710bb --no-edit
+git push
+```
+
+**Step 3**
+
+Push the feature branch to your fork:
+
+```bash
+git switch new_recipe_2
+git push -u origin new_recipe_2
+```
+
+Then open a pull request from `new_recipe_2` into `main`.
+
+Verify your history:
+
+```bash
+git log --oneline --all --graph
+```
+
+```text
+* 2fbda06 (origin/main, origin/HEAD, main) Revert "new soup commit and push"
+* 58710bb new soup commit and push
+| * 6deeaa1 (HEAD -> new_recipe_2, origin/new_recipe_2) new soup commit and push
+| | * d8352b8 (new_recipe) new soup
+| |/
+|/|
+* | 9ce4dce clarify
+|/
+* 0241b03 restore tests
+```
+
+The three lines of history
+
+- `main` (leftmost column): `0241b03` → `9ce4dce` → `58710bb` → `2fbda06`.
+	- `58710bb` is the accidental commit that was pushed.
+	- `2fbda06` is the git revert, a new commit that undoes `58710bb`.
+	- `main`, `origin/main` and `origin/HEAD` all sit on `2fbda06`, so your local main and the remote are in sync.
+- `new_recipe_2` (middle column): `6deeaa1` is the recipe re-applied with git cherry-pick. `HEAD` is here because you are on this branch, and `origin/new_recipe_2` is on the same commit, so it has been pushed. This is the branch you open the pull request from.
+- `new_recipe` (right column): `d8352b8` is the recipe commit from Exercise 1. It exists only on your computer and was never pushed.
+
+## Exercise 3: Merge commit versus squash merge {#exercise-3-merge-versus-squash}
+
+**Level:** 🟡 Intermediate
+
+**You will learn:**
+
+- The difference between *Create a merge commit* and *Squash and merge* on GitHub
+- How each option shapes the history of `main`
+- Why Git does not recognize a squash-merged branch as merged (`git branch --merged`)
+- How to undo merged changes on a shared branch with `git revert`
+
+**Prerequisite:** the open pull request from `new_recipe_2` into `main` from [Exercise 2](#exercise-2-wrong-branch). If you have already merged it, use a new branch with a small recipe change.
+
+
+### Three ways to merge a pull request
+
+All options bring the changes from a pull request into `main`. They differ in how those changes appear in `main`'s history.
+
+| | Create a merge commit | Squash and merge | Rebase and merge |
+|---|---|---|---|
+| History of `main` | Branches and joins | One linear commit per PR | Linear, one commit per PR commit |
+| Individual commits kept on `main` | Yes, with original hashes | No, combined into one | Yes, but copied (new hashes) |
+| Git sees the branch as merged | Yes | No | No |
+| Typical use | Keep full context of the work | Many noisy "wip" commits | Small, clean, atomic commits |
+
+With **Create a merge commit**, the feature branch's commits remain in `main`'s history and Git adds a merge commit that joins the two lines. You can see where the branch started and when it was merged. Git recognizes the branch as merged because its commits are ancestors of `main`.
+
+With **Squash and merge**, GitHub combines the pull request's changes into one new commit on `main`. This keeps the history short and linear, but the individual commits are not part of `main`'s history. They remain on the feature branch unless it is deleted. The squash commit has only one parent (the previous tip of `main`), so it records no link to the branch. Git therefore does not report the branch as merged, even though its changes are in `main`.
+
+
+### Try it with your existing pull request
+
+Use the open pull request from the previous exercise. Make sure `new_recipe_2` is checked out, then add two commits so the difference becomes visible:
+
+```bash
+git switch new_recipe_2
+echo "- Leek" >> soups/snert.md
+git commit -am "Add leek"
+echo "- Celery" >> soups/snert.md
+git commit -am "Add celery"
+git push
+```
+
+On GitHub, merge the pull request with **Squash and merge** and use the title `Merge with Squash`. Do **not** tick or click *Delete branch*: you need the branch again later. Then inspect the result locally:
+
+```bash
+git switch main
+git pull
+git log --oneline --graph --all
+git branch -a --merged main
+```
+
+```text
+* ec496a9 (HEAD -> main, origin/main, origin/HEAD) Merge with Squash
+* 2fbda06 Revert "new soup commit and push"
+* 58710bb new soup commit and push
+| * d7e6485 (origin/new_recipe_2, new_recipe_2) Add celery
+| * 10007f3 Add leek
+| * 6deeaa1 new soup commit and push
+| | * d8352b8 (new_recipe) new soup
+| |/
+|/|
+* | 9ce4dce clarify
+|/
+```
+
+::: {.callout-note title="What does `git branch -a --merged main` show?"}
+
+It lists local and remote-tracking branches whose tip is already part of `main`'s history. After a squash merge, `new_recipe_2` and `origin/new_recipe_2` are not in the list: their changes are in `main`, but their original commits are not ancestors of `main`.
+
+You can confirm that the content is identical anyway:
+
+```bash
+git diff main new_recipe_2 --stat
+```
+
+If nothing else changed on `main`, this prints nothing: same files, different history.
+
+:::
+
+
+Your log should look similar to this (hashes and extra branches will differ):
+
+```text
+* f362a0a (HEAD -> main, origin/main, origin/HEAD) Merge with Squash (#2)
+* 2fbda06 Revert "new soup commit and push"
+* 58710bb new soup commit and push
+| * d7e6485 (origin/new_recipe_2, new_recipe_2) Add celery
+| * 10007f3 Add leek
+| * 6deeaa1 new soup commit and push
+| | * d8352b8 (new_recipe) new soup
+| |/
+|/|
+* | 9ce4dce clarify
+|/```
+
+- `58710bb new soup commit and push` is the commit that was accidentally pushed to `main` in Exercise 2.
+- `2fbda06 Revert "new soup commit and push"` is the commit that undid it.
+- `f362a0a Merge with Squash (#2)` is the squash commit created by GitHub. GitHub adds the pull-request number `(#2)` automatically. It contains the combined changes of all three pull-request commits: the new soup, the leek and the celery.
+
+### Undo the "Squash and merge" {#undo-the-squash-and-merge}
+
+Suppose the squash merge was a mistake and you want `main` back in its previous state. The squash commit is already pushed, so undo it with a new commit rather than rewriting shared history. Use the actual hash from your log:
+
+```bash
+git switch main
+git pull
+git revert f362a0a --no-edit
+git push
+```
+
+### Merge commit
+
+Open a new pull request from `new_recipe_2` into `main`. Because squash merge did not add the feature-branch commits as ancestors of `main`, the branch can be proposed again after the squash commit has been reverted.
+
+On GitHub, merge the pull request with **Create a merge commit** and use the title `Merge with Commit`. Then inspect the result locally:
+
+```bash
+git switch main
+git pull
+git log --oneline --graph --all
+```
+
+The merge commit joins the feature branch to `main`, so the individual feature-branch commits are visible in the history:
+
+```text
+*   50b73bf (HEAD -> main, origin/main, origin/HEAD) Merge pull request #3 from chStaiger/new_recipe_2
+|\
+| * 5ad67bb (origin/new_recipe_2, new_recipe_2) Add celery
+| * 9ad569f Add leek
+| * 4fd4c73 new soup
+* | eb7c1d2 Revert "Merge with Squash (#2)"
+* | f362a0a Merge with Squash (#2)
+* | e74f032 Revert "new soup"
+* | 8e5dcdc new soup
+|/
+```
+
+::: {.callout-note title="Reverting a merge commit needs `-m`" collapse="true"}
+A squash commit has one parent, so `git revert <hash>` works directly. A *merge commit* has two parents, and Git does not know which side to keep. You must choose the "mainline" parent:
+
+```bash
+git revert -m 1 <merge-commit-hash>
+```
+
+`-m 1` means "keep the first parent", which is the branch you merged *into* (usually `main`).
+:::
+
+::: {.callout-warning title="The revert-of-a-revert trap" collapse="true"}
+If you revert a *merge commit* and later merge the same branch again, Git considers the branch's commits already merged and brings in **nothing**. This is because `git revert` does not remove the merged commits, but creates new commits that apply the exact opposite changes. That means the originally merged commits are still in the history, and so git thinks nothing needs to happen for the second merge---the commits are already there!
+
+To get the changes back, you first have to revert the revert, _or_ re-create the changes in new commits (for example with `git cherry-pick`).
+
+In the current example, the squash commit never made the branch's commits ancestors of `main`, so the branch can be proposed again right away.
+:::
+
+
+### Quiz
+
+1. Which option gives the shortest history of `main`?
+2. Which options let you still see every individual commit on `main`?
+3. Why does Git not recognize a squashed branch as merged?
+4. When would you choose which option?
+
+::: {.callout-tip title="Answers" collapse="true"}
+1. **Squash and merge**: one commit per pull request. *Rebase and merge* is also linear, but keeps one commit per original commit.
+2. **Create a merge commit** keeps the original commits and hashes. *Rebase and merge* keeps the changes, but as copies with new hashes.
+3. The squash commit has a single parent and contains the combined changes as new content. Nothing in `main`'s history points to the branch's commits, so they are not ancestors of `main`.
+4. Squash for pull requests with many small, messy commits where one commit per feature is enough. Merge commit when the commits are meaningful and you want to preserve the context of the work. Rebase and merge for small, clean, atomic commits and a strictly linear history. The team's convention decides.
+:::
+
+
+## Exercise 4: Help, I accidentally committed secrets to GitHub! {#exercise-4-secrets}
+
+**Level:** 🔴 Advanced
+
+**You will learn:**
+
+- Why deleting a secret in a new commit does not remove it from history
+- First response: revoke and rotate the exposed credential
+- Removing a secret from history with `git-filter-repo`
+- Force-pushing rewritten branches safely and what collaborators must do afterwards
+- GitHub features: secret scanning and push protection
+- Prevention: `.gitignore`, environment variables, pre-commit hooks
+
+**Prerequisites:** 
+
+- Your fork of the recipe book. Use only the clearly fake value below; never put real credentials in a workshop repository.
+- [`git-filter-repo`](https://github.com/newren/git-filter-repo) installed. It needs Python 3; in Git Bash, `pip install git-filter-repo` usually works. Check with `git filter-repo --version`.
+
+### Scenario
+
+Suppose you have a script that uploads recipes from your recipe-book repo to a fictional *FoodBlog* website. This script requires a `foodblog.env` config file containing settings for your blog, including a username and API key needed to upload to the blog.
+
+On GitHub, the script runs through GitHub Actions when you push, and uses [GitHub Secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets), so the key does not need to be in the file. But you sometimes also run the script locally, and then you add the API key to `foodblog.env`.
+
+It is easy to see how you might commit and push that key by accident. This kind of thing, unfortunately, happens often. In this exercise you learn how to deal with it, and how to prevent it.
+
+In this exercise, you will learn how to address this scenario---and how to prevent it!
+
+### Create the disaster
+
+Work in your clone of your fork. The repository has no `.gitignore`, which is part of how this happens. To make the config file tracked before you add the key, create a harmless starter version on `main`:
+
+```bash
+git switch main
+git pull
+cat > foodblog.env << 'EOF'
+FOODBLOG_TITLE=my-recipe-book
+EOF
+git add foodblog.env
+git commit -m "Add FoodBlog config with title"
+```
+
+1. Create a feature branch:
+
+```bash
+git switch main
+git pull
+git switch -c add-pesto-blog
+```
+
+2. Create a new recipe:
+
+```bash
+cat > sides/pesto.md << 'EOF'
+# Pesto
+
+- Basil
+- Pine nuts
+- Parmesan
+- Olive oil
+- Garlic
+EOF
+```
+
+3. You want to run the upload script manually, so you add your API key to the config file:
+
+```bash
+echo "FOODBLOG_API_KEY=not-a-real-key" >> foodblog.env
+# imagine you now run the fictional upload script: upload_foodblog.py
+```
+
+4. Now you commit the new recipe. You stage the recipe, then use `git commit -am`:
+
+```bash
+git add sides/pesto.md
+git commit -am "Add pesto recipe"
+```
+
+::: {.callout-note title="What does `git commit -am` do?"}
+
+In `git commit -am "message"`, `-a` stages modifications and deletions to tracked files (similar to `git add -u`), and `-m` supplies the commit message. It does **not** add untracked files. Here, the recipe is staged explicitly, but `-a` also stages the unintended API-key change in the already tracked config file. A safer option is to stage only the intended file with `git add <file>` and commit without `-a`. For finer control over parts of a file, use `git add -p` to interactively choose changes to stage, then review with `git diff --cached` before committing.
+
+:::
+
+5. Now you realize you also need salt:
+
+```bash
+echo "- Salt" >> sides/pesto.md
+git commit -am "Add salt to pesto"
+```
+
+6. Push the branch to your fork and open a pull request:
+
+```bash
+git push -u origin add-pesto-blog
+```
+
+Look at your branch on GitHub and open `foodblog.env`: the fake key is visible in the file and in the commit history.
+
+::: {.callout-note}
+
+GitHub *push protection* may block a push when a value matches a known secret pattern. This exercise uses a clearly fake value and does not guarantee that push protection will trigger.
+
+:::
+
+7. To simulate a second branch that independently adds the same key to the tracked config, start from `main` and change the file there too:
+
+```bash
+git switch main
+git pull
+git switch -c upload-retry
+echo "FOODBLOG_API_KEY=not-a-real-key" >> foodblog.env
+git commit -am "Configure upload retry"
+git push -u origin upload-retry
+git switch add-pesto-blog
+```
+
+Now the key appears in separate commits on both `add-pesto-blog` and `upload-retry`. The branches may each have more than one commit containing or descending from the exposed key.
+
+8. Oh noooooooo!!! Your colleague points out that you leaked a key. You quickly delete the file from `add-pesto-blog` and push again:
+
+```bash
+git rm foodblog.env
+git commit -m "Remove config file"
+git push
+```
+
+Is the secret gone from the repository? Check all local branches and the other remote branch:
+
+```bash
+git log --all --oneline -- foodblog.env
+git show origin/upload-retry:foodblog.env
+```
+
+The key is still in the history, and the `upload-retry` branch still contains it in its latest version. Deleting the file on one branch only adds a new commit; it does not erase the earlier commits or the copy on the other branch.
+
+### Step 1: Revoke the secret
+
+If this had been a real credential, _immediately_ revoke or disable it at the service that issued it. Then create a replacement and store it in an approved secrets manager or environment variable, not in the repository.
+
+Revocation is the urgent step, because it stops the leaked credential from being used. History cleanup cannot make an exposed credential secret again, and cannot guarantee that every copy is erased.
+
+Purging the secret from the history is still worthwhile: revoking may take time, GitHub may keep sending exposure alerts as long as the secret is reachable, and the same technique removes accidentally pushed personal data that cannot be revoked.
+
+### Step 2: Remove the secret from history
+
+Because the key was committed on multiple branches, we need to remove the config file from every affected branch history rather than fixing only the current branch. This is because every commit records a snapshot of the files at that point. A later commit that deletes `foodblog.env` changes the current snapshot, but the earlier snapshots—and the secret in them—remain reachable in history, and therefore on GitHub on the web.
+
+We will use the `git-filter-repo` tool to rewrite that history, purging the secret from it. It removes the named path from each commit it processes, then updates the affected local branch refs to point to rewritten commits. Doing this manually would mean finding every commit on every affected branch that contains the file, editing or recreating those commits, then recreating all their descendant commits because their parent commit IDs changed. The work grows quickly with the number of commits and branches, and it is easy to miss a copy. That is why a history-rewriting tool is useful here.
+
+Use a fresh clone for the cleanup. `git-filter-repo` checks that it is operating on a fresh clone and may refuse to rewrite an existing working repository. A fresh clone also gives you a clean working tree and the latest pushed branches:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/recipe-book-2024.git recipe-book-cleanup
+cd recipe-book-cleanup
+git switch --track origin/add-pesto-blog
+git switch --track origin/upload-retry
+git switch add-pesto-blog
+```
+
+Install [`git-filter-repo`](https://github.com/newren/git-filter-repo) if needed. First, a dry run from the root of `recipe-book-cleanup`:
+
+```bash
+git filter-repo --dry-run --path foodblog.env --invert-paths
+```
+
+`--path foodblog.env` selects the file (a repository-relative path), and `--invert-paths` says "remove the selected path instead of keeping only it".
+
+You will probably see this error:
+
+```text
+Aborting: Refusing to destructively overwrite repo history since
+this does not look like a fresh clone.
+  (expected at most one entry in the reflog for HEAD)
+```
+
+::: {.callout-note title="Why does this error appear?" collapse="true"}
+This is a safety check, not a problem with the filter. Switching branches added entries to the `HEAD` reflog, and `git-filter-repo` uses that reflog to decide whether the repository looks fresh. Even `--dry-run` performs the check.
+
+Because this is a disposable clone made just for the cleanup, you can bypass the check with `--force`. `--force` only skips this safeguard. It does **not** force-push anything to GitHub.
+:::
+
+Preview, then run the filter for real:
+
+```bash
+git filter-repo --dry-run --force --path foodblog.env --invert-paths
+```
+
+The dry run does not rewrite the branches. If the preview looks right, run the same filter for real:
+
+```bash
+git filter-repo --force --path foodblog.env --invert-paths
+```
+
+Use `--force` only after confirming that you are in the disposable cleanup clone and are willing to rewrite its history. It bypasses `git-filter-repo`'s fresh-clone safeguard; it does not force-push anything to GitHub. The command removes the path from the histories of all affected local branches in one operation.
+
+Verify that the path no longer appears in the rewritten local branches:
+
+```bash
+git log --branches --oneline -- foodblog.env
+git ls-tree -r --name-only add-pesto-blog -- foodblog.env
+git ls-tree -r --name-only upload-retry -- foodblog.env
+```
+
+All three commands should print nothing: there should be no commit in the local branches that touched the path, and neither branch tip should contain it.
+
+`git-filter-repo` may remove the `origin` remote as a safety measure. Check it with `git remote -v`; if it is missing, add your fork again (replace the username with yours):
+
+```bash
+git remote add origin https://github.com/YOUR-USERNAME/recipe-book-2024.git
+```
+
+Then update only the affected branch tips with the cleaned histories:
+
+```bash
+git push --force origin add-pesto-blog upload-retry
+```
+
+This (`--force`) intentionally rewrites the published branches. See [What is a force-push?](#what-is-a-force-push) for why force-pushes can be risky and why `--force-with-lease` is generally preferred. Before proceeding, confirm that `origin` is your fork, verify that nobody has pushed new commits since you last fetched, and coordinate with collaborators. In this cleanup, `git-filter-repo` may remove the remote-tracking refs that `--force-with-lease` relies on. Tell collaborators not to push old clones; they should re-clone the cleaned repository or carefully reset their local branches. A clone or fork made before cleanup can still contain the old commits.
+
+*For real credentials, contact GitHub Support if sensitive data remains accessible through cached views or pull-request references.*
+
+### Step 3: Prevent it from happening again
+
+Add files that may contain local credentials to `.gitignore` **before** creating them:
+
+```bash
+echo "foodblog.env" >> .gitignore
+```
+
+Keep credentials outside the repository, such as in environment variables or an approved secrets manager. Enable GitHub secret scanning and push protection where available, and consider a pre-commit secret scanner for local checks. These are additional safeguards, not a substitute for rotating a credential that was exposed.
+
+## Exercise 5: Help, I need to rebase but there are so many merge conflicts! {#exercise-5-rebase-conflicts}
+
+**Level:** 🔴 Advanced
+
+**You will learn:**
+
+- What `git rebase` does and how it differs from `git merge`
+- Why rebasing a long-lived branch can cause the same conflict many times
+- Resolving conflicts (`git status`, `git diff`, `git add`, `git rebase --continue`)
+- Escaping a rebase (`git rebase --abort`, `git reflog`, `git reset`)
+- Recording and reusing conflict resolutions with `git rerere`
+- Preventing repeated conflicts by squashing before rebasing or merging instead
+- Rewriting local commit messages and combining commits with `git rebase -i`
+- Why you should not rebase shared branches
+
+**Prerequisite:** your fork of the recipe book.
+
+### Scenario
+
+We will create a long-lived feature branch with three commits that each change the same line, while `main` changes that line twice. Rebasing replays the feature commits one at a time, so resolving one conflict does not necessarily resolve the next.
+
+### What does rebasing mean?
+
+Think of a branch as a bookmark pointing to a line of commits. A commit records a change relative to its parent commit. When you rebase a feature branch onto `main`, Git takes the feature commits that are not on `main` and tries to apply them again, one by one, starting from the latest commit on `main`.
+
+The goal is to make it look as though your feature work started from the newer `main`. Git does not move the old commits: it creates new commits with the same changes, but with different parents (and therefore different commit IDs). This is different from a merge, which joins the two existing lines of history and does not rewrite the feature commits.
+
+Why choose to rebase? While you work, `main` may gain changes from other people. Rebasing your feature branch onto the latest `main` lets you test your work against those changes and deal without having to merge main into your feature branch. It also keeps the history in a straight line, which some teams find easier to read. Rebasing is not required to combine branches: a regular merge works too and preserves the original commits. Follow your team's workflow, and only rebase commits that you have not shared with others, because rebasing replaces them with new commits.
+
+Rebasing is a powerful tool and useful skill: you can also use it *within* your feature branch to rewrite commits. This can e.g. help you to achieve [atomic commits](https://blog.esciencecenter.nl/posts/2023-10-25---the-utopic-git-history/).
+
+Here is the shape of the history we are about to make. The feature work and the `main` work both start from the same base:
+
+```text
+                 F1 -- F2 -- F3   long-lived-feature
+                /
+Base ----------------------------- main (before its changes)
+```
+
+After the two commits on `main`, rebasing means Git tries to replay `F1`, then `F2`, then `F3` on top of `main`:
+
+```yexy
+Base -- M1 -- M2 -- F1' -- F2' -- F3'   rebased feature
+```
+
+The prime marks (`F1'`, `F2'`, `F3'`) mean these are new commits, not the original feature commits.
+
+### Create the disaster
+
+Start with a clean working tree on `main`, and create a small file to make the conflicting edits easy to see:
+
+```bash
+git switch main
+git pull
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Base ingredient
+EOF
+git add rebase-demo.md
+git commit -m "Add rebase practice file"
+git switch -c long-lived-feature
+```
+
+Replace the ingredient and commit it three times on the feature branch:
+
+```bash
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Feature version 1
+EOF
+git commit -am "Feature change 1"
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Feature version 2
+EOF
+git commit -am "Feature change 2"
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Feature version 3
+EOF
+```
+
+Then save a second branch pointing to the same commit, so you can return to the original history after performing steps in this exercise:
+
+```bash
+git commit -am "Feature change 3"
+git branch long-lived-feature-unsquashed
+git merge-base long-lived-feature main
+```
+
+::: {.callout-note}
+
+`git merge-base long-lived-feature main` prints the hash of the best common ancestor of the two branches. Here it identifies the commit where the feature work started. You can use this hash to inspect or rewrite the feature commits, but you do not need to record it for the rest of this exercise.
+
+:::
+
+Now make two independent changes to the same line on `main`:
+
+```bash
+git switch main
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 1
+EOF
+git commit -am "Main change 1"
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 2
+EOF
+git commit -am "Main change 2"
+```
+
+### Step 1: Start the rebase and meet the conflicts
+
+Switch back to the feature branch and start the rebase:
+
+```bash
+git switch long-lived-feature
+git rebase main
+```
+
+Git compares the first feature commit's change with the latest version on `main`. Both changed the ingredient line, so Git cannot safely guess which version you want and stops for you to decide. A conflict is not a failure or lost work; Git pauses the rebase and marks the places that need your choice.
+
+Inspect the conflict with `git status` and `git diff`. The conflict markers in `rebase-demo.md` show the two competing versions. In a rebase, the current version is the new base (`main` and any feature commits already replayed), and the incoming version is the feature commit Git is trying to replay.
+
+### Step 2: Resolve conflicts and continue
+
+First, abort this attempt so you can practice recovering from a stopped rebase:
+
+```bash
+git rebase --abort
+git status
+git reflog --oneline
+```
+
+The feature branch is back at its original tip, and `main` is unchanged.
+
+::: {.callout-note}
+
+`git reflog` is a local record of recent movements of `HEAD` and branch tips. It can help you find an earlier commit even when it no longer appears in the current branch history. If a commit seems to have gone missing, use its reflog hash to create a rescue branch before doing anything destructive:
+
+```bash
+git branch rescue-feature <commit-hash-from-reflog>
+```
+
+:::
+
+Now retry the rebase and resolve each conflict. For the first conflict, edit the file to keep both the current `main` work and the feature change being replayed:
+
+```bash
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 2 plus feature version 1
+EOF
+git add rebase-demo.md
+git rebase --continue
+```
+
+Why does Git stop again on what seems like the same line? Each feature commit was made on top of the previous one:
+
+- The first commit changes `Base ingredient` to `Feature version 1`.
+- The second changes `Feature version 1` to `Feature version 2`.
+- The third changes `Feature version 2` to `Feature version 3`.
+
+When Git replays the first commit, you resolve the conflict by writing a combined line: `Main version 2 plus feature version 1`. But the second commit was recorded expecting to find the exact line `Feature version 1`; your combined line is different. Git cannot know how to turn that combined text into the intended next version, so it pauses again. The third commit has the same problem: it expects `Feature version 2`, not the combined result from the previous resolution.
+
+This is why a long-lived branch with several commits editing the same lines can make you resolve conflicts repeatedly. Git is not asking the identical question by accident: it is applying a sequence of separate changes, and each change depends on the version produced by the previous one. Real conflicts depend on the exact edits and may not repeat at every commit, but this exercise is designed to make the pattern visible.
+
+Resolve the second conflict in the same way, using `Main version 2 plus feature version 2`, then add the file and run `git rebase --continue`. Repeat once more with `Main version 2 plus feature version 3`. Git may open an editor for each replayed commit message; save and close it to continue.
+
+When the rebase finishes, inspect the rewritten history:
+
+```bash
+git status
+git log --oneline --graph --all
+```
+
+### Step 3: Abort and recover
+
+`git rebase --abort` is available only while a rebase is in progress. It restores the branch and working tree to their pre-rebase state; `git reflog` helps locate earlier branch tips if you need to recover work after an operation has already completed. Do not use `git reset --hard` unless you have checked the target commit and confirmed that you do not need any uncommitted changes.
+
+### Step 4: Remember resolutions with `git rerere`
+
+`rerere` stands for "reuse recorded resolution". When enabled, Git remembers how you resolved a conflict and can apply that resolution if it encounters the same conflict again. This saves you from editing the same conflict repeatedly, for example when you abort and retry a rebase. It does not automatically solve every similar-looking conflict: the conflict must match one Git has recorded.
+
+Enable it for this repository and start a fresh rebase from the saved original feature history:
+
+```bash
+git config rerere.enabled true
+git switch -c rerere-practice long-lived-feature-unsquashed
+git rebase main
+```
+
+Resolve the first conflict just as in Step 2, then continue:
+
+```bash
+cat > rebase-demo.md << 'EOF'
+# Rebase practice
+- Main version 2 plus feature version 1
+EOF
+git add rebase-demo.md
+git rebase --continue
+```
+
+Git records the resolution and stops at the second conflict. To see the saved resolution in action, abort the rebase and start it again:
+
+```bash
+git rebase --abort
+git rebase main
+```
+
+Git reports that it used the previous resolution for `rebase-demo.md`. Inspect the file and `git diff` to check the result: Git leaves the conflict for you to review and stage. Once satisfied, continue:
+
+```bash
+git add rebase-demo.md
+git rebase --continue
+```
+
+Resolve the remaining conflicts as in Step 2, adding the file and continuing after each one. These are different conflicts, so the first recorded resolution does not necessarily apply to them. Always review a reused resolution: even when it matches, the surrounding work may have changed.
+
+The `git config` command enables `rerere` for this repository beyond this exercise. If it was already enabled, Git may also reuse resolutions recorded earlier.
+
+### Prevention: squash before merging
+
+If a feature branch has many small commits changing the same lines, you can combine them into fewer commits *before rebasing* it onto the target branch. For example, an interactive rebase (`git rebase -i`) can squash the feature commits into one. Git then replays fewer commits, giving it fewer opportunities to stop on repeated conflicts. Squashing rewrites commit history and loses the separate commit boundaries, so coordinate with others and avoid rewriting a branch they use.
+
+A squash merge combines a branch's changes into one commit on the target branch; it is not the same as squashing the feature commits before a rebase and does not prevent conflicts in a rebase you already performed. Another option is to merge `main` into the feature branch periodically instead of rebasing: Git resolves conflicts in the merge without rewriting the existing commits.
+
+### Mini-exercise: clean up feature history with interactive rebase
+
+The saved `long-lived-feature-unsquashed` branch still has the original three feature commits. Use a new local branch so you can practice rewriting them without changing that saved history:
+
+```bash
+git switch -c interactive-rebase-practice long-lived-feature-unsquashed # create a new branch from the long-lived-feature-unsquashed branch
+git log --oneline -3
+```
+
+Start an interactive rebase covering those three commits:
+
+```bash
+git rebase -i HEAD~3
+```
+
+In the todo list that opens, change the command for the first commit from `pick` to `reword`, and change the commands for the second and third commits from `pick` to `squash`. Save and close the list. Git will ask you to edit the first commit's message; give it a clear summary. It will then open another message editor for the combined commit; keep or edit that message so it describes the final result, then save and close it.
+
+Inspect the rewritten history and file:
+
+```bash
+git log --oneline -3
+cat rebase-demo.md
+```
+
+There should now be one feature commit above the base commit, with your new message, and the file should still contain `Feature version 3`. The `reword` command changes a commit message; `squash` combines a commit with the one before it and lets you edit the combined message. Interactive rebase changes commit IDs, so only do this to commits that you have not shared with others.

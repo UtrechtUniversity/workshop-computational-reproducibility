@@ -67,6 +67,7 @@ Workshop development is being coordinated by [Neha Moopen](https://github.com/ne
 -   [Bianca Kramer](https://github.com/bmkramer)
 -   [Cedric Thieulot](https://github.com/cedrict)
 -   [Christine Staiger](https://github.com/chStaiger)
+-   [Dawa Ometto](https://github.com/dometto)
 -   [Erik van Sebille](https://github.com/erikvansebille)
 -   [Jacques Flores](https://github.com/Mish-JPFD)
 -   [Jelle Treep](https://github.com/jelletreep)
