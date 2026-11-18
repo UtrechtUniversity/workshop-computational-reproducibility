@@ -7,7 +7,7 @@ This tutorial walks you through common Git and GitHub mishaps and shows you how 
 - [Setup](#setup)
 - [Exercise 1: Help, I accidentally committed my changes to the wrong branch!](#exercise-1-wrong-branch)
 - [Exercise 2: Help, I accidentally pushed my changes to the wrong branch!](#exercise-2-wrong-branch)
-- [Exercise 3: Merge commit versus squash merge](#exercise-3-merge-versus-squash)
+- [Exercise 3: GitHub merge commit versus squash merge](#exercise-3-merge-versus-squash)
   - [Undo the "Squash and merge"](#undo-the-squash-and-merge)
   - [Merge commit](#merge-commit)
 - [Exercise 4: Help, I accidentally committed secrets to GitHub!](#exercise-4-secrets)
@@ -16,9 +16,10 @@ This tutorial walks you through common Git and GitHub mishaps and shows you how 
 | Exercise | Level | You will learn |
 |----------|-------|----------------|
 | 1. Committed to the wrong branch | 🟡 Intermediate | Move a commit between branches; use `git merge`, `git reset`, `git cherry-pick`, and `git revert`; understand fast-forward merges and shared history |
-| 2. Merge commit versus squash merge | 🟡 Intermediate | Compare merge commits and squash merges; inspect merged branches with `git branch --merged`; undo a shared merge with `git revert` |
-| 3. Committed secrets to GitHub | 🔴 Advanced | Remove secrets from history with `git-filter-repo`; safely force-push rewritten history |
-| 4. Rebase with many merge conflicts | 🔴 Advanced | Rebase and resolve conflicts; continue or abort a rebase; recover with `git reflog`; reuse resolutions with `git rerere`; rewrite local commits with interactive rebase |
+| 2. Pushed changes to the wrong branch. | 🟡 Intermediate | Compare merge commits and squash merges; inspect merged branches with `git branch --merged`; undo a shared merge with `git revert` |
+| 3. Merging vs. Squash-and-merge on GitHub | 🟡 Intermediate | Difference between PR merge strategies, reverting merges on a shared branch, the revert-of-a-revert trap |
+| 4. Committed secrets to GitHub | 🔴 Advanced | Remove secrets from history with `git-filter-repo`; safely force-push rewritten history |
+| 5. Rebase with many merge conflicts | 🔴 Advanced | Rebase and resolve conflicts; continue or abort a rebase; recover with `git reflog`; reuse resolutions with `git rerere`; rewrite local commits with interactive rebase |
 
 ## Setup
 
@@ -394,7 +395,7 @@ The three lines of history
 - The difference between *Create a merge commit* and *Squash and merge* on GitHub
 - How each option shapes the history of `main`
 - Why Git does not recognize a squash-merged branch as merged (`git branch --merged`)
-- How to undo a merge on a shared branch with `git revert`
+- How to undo merged changes on a shared branch with `git revert`
 
 **Prerequisite:** the open pull request from `new_recipe_2` into `main` from [Exercise 2](#exercise-2-wrong-branch). If you have already merged it, use a new branch with a small recipe change.
 
