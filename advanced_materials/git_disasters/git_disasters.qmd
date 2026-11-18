@@ -535,9 +535,11 @@ git revert -m 1 <merge-commit-hash>
 :::
 
 ::: {.callout-warning title="The revert-of-a-revert trap" collapse="true"}
-If you revert a *merge commit* and later merge the same branch again, Git considers the branch's commits already merged and brings in **nothing**. To get the changes back, you first have to revert the revert, or re-create the changes in new commits (for example with `git cherry-pick`).
+If you revert a *merge commit* and later merge the same branch again, Git considers the branch's commits already merged and brings in **nothing**. This is because `git revert` does not remove the merged commits, but creates new commits that apply the exact opposite changes. That means the originally merged commits are still in the history, and so git thinks nothing needs to happen for the second merge---the commits are already there!
 
-Here the squash commit never made the branch's commits ancestors of `main`, so the branch can be proposed again right away.
+To get the changes back, you first have to revert the revert, _or_ re-create the changes in new commits (for example with `git cherry-pick`).
+
+In the current example, the squash commit never made the branch's commits ancestors of `main`, so the branch can be proposed again right away.
 :::
 
 
